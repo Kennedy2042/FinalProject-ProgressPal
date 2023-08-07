@@ -138,7 +138,7 @@ const SchRegister = () => {
                                     <div className="instituteStateIconDiv">
                                         <TbBuildingSkyscraper  className='instituteNameIcon'/>
                                     </div>
-                                    <input className='InstituteStateInput' type="text" placeholer="Institution State" value={state} onChange={(e) => setState(e.target.value)} />
+                                    <input className='InstituteStateInput' type="text" placeholder="Institution State" value={state} onChange={(e) => setState(e.target.value)} />
                                 </div>
                             </div>
                             <div className="instituteRegistrationNo">
