@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.Logout {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f4f4;
+    justify-content: center;
+    align-items: center;
+    
+}
+.logOutContainer{
+    height: 80%;
+    width: 28%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(249, 244, 244);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.logoutImage{
+    height: 30%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logoutMainImage{
+    height: 100%;
+    width: 100%;
+}
+.logOutTitle{
+    height: 20%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logOutTitle h1{
+    font-size: 40px;
+}
+
+.logOutText{
+    height: 20%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.text p{
+    font-size: 20px;
+}
+.yesnoButton{
+    height: 30%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;;
+}
+.no{
+    height: 30%;
+    width: 30%;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+}
+.yes{
+    height: 30%;
+    width: 30%;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    background-color: rgb(10, 103, 243);
+    border-radius: 10px;
+    border: none;
+}
+.yes:hover {
+    border: 3px solid rgb(243, 10, 10);
+    background: rgb(243, 10, 10);
+}
+
+.no:hover {
+    background: rgb(0, 250, 33);
+    border: 5px solid rgb(244, 243, 243);
+}
