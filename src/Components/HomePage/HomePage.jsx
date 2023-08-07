@@ -1,7 +1,14 @@
 import Header from "../Header/Header"
 import "./HomePage.css";
+import herosectionimage from '../../assets/herosectionimage.svg' 
+import BenefitOneImage from "../../assets/BenefitOneImage.svg"
+import BenefitTwoImage from "../../assets/BenefitTwoImage.svg"
+import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
+
+  const nav = useNavigate()
+
   return (
     <>
       <main>
@@ -12,10 +19,10 @@ const HomePage = () => {
               <div className="HeroSectionText">
                 <h1>Your Result, Our Priority</h1>
                 <h2>Effective result management platform</h2>
-                <button className="GetStarted">Get Started</button>
+                <button className="GetStarted" onClick={() => nav("/sch_register")}>Get Started</button>
               </div>
               <div className="HeroSectionImage">
-                <img src="./src/assets/herosectionimage.svg" alt="" />
+                <img src={herosectionimage} alt="" />
               </div>
             </article>
           </section>
@@ -56,7 +63,7 @@ const HomePage = () => {
           <article className="BenefitsSectionWrapper">
             <div className="BenefitsBox">
               <article className="BenefitsImage">
-                <img src="./src/assets/BenefitOneImage.svg" alt="" />
+                <img src={BenefitOneImage} alt="" />
               </article>
               <article className="BenefitsText">
                 <h2 className="BenefitsTextTitle">PROGRESSPAL BENEFITS</h2>
@@ -81,7 +88,7 @@ const HomePage = () => {
                 </p>
               </article>
               <article className="BenefitsImage">
-                <img src="./src/assets/BenefitTwoImage.svg" alt="" />
+                <img src={BenefitTwoImage} alt="" />
               </article>
             </div>
           </article>

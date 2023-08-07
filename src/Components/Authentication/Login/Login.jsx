@@ -3,6 +3,7 @@ import './Login.css'
 import './LoginMedia.css'
 import axios from 'axios'
 import { BiSolidHide, BiSolidShow } from 'react-icons/bi'
+import ProgressPalLogo from "../../../assets/ProgressPalLogo.png"
 
 
 
@@ -46,7 +47,7 @@ const Login = () => {
     return (
         <div className='LoginMainContainer'>
             <div className='LoginLogo'>
-                <img src="./src/Components/ProgressPalLogo.png" alt="" />
+                <img src={ProgressPalLogo} alt="" />
 
             </div>
 

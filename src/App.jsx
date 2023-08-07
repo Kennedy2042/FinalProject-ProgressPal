@@ -2,7 +2,7 @@ import HomePage from "./Components/HomePage/HomePage"
 import SchRegister from "./Components/Authentication/SchRegistration/SchRegister"
 import Login from "./Components/Authentication/Login/Login"
 import './App.css'
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { HashRouter, Routes, Route } from "react-router-dom"
 import Verification from "./Components/Authentication/Verification/Verification"
 
 function App() {
@@ -10,14 +10,14 @@ function App() {
   return (
     <>
       <div>
-        <BrowserRouter>
+        <HashRouter>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/sch_register" element={<SchRegister />} />
             <Route path="/login" element={<Login />} />
             <Route path="/verified_success" element={<Verification/>} />
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </div>
       {/* <HomePage /> */}
     </>
