@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Header.css";
 import { AiOutlineMenu } from "react-icons/ai";
+import ProgressPalLogo from "../../assets/ProgressPalLogo.png"
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -13,7 +14,7 @@ const Header = () => {
         <header>
           <div className="Logo">
             <img
-              src="./src/assets/WhatsApp_Image_2023-07-28_at_10.26 11.png"
+              src={ProgressPalLogo}
               alt=""
             />
           </div>
