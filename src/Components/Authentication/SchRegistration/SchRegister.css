@@ -1,4 +1,4 @@
-.schRegContainer{
+.schRegContainer {
     width: 100%;
     height: max-content;
     display: flex;
@@ -6,14 +6,14 @@
     flex-direction: column;
 }
 
-.SchRegLogo{
+.SchRegLogo {
     width: 100%;
     height: 30vh;
     /* display: flex; */
     /* justify-content: center; */
 }
 
-.SchRegLogoContainer{
+.SchRegLogoContainer {
     width: 15%;
     height: 100%;
 }
@@ -23,7 +23,7 @@
     height: 100%;
 }
 
-.SchRegLogoInputs{
+.SchRegLogoInputs {
     width: 95%;
     height: 150vh;
     /* background: cyan; */
@@ -32,7 +32,7 @@
     justify-content: center;
 }
 
-.leftInput{
+.leftInput {
     width: 40%;
     height: 100%;
     display: flex;
@@ -41,7 +41,7 @@
     flex-direction: column;
 }
 
-.leftRegister{
+.leftRegister {
     width: 85%;
     height: 100%;
     display: flex;
@@ -50,13 +50,13 @@
     /* border: 1px solid black; */
 }
 
-.formTitle{
+.formTitle {
     color: #3f3d56;
     height: 7%;
     font-size: 45px;
 }
 
-.instituteName{
+.instituteName {
     width: 100%;
     height: 10%;
     display: flex;
@@ -65,20 +65,20 @@
     align-items: center;
 }
 
-.inputTitle{
+.inputTitle {
     color: #3f3d56;
     width: 95%;
     height: 9%;
 }
 
-.instituteNameHolder{
+.instituteNameHolder {
     width: 95%;
     height: 85%;
     display: flex;
     align-items: center;
 }
 
-.instituteNameIconDiv{
+.instituteNameIconDiv {
     width: 10%;
     height: 70%;
     display: flex;
@@ -90,7 +90,7 @@
     border-bottom: 2px solid#127CDD;
 }
 
-.InstituteNameInput{
+.InstituteNameInput {
     width: 90%;
     height: 70%;
     border-right: 2px solid#127CDD;
@@ -102,7 +102,7 @@
     border-radius: 0px 10px 10px 0px;
 }
 
-.instituteLogo{
+.instituteLogo {
     width: 100%;
     height: 10%;
     display: flex;
@@ -111,14 +111,14 @@
     align-items: center;
 }
 
-.instituteLogoHolder{
+.instituteLogoHolder {
     width: 95%;
     height: 85%;
     display: flex;
     align-items: center;
 }
 
-.instituteLogoIconDiv{
+.instituteLogoIconDiv {
     width: 10%;
     height: 70%;
     display: flex;
@@ -127,9 +127,10 @@
     border-radius: 10px 0px 0px 10px;
     border-left: 2px solid#127CDD;
     border-top: 2px solid#127CDD;
-    border-bottom: 2px solid#127CDD;}
+    border-bottom: 2px solid#127CDD;
+}
 
-.InstituteLogoInputDiv{
+.InstituteLogoInputDiv {
     width: 90%;
     height: 70%;
     border-right: 2px solid#127CDD;
@@ -142,12 +143,12 @@
     align-items: center;
 }
 
-.InstituteLogoInput{
+.InstituteLogoInput {
     cursor: pointer;
     width: 100%;
 }
 
-.instituteEmail{
+.instituteEmail {
     width: 100%;
     height: 10%;
     display: flex;
@@ -156,14 +157,14 @@
     align-items: center;
 }
 
-.instituteEmailHolder{
+.instituteEmailHolder {
     width: 95%;
     height: 85%;
     display: flex;
     align-items: center;
 }
 
-.instituteEmailIconDiv{
+.instituteEmailIconDiv {
     width: 10%;
     height: 70%;
     display: flex;
@@ -172,9 +173,10 @@
     border-radius: 10px 0px 0px 10px;
     border-left: 2px solid#127CDD;
     border-top: 2px solid#127CDD;
-    border-bottom: 2px solid#127CDD;}
+    border-bottom: 2px solid#127CDD;
+}
 
-.InstituteEmailInput{
+.InstituteEmailInput {
     width: 90%;
     height: 70%;
     border-right: 2px solid#127CDD;
@@ -186,7 +188,7 @@
     border-radius: 0px 10px 10px 0px;
 }
 
-.instituteState{
+.instituteState {
     width: 100%;
     height: 10%;
     display: flex;
@@ -195,14 +197,14 @@
     align-items: center;
 }
 
-.instituteStateHolder{
+.instituteStateHolder {
     width: 95%;
     height: 85%;
     display: flex;
     align-items: center;
 }
 
-.instituteStateIconDiv{
+.instituteStateIconDiv {
     width: 10%;
     height: 70%;
     display: flex;
@@ -214,56 +216,19 @@
     border-bottom: 2px solid#127CDD;
 }
 
-.InstituteStateInput{
+.InstituteStateInput {
     width: 90%;
     height: 70%;
     border-right: 2px solid#127CDD;
     border-top: 2px solid#127CDD;
     border-bottom: 2px solid#127CDD;
-    border-left: 0px solid#127CDD;    outline: none;
-    padding-left: 2%;
-    border-radius: 0px 10px 10px 0px;
-}
-.instituteAddress{
-     width: 100%;
-    height: 10%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.instituteAddressHolder{
-    width: 95%;
-    height: 85%;
-    display: flex;
-    align-items: center;
-}
-
-.instituteAddressIconDiv{
-    width: 10%;
-    height: 70%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px 0px 0px 10px;
-    border-left: 2px solid#127CDD;
-    border-top: 2px solid#127CDD;
-    border-bottom: 2px solid#127CDD;
-}
-
-.InstituteAddressInput{
-    width: 90%;
-    height: 70%;
-    border-right: 2px solid#127CDD;
-    border-top: 2px solid#127CDD;
-    border-bottom: 2px solid#127CDD;
-    border-left: 0px solid#127CDD;    
+    border-left: 0px solid#127CDD;
     outline: none;
     padding-left: 2%;
     border-radius: 0px 10px 10px 0px;
 }
-.instituteRegistrationNo{
+
+.instituteAddress {
     width: 100%;
     height: 10%;
     display: flex;
@@ -272,14 +237,14 @@
     align-items: center;
 }
 
-.instituteRegistrationNoHolder{
+.instituteAddressHolder {
     width: 95%;
     height: 85%;
     display: flex;
     align-items: center;
 }
 
-.instituteRegistrationNoIconDiv{
+.instituteAddressIconDiv {
     width: 10%;
     height: 70%;
     display: flex;
@@ -291,18 +256,59 @@
     border-bottom: 2px solid#127CDD;
 }
 
-.instituteRegistrationNoInput{
+.InstituteAddressInput {
     width: 90%;
     height: 70%;
     border-right: 2px solid#127CDD;
     border-top: 2px solid#127CDD;
     border-bottom: 2px solid#127CDD;
-    border-left: 0px solid#127CDD;    outline: none;
+    border-left: 0px solid#127CDD;
+    outline: none;
     padding-left: 2%;
     border-radius: 0px 10px 10px 0px;
 }
 
-.rightInputs{
+.instituteRegistrationNo {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.instituteRegistrationNoHolder {
+    width: 95%;
+    height: 85%;
+    display: flex;
+    align-items: center;
+}
+
+.instituteRegistrationNoIconDiv {
+    width: 10%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px 0px 0px 10px;
+    border-left: 2px solid#127CDD;
+    border-top: 2px solid#127CDD;
+    border-bottom: 2px solid#127CDD;
+}
+
+.instituteRegistrationNoInput {
+    width: 90%;
+    height: 70%;
+    border-right: 2px solid#127CDD;
+    border-top: 2px solid#127CDD;
+    border-bottom: 2px solid#127CDD;
+    border-left: 0px solid#127CDD;
+    outline: none;
+    padding-left: 2%;
+    border-radius: 0px 10px 10px 0px;
+}
+
+.rightInputs {
     width: 50%;
     height: 100%;
     /* background: pink; */
@@ -312,12 +318,12 @@
     justify-content: center;
 }
 
-.rightInputs img{
+.rightInputs img {
     width: 100%;
     height: 53%;
 }
 
-.rightregister{
+.rightregister {
     width: 100%;
     height: 50%;
     display: flex;
@@ -325,7 +331,7 @@
     flex-direction: column;
 }
 
-.instituteCountry{
+.instituteCountry {
     width: 100%;
     height: 10%;
     display: flex;
@@ -334,14 +340,15 @@
     justify-content: center;
     /* background: green; */
 }
-.instituteCountryHolder{
+
+.instituteCountryHolder {
     width: 95%;
     height: 85%;
     display: flex;
     align-items: center;
 }
 
-.instituteCountryIconDiv{
+.instituteCountryIconDiv {
     width: 10%;
     height: 70%;
     display: flex;
@@ -353,17 +360,19 @@
     border-bottom: 2px solid#127CDD;
 }
 
-.InstituteCountryInput{
+.InstituteCountryInput {
     width: 90%;
     height: 70%;
     border-right: 2px solid#127CDD;
     border-top: 2px solid#127CDD;
     border-bottom: 2px solid#127CDD;
-    border-left: 0px solid#127CDD;    outline: none;
+    border-left: 0px solid#127CDD;
+    outline: none;
     padding-left: 2%;
     border-radius: 0px 10px 10px 0px;
 }
-.instituteWebsite{
+
+.instituteWebsite {
     width: 100%;
     height: 10%;
     display: flex;
@@ -372,14 +381,15 @@
     justify-content: center;
     /* background: green; */
 }
-.instituteWebsiteHolder{
+
+.instituteWebsiteHolder {
     width: 95%;
     height: 85%;
     display: flex;
     align-items: center;
 }
 
-.instituteWebsiteIconDiv{
+.instituteWebsiteIconDiv {
     width: 10%;
     height: 70%;
     display: flex;
@@ -391,18 +401,19 @@
     border-bottom: 2px solid#127CDD;
 }
 
-.InstituteWebsiteInput{
+.InstituteWebsiteInput {
     width: 90%;
     height: 70%;
     border-right: 2px solid#127CDD;
     border-top: 2px solid#127CDD;
     border-bottom: 2px solid#127CDD;
-    border-left: 0px solid#127CDD;    outline: none;
+    border-left: 0px solid#127CDD;
+    outline: none;
     padding-left: 2%;
     border-radius: 0px 10px 10px 0px;
 }
 
-.institutePassword{
+.institutePassword {
     width: 100%;
     height: 10%;
     display: flex;
@@ -411,14 +422,14 @@
     align-items: center;
 }
 
-.institutePasswordHolder{
+.institutePasswordHolder {
     width: 95%;
     height: 85%;
     display: flex;
     align-items: center;
 }
 
-.institutePasswordIconDiv{
+.institutePasswordIconDiv {
     width: 10%;
     height: 70%;
     display: flex;
@@ -430,16 +441,19 @@
     border-bottom: 2px solid#127CDD;
 }
 
-.InstitutePasswordInput{
+.InstitutePasswordInput {
     width: 80%;
     height: 70%;
     border-right: 0px solid#127CDD;
     border-top: 2px solid#127CDD;
     border-bottom: 2px solid#127CDD;
-    border-left: 0px solid#127CDD;    outline: none;
+    border-left: 0px solid#127CDD;
+    outline: none;
     padding-left: 2%;
+    border-radius: none;
 }
-.confirmPassword{
+
+.confirmPassword {
     width: 100%;
     height: 10%;
     display: flex;
@@ -448,14 +462,14 @@
     align-items: center;
 }
 
-.instituteConfirmPasswordHolder{
+.instituteConfirmPasswordHolder {
     width: 95%;
     height: 85%;
     display: flex;
     align-items: center;
 }
 
-.instituteConfrimPasswordIconDiv{
+.instituteConfrimPasswordIconDiv {
     width: 10%;
     height: 70%;
     display: flex;
@@ -467,16 +481,18 @@
     border-bottom: 2px solid#127CDD;
 }
 
-.InstituteConfirmPasswordInput{
+.InstituteConfirmPasswordInput {
     width: 80%;
     height: 70%;
     border-right: 0px solid#127CDD;
     border-top: 2px solid#127CDD;
     border-bottom: 2px solid#127CDD;
-    border-left: 0px solid#127CDD;    outline: none;
+    border-left: 0px solid#127CDD;
+    outline: none;
     padding-left: 2%;
 }
-.instituteShowPasswordIconDiv{
+
+.instituteShowPasswordIconDiv {
     width: 10%;
     height: 70%;
     display: flex;
@@ -488,7 +504,7 @@
     border-bottom: 2px solid#127CDD;
 }
 
-.RegisterSubmitBtnDiv{
+.RegisterSubmitBtnDiv {
     width: 95%;
     height: 5%;
     display: flex;
@@ -496,7 +512,7 @@
     align-items: center;
 }
 
-.RegisterBackBtn{
+.RegisterBackBtn {
     cursor: pointer;
     width: 25%;
     height: 80%;
@@ -504,7 +520,8 @@
     background: #F7B905;
     color: blue;
 }
-.RegisterSubmitBtn{
+
+.RegisterSubmitBtn {
     cursor: pointer;
     width: 25%;
     height: 80%;
@@ -514,7 +531,7 @@
 
 }
 
-.showPassIcon{
+.showPassIcon {
     cursor: pointer;
 }
 
