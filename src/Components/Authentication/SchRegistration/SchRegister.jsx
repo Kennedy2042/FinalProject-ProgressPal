@@ -9,6 +9,7 @@ import { BiWorld, BiSolidHide, BiSolidShow } from 'react-icons/bi'
 import { RiMailSendLine, RiLockPasswordFill } from 'react-icons/ri'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import ProgressPalLogo from "../../../assets/ProgressPalLogo.png"
 
 
 
@@ -85,7 +86,7 @@ const SchRegister = () => {
             <div className="schRegContainer">
                 <div className="SchRegLogo">
                     <div className="SchRegLogoContainer">
-                        <img src="./src/Components/ProgressPalLogo.png" alt="" />
+                    <img src={ProgressPalLogo} alt="" />
                     </div>
                 </div>
                 <div className="SchRegLogoInputs">

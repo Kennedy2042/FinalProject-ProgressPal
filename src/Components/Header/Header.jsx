@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Header.css";
 import { AiOutlineMenu } from "react-icons/ai";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const nav = useNavigate()
 
   return (
     <>
@@ -18,15 +19,15 @@ const Header = () => {
           </div>
           <nav>
             <ul>
-              <Link to="/"><li>Home</li></Link>
+              <li onClick={() => nav("/")}>Home</li>
               <li>About</li>
               <li>Search</li>
               <li>Services</li>
             </ul>
           </nav>
           <div className="AuthHolder">
-            <Link to="/login"><button className="LogIn">Log In</button></Link>
-            <Link to="/sch_register"><button className="SignUp">Register</button></Link>
+            <button className="LogIn" onClick={() => nav("/login")}>Log In</button>
+            <button className="SignUp" onClick={() => nav("/sch_register")}>Register</button>
           </div>
           <div className="Menu">
             {showMenu ? (
@@ -48,8 +49,8 @@ const Header = () => {
                   <li>About</li>
                   <li>Search</li>
                   <li>Services</li>
-                  <li>Login</li>
-                  <li>Signup</li>
+                  <li onClick={() => nav("/login")}>Login</li>
+                  <li onClick={() => nav("/sch_register")}>Signup</li>
                 </ul>
               </div>
             </div>
