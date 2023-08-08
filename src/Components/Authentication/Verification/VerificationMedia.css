@@ -1,0 +1,65 @@
+@media only screen and (min-width: 320px) and (max-width: 580px){
+
+    .verifyMainContainer{
+        width: 90%;
+        height: 40%;
+        background-color: #fdf9e8;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .VerificationPageH1{
+        height: 20%;
+        font-size: 25px;
+    }
+
+    .VerificationPageP{
+        height: 20%;
+        font-size: 14px;
+    }
+
+    .VerifyOkBtn{
+        cursor: pointer;
+        background: green;
+        border: none;
+        width: 30%;
+        height: 15%;
+        color: white;
+        border-radius: 10px;
+    }
+}
+
+
+@media only screen and (min-width:580px) and (max-width: 1024px){
+
+    .verifyMainContainer{
+        width: 50%;
+        height: 30%;
+        background-color: #fdf9e8;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .VerificationPageH1{
+        height: 30%;
+        font-size: 25px;
+    }
+
+    .VerificationPageP{
+        height: 15%
+    }
+
+    .VerifyOkBtn{
+        cursor: pointer;
+        background: green;
+        border: none;
+        width: 30%;
+        height: 20%;
+        color: white;
+        border-radius: 10px;
+    }
+}

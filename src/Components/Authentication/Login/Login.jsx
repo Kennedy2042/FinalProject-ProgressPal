@@ -4,6 +4,7 @@ import './LoginMedia.css'
 import axios from 'axios'
 import { BiSolidHide, BiSolidShow } from 'react-icons/bi'
 import ProgressPalLogo from "../../../assets/ProgressPalLogo.png"
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -44,6 +45,10 @@ const Login = () => {
 
     }
 
+
+    const navigate = useNavigate()
+
+
     return (
         <div className='LoginMainContainer'>
             <div className='LoginLogo'>
@@ -73,7 +78,7 @@ const Login = () => {
                         <p>{successErrorMessage}</p>
                     </div>
                     <div className='Logintext2'>
-                        <p className='AcctParagrph'>Don't have an account? <span className='LoginSpan'>Sign Up</span></p>
+                        <p className='AcctParagrph'>Don't have an account? <span className='LoginSpan' onClick={()=>{navigate("/sch_register")}}>Sign Up</span></p>
                         <p className='AcctParagrph' style={{ cursor: "pointer" }}>Forgotten password?</p>
                         {/* <div className='left'>
                         </div>
@@ -81,7 +86,7 @@ const Login = () => {
                         </div> */}
                     </div>
                     <button className='LoginBtn' onClick={SignUp}>LOGIN</button>
-                    <h2>Register Your School</h2>
+                    {/* <h2>Register Your School</h2> */}
                 </div>
             </div>
         </div>

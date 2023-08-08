@@ -8,20 +8,29 @@
 
 .verifyMainContainer{
     width: 30%;
-    height: 70%;
-    background-color: #E5C726;
+    height: 40%;
+    background-color: #fdf9e8;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
+.VerificationPageH1{
+    height: 20%;
+    font-size: 40px;
+}
+
+.VerificationPageP{
+    height: 20%
+}
+
 .VerifyOkBtn{
     cursor: pointer;
     background: green;
     border: none;
-    width: 10%;
-    height: 8%;
+    width: 35%;
+    height: 20%;
     color: white;
     border-radius: 10px;
 }
