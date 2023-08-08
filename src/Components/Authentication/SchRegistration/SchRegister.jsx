@@ -120,8 +120,9 @@ const SchRegister = () => {
                                         <AiOutlineMail  className='instituteNameIcon'/>
                                     </div>
                                     <input className='InstituteEmailInput' type="text" placeholder="Email Address" value={schoolEmail} onChange={(e) => setSchoolEmail(e.target.value)} />
-                                    <p>{emailError}</p>
                                 </div>
+                                <p className='errorParagraph'>***{emailError}</p>
+
                             </div>
                             <div className="instituteAddress">
                                 <h3 className="inputTitle">Institute Address</h3>

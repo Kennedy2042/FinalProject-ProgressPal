@@ -102,6 +102,12 @@
     border-radius: 0px 10px 10px 0px;
 }
 
+.errorParagraph{
+    width: 95%;
+    color: red;
+    font-size: 11px;
+}
+
 .instituteLogo {
     width: 100%;
     height: 10%;
@@ -450,7 +456,7 @@
     border-left: 0px solid#127CDD;
     outline: none;
     padding-left: 2%;
-    border-radius: none;
+    border-radius: 0px;
 }
 
 .confirmPassword {
@@ -490,6 +496,7 @@
     border-left: 0px solid#127CDD;
     outline: none;
     padding-left: 2%;
+    border-radius: 0px;
 }
 
 .instituteShowPasswordIconDiv {
@@ -519,6 +526,8 @@
     border: none;
     background: #F7B905;
     color: blue;
+    font-size: 18px;
+    border-radius: 5px;
 }
 
 .RegisterSubmitBtn {
@@ -527,165 +536,11 @@
     height: 80%;
     border: none;
     background: #F7B905;
-
-
+    font-size: 18px;
+    color: blue;
+    border-radius: 5px;
 }
 
 .showPassIcon {
     cursor: pointer;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* 
-.SchRegContainer{
-    width: 100%;
-    height: max-content;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.SchRegLogo{
-    width: 100%;
-    height: 30vh;
-    display: flex;
-    justify-content: center;
-}
-.SchRegLogoContainer{
-    width: 15%;
-    height: 100%;
-}
-.SchRegLogoContainer img {
-    width: 100%;
-    height: 100%;
-}
-.SchRegLogoInputs{
-    width: 90%;
-    height: 150vh;
-}
-.upperInput{
-    width: 100%;
-    height: 50%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.RegisterMobile{
-    display: none;
-}
-.MobileUpperInput{
-    display: none;
-}
-.Register{
-    width: 49%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-.instituteName{
-    width: 100%;
-    height: 20%;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
-.InstituteNameInput{
-    width: 85%;
-    height: 50%;
-    border-radius: 10px;
-    border: 2px solid#127CDD;
-    outline: none;
-    padding-left: 50px;
-}
-
-.error {
-    border: 2px solid red;
-}
-
-.InstitutionNameLogo{
-    position: absolute;
-    left: 3%;
-    top: 60%;
-}
-.HidePasswordIcon{
-    position: absolute;
-    right: 20%;
-    top: 59%;
-    cursor: pointer;
-}
-.RegistrationImage{
-    width: 49%;
-    height: 100%;
-}
-.RegistrationImage img{
-    height: 100%;
-    width: 100%;
-}
-.lowerInput{
-   width: 100%;
-   height: 50%;
-   display: flex;
-   justify-content: space-between;
-}
-.RegisterLowerLeft{
-    width: 49%;
-    height: 100%;
-}
-.RegisterLowerRight{
-    width: 49%;
-    height: 100%;
-}
-.backBtn{
-    width: 100%;
-    height: 20%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
-.backButton{
-    width: 20%;
-    height: 40%;
-    border: none;
-    border-radius: 7px;
-    background: #F7B905;
-}
-.submitBtn{
-    width: 100%;
-    height: 20%;
-    position: relative;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-.Submit{
-    width: 20%;
-    height: 40%;
-    border: none;
-    border-radius: 7px;
-    background: #F7B905;
-} */
