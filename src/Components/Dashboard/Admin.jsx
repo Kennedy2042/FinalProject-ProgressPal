@@ -71,7 +71,7 @@ const Admin = () => {
                 </div>
                 <div className='DashBoardRightBody'>
                     <Routes>
-                        <Route path='/admin_teacher_dashboard' element={<AdminTeacherDashboard/>} />
+                        <Route path='/admin_teacher_dashboard/:schoolId' element={<AdminTeacherDashboard/>} />
                         <Route path='/admin_student_dashboard' element={<AdminStudentDashboard/>} />
                     </Routes>
 

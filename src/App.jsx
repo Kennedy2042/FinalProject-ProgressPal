@@ -6,6 +6,7 @@ import { HashRouter, Routes, Route } from "react-router-dom"
 import Verification from "./Components/Authentication/Verification/Verification"
 import Admin from "./Components/Dashboard/Admin"
 import ForgetPassword from "./Components/Authentication/ForgetPassword/ForgetPassword"
+import ResetPassword from "./Components/Authentication/ResetPassword/ResetPassword"
 // import AdminTeacherDashboard from "./Components/Dashboard/AdminDashboard/AdminTeacherDashboard"
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
             <Route path="/verified_success/:schoolId/:token" element={<Verification/>} />
             <Route path="/Admin_Dashboard/*" element={<Admin/>} />
             <Route path="/forget_password" element={<ForgetPassword/>} />
+            <Route path="/reset_password/:id/:token" element={<ResetPassword/>} />
           </Routes>
         </HashRouter>
       </div>

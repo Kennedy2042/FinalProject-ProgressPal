@@ -41,7 +41,7 @@ const ForgetPassword = () => {
                 <PiWarningCircleBold size={70}/>
                 <h1 className='ForgetPasswordH1'>Forget Password</h1>
                 <p className='ForgetPasswordP'>Enter your email and we'll send you a link to reset your password</p>
-                <input className="ForgetPasswordInput" type="email" placeholder='Enter your Email' />
+                <input className="ForgetPasswordInput" type="email" placeholder='Enter your Email'value={schoolEmail} onChange={(e)=>setSchoolEmail(e.target.value)}/>
                 <button className='ForgetPasswordSubmitBtn' onClick={Forget}>Submit</button>
                 <div className='ForgetPasswordSubmitBtnLoginBtn' onClick={()=>navigate("/login")}>
                     <MdOutlineArrowBackIos/>Back to Login
@@ -52,3 +52,6 @@ const ForgetPassword = () => {
 }
 
 export default ForgetPassword
+
+
+

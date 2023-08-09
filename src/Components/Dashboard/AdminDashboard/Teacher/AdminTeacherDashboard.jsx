@@ -2,12 +2,33 @@ import React, { useState } from 'react'
 import "./AdminTeacherDashboard.css"
 import { AiOutlineSearch, AiOutlineCloseCircle } from 'react-icons/ai'
 import AboutUsImage from "../../../../assets/AboutUsImage.png"
+import axios from 'axios'
+import { useParams } from 'react-router-dom'
 
 
 
 
 const AdminTeacherDashboard = () => {
     const [addTeacher, setAddTeacher] = useState(false)
+    const [teacherEmail, setTeacherEmail] = useState("")
+    const {schoolId} = useParams
+
+
+    const data ={teacherEmail}
+    console.log(teacherEmail)
+
+    async function CreateTeacher(){
+        const url = "https://progresspal-8rxj.onrender.com/progressPal/teacherLink"
+        console.log("call")
+        axios.post(`${url}/${schoolId}`,data)
+            .then ((res)=>{
+                console.log(res)
+            })
+            .catch((err)=>{
+                console.log(err)
+            })
+    }
+
     return (
         <>
             <div className='DashBoardRightBodyTitle'>
@@ -45,8 +66,8 @@ const AdminTeacherDashboard = () => {
                 addTeacher ? <div className='AddTeacherPop'>
                         <AiOutlineCloseCircle className='CloseAddTeacherInput' size={60} onClick={()=>setAddTeacher(false)}/>
                     <div className='EmailHolder'>
-                        <input type="email" placeholder='Enter teacher'  className='TeacherInput' />
-                        <button className='AddTeacherSendBtn'>Send</button>
+                        <input type="email" placeholder='Enter teacher'  className='TeacherInput' value={teacherEmail} onChange={(e)=>setTeacherEmail(e.target.value)}/>
+                        <button className='AddTeacherSendBtn' onClick={CreateTeacher}>Send</button>
                     </div>
                 </div> : null
             }
