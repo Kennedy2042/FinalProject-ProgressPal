@@ -6,20 +6,21 @@ import "./VerificationMedia.css"
 import axios from 'axios'
 
 const Verification = () => {
-  const [isVerified, setIsVerified] = useState(false)
+  const [isVerified, setIsVerified] = useState(1)
   const navigate = useNavigate()
   const { token, schoolId } = useParams()
+  
   async function EmailVerify() {
     const url = "https://progresspal-8rxj.onrender.com/progressPal/verify/:schoolId/:token"
     axios
       .post(url`${schoolId}/${token}`)
       .then((res)=>{
         console.log(res)
-        setIsVerified(true)
+        setIsVerified(2)
       })
       .catch((err)=>{
         console.log(err)
-        setIsVerified(false)
+        setIsVerified(3)
       })
   }
   
@@ -38,7 +39,7 @@ const Verification = () => {
     <>
       <div className="verifyBody">
       {
-        isVerified ? 
+        isVerified === 1 ? <h1>Verifying Email</h1> : isVerified === 2 ? 
         <div className="verifyMainContainer">
           <TfiEmail size={50} />
           <h1 className='VerificationPageH1' >Verify Email Address</h1>
