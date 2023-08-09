@@ -121,7 +121,7 @@ const SchRegister = () => {
                                     </div>
                                     <input className='InstituteEmailInput' type="text" placeholder="Email Address" value={schoolEmail} onChange={(e) => setSchoolEmail(e.target.value)} />
                                 </div>
-                                <p className='errorParagraph'>***{emailError}</p>
+                                <p className='errorParagraph'>{emailError}</p>
 
                             </div>
                             <div className="instituteAddress">

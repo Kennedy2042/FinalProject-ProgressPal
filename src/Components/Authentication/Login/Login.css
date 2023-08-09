@@ -91,6 +91,7 @@
     border-top: 2px solid rgb(94, 94, 238);
     border-right: 0px solid rgb(94, 94, 238);
     padding-left: 3%;
+    outline: none;
 }
 
 .LoginShowPass {
@@ -133,3 +134,7 @@
     cursor: pointer;
 }
 
+.ErrorloginMsg{
+    color: red;
+    font-size: 13px;
+}

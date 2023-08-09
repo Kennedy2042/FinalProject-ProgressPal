@@ -64,7 +64,7 @@ const Login = () => {
                     </div>
                     <div className="EmailInputDiv">
                         <input type="email" className={`${emailError.length > 0 ? "error" : ""} LoginEmailInput`} placeholder='Email' value={schoolEmail} onChange={(e) => setSchoolEmail(e.target.value)} />
-                        <p>{emailError}</p>
+                        <p className='ErrorloginMsg'>{emailError}</p>
                     </div>
                     <div className="PasswordInputDivHolder">
                         <div className="PasswordInputDiv">
@@ -75,7 +75,7 @@ const Login = () => {
                                 }
                             </div>
                         </div>
-                        <p>{successErrorMessage}</p>
+                        <p className='ErrorloginMsg'>{successErrorMessage}</p>
                     </div>
                     <div className='Logintext2'>
                         <p className='AcctParagrph'>Don't have an account? <span className='LoginSpan' onClick={()=>{navigate("/sch_register")}}>Sign Up</span></p>
