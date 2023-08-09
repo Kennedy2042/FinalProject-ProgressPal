@@ -17,11 +17,9 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/sch_register" element={<SchRegister />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/verified_success" element={<Verification/>} />
-            {/* <Route path="/Teacher_Dashboard" element={<AdminTeacherDashboard/>} /> */}
+            <Route path="/verified_success/:token/:id" element={<Verification/>} />
             <Route path="/Admin_Dashboard/*" element={<Admin/>} />
           </Routes>
-          {/* <AdminTeacherDashboard/> */}
         </HashRouter>
       </div>
     </>
