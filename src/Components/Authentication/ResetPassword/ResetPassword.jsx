@@ -15,7 +15,7 @@ const ResetPassword = () => {
               <h1 className='ResetPasswordH1'>Reset Password</h1>
             </section>
             <div className='inputTextCon'>
-              <div className='input'>
+              <div className='ResetPasswordInputDiv'>
                 <input type="" placeholder='New Password' className='resetPasswordInput' />
                 <input type="" placeholder='Confirm New Password' className='resetPasswordInput' />
               </div>

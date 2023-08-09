@@ -10,11 +10,14 @@ import { RiMailSendLine, RiLockPasswordFill } from 'react-icons/ri'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import ProgressPalLogo from "../../../assets/ProgressPalLogo.png"
+import { useDispatch } from 'react-redux'
+import { schoolUserData } from '../../../Redux/ProductState'
 
 
 
 
 const SchRegister = () => {
+    const dispatch = useDispatch()
     const nav = useNavigate()
     const [showPassword, setShowPassword] = useState(false)
     const [showConfirmPassword, setShowConfirmPassword] = useState(false)
@@ -70,7 +73,7 @@ const SchRegister = () => {
             })
 
             .then((res) => {
-                console.log(res, data)
+                dispatch(schoolUserData(res.data))
                 setSuccessErrorMessage(res.data.message)
             })
             .catch((err) => {
