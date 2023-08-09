@@ -11,9 +11,10 @@ const Verification = () => {
   const { token, schoolId } = useParams()
 
   async function EmailVerify() {
+    console.log("call")
     const url = "https://progresspal-8rxj.onrender.com/progressPal/verify/"
     axios
-      .post(url`${schoolId}/${token}`)
+      .put(`${url}${schoolId}/${token}`)
       .then((res)=>{
         console.log(res)
         setIsVerified(2)
