@@ -34,7 +34,7 @@
 .LoginLowerBody {
     width: 45%;
     height: 80%;
-    background-color: #E5C726;
+    /* background-color: #E5C726; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -68,6 +68,7 @@
     border-radius: 10px;
     border: 2px solid rgb(94, 94, 238);
     padding-left: 3%;
+    outline: none;
 }
 
 .PasswordInputDivHolder {
@@ -127,6 +128,7 @@
 .LoginBtn{
     width: 90%;
     height: 10%;
+    cursor: pointer;
 }
 
 .LoginSpan {

@@ -1,10 +1,14 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import "./ForgetPassword.css"
+import {PiWarningCircleBold} from "react-icons/pi"
+import {MdOutlineArrowBackIos} from "react-icons/md"
+import { useNavigate } from 'react-router-dom'
 
 const ForgetPassword = () => {
     const [schoolEmail, setSchoolEmail] = useState("")
     const [success, setSuccess] = useState("")
+    const navigate = useNavigate()
 
 
 
@@ -32,10 +36,17 @@ const ForgetPassword = () => {
 
 
 
-        <div style={{ width: "100%", height: "40vh", display: "flex", flexDirection: "column" }}>
-            <input type="email" placeholder='Input your email' className='forgetPasswordInput' value={schoolEmail} onChange={(e) => setSchoolEmail(e.target.value)} />
-            <p>{success}</p>
-            <button onClick={Forget}>send</button>
+        <div className="ForgetPasswordBody" >
+            <div className="ForgetPasswordMainBody">
+                <PiWarningCircleBold size={70}/>
+                <h1 className='ForgetPasswordH1'>Forget Password</h1>
+                <p className='ForgetPasswordP'>Enter your email and we'll send you a link to reset your password</p>
+                <input className="ForgetPasswordInput" type="email" placeholder='Enter your Email' />
+                <button className='ForgetPasswordSubmitBtn' onClick={Forget}>Submit</button>
+                <div className='ForgetPasswordSubmitBtnLoginBtn' onClick={()=>navigate("/login")}>
+                    <MdOutlineArrowBackIos/>Back to Login
+                </div>
+            </div>
         </div>
     )
 }
