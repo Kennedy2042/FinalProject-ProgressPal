@@ -9,9 +9,9 @@ const Verification = () => {
   const [isVerified, setIsVerified] = useState(1)
   const navigate = useNavigate()
   const { token, schoolId } = useParams()
-  
+
   async function EmailVerify() {
-    const url = "https://progresspal-8rxj.onrender.com/progressPal/verify/:schoolId/:token"
+    const url = "https://progresspal-8rxj.onrender.com/progressPal/verify/"
     axios
       .post(url`${schoolId}/${token}`)
       .then((res)=>{
