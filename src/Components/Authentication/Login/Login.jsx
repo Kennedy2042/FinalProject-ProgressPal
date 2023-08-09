@@ -79,7 +79,7 @@ const Login = () => {
                     </div>
                     <div className='Logintext2'>
                         <p className='AcctParagrph'>Don't have an account? <span className='LoginSpan' onClick={()=>{navigate("/sch_register")}}>Sign Up</span></p>
-                        <p className='AcctParagrph' style={{ cursor: "pointer" }}>Forgotten password?</p>
+                        <p className='AcctParagrph' style={{ cursor: "pointer" }} onClick={()=>navigate("/forget_password")}>Forgotten password?</p>
                         {/* <div className='left'>
                         </div>
                         <div className='right'>
