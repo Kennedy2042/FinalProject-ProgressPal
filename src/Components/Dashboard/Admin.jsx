@@ -11,11 +11,14 @@ import { Route, Routes, useNavigate } from 'react-router-dom'
 import React from 'react'
 import AdminTeacherDashboard from './AdminDashboard/Teacher/AdminTeacherDashboard'
 import AdminStudentDashboard from './AdminDashboard/Student/AdminStudentDashboard'
+import { useSelector } from 'react-redux'
+import AdminUser from './AdminDashboard/AdminUser'
 
 
 
 const Admin = () => {
     const navigate = useNavigate()
+    const schoolUsers = useSelector(state => state.persisitedReducer.School)
     return (
         <>
             <div className="AdminDashboardContainer">
@@ -27,42 +30,42 @@ const Admin = () => {
                         <div className='AdminDashboardSideMenuIconDiv'>
                             <div className="AdminDashboardIcons">
                                 <div className='AdminHomeIcon'>
-                                    <BiHomeAlt size={30} />
+                                    <BiHomeAlt size={30} className='AdminDashboardIconsImage' />
                                 </div>
                                 <div className="AdminHomeIconTitle">
-                                    <p>Dashboard</p>
+                                    <p className='AdminDashboardIconsImageName'>Dashboard</p>
                                 </div>
                             </div>
-                            <div className="AdminDashboardIcons" onClick={()=> navigate("./admin_student_dashboard")}>
+                            <div className="AdminDashboardIcons" onClick={() => navigate("/Admin_Dashboard/admin_student_dashboard")}>
                                 <div className='AdminHomeIcon'>
-                                    <PiStudentDuotone size={30} />
+                                    <PiStudentDuotone size={30} className='AdminDashboardIconsImage' />
                                 </div>
                                 <div className="AdminHomeIconTitle">
-                                    <p>Students</p>
+                                    <p className='AdminDashboardIconsImageName'>Students</p>
                                 </div>
                             </div>
-                            <div className="AdminDashboardIcons" onClick={()=> navigate("./admin_teacher_dashboard")}>
+                            <div className="AdminDashboardIcons" onClick={() => navigate("/Admin_Dashboard/admin_teacher_dashboard")}>
                                 <div className='AdminHomeIcon'>
-                                    <FaChalkboardTeacher size={30} />
+                                    <FaChalkboardTeacher size={30} className='AdminDashboardIconsImage' />
                                 </div>
                                 <div className="AdminHomeIconTitle">
-                                    <p>Teachers</p>
-                                </div>
-                            </div>
-                            <div className="AdminDashboardIcons">
-                                <div className='AdminHomeIcon'>
-                                    <MdEmojiEvents size={30} />
-                                </div>
-                                <div className="AdminHomeIconTitle">
-                                    <p>Events</p>
+                                    <p className='AdminDashboardIconsImageName'>Teachers</p>
                                 </div>
                             </div>
                             <div className="AdminDashboardIcons">
                                 <div className='AdminHomeIcon'>
-                                    <AiOutlineUser size={30} />
+                                    <MdEmojiEvents size={30} className='AdminDashboardIconsImage' />
                                 </div>
                                 <div className="AdminHomeIconTitle">
-                                    <p>User</p>
+                                    <p className='AdminDashboardIconsImageName'>Events</p>
+                                </div>
+                            </div>
+                            <div className="AdminDashboardIcons">
+                                <div className='AdminHomeIcon'>
+                                    <AiOutlineUser size={30} className='AdminDashboardIconsImage' />
+                                </div>
+                                <div className="AdminHomeIconTitle">
+                                    <p className='AdminDashboardIconsImageName'>User</p>
                                 </div>
                             </div>
                         </div>
@@ -70,9 +73,38 @@ const Admin = () => {
                     </div>
                 </div>
                 <div className='DashBoardRightBody'>
+                    {/* <div className='AdminDashBoardRightBodyUpperBody'>tfufyufguygyu</div>
+                    <div className='AdminDashBoardLowerBodyUpperBody'>
+                        <div className='AdminDashBoardLowerBodyUpperBodyTitle'>
+                            <h3>Admin Dashboard</h3>
+                        </div>
+                        <div className='AdminDashboardTotalStudentsCards'>
+                            <div className='AdminTotalTeacher'></div>
+                            <div className='AdminTotalTeacher'></div>
+                            <div className='AdminTotalTeacher'></div>
+                        </div>
+                        <div className='AdminDashboardPerformance'>
+                            <div className='AdminDashboardPerformanceDetailCard'>
+                                <div className='AdminDashboardPerformanceDetailCardTop'>
+                                    <h4>
+                                        Exam Details
+                                    </h4>
+                                    <div className="ExamDetailsCard"></div>
+                                </div>
+                                <div className='AdminDashboardPerformanceDetailCardDown'>
+                                    <h4>
+                                        Performance Details
+                                    </h4>
+                                    <div className="PerformanceDetailsCard"></div>
+                                </div>
+                            </div>
+                            <div className='AdminDashboardPerformanceDetailCardRight'></div>
+                        </div>
+                    </div> */}
+                    {/* <AdminUser/> */}
                     <Routes>
-                        <Route path='/admin_teacher_dashboard/:schoolId' element={<AdminTeacherDashboard/>} />
-                        <Route path='/admin_student_dashboard' element={<AdminStudentDashboard/>} />
+                        <Route path='/admin_teacher_dashboard' element={<AdminTeacherDashboard />} />
+                        <Route path='/admin_student_dashboard' element={<AdminStudentDashboard />} />
                     </Routes>
 
                     {/* <div className='DashBoardRightBodyTitle'>

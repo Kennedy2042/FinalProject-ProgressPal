@@ -35,6 +35,7 @@ const Login = () => {
             .then((res) => {
                 console.log(res.data)
                 setSuccessErrorMessage(res.data.message)
+                navigate("/Admin_Dashboard/")
             })
             .catch((err) => {
                 console.log(err)
@@ -50,6 +51,7 @@ const Login = () => {
 
 
     return (
+        <>
         <div className='LoginMainContainer'>
             <div className='LoginLogo'>
                 <img src={ProgressPalLogo} alt="" />
@@ -75,21 +77,24 @@ const Login = () => {
                                 }
                             </div>
                         </div>
-                        <p className='ErrorloginMsg'>{successErrorMessage}</p>
                     </div>
+                    <p className='ErrorloginMsg'>{successErrorMessage}</p>
+
                     <div className='Logintext2'>
                         <p className='AcctParagrph'>Don't have an account? <span className='LoginSpan' onClick={()=>{navigate("/sch_register")}}>Sign Up</span></p>
-                        <p className='AcctParagrph' style={{ cursor: "pointer" }} onClick={()=>navigate("/forget_password")}>Forgotten password?</p>
+                        <p className='AcctParagrph' style={{ cursor: "pointer", color: "blue" }} onClick={()=>navigate("/forget_password")}>Forgotten password?</p>
                         {/* <div className='left'>
                         </div>
                         <div className='right'>
                         </div> */}
                     </div>
+
                     <button className='LoginBtn' onClick={SignUp}>LOGIN</button>
                     {/* <h2>Register Your School</h2> */}
                 </div>
             </div>
         </div>
+        </>
     )
 }
 

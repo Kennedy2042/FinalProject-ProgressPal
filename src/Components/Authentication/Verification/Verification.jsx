@@ -49,6 +49,7 @@ const Verification = () => {
         </div> : <h1>Verification Failed</h1>
       }
       </div>
+      <p>{res.data}</p>
 
     </>
   )

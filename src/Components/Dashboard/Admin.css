@@ -1,20 +1,20 @@
 .AdminDashboardContainer {
     width: 100%;
     height: 100vh;
-    /* background: pink; */
+    background: #1e306e;
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
 
 .AdminDashboardSideMenu {
-    width: 15%;
+    width: 13%;
     height: 99.5%;
     /* background: yellow; */
     display: flex;
     align-items: center;
     flex-direction: column;
-    border: 2px solid cyan;
+    border: 2px solid rgb(237, 249, 249);
 }
 
 .AdminDashboardSideMenuLogo {
@@ -64,6 +64,14 @@
     justify-content: center;
 }
 
+.AdminDashboardIconsImage{
+    fill: white;
+}
+
+.AdminDashboardIconsImageName{
+    color: white;
+}
+
 .AdminHomeIconTitle {
     width: 70%;
     height: 100%;
@@ -73,7 +81,7 @@
 }
 
 .DashBoardRightBody {
-    width: 84%;
+    width: 86%;
     height: 100%;
     /* background-color: rgb(24, 29, 20); */
     display: flex;
@@ -220,4 +228,100 @@
     border: none;
     border-radius: 10px;
     cursor: pointer;
+}
+
+.AdminDashBoardRightBodyUpperBody{
+    width: 100%;
+    height: 10%;
+    /* background: pink; */
+}
+
+.AdminDashBoardLowerBodyUpperBody{
+    width: 100%;
+    height: 90%;
+    background: #ffff;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.AdminDashBoardLowerBodyUpperBodyTitle{
+    width: 95%;
+    height: 10%;
+    /* background: green; */
+    display: flex;
+    align-items: center;
+}
+
+.AdminDashboardTotalStudentsCards{
+    width: 95%;
+    height: 25%;
+    /* background: gray; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.AdminTotalTeacher{
+    width: 32%;
+    height: 90%;
+    background: pink;
+}
+
+.AdminDashboardDetails{
+    width: 95%;
+    height: 10%;
+    background: green;
+    display: flex;
+    align-items: center;
+}
+
+.AdminDashboardPerformance{
+    width: 95%;
+    height: 75%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background: blue; */
+}
+
+.AdminDashboardPerformanceDetailCard{
+    width: 70%;
+    height: 100%;
+    /* background: cornflowerblue; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.AdminDashboardPerformanceDetailCardRight{
+    width: 29%;
+    height: 90%;
+    background: yellow;
+}
+
+.AdminDashboardPerformanceDetailCardTop{
+    width: 100%;
+    height: 48%;
+    /* background: red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.AdminDashboardPerformanceDetailCardDown{
+    width: 100%;
+    height: 48%;
+    /* background: gray; */
+}
+
+.ExamDetailsCard{
+    width: 100%;
+    height: 85%;
+    background: #000;
+}
+.PerformanceDetailsCard{
+    width: 100%;
+    height: 92%;
+    background: #000;
 }
