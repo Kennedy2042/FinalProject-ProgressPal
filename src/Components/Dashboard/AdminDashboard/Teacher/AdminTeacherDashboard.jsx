@@ -4,23 +4,28 @@ import { AiOutlineSearch, AiOutlineCloseCircle } from 'react-icons/ai'
 import AboutUsImage from "../../../../assets/AboutUsImage.png"
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+
 
 
 
 
 const AdminTeacherDashboard = () => {
+    const schoolUsers = useSelector(state => state.persisitedReducer.School)
     const [addTeacher, setAddTeacher] = useState(false)
     const [teacherEmail, setTeacherEmail] = useState("")
-    const {schoolId} = useParams
 
 
     const data ={teacherEmail}
-    console.log(teacherEmail)
+
+    const teacherEmailData = new FormData()
+    teacherEmailData.append("teacherEmail", teacherEmail)
+    // console.log(teacherEmail)
 
     async function CreateTeacher(){
         const url = "https://progresspal-8rxj.onrender.com/progressPal/teacherLink"
-        console.log("call")
-        axios.post(`${url}/${schoolId}`,data)
+        console.log(url, schoolUsers._id, data)
+        axios.post(`${url}/${schoolUsers._id}`,data)
             .then ((res)=>{
                 console.log(res)
             })
@@ -29,20 +34,26 @@ const AdminTeacherDashboard = () => {
             })
     }
 
+    // const createTeacher = async(e) => {
+    //     // setTeacherEmail({teacherEmail, [e.target.name]::})
+    // }
+
+
     return (
         <>
+        
             <div className='DashBoardRightBodyTitle'>
                 <div className='DashBoardRightBodyTitleHolderDiv'>
                     <h1 className='DashboardRightBodyTitle'>Teachers</h1>
                 </div>
                 <div className='DashboardSearchIconDiv'>
-                    <input type="text" placeholder='Search here' className='DashboardSearchIconInput' />
+                    <input type="text" placeholder='Search here' className='DashboardSearchIconInput' value={teacherEmail} onChange={(e) => setTeacherEmail(e.target.value)} />
                     <div className="DashboardSearchIconInputImage">
                         <AiOutlineSearch size={20} />
                     </div>
                 </div>
                 <div className='AdminDashboardAddTeacherBtnDiv'>
-                    <button className='AdminDashboardAddTeacherBtn' onClick={() => setAddTeacher(true)}>Add Teacher</button>
+                    <button className='AdminDashboardAddTeacherBtn'  onClick={() => setAddTeacher(true)}>Add Teacher</button>
                 </div>
             </div>
             <div className='AdminDashboardTeachersCard'>
@@ -52,10 +63,10 @@ const AdminTeacherDashboard = () => {
                     </div>
                     <div className='AdminDashboardTeachersDetail'>
                         <div className='AdminDashboardTeachersDetailH3'>
-                            Name: <h3>Ogbonna Kennedy Nkemjika</h3>
+                            Name: <h3>{schoolUsers.schoolName}</h3>
                         </div>
                         <div className='AdminDashboardTeachersDetailH3'>
-                            Email: <h5>Ogbonnakennedy@gmail.com</h5>
+                            Email: <h5>{schoolUsers.schoolEmail}</h5>
                         </div>
                         <h4></h4>
                         <button className='AdminDashboardViewTeachProfile'>View Profile</button>

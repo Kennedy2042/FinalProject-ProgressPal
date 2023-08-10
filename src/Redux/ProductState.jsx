@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    School: []
+    School: [],
+    schoolTeacher: [],
 }
 
 
@@ -13,11 +14,16 @@ const productState = createSlice({
       schoolUserData: (state, {payload}) => {
         state.School = payload
         console.log("first", payload)
-      }  
+      },
+      
+      schoolTeacherData: (state, {payload}) => {
+        state.schoolTeacher = payload
+        console.log("first", payload)
+      }
     }
 })
 
-export const {schoolUserData} = productState.actions;
+export const {schoolUserData, schoolTeacherData} = productState.actions;
 export default productState.reducer
 
 

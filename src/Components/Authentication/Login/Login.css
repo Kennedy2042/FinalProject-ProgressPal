@@ -129,6 +129,11 @@
     width: 90%;
     height: 10%;
     cursor: pointer;
+    background-color: green;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
 }
 
 .LoginSpan {
