@@ -1,59 +1,91 @@
-import Header from "../Header/Header"
+import Header from "../Header/Header";
 import "./HomePage.css";
-import herosectionimage from '../../assets/herosectionimage.svg' 
-import BenefitOneImage from "../../assets/BenefitOneImage.svg"
-import BenefitTwoImage from "../../assets/BenefitTwoImage.svg"
+import herosectionimage from "../../assets/herosectionimage.svg";
+import BenefitOneImage from "../../assets/BenefitOneImage.svg";
+import BenefitTwoImage from "../../assets/BenefitTwoImage.svg";
 import { useNavigate } from "react-router-dom";
+import Footer from "../Footer/Footer";
+import korapay from "../../assets/korapay.png"
+import thecurveafrica from "../../assets/thecurveafrica.png"
+import grading from "../../assets/grading.png"
+import result from "../../assets/result.png"
+import analytics from "../../assets/analytics.png"
+import About from "../About/About";
+// import Testimonial from "../Testimonial/Testimonial";
 
 const HomePage = () => {
-
-  const nav = useNavigate()
+  const nav = useNavigate();
 
   return (
     <>
       <main>
         <div className="HomePageHeroSec">
-          <Header/>
+          <Header />
           <section className="HeroSection">
             <article className="HeroSectionWrapper">
               <div className="HeroSectionText">
                 <h1>Your Result, Our Priority</h1>
                 <h2>Effective result management platform</h2>
-                <button className="GetStarted" onClick={() => nav("/sch_register")}>Get Started</button>
+                <button
+                  className="GetStarted"
+                  onClick={() => nav("/sch_register")}
+                >
+                  Get Started
+                </button>
               </div>
               <div className="HeroSectionImage">
                 <img src={herosectionimage} alt="" />
               </div>
             </article>
           </section>
-          <div className="PartnersContainer"></div>
+          <div className="PartnersContainer">
+            <div className="PartnersContainerWrapper">
+              <span className="PartnersImage">
+                <img src={korapay} alt="" />
+              </span>
+              <span className="PartnersImage">
+                <img src={thecurveafrica} alt="" />
+              </span>
+              <span className="PartnersImage">
+                <img src={korapay} alt="" />
+              </span>
+              <span className="PartnersImage">
+                <img src={thecurveafrica} alt="" />
+              </span>
+            </div>
+          </div>
         </div>
         <section className="ServicesContainer">
           <article className="ServicesContainerWrapper">
             <div className="ServicesContainerText">Our Services</div>
             <div className="ServicesCardsHolder">
               <span className="ServicesCard">
-                <div className="ServicesIconHolder"></div>
-                <h3 className="ServicesHeading">Lorem ipsum ipsum</h3>
+                <div className="ServicesIconHolder">
+                  <img src={result} alt="" />
+                </div>
+                <h3 className="ServicesHeading">Result Compilation</h3>
                 <p className="ServicesDescription">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae
-                  quaerat porro voluptatem! Nisi
+                  Instantly collect and collate student results, streamlining
+                  the process for educators.
                 </p>
               </span>
               <span className="ServicesCard">
-                <div className="ServicesIconHolder"></div>
-                <h3 className="ServicesHeading">Lorem ipsum ipsum</h3>
+                <div className="ServicesIconHolder2">
+                  <img src={analytics} alt="" />
+                </div>
+                <h3 className="ServicesHeading">Real-Time Analytics</h3>
                 <p className="ServicesDescription">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae
-                  quaerat porro voluptatem! Nisi
+                  Gain valuable insights into student performance
                 </p>
               </span>
               <span className="ServicesCard">
-                <div className="ServicesIconHolder"></div>
-                <h3 className="ServicesHeading">Lorem ipsum ipsum</h3>
+                <div className="ServicesIconHolder3">
+                  <img src={grading} alt="" />
+                </div>
+                <h3 className="ServicesHeading">Grading Systems</h3>
                 <p className="ServicesDescription">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae
-                  quaerat porro voluptatem! Nisi
+                  Tailor the app to your institution's unique grading systems,
+                  ensuring accuracy and consistency
                 </p>
               </span>
             </div>
@@ -66,7 +98,7 @@ const HomePage = () => {
                 <img src={BenefitOneImage} alt="" />
               </article>
               <article className="BenefitsText">
-                <h2 className="BenefitsTextTitle">PROGRESSPAL BENEFITS</h2>
+                <h2 className="BenefitsTextTitle">PROGRESS<span style={{color: "#f7b905"}}>PAL</span> BENEFITS</h2>
                 <h1 className="BenefitsTextHead">
                   We aid in students Academic Performance
                 </h1>
@@ -77,8 +109,8 @@ const HomePage = () => {
               </article>
             </div>
             <div className="BenefitsBox">
-              <article className="BenefitsText">
-                <h2 className="BenefitsTextTitle">PROGRESSPAL BENEFITS</h2>
+              <article className="BenefitsText2">
+                <h2 className="BenefitsTextTitle">PROGRESS<span style={{color: "#f7b905"}}>PAL</span> BENEFITS</h2>
                 <h1 className="BenefitsTextHead">
                   Teachers can track students performance
                 </h1>
@@ -95,15 +127,9 @@ const HomePage = () => {
           <div className="Circle1"></div>
           <div className="Circle2"></div>
         </section>
-        {/* <section classNamee="TestimonialSection">
-          <article className="TestimonialSectionWrapper">
-            <div className="TestimonialText">
-              <h2>Testimonials</h2>
-              <p>Hear what people say about us</p>
-            </div>
-            <div className="TestimonialCardsHolder"></div>
-          </article>
-        </section> */}
+        <About/>
+        {/* <Testimonial /> */}
+        <Footer />
       </main>
     </>
   );

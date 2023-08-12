@@ -28,15 +28,15 @@ const SchRegister = () => {
 
 
   const [schoolEmail, setSchoolEmail] = useState("")
-  const [schoolAddress, setSchoolAddress] = useState("")
-  const [state, setState] = useState("")
+  // const [schoolAddress, setSchoolAddress] = useState("")
+  // const [state, setState] = useState("")
   const [schoolName, setSchoolName] = useState("")
-  const [country, setCountry] = useState("")
+  // const [country, setCountry] = useState("")
   const [schoolLogo, setSchoolLogo] = useState("")
-  const [regNo, setRegNo] = useState("")
+  // const [regNo, setRegNo] = useState("")
   const [password, setPassword] = useState("")
   const [confirmPassword, setConfirmPassword] = useState("")
-  const [website, setWebsite] = useState("")
+  // const [website, setWebsite] = useState("")
   const [successErrorMessage, setSuccessErrorMessage] = useState('')
   const [loading, setLoading] = useState(false);
   const [validMessage, setValidMessage] = useState({
@@ -96,42 +96,42 @@ const SchRegister = () => {
         value: "schoolEmailError",
         msg: "Provide a valid email",
       });
-    } else if (schoolAddress === "") {
-      setValidMessage({
-        error: "true",
-        value: "schoolAddress",
-        msg: "Please provide your school address",
-      });
-    } else if (!schoolAddressRegex.test(schoolAddress)) {
-      setValidMessage({
-        error: "true",
-        value: "schoolAddressError",
-        msg: "Please input a valid address",
-      });
-    } else if (state === "") {
-      setValidMessage({
-        error: "true",
-        value: "state",
-        msg: "Please input your state",
-      });
-    } else if (country === "") {
-      setValidMessage({
-        error: "true",
-        value: "country",
-        msg: "Pleae input a country",
-      });
-    } else if (country !== "Nigeria") {
-      setValidMessage({
-        error: "true",
-        value: "countryError",
-        msg: "Country must be Nigeria",
-      });
-    } else if (website === "") {
-      setValidMessage({
-        error: "true",
-        value: "schoolWebsite",
-        msg: "Please input your school website",
-      });
+    // } else if (schoolAddress === "") {
+    //   setValidMessage({
+    //     error: "true",
+    //     value: "schoolAddress",
+    //     msg: "Please provide your school address",
+    //   });
+    // } else if (!schoolAddressRegex.test(schoolAddress)) {
+    //   setValidMessage({
+    //     error: "true",
+    //     value: "schoolAddressError",
+    //     msg: "Please input a valid address",
+    //   });
+    // } else if (state === "") {
+    //   setValidMessage({
+    //     error: "true",
+    //     value: "state",
+    //     msg: "Please input your state",
+    //   });
+    // } else if (country === "") {
+    //   setValidMessage({
+    //     error: "true",
+    //     value: "country",
+    //     msg: "Pleae input a country",
+    //   });
+    // } else if (country !== "Nigeria") {
+    //   setValidMessage({
+    //     error: "true",
+    //     value: "countryError",
+    //     msg: "Country must be Nigeria",
+    //   });
+    // } else if (website === "") {
+    //   setValidMessage({
+    //     error: "true",
+    //     value: "schoolWebsite",
+    //     msg: "Please input your school website",
+    //   });
     } else if (password === "") {
       setValidMessage({
         error: "true",
@@ -161,15 +161,15 @@ const SchRegister = () => {
       setLoading(!loading);
       const data = new FormData();
       data.append("schoolEmail", schoolEmail);
-      data.append("schoolAddress", schoolAddress);
-      data.append("state", state);
+      // data.append("schoolAddress", schoolAddress);
+      // data.append("state", state);
       data.append("schoolName", schoolName);
-      data.append("country", country);
+      // data.append("country", country);
       data.append("schoolLogo", schoolLogo);
-      data.append("regNo", regNo);
+      // data.append("regNo", regNo);
       data.append("password", password);
       data.append("confirmPassword", confirmPassword);
-      data.append("website", website);
+      // data.append("website", website);
 
       axios
         .post(url, data, {
@@ -180,10 +180,13 @@ const SchRegister = () => {
           console.log(res.data.user);
           dispatch(schoolUserData(res.data.user))
           setSuccessErrorMessage(res.data.message);
+          setLoading(false)
         })
         .catch((err) => {
           console.log(err);
           setSuccessErrorMessage(err.response.data.message);
+          setLoading(false)
+
         });
       // showAlert();
     }
@@ -254,7 +257,7 @@ const SchRegister = () => {
                 {/* <p className='errorParagraph'>{validMessage}</p> */}
 
               </div>
-              <div className="instituteAddress">
+              {/* <div className="instituteAddress">
                 <h3 className="inputTitle">Institute Address</h3>
                 <div className="instituteAddressHolder">
                   <div className={ validMessage.value === "schoolAddress" || validMessage.value === "schoolAddressError" ? "instituteAddressIconDivError" : "instituteAddressIconDiv"}>
@@ -319,7 +322,7 @@ const SchRegister = () => {
                 {validMessage.value === "schoolWebsite" ? (
                   <p className='errorParagraph'>{validMessage.msg}</p>
                 ) : null}
-              </div>
+              </div> */}
               <div className="institutePassword">
                 <h3 className="inputTitle">Password</h3>
                 <div className="institutePasswordHolder">
