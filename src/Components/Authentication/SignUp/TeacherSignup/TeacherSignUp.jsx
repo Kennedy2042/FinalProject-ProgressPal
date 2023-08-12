@@ -52,68 +52,68 @@ const SignUp = () => {
      function teacherRegister(e) {
         e.preventDefault()
         console.log("Inside funcion", teacherName.length)
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        const teacherNameRegex = /^[\w\s]{11,}$/;
-        // const schoolAddressRegex = /^[\w\s\S]{9,}$/;
-        const strongPasswordRegex =
-            /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_\-+=\[\]{}|:;"'<>,.?/])[A-Za-z\d!@#$%^&*()_\-+=\[\]{}|:;"'<>,.?/]{8,}$/;
+        // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        // const teacherNameRegex = /^[\w\s]{11,}$/;
+        // // const schoolAddressRegex = /^[\w\s\S]{9,}$/;
+        // const strongPasswordRegex =
+        //     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_\-+=\[\]{}|:;"'<>,.?/])[A-Za-z\d!@#$%^&*()_\-+=\[\]{}|:;"'<>,.?/]{8,}$/;
 
-        if (teacherName === "") {
-            setValidMessage({
-                error: true,
-                value: "teacherName",
-                msg: "Please input your school name",
-            });
-        } else if (!teacherNameRegex.test(teacherName)) {
-            setValidMessage({
-                error: true,
-                value: "teacherNameError",
-                msg: "Characters should be at least 11 characters",
-            });
-        } else if (teacherImage === "") {
-            setValidMessage({
-                error: true,
-                value: "teacherImage",
-                msg: "Provide a school logo",
-            });
-        } else if (teacherEmail === "") {
-            setValidMessage({
-                error: true,
-                value: "teacherEmail",
-                msg: "Please input your email",
-            });
-        } else if (!emailRegex.test(teacherEmail)) {
-            setValidMessage({
-                error: true,
-                value: "teacherEmailError",
-                msg: "Provide a valid email",
-            });
-        } else if (password === "") {
-            setValidMessage({
-                error: true,
-                value: "password",
-                msg: "Please input your password",
-            });
-        } else if (!strongPasswordRegex.test(password)) {
-            setValidMessage({
-                error: true,
-                value: "passwordError",
-                msg: "Invalid format",
-            });
-        } else if (confirmPassword === "") {
-            setValidMessage({
-                error: true,
-                value: "confirmPassword",
-                msg: "Please input your confirm password",
-            });
-        } else if (confirmPassword !== password) {
-            setValidMessage({
-                error: true,
-                value: "confirmPasswordError",
-                msg: "Password do not match",
-            });
-        } else {
-            setValidMessage("");
+        // if (teacherName === "") {
+        //     setValidMessage({
+        //         error: true,
+        //         value: "teacherName",
+        //         msg: "Please input your school name",
+        //     });
+        // } else if (!teacherNameRegex.test(teacherName)) {
+        //     setValidMessage({
+        //         error: true,
+        //         value: "teacherNameError",
+        //         msg: "Characters should be at least 11 characters",
+        //     });
+        // } else if (teacherImage === "") {
+        //     setValidMessage({
+        //         error: true,
+        //         value: "teacherImage",
+        //         msg: "Provide a school logo",
+        //     });
+        // } else if (teacherEmail === "") {
+        //     setValidMessage({
+        //         error: true,
+        //         value: "teacherEmail",
+        //         msg: "Please input your email",
+        //     });
+        // } else if (!emailRegex.test(teacherEmail)) {
+        //     setValidMessage({
+        //         error: true,
+        //         value: "teacherEmailError",
+        //         msg: "Provide a valid email",
+        //     });
+        // } else if (password === "") {
+        //     setValidMessage({
+        //         error: true,
+        //         value: "password",
+        //         msg: "Please input your password",
+        //     });
+        // } else if (!strongPasswordRegex.test(password)) {
+        //     setValidMessage({
+        //         error: true,
+        //         value: "passwordError",
+        //         msg: "Invalid format",
+        //     });
+        // } else if (confirmPassword === "") {
+        //     setValidMessage({
+        //         error: true,
+        //         value: "confirmPassword",
+        //         msg: "Please input your confirm password",
+        //     });
+        // } else if (confirmPassword !== password) {
+        //     setValidMessage({
+        //         error: true,
+        //         value: "confirmPasswordError",
+        //         msg: "Password do not match",
+        //     });
+        // } else {
+            // setValidMessage("");
             const data = new FormData();
             data.append("teacherEmail", teacherEmail);
             data.append("teacherName", teacherName);
@@ -139,9 +139,8 @@ const SignUp = () => {
                     setSuccessErrorMessage(err?.response?.message ? err?.response?.message : err?.response?.data?.message);
                 setLoading(false);
                 });
-            // showAlert();
         }
-    }
+    // }
 
 
     return (
@@ -229,11 +228,15 @@ const SignUp = () => {
                                 <BiSolidHide style={{ cursor: "pointer" }} onClick={() => setSignUpConfirmPass(false)} /> : <BiSolidShow style={{ cursor: "pointer" }} onClick={() => setSignUpConfirmPass(true)} />}
                         </div>
                         {
+                        validMessage.value === "confirmPasswordError" ? <p>{validMessage.msg}</p> : null
+                       }
+
+{
                         validMessage.value === "confirmPassword" ? <p>{validMessage.msg}</p> : null
                        }
 
                     </div>
-                    <p style={{ width: "95%" }}>Already have an Account? <span className='LoginSpan' onClick={() => navigate("/teacher_login")}>Log In</span></p>
+                    {/* <p style={{ width: "95%" }}>Already have an Account? <span className='LoginSpan' onClick={() => navigate("/teacher_login")}>Log In</span></p> */}
                     <div className="signUpPasswordHolder">
                         <button className='signUpSubmitBtn' onClick={teacherRegister}>{
                             loading ?< SpinnerCircular/> : "Submit"

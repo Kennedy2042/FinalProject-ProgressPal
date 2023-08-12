@@ -28,7 +28,9 @@ const Admin = () => {
                     </div>
                     <div className="AdminDashboardSideMenuMainBody">
                         <div className='AdminDashboardSideMenuIconDiv'>
-                            <div className="AdminDashboardIcons">
+                            <div className="AdminDashboardIcons" onClick={()=>{
+                                navigate("/Admin_Dashboard/admin_dash_Main")
+                            }}>
                                 <div className='AdminHomeIcon'>
                                     <BiHomeAlt size={30} className='AdminDashboardIconsImage' />
                                 </div>
@@ -101,8 +103,9 @@ const Admin = () => {
                             <div className='AdminDashboardPerformanceDetailCardRight'></div>
                         </div>
                     </div> */}
-                    {/* <AdminUser/> */}
+                    
                     <Routes>
+                        <Route path='/admin_dash_Main' element={<AdminUser/>}/>
                         <Route path='/admin_teacher_dashboard' element={<AdminTeacherDashboard />} />
                         <Route path='/admin_student_dashboard' element={<AdminStudentDashboard />} />
                     </Routes>

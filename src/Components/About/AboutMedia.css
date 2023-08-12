@@ -1,0 +1,71 @@
+@media screen and (max-width: 768px){
+    .AboutPageInnerContent{
+       /* background-color: burlywood; */
+       display: flex;
+       flex-direction: column-reverse;
+   }   
+   .AboutUsTextdiv{
+       display: flex;
+       justify-content: space-around;
+       /* background-color: chocolate; */
+       height: 50%;
+       width: 100%;
+       
+   }
+   .AboutPageaha1Holder h1{
+       font-size: 40px;
+   }
+   
+   .AboutUsTextdiv p{
+       font-size: 20px;
+   }
+   .AboutUsImagediv{
+       width: 100%;
+       height: 80%;
+       /* background-color: fuchsia; */
+       display: flex;
+       justify-content: center;
+       align-items: center;
+   }
+   .AboutUsImagediv  img{
+   
+       /* background-color: coral; */
+         height: 100%;
+       width: 100%;
+       object-fit: contain;
+   }
+       }
+   @media screen and (max-width: 425px){
+   .AboutPageInnerContent{
+       /* background-color: burlywood; */
+       display: flex;
+       flex-direction: column-reverse;
+   }
+   
+   .AboutUsTextdiv{
+       /* background-color: coral; */
+       width: 100%;
+       height: 50%;
+   }
+   .AboutUsImagediv{
+       height: 50%;
+       width: 100%;
+   }
+   .AboutPageaha1Holder h1{
+       font-size:18px ;
+   }
+   
+   .AboutUsTextdiv p{
+   font-size: 20px;
+   }
+   
+   }
+   @media screen and (max-width: 425px){
+       .AboutUsTextdiv p{
+           font-size: 12.5px;
+       }
+       .AboutUsImagediv  img{
+           width: 90%;
+           height: 90%;
+       }
+   }

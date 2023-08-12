@@ -35,7 +35,7 @@ const Login = () => {
             .then((res) => {
                 console.log(res.data)
                 setSuccessErrorMessage(res.data.message)
-                navigate("/Admin_Dashboard/")
+                navigate("/Admin_Dashboard/admin_dash_Main")
             })
             .catch((err) => {
                 console.log(err)
