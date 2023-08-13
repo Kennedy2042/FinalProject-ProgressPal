@@ -13,7 +13,7 @@
     /* background-color: aqua; */
 }
 
-.DashboardRightBodyTitle{
+.DashboardRightBodyTitleH1{
     width: 95%;
 }
 
@@ -60,7 +60,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .AdminDashboardAddTeacherBtn {
@@ -86,7 +85,7 @@
 }
 
 .AdminDashboardTeachersCardBody {
-    width: 30%;
+    width: 35%;
     height: 23vh;
     background-color: rgb(238, 238, 237);
     display: flex;

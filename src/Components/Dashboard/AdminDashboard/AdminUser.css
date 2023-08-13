@@ -1,0 +1,183 @@
+.AdminDashBoardRightBodyUpperBody {
+    width: 100%;
+    height: 10%;
+    /* background: pink; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.AdminDashBoardRightBodyHeader {
+    width: 95%;
+    height: 90%;
+    /* background: cyan; */
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.userProfile {
+    width: 30%;
+    height: 100%;
+    /* background: green; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.UserImageDiv {
+    width: 20%;
+    height: 100%;
+}
+
+.UserImage{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.UserImageH4 {
+    width: 75%;
+}
+
+.AdminDashBoardLowerBodyUpperBody {
+    width: 100%;
+    height: 90%;
+    background: #ffff;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.AdminDashBoardLowerBodyUpperBodyTitle {
+    width: 95%;
+    height: 10%;
+    /* background: green; */
+    display: flex;
+    align-items: center;
+}
+
+.AdminDashboardTotalStudentsCards {
+    width: 95%;
+    height: 25%;
+    /* background: gray; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.AdminTotalTeacher {
+    width: 32%;
+    height: 90%;
+    /* background: pink; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #1e306e;
+}
+
+.AdminTotalTeacherBody{
+    width: 90%;
+    height: 80%;
+    /* background: yellow; */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.AdminTotalTeacherBodyTotal{
+    width: 46%;
+    height: 90%;
+    /* background: gray; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.AdminTotalTeacherBodyTotalH5{
+    width: 90%;
+    height: 50%;
+}
+
+.AdminTotalTeacherBodyTotalH3{
+    width: 90%;
+    height: 20%;
+}
+
+.AdminTotalTeacherBodyChart{
+    width: 46%;
+    height: 90%;
+    /* background: purple; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.AdminChart{
+    width: 67%;
+    height: 90%;
+    /* background: red; */
+    border-radius: 50%;
+}
+
+.AdminPieChart{
+    width: 500px;
+}
+
+.AdminDashboardPerformance {
+    width: 95%;
+    height: 75%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background: blue; */
+}
+
+.AdminDashboardPerformanceDetailCard {
+    width: 70%;
+    height: 100%;
+    /* background: cornflowerblue; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.AdminDashboardPerformanceDetailCardTop {
+    width: 100%;
+    height: 48%;
+    /* background: red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.AdminDashboardPerformanceDetailCardDown {
+    width: 100%;
+    height: 48%;
+    /* background: gray; */
+}
+
+.PerformanceDetailsCard {
+    width: 100%;
+    height: 92%;
+    /* background: #000; */
+    border: 1px solid #1e306e;
+
+}
+
+.AdminDashboardPerformanceDetailCardRight {
+    width: 29%;
+    height: 90%;
+    /* background: yellow; */
+    border: 1px solid #1e306e;
+
+}
+
+.ExamDetailsCard {
+    width: 100%;
+    height: 85%;
+    /* background: #b39393; */
+    border: 1px solid #1e306e;
+
+}

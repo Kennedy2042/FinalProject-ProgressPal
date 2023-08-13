@@ -20,7 +20,9 @@
     "react-router-dom": "^6.14.1",
     "react-spinners": "^0.13.8",
     "redux-persist": "^6.0.0",
-    "spinners-react": "^1.0.7"
+    "spinners-react": "^1.0.7",
+    "victory": "^36.6.11",
+    "victory-chart": "^36.6.11"
   },
   "devDependencies": {
     "@types/react": "^18.2.14",
