@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import "./AdminTeacherDashboard.css"
+import "./AdminTeacherDashboardMedia.css"
 import { AiOutlineSearch, AiOutlineCloseCircle } from 'react-icons/ai'
 import AboutUsImage from "../../../../assets/AboutUsImage.png"
 import axios from 'axios'
@@ -42,9 +43,9 @@ const AdminTeacherDashboard = () => {
     return (
         <>
         
-            <div className='DashBoardRightBodyTitle'>
+            <div className='TeacherDashBoardRightBodyTitle'>
                 <div className='DashBoardRightBodyTitleHolderDiv'>
-                    <h1 className='DashboardRightBodyTitle'>Teachers</h1>
+                    <h1 className='DashboardRightBodyTitleH1'>Teachers</h1>
                 </div>
                 <div className='DashboardSearchIconDiv'>
                     <input type="text" placeholder='Search here' className='DashboardSearchIconInput' value={teacherEmail} onChange={(e) => setTeacherEmail(e.target.value)} />
@@ -63,12 +64,11 @@ const AdminTeacherDashboard = () => {
                     </div>
                     <div className='AdminDashboardTeachersDetail'>
                         <div className='AdminDashboardTeachersDetailH3'>
-                            Name: <h3>{schoolUsers.schoolName}</h3>
+                            Name: <h3 className='DashboardSchoolName'>{schoolUsers.schoolName}</h3>
                         </div>
                         <div className='AdminDashboardTeachersDetailH3'>
                             Email: <h5>{schoolUsers.schoolEmail}</h5>
                         </div>
-                        <h4></h4>
                         <button className='AdminDashboardViewTeachProfile'>View Profile</button>
                     </div>
                 </div>

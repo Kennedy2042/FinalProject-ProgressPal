@@ -2,6 +2,7 @@ import React from 'react'
 import { AiOutlineSearch } from 'react-icons/ai'
 import AboutUsImage from "../../../../assets/AboutUsImage.png"
 import "./AdminStudentDashboard.css"
+import "./AdminStudentDashboardMedia.css"
 
 
 const AdminStudentDashboard = () => {
@@ -9,7 +10,7 @@ const AdminStudentDashboard = () => {
         <>
             <div className='DashBoardRightBodyTitle'>
                 <div className='DashBoardRightBodyTitleHolderDiv'>
-                    <h1 className='DashboardRightBodyTitle'>Students</h1>
+                    <h1 className='DashboardRightBodyTitleH1'>Students</h1>
                 </div>
                 <div className='DashboardSearchIconDiv'>
                     <input type="text" placeholder='Search here' className='DashboardSearchIconInput' />
