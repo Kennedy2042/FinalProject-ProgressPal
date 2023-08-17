@@ -25,7 +25,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/sch_register" element={<SchRegister />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/verified_success/:schoolId/:token" element={<Verification/>} />
+            <Route path="/verified_success/:token" element={<Verification/>} />
             <Route path="/Dashboard/schoolAdmin*" element={<Admin/>} />
             <Route path="/forget_password" element={<ForgetPassword/>} />
             <Route path="/reset_password/:id/:token" element={<ResetPassword/>} />
