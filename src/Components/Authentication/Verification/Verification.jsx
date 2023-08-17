@@ -14,7 +14,7 @@ const Verification = () => {
     console.log("call")
     const url = "https://progresspal-8rxj.onrender.com/progressPal/verify/"
     axios
-      .put(`${url}${schoolId}/${token}`)
+      .put(`${url}/${token}`)
       .then((res)=>{
         console.log(res)
         setIsVerified(2)
