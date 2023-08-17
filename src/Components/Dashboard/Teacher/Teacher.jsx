@@ -22,7 +22,6 @@ import axios from 'axios'
 const Teacher = () => {
 
     const navigate = useNavigate()
-    const schoolUsers = useSelector(state => state.persisitedReducer.School)
     const teacherData = useSelector (state => state.persisitedReducer.loginUser)
     const BearerToken = teacherData.data.token
     console.log(BearerToken)
@@ -31,14 +30,12 @@ const Teacher = () => {
 
 
     const url = `https://progresspal-8rxj.onrender.com/progressPal/logoutTeacher/${teacherData.data.data._id}`;  
+    // const url = "https://progresspal-8rxj.onrender.com/progressPal/logoutTeacher/"; 
     async function TeacherLogout () {
         console.log("dstrstrdd")
         axios.post (url, {
-            headers: {
-                Authorization : `Bearer ${BearerToken}`,
-                "Content-Type": "application/json"
+                Authorization : `Bearer ${BearerToken}`
     
-            }
         })
         .then ((res)=>{
             console.log(res)

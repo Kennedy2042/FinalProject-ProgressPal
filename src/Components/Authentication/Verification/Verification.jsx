@@ -12,7 +12,7 @@ const Verification = () => {
 
   async function EmailVerify() {
     console.log("call")
-    const url = "https://progresspal-8rxj.onrender.com/progressPal/verify/"
+    const url = "https://progresspal-8rxj.onrender.com/progressPal/verify"
     axios
       .put(`${url}/${token}`)
       .then((res)=>{
