@@ -10,10 +10,10 @@ import { AiOutlineCloseCircle } from 'react-icons/ai'
 import { RxHamburgerMenu } from 'react-icons/rx'
 import { Route, Routes, useNavigate } from 'react-router-dom'
 import React, { useState } from 'react'
-import AdminTeacherDashboard from './AdminDashboard/Teacher/AdminTeacherDashboard'
-import AdminStudentDashboard from './AdminDashboard/Student/AdminStudentDashboard'
+import AdminTeacherDashboard from './AdminDashboard/AdminTeacher/AdminTeacherDashboard'
+import AdminStudentDashboard from './AdminDashboard/AdminStudent/AdminStudentDashboard'
 import { useSelector } from 'react-redux'
-import AdminUser from './AdminDashboard/AdminUser'
+import AdminUser from './AdminDashboard/User/AdminUser'
 
 
 
@@ -46,7 +46,7 @@ const Admin = () => {
                             menu ?
                                 <div className="AdminDashboardMobileDropMenu">
                                     <div className="AdminDashboardIcons" onClick={() => {
-                                        navigate("/Admin_Dashboard/admin_dash_Main")
+                                        navigate("/Dashboard/login/admin_dash_Main")
                                     }}>
                                         <div className='AdminHomeIcon'>
                                             <BiHomeAlt size={30} className='AdminDashboardIconsImage' />
@@ -55,7 +55,7 @@ const Admin = () => {
                                             <p className='AdminDashboardIconsImageName'>Dashboard</p>
                                         </div>
                                     </div>
-                                    <div className="AdminDashboardIcons" onClick={() => navigate("/Admin_Dashboard/admin_student_dashboard")}>
+                                    <div className="AdminDashboardIcons" onClick={() => navigate("/Dashboard/schoolAdmin/admin_student_dashboard")}>
                                         <div className='AdminHomeIcon'>
                                             <PiStudentDuotone size={30} className='AdminDashboardIconsImage' />
                                         </div>
@@ -63,7 +63,7 @@ const Admin = () => {
                                             <p className='AdminDashboardIconsImageName'>Students</p>
                                         </div>
                                     </div>
-                                    <div className="AdminDashboardIcons" onClick={() => navigate("/Admin_Dashboard/admin_teacher_dashboard")}>
+                                    <div className="AdminDashboardIcons" onClick={() => navigate("/Dashboard/schoolAdmin/admin_teacher_dashboard")}>
                                         <div className='AdminHomeIcon'>
                                             <FaChalkboardTeacher size={30} className='AdminDashboardIconsImage' />
                                         </div>
@@ -100,7 +100,7 @@ const Admin = () => {
                     <div className="AdminDashboardSideMenuMainBody">
                         <div className='AdminDashboardSideMenuIconDiv'>
                             <div className="AdminDashboardIcons" onClick={() => {
-                                navigate("/Admin_Dashboard/admin_dash_Main")
+                                navigate("/Dashboard/login/admin_dash_Main")
                             }}>
                                 <div className='AdminHomeIcon'>
                                     <BiHomeAlt size={30} className='AdminDashboardIconsImage' />
@@ -109,7 +109,7 @@ const Admin = () => {
                                     <p className='AdminDashboardIconsImageName'>Dashboard</p>
                                 </div>
                             </div>
-                            <div className="AdminDashboardIcons" onClick={() => navigate("/Admin_Dashboard/admin_student_dashboard")}>
+                            <div className="AdminDashboardIcons" onClick={() => navigate("/Dashboard/schoolAdmin/admin_student_dashboard")}>
                                 <div className='AdminHomeIcon'>
                                     <PiStudentDuotone size={30} className='AdminDashboardIconsImage' />
                                 </div>
@@ -117,7 +117,7 @@ const Admin = () => {
                                     <p className='AdminDashboardIconsImageName'>Students</p>
                                 </div>
                             </div>
-                            <div className="AdminDashboardIcons" onClick={() => navigate("/Admin_Dashboard/admin_teacher_dashboard")}>
+                            <div className="AdminDashboardIcons" onClick={() => navigate("/Dashboard/schoolAdmin/admin_teacher_dashboard")}>
                                 <div className='AdminHomeIcon'>
                                     <FaChalkboardTeacher size={30} className='AdminDashboardIconsImage' />
                                 </div>
@@ -176,7 +176,7 @@ const Admin = () => {
                     </div> */}
 
                     <Routes>
-                        <Route path='/admin_dash_Main' element={<AdminUser />} />
+                        <Route path='/schoolAdminUser/:id' element={<AdminUser />} />
                         <Route path='/admin_teacher_dashboard' element={<AdminTeacherDashboard />} />
                         <Route path='/admin_student_dashboard' element={<AdminStudentDashboard />} />
                     </Routes>

@@ -8,6 +8,14 @@ const About = () => {
     <>
         <div className='AboutUsMainbody'>
     <div className='AboutPageInnerContent'>
+
+
+    <div className=' AboutUsImagediv'>   
+     <img src={image1} alt="" />
+     </div>
+
+
+
       <div className='AboutUsTextdiv'>
         <div className='AboutPageaha1Holder'>
         <h1>We Provide A Complete Solution For Schools. </h1>
@@ -17,9 +25,7 @@ const About = () => {
         </p>
 
     </div>
-    <div className=' AboutUsImagediv'>   
-     <img src={image1} alt="" />
-     </div>
+    
     </div>
     </div>
     </>

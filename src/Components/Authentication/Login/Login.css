@@ -22,7 +22,7 @@
 }
 
 .LoginBody {
-    width: 60%;
+    width: 65%;
     height: 70%;
     /* background-color: rebeccapurple; */
     display: flex;
@@ -32,7 +32,7 @@
 }
 
 .LoginLowerBody {
-    width: 45%;
+    width: 50%;
     height: 80%;
     /* background-color: #E5C726; */
     display: flex;
@@ -62,6 +62,19 @@
     flex-direction: column;
 }
 
+.LoginSelect {
+    width: 90%;
+    outline: none;
+    height: 10%;
+    border: 2px solid rgb(94, 94, 238);
+
+    /* height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; */
+}
+
 .LoginEmailInput {
     height: 70%;
     width: 100%;
@@ -69,6 +82,7 @@
     border: 2px solid rgb(94, 94, 238);
     padding-left: 3%;
     outline: none;
+    border-radius: 10px;
 }
 
 .PasswordInputDivHolder {
