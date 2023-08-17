@@ -203,6 +203,7 @@ const SchRegister = () => {
           </div>
         </div>
         <div className="SchRegLogoInputs">
+          <div className="SchRegLogoInputsBody"></div>
           <div className="leftInput">
             <h1 className="formTitle" >Register your Institute</h1>
             <div className="leftRegister">
@@ -231,7 +232,7 @@ const SchRegister = () => {
                     <AiOutlineFileImage className='instituteNameIcon' />
                   </div>
                   <div className={validMessage.value === "schoolLogo" ? 'instituteLogoInputDivError':'InstituteLogoInputDiv'}>
-                    <input className='InstituteLogoInput' type="file" accept="image*/" onChange={File} />
+                    <input className='InstituteLogoInput' type="file" name='file' accept="image*/" onChange={File} />
                     
                   </div>
                 </div>
@@ -371,7 +372,7 @@ const SchRegister = () => {
               </div>
               {/* <p>{successErrorMessage}</p> */}
               <div className="RegisterSubmitBtnDiv">
-                <button className='RegisterBackBtn' onClick={() => nav("/")}>Back</button>
+                {/* <button className='RegisterBackBtn' onClick={() => nav("/")}>Back</button> */}
                 <button className='RegisterSubmitBtn' onClick={Register}>
                   {loading ? (
                     <SpinnerCircular

@@ -1,17 +1,19 @@
+import './App.css'
 import HomePage from "./Components/HomePage/HomePage"
 import SchRegister from "./Components/Authentication/SchRegistration/SchRegister"
 import Login from "./Components/Authentication/Login/Login"
-import './App.css'
 import { HashRouter, Routes, Route } from "react-router-dom"
 import Verification from "./Components/Authentication/Verification/Verification"
 import Admin from "./Components/Dashboard/Admin"
 import ForgetPassword from "./Components/Authentication/ForgetPassword/ForgetPassword"
 import ResetPassword from "./Components/Authentication/ResetPassword/ResetPassword"
 import TeacherSignUp from "./Components/Authentication/SignUp/TeacherSignup/TeacherSignUp"
-import AdminUser from "./Components/Dashboard/AdminDashboard/AdminUser"
 import TeacherLogin from "./Components/Authentication/Login/TeacherLogin/TeacherLogin"
 import TeacherForget from "./Components/Authentication/ForgetPassword/Teacher/TeacherForget"
-// import AdminTeacherDashboard from "./Components/Dashboard/AdminDashboard/AdminTeacherDashboard"
+import Teacher from "./Components/Dashboard/Teacher/Teacher"
+import Student from "./Components/Dashboard/Student/Student"
+
+
 
 function App() {
 
@@ -24,15 +26,18 @@ function App() {
             <Route path="/sch_register" element={<SchRegister />} />
             <Route path="/login" element={<Login />} />
             <Route path="/verified_success/:schoolId/:token" element={<Verification/>} />
-            <Route path="/Admin_Dashboard/*" element={<Admin/>} />
+            <Route path="/Dashboard/schoolAdmin*" element={<Admin/>} />
             <Route path="/forget_password" element={<ForgetPassword/>} />
             <Route path="/reset_password/:id/:token" element={<ResetPassword/>} />
-            <Route path="/teacher_signup/:id/:token" element={<TeacherSignUp/>} />
+            <Route path="/teacher_signup/:token" element={<TeacherSignUp/>} />
             <Route path="/teacher_login" element={<TeacherLogin/>} />
-            <Route path="/teacher_forgotpassword" element={<TeacherForget/>} />
+            <Route path="/teacher_forgot_password" element={<TeacherForget/>} />
+            <Route path="/Dashboard/teacher*" element={<Teacher/>}/>
+            <Route path="/Dashboard/student*" element={<Student/>} />
 
           </Routes>
         </HashRouter>
+        {/* <TeacherUser/> */}
       </div>
     </>
   )

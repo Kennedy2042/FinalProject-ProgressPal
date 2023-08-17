@@ -1,9 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./ResetPassword.css"
+import axios from 'axios'
+import { useSelector } from 'react-redux'
 
 const ResetPassword = () => {
+  const schoolUsers = useSelector(state => state.persisitedReducer.School)
 
-  const url = "https://progresspal-8rxj.onrender.com/progressPal/reset-password/:id/:token"
+  const[password, setPassword] = useState("")
+  const[confirmPassword, setConfirmPassword] = useState("")
+
+  const url = `https://progresspal-8rxj.onrender.com/progressPal/reset-password/${schoolUsers._id}/:token`
+
+  const data = {password, confirmPassword}
+
+
+  const ResetPassword = () => {
+    axios.put(url, data)
+    .then(res => console.log(res))
+    .catch((err) => {
+      console.log(err)
+    })
+  }
 
 
   return (
@@ -16,12 +33,12 @@ const ResetPassword = () => {
             </section>
             <div className='inputTextCon'>
               <div className='ResetPasswordInputDiv'>
-                <input type="" placeholder='New Password' className='resetPasswordInput' />
-                <input type="" placeholder='Confirm New Password' className='resetPasswordInput' />
+                <input type="" placeholder='New Password' className='resetPasswordInput' value={password} onChange={(e) => setPassword(e.target.value)} />
+                <input type="" placeholder='Confirm New Password' className='resetPasswordInput' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
               </div>
             </div>
             <div className='ResetPasswordButton'>
-              <button className='ResetPasswordButtonSend'>send</button>
+              <button className='ResetPasswordButtonSend' onClick={ResetPassword}>Send</button>
             </div>
           </div>
         </div>

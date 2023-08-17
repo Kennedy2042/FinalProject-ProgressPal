@@ -6,8 +6,8 @@ import { BiSolidHide, BiSolidShow } from 'react-icons/bi'
 import ProgressPalLogo from "../../../../assets/ProgressPalLogo.png"
 import "./TeacherSignUp.css"
 import "./TeacherSignUpMedia.css"
-import { useNavigate } from 'react-router-dom'
-import { schoolTeacherData } from '../../../../Redux/ProductState'
+import { useNavigate, useParams } from 'react-router-dom'
+// import { schoolTeacherData } from '../../../../Redux/ProductState'
 import { useDispatch } from 'react-redux'
 import { SpinnerCircular } from "spinners-react";
 import axios from 'axios'
@@ -16,7 +16,8 @@ import axios from 'axios'
 
 const SignUp = () => {
     const navigate = useNavigate()
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
+    const {token} = useParams()
 
     const [signUpPass, setSignUpPass] = useState(false)
     const [signUpConfirmPass, setSignUpConfirmPass] = useState(false)
@@ -47,7 +48,7 @@ const SignUp = () => {
         console.log(file);
     };
 
-    const url = "https://progresspal-8rxj.onrender.com/progressPal/newTeacher/:schoolId/:token";
+    const url = `https://progresspal-8rxj.onrender.com/progressPal/newTeacher/${token}`;
 
      function teacherRegister(e) {
         e.preventDefault()

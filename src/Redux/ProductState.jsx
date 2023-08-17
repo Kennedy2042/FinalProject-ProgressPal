@@ -3,6 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     School: [],
     schoolTeacher: [],
+    loginUser: [],
+    logOut: ""
 }
 
 
@@ -16,14 +18,23 @@ const productState = createSlice({
         console.log("first", payload)
       },
       
-      schoolTeacherData: (state, {payload}) => {
-        state.schoolTeacher = payload
+      // schoolTeacherData: (state, {payload}) => {
+      //   state.schoolTeacher = payload
+      //   console.log("first", payload)
+      // },
+
+      loginUserData: (state, {payload}) => {
+        state.loginUser = payload
         console.log("first", payload)
-      }
+      },
+      studentSignUpData: (state, {payload}) => {
+        state.studentSignData = payload
+        console.log("first", payload)
+      },
     }
 })
 
-export const {schoolUserData, schoolTeacherData} = productState.actions;
+export const {schoolUserData, schoolTeacherData, loginUserData, studentSignUpData} = productState.actions;
 export default productState.reducer
 
 
