@@ -32,13 +32,60 @@ const TeacherResult = () => {
                                     </div>
 
                                 </div>
+                                <div className="TeacherDashboardHeroLowerIcons">
+                                    <div className="TeacherDashboardHeroLowerIconsBody">
+                                        <div className='TotalNumberIcon'>
+                                            <PiStudentDuotone size={50} />
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div className="TeacherDashboardHeroLowerIcons">
+                                    <div className="TeacherDashboardHeroLowerIconsBody">
+                                        <div className='TotalNumberIcon'>
+                                            <PiStudentDuotone size={50} />
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div className="TeacherDashboardHeroLowerTotal">
+                                <div className="TeacherDashboardHeroLowerIcons">
+                                    <div className="TeacherDashboardHeroLowerIconsBody">
+                                        <div className='TotalNumberIcon'>
+                                            <PiStudentDuotone size={50} />
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div className="TeacherDashboardHeroLowerIcons">
+                                    <div className="TeacherDashboardHeroLowerIconsBody">
+                                        <div className='TotalNumberIcon'>
+                                            <PiStudentDuotone size={50} />
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div className="TeacherDashboardHeroLowerIcons">
+                                    <div className="TeacherDashboardHeroLowerIconsBody">
+                                        <div className='TotalNumberIcon'>
+                                            <PiStudentDuotone size={50} />
+                                        </div>
+
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className='GradeHolder'>
                     <div className='GradeHolderHeader'>
-                        <div className='GradeHolderHeaderStudentname'>
+                        {/* <div className='GradeHolderHeaderStudentname'>
                             <p>Student name</p>
                         </div>
                         <div className='GradeHolderHeaderRemark'>
@@ -58,7 +105,14 @@ const TeacherResult = () => {
                         </div>
                         <div className='GradeHolderHeaderDetals'>
                             <p> Details</p>
-                        </div>
+                        </div> */}
+                        <ul>
+                            <li>Student Name</li>
+                            <li>Passed/Failed</li>
+                            <li>Score</li>
+                            <li>Grade</li>
+                            {/* <li>Details</li> */}
+                        </ul>
                     </div>
                     <div className='GradeHolderHeaderResultHolder'>
                         <div className='StudentsGradeHolder'>
@@ -77,7 +131,7 @@ const TeacherResult = () => {
                             <div className='StudentsGradeHolderstudentsGrade'>
                                   <p> Excellent  </p>
                             </div>
-                            <div className='StudentsGradeHolderstudentsTimeSpent' >
+                            {/* <div className='StudentsGradeHolderstudentsTimeSpent' >
                                  <p>22MINS  </p>
                             </div>
                             <div className='StudentsGradeHolderstudentsSubmit'>
@@ -85,7 +139,7 @@ const TeacherResult = () => {
                             </div>
                             <div className='StudentsGradeHolderstudentsDetals'>
                                 <p>See Details</p>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>
@@ -97,3 +151,7 @@ const TeacherResult = () => {
 }
 
 export default TeacherResult
+
+
+
+

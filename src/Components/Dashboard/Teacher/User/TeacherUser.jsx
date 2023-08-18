@@ -9,7 +9,7 @@ import { VictoryPie, VictoryTheme } from 'victory'
 const TeacherUser = () => {
 
     const schoolUsers = useSelector(state => state.persisitedReducer.School)
-    console.log(schoolUsers)
+    // console.log(schoolUsers)
 
 
   return (

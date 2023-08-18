@@ -11,13 +11,33 @@ import { RxHamburgerMenu } from 'react-icons/rx'
 import { Route, Routes, useNavigate } from 'react-router-dom'
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
+import axios from 'axios'
 
 
 const Student = () => {
 
     const navigate = useNavigate()
-    const schoolUsers = useSelector(state => state.persisitedReducer.School)
+    const studentData = useSelector(state => state.persisitedReducer.loginUser)
     const [menu, setMenu] = useState(false)
+    const BearerToken = studentData.data.token
+    console.log(BearerToken)
+
+    const url = `https://progresspal-8rxj.onrender.com/progressPal/logoutStudent/${studentData.data.data._id}`;  
+    async function StudentLogout (){
+        console.log("inside the function")
+        axios.post(url, {
+            Authorization : `Bearer ${BearerToken}`
+        })
+        .then((res)=>{
+            console.log(res)
+            navigate("/")
+        })
+        .catch ((err)=>{
+            console.log(err)
+        })
+    }
+
+
 
   return (
     <>
@@ -73,7 +93,7 @@ const Student = () => {
                                             <p className='AdminDashboardIconsImageName'>Events</p>
                                         </div>
                                     </div>
-                                    <div className="AdminDashboardIcons">
+                                    <div className="AdminDashboardIcons"onClick={StudentLogout}>
                                         <div className='AdminHomeIcon'>
                                             <BiLogOut size={30} className='AdminDashboardIconsImage' />
                                         </div>
@@ -127,7 +147,7 @@ const Student = () => {
                                     <p className='AdminDashboardIconsImageName'>Events</p>
                                 </div>
                             </div>
-                            <div className="AdminDashboardIcons">
+                            <div className="AdminDashboardIcons" onClick={StudentLogout}>
                                 <div className='AdminHomeIcon'>
                                     <BiLogOut size={30} className='AdminDashboardIconsImage' />
                                 </div>

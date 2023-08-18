@@ -14,17 +14,33 @@ import AdminTeacherDashboard from './AdminDashboard/AdminTeacher/AdminTeacherDas
 import AdminStudentDashboard from './AdminDashboard/AdminStudent/AdminStudentDashboard'
 import { useSelector } from 'react-redux'
 import AdminUser from './AdminDashboard/User/AdminUser'
+import axios from 'axios'
 
 
 
 const Admin = () => {
     const navigate = useNavigate()
     const schoolUsers = useSelector(state => state.persisitedReducer.School)
+    const BearerToken = schoolUsers.token
     const [menu, setMenu] = useState(false)
 
+    const url = `https://progresspal-8rxj.onrender.com/progressPal/logout/${schoolUsers._id}`
+    async function AdminLogout() {
+        axios.post(url, {
+            Authorization: `Bearer ${BearerToken}`
 
+        })
+            .then((res) => {
+                console.log(res)
+                navigate("/")
+            })
+            .catch((err) => {
+                console.log(err)
+            })
 
+    }
 
+    console.log(schoolUsers)
 
     return (
         <>
@@ -34,9 +50,9 @@ const Admin = () => {
                         <div className="AdminDashboardMobileHeaderCon">
                             <img src={ProgressPalLogo} alt="" />
                             {
-                                menu ? <AiOutlineCloseCircle style={{cursor:"pointer" , fill: "red"}} size={25} onClick={() => {
+                                menu ? <AiOutlineCloseCircle style={{ cursor: "pointer", fill: "red" }} size={25} onClick={() => {
                                     setMenu(false)
-                                }} /> : <RxHamburgerMenu style={{cursor:"pointer"}} size={25} onClick={() => {
+                                }} /> : <RxHamburgerMenu style={{ cursor: "pointer" }} size={25} onClick={() => {
                                     setMenu(true)
                                 }} />
                             }
@@ -79,7 +95,7 @@ const Admin = () => {
                                             <p className='AdminDashboardIconsImageName'>Events</p>
                                         </div>
                                     </div>
-                                    <div className="AdminDashboardIcons">
+                                    <div className="AdminDashboardIcons" onClick={AdminLogout}>
                                         <div className='AdminHomeIcon'>
                                             <BiLogOut size={30} className='AdminDashboardIconsImage' />
                                         </div>
@@ -133,7 +149,7 @@ const Admin = () => {
                                     <p className='AdminDashboardIconsImageName'>Events</p>
                                 </div>
                             </div>
-                            <div className="AdminDashboardIcons">
+                            <div className="AdminDashboardIcons" onClick={AdminLogout}>
                                 <div className='AdminHomeIcon'>
                                     <BiLogOut size={30} className='AdminDashboardIconsImage' />
                                 </div>
