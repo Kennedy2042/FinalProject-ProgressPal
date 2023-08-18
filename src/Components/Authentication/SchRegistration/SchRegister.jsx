@@ -38,12 +38,12 @@ const SchRegister = () => {
   const [confirmPassword, setConfirmPassword] = useState("")
   // const [website, setWebsite] = useState("")
   const [successErrorMessage, setSuccessErrorMessage] = useState('')
-  const [loading, setLoading] = useState(false);
   const [validMessage, setValidMessage] = useState({
     error: "false",
     value: "",
     msg: "",
   });
+  const [loading, setLoading] = useState(false)
 
 
 
@@ -198,7 +198,9 @@ const SchRegister = () => {
     <>
       <div className="schRegContainer">
         <div className="SchRegLogo">
-          <div className="SchRegLogoContainer">
+          <div className="SchRegLogoContainer" onClick={()=>{
+            nav("/")
+          }}>
             <img src={ProgressPalLogo} alt="" />
           </div>
         </div>
