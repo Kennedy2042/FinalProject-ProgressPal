@@ -13,26 +13,26 @@ import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 // import AdminUser from './AdminDashboard/User/AdminUser'
 import AdminTeacherDashboard from '../AdminDashboard/AdminTeacher/AdminTeacherDashboard'
-import AdminStudentDashboard from '../AdminDashboard/AdminStudent/AdminStudentDashboard'
+// import AdminStudentDashboard from '../AdminDashboard/AdminStudent/AdminStudentDashboard'
 import TeacherUser from './User/TeacherUser'
 import {GrScorecard} from 'react-icons/gr'
 import TeacherResult from './TeacherResult/TeacherResult'
 import axios from 'axios'
+import TeacherStudent from './Student/TeacherStudent'
 
 const Teacher = () => {
 
     const navigate = useNavigate()
     const teacherData = useSelector (state => state.persisitedReducer.loginUser)
     const BearerToken = teacherData.data.token
-    console.log(BearerToken)
+    // console.log(BearerToken)
 
     const [menu, setMenu] = useState(false)
 
 
     const url = `https://progresspal-8rxj.onrender.com/progressPal/logoutTeacher/${teacherData.data.data._id}`;  
-    // const url = "https://progresspal-8rxj.onrender.com/progressPal/logoutTeacher/"; 
     async function TeacherLogout () {
-        console.log("dstrstrdd")
+        // console.log("dstrstrdd")
         axios.post (url, {
                 Authorization : `Bearer ${BearerToken}`
     
@@ -168,8 +168,8 @@ const Teacher = () => {
                 <div className='DashBoardRightBody'> 
                     <Routes>
                         <Route path='/teacherUser/:id' element={<TeacherUser />} />
-                        <Route path='/admin_teacher_dashboard' element={<AdminTeacherDashboard />} />
-                        <Route path='/teacher_student_dashboard' element={<AdminStudentDashboard />} />
+                        {/* <Route path='/admin_teacher_dashboard' element={<AdminTeacherDashboard />} /> */}
+                        <Route path='/teacher_student_dashboard' element={<TeacherStudent />} />
                         <Route path='/Teacher_resultSheet' element={<TeacherResult/>}/>
                     </Routes>
                 </div>

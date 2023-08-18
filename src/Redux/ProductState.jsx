@@ -4,7 +4,8 @@ const initialState = {
     School: [],
     schoolTeacher: [],
     loginUser: [],
-    logOut: ""
+    logOut: "",
+    studentApi: [],
 }
 
 
@@ -27,14 +28,20 @@ const productState = createSlice({
         state.loginUser = payload
         console.log("first", payload)
       },
+      
       studentSignUpData: (state, {payload}) => {
         state.studentSignData = payload
         console.log("first", payload)
       },
+
+      allStudentApi: (state, {payload}) => {
+        state.studentApi = payload
+        console.log("first", payload)
+      }
     }
 })
 
-export const {schoolUserData, schoolTeacherData, loginUserData, studentSignUpData} = productState.actions;
+export const {schoolUserData, schoolTeacherData, loginUserData, studentSignUpData, allStudentApi} = productState.actions;
 export default productState.reducer
 
 

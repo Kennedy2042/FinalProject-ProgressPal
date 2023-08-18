@@ -1,7 +1,7 @@
 .TeacherResultContainer {
     width: 100%;
     height: 100vh;
-    /* background: rgb(0, 75, 128); */
+    background: rgb(0, 75, 128);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,7 +35,7 @@
 .TeacherHeaderBody{
     width: 95%;
     height: 85%;
-    /* background: pink; */
+    background: pink;
     display: flex;
     align-items: center;
 }
@@ -62,7 +62,7 @@
 .TeacherDashboardHeroUpperContainer{
     width: 95%;
     height: 37%;
-    /* background: purple; */
+    background: purple;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -78,6 +78,10 @@
     width: 100%;
     height: 50%;
     background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
 }
 
 .TeacherDashboardHeroLowerIcons{
@@ -92,7 +96,7 @@
 .TeacherDashboardHeroLowerIconsBody{
     width: 90%;
     height: 95%;
-    /* background: cornflowerblue; */
+    background: cornflowerblue;
 }
 
 .TotalNumberIcon{
@@ -108,14 +112,25 @@
 .GradeHolder{
     width: 95%;
     height: 40%;
-    /* background-color: brown; */
+    background-color: brown;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
 }
+
 .GradeHolderHeader{
     width: 100%;
+    height: 17%;
+    background-color: bisque;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    
+}
+
+.GradeHolderHeader ul{
+    width: 90%;
     height: 17%;
     background-color: bisque;
     display: flex;
@@ -123,26 +138,36 @@
     align-items: center;
     
 }
+
+.GradeHolderHeader ul li{
+list-style: none;
+    
+}
+
+
+
 .GradeHolderHeaderStudentname{
     width: 13%;
     height: 90%;
-    /* background-color: rgb(0, 0, 0); */
+    background-color: rgb(0, 0, 0);
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .GradeHolderHeaderRemark{
     width: 13%;
     height: 90%;
-    /* background-color: rgb(0, 0, 0); */
+    background-color: rgb(0, 0, 0);
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .GradeHolderHeaderScore{
     width: 13%;
     height: 90%;
-    /* background-color: rgb(0, 0, 0); */
+    background-color: rgb(0, 0, 0);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -150,7 +175,7 @@
 .GradeHolderHeaderGrade{
     width: 13%;
     height: 90%;
-    /* background-color: rgb(0, 0, 0); */
+    background-color: rgb(0, 0, 0);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -158,7 +183,7 @@
 .GradeHolderHeaderTimeSpent{
     width: 13%;
     height: 90%;
-    /* background-color: rgb(0, 0, 0); */
+    background-color: rgb(0, 0, 0);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -166,7 +191,7 @@
 .GradeHolderHeaderSubmit{
     width: 13%;
     height: 90%;
-    /* background-color: rgb(0, 0, 0); */
+    background-color: rgb(0, 0, 0);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -174,7 +199,7 @@
 .GradeHolderHeaderDetals{
     width: 13%;
     height: 90%;
-    /* background-color: rgb(0, 0, 0); */
+    background-color: rgb(0, 0, 0);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -196,13 +221,14 @@
 } 
 
 .StudentsGradeHolderStudentsName{
-    width: 17%;
+    width: 40%;
     height:90%;
-    /* background-color: chocolate; */
+    background-color: chocolate;
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
+
 .StudentsGradeHolderStudentsNameCircle{
     width: 40px;
     height: 40px;
@@ -212,10 +238,11 @@
     background: none;
 
 }
+
 .StudentsGradeHolderStudentsRemark{
-    width: 13%;
+    width: 19%;
     height:90%;
-    /* background-color: cadetblue; */
+    background-color: cadetblue;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -234,17 +261,17 @@
 color: green;
 }
 .StudentsGradeHolderstudentsScore{
-    width: 13%;
+    width: 19%;
     height:90%;
-    /* background-color: cadetblue;  */
+    background-color: cadetblue; 
     display: flex;
     align-items: center;
     justify-content: space-around; 
 }
 .StudentsGradeHolderstudentsGrade{
-    width: 13%;
+    width: 19%;
     height:90%;
-    /* background-color: cadetblue;   */
+    background-color: cadetblue;  
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -252,7 +279,7 @@ color: green;
 .StudentsGradeHolderstudentsTimeSpent{
     width: 13%;
     height:90%;
-    /* background-color: cadetblue;   */
+    background-color: cadetblue;  
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -260,7 +287,7 @@ color: green;
 .StudentsGradeHolderstudentsSubmit{
     width: 13%;
     height:90%;
-    /* background-color: cadetblue; */
+    background-color: cadetblue;
     display: flex;
     align-items: center;
     justify-content: space-around;  
@@ -268,8 +295,11 @@ color: green;
 .StudentsGradeHolderstudentsDetals{
     width: 13%;
     height:90%;
-    /* background-color: cadetblue;  */
+    background-color: cadetblue; 
     display: flex;
     align-items: center;
     justify-content: space-around; 
 }
+
+
+  

@@ -13,7 +13,7 @@ import { loginUserData } from '../../../Redux/ProductState'
 const Login = () => {
 
     const teacherData = useSelector(state => state.persisitedReducer.loginUser)
-    console.log(teacherData)
+    // console.log(teacherData)
 
     const [schoolEmail, setSchoolEmail] = useState("")
     const [teacherEmail, setTeacherEmail] = useState("")
@@ -24,11 +24,11 @@ const Login = () => {
     const [loginShowpass, setLoginShowPass] = useState(false)
     const [select, setSelect] = useState()
     const dispatch = useDispatch()
-    // console.log(select)
+    
 
 
     const url = `https://progresspal-8rxj.onrender.com/progressPal/login/${select}`
-    // console.log(loginUserDatas)
+    // console.log(select, "this is select")
     const data = { schoolEmail, password }
     const info = { teacherEmail, password }
     const detail = { studentEmail, password }
@@ -49,7 +49,7 @@ const Login = () => {
             .post(url, select === 'schoolAdmin' ? data : select === 'teacher' ? info : detail )
 
             .then((res) => {
-                console.log(res)
+                // console.log(res)
                 setSuccessErrorMessage(res.data.message)
                 navigate(`/Dashboard/${select}/${select}User/${res.data.data._id}`)
                 dispatch(loginUserData(res))
@@ -59,14 +59,12 @@ const Login = () => {
                 setSuccessErrorMessage(err?.response?.data?.message);
             });
 
-        console.log(data)
-        console.log(navigate)
 
 
     }
 
     useEffect(() => {
-        setSelect("schoolAdmin")
+        setSelect("0")
     }, [])
     
 
@@ -88,7 +86,15 @@ const Login = () => {
                     <div className='LoginWelTextDiv'>
                         <h1 className='LoginWelText'>Welcome To ProgressPal</h1>
                     </div>
-                    <div className="EmailInputDiv">
+                    <select className="LoginSelect" value={select} onChange={(e) => setSelect(e.target.value)}>
+                        <option value="0">Log In as </option>
+                        <option value="schoolAdmin">School Admin</option>
+                        <option value="teacher">Teacher</option>
+                        <option value="student">Student</option>
+                    </select>
+                    {
+                        select !== "0"  && select !== undefined &&
+                        <div className="EmailInputDiv">
                         {
                             select === "schoolAdmin" && <input type="email" className={`${emailError.length > 0 ? "error" : ""} LoginEmailInput`} placeholder='Email' value={schoolEmail} onChange={(e) => setSchoolEmail(e.target.value)} />
                         }
@@ -100,6 +106,7 @@ const Login = () => {
                         }
                         <p className='ErrorloginMsg'>{emailError}</p>
                     </div>
+                    }
                     <div className="PasswordInputDivHolder">
                         <div className="PasswordInputDiv">
                             <input type={loginShowpass ? "text" : "password"} className='LoginPassInput' placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
@@ -110,13 +117,8 @@ const Login = () => {
                             </div>
                         </div>
                     </div>
-                    {console.log(select, "This is select")}
-                    <select className="LoginSelect" value={select} onChange={(e) => setSelect(e.target.value)}>
-                        {/* <option value="0">Log In as </option> */}
-                        <option value="schoolAdmin">School Admin</option>
-                        <option value="teacher">Teacher</option>
-                        <option value="student">Student</option>
-                    </select>
+                    {/* {console.log(select, "This is select")} */}
+                    
                     
                     <p className='ErrorloginMsg'>{successErrorMessage}</p>
 

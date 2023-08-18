@@ -1,0 +1,82 @@
+.ResultBody {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: grey; */
+  }
+  
+  .ResultBodyWrapper {
+    width: 80%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    align-items: center;
+  }
+  
+  .ResultsHolder {
+    width: 95%;
+    height: 93%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* overflow-y: scroll; */
+    /* background-color: green; */
+  }
+  
+  .ResultHeader {
+    width: 100%;
+    height: 7%;
+    /* background-color: yellow; */
+  }
+  
+  .ResultHeader ul {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    list-style-type: none;
+    justify-content: space-around;
+    align-items: flex-end;
+    /* background-color: red; */
+  }
+  
+  .ResultHeader ul li {
+    font-size: 17px;
+    font-weight: 500;
+  }
+  
+  .SubjectScore {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* background-color: red; */
+  }
+  
+  .SubjectScore input {
+    width: 20%;
+    height: 85%;
+    /* background-color: green; */
+  }
+
+  .TeacherCreateRsltBtnDiv{
+    width: 100%;
+    height: 20%;
+    /* background: #000; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .TeacherCreateRsltBtn{
+    width: 20%;
+    height: 40%;
+    background: green;
+    border: none;
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
+  }
