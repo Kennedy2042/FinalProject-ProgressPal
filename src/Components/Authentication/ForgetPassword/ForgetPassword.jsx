@@ -1,11 +1,13 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import "./ForgetPassword.css"
+import "./ForgetPasswordMedia.css"
 import {PiWarningCircleBold} from "react-icons/pi"
 import {MdOutlineArrowBackIos} from "react-icons/md"
 import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import {SpinnerCircular} from "spinners-react"
+import ProgressPalLogo from "../../../assets/ProgressPalLogo.png"
 
 const ForgetPassword = () => {
     const [schoolEmail, setSchoolEmail] = useState("")
@@ -56,15 +58,16 @@ const ForgetPassword = () => {
 
         <div className="ForgetPasswordBody" >
             <div className="ForgetPasswordMainBody">
-                <PiWarningCircleBold size={70}/>
-                <h1 className='ForgetPasswordH1'>Forget Password</h1>
+                <img src={ProgressPalLogo} alt="" />
+                {/* <PiWarningCircleBold size={70}/> */}
+                <h1 className='ForgetPasswordH1'>Forgotten Password</h1>
                 <p className='ForgetPasswordP'>Enter your email and we'll send you a link to reset your password</p>
                 <input className="ForgetPasswordInput" type="email" placeholder='Enter your Email'value={schoolEmail} onChange={(e)=>setSchoolEmail(e.target.value)}/>
                 <button className='ForgetPasswordSubmitBtn' onClick={Forget}>
                     {
                         loading ? (
                             <SpinnerCircular
-                              size={35}
+                              size={25}
                               thickness={99}
                               speed={100}
                               color="rgba(18, 124, 221, 1)"

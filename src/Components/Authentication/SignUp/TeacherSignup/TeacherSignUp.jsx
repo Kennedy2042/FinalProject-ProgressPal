@@ -11,6 +11,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { SpinnerCircular } from "spinners-react";
 import axios from 'axios'
+import Swal from 'sweetalert2'
 
 
 
@@ -72,14 +73,26 @@ const SignUp = () => {
                 console.log(res);
                 dispatch(schoolTeacherData(res.data))
                 setSuccessErrorMessage(res.data.message);
-                navigate("/Dashboard/teacher/teacherUser/:id")
+                navigate("/login")
                 setLoading(false);
+                Swal.fire({
+                    title: "Success!",
+                    text: res.data.message,
+                    icon: "success",
+                    confirmButtonText: "Ok"
+                  })
 
             })
             .catch((err) => {
                 console.log(err);
                 setSuccessErrorMessage(err?.response?.message ? err?.response?.message : err?.response?.data?.message);
                 setLoading(false);
+                Swal.fire({
+                    title: "Error!",
+                    text: err.response.data.message,
+                    icon: "error",
+                    confirmButtonText: "Ok"
+                  })
             });
     }
     // }
@@ -181,7 +194,11 @@ const SignUp = () => {
                     {/* <p style={{ width: "95%" }}>Already have an Account? <span className='LoginSpan' onClick={() => navigate("/teacher_login")}>Log In</span></p> */}
                     <div className="signUpPasswordHolder">
                         <button className='signUpSubmitBtn' onClick={teacherRegister}>{
-                            loading ? < SpinnerCircular /> : "Submit"
+                            loading ? < SpinnerCircular 
+                            size={35}
+                                thickness={99}
+                                speed={100}
+                                color="rgba(18, 124, 221, 1)"/> : "Submit"
                         }</button>
                     </div>
                 </div>
