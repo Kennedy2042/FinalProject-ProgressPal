@@ -1,57 +1,82 @@
-import React, {useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import { AiOutlineSearch } from 'react-icons/ai'
-import AboutUsImage from "../../../../assets/AboutUsImage.png"
 import "./AdminStudentDashboard.css"
 import "./AdminStudentDashboardMedia.css"
-import {AiOutlineCloseCircle} from "react-icons/ai"
+import { AiOutlineCloseCircle } from "react-icons/ai"
 import axios from 'axios'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { adminAllStudentApi } from '../../../../Redux/ProductState'
+import { useNavigate } from 'react-router-dom'
+import StudentProfile from './StudentProfile/StudentProfile'
 
 
 const AdminStudentDashboard = () => {
-    const teacherData = useSelector (state => state.persisitedReducer.loginUser)
+    const teacherData = useSelector(state => state.persisitedReducer.loginUser)
+    const studentData = useSelector(state => state.persisitedReducer.AdminStudentApi)
     const BearerToken = teacherData.data.token
-    console.log(BearerToken)
-    const [addStudents, setAddStudents] = useState (false)
+    const [addStudents, setAddStudents] = useState(false)
     const [studentName, setStudentName] = useState("")
     const [studentClass, setStudentClass] = useState("")
     const [studentAge, setStudentAge] = useState("")
     const [studentEmail, setStudentEmail] = useState("")
     const [password, setPassword] = useState("")
     const [studentPassport, setStudentPassport] = useState("")
+    const [viewprofile, setViewProfile] = useState(false)
+    const [viewprofileId, setViewProfileId] = useState("")
 
     const File = (e) => {
         const file = e.target.files[0];
         setStudentPassport(file);
         console.log(file);
-      };
+    };
 
-      const url = `https://progresspal-8rxj.onrender.com/progressPal/newStudent/${teacherData.data.data._id}`;
+    const url = `https://progresspal-8rxj.onrender.com/progressPal/newStudent/${teacherData.data.data._id}`;
 
-  async function Register (e) {
-    e.preventDefault()
+    async function Register(e) {
+        e.preventDefault()
 
-    const data = new FormData()
-    data.append ("studentName", studentName) 
-    data.append ("studentClass", studentClass)
-    data.append ("studentAge", studentAge)
-    data.append ("studentEmail", studentEmail)
-    data.append ("password", password)
-    data.append("studentPassport", studentPassport)
-    axios.post(url, data,{
-        headers: {
-            "Content-type": "multipart/form-data",
-            Authorization : `Bearer ${BearerToken}`
+        const data = new FormData()
+        data.append("studentName", studentName)
+        data.append("studentClass", studentClass)
+        data.append("studentAge", studentAge)
+        data.append("studentEmail", studentEmail)
+        data.append("password", password)
+        data.append("studentPassport", studentPassport)
+        axios.post(url, data, {
+            headers: {
+                "Content-type": "multipart/form-data",
+                Authorization: `Bearer ${BearerToken}`
 
-        }
-    })
-    .then ((res)=>{
-        console.log(res)
-    })
-    .catch ((err)=>{
-        console.log(err)
-    })
-  }
+            }
+        })
+            .then((res) => {
+                console.log(res)
+            })
+            // .catch((err) => {
+            //     console.log(err)
+            // })
+    }
+
+
+    const dispatch = useDispatch()
+    const adminStudent = "https://progresspal-8rxj.onrender.com/progressPal/readAllStudent";
+    async function GetAllStudent() {
+        axios.get(adminStudent)
+            .then((res) => {
+                console.log(res)
+                dispatch(adminAllStudentApi(res.data.data))
+
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }
+
+    useEffect(() => {
+        GetAllStudent()
+    }, [])
+
+    console.log(studentData)
 
 
 
@@ -70,49 +95,65 @@ const AdminStudentDashboard = () => {
                     </div>
                 </div>
                 <div className='AdminDashboardAddTeacherBtnDiv'>
-                    <button className='AdminDashboardAddTeacherBtn' onClick={()=>{
+                    <button className='AdminDashboardAddTeacherBtn' onClick={() => {
                         setAddStudents(true)
                     }}>Add Student</button>
                 </div>
             </div>
             <div className='AdminDashboardTeachersCard'>
-                <div className='AdminDashboardTeachersCardBody'>
-                    <div className='AdminDashboardTeachersImageDiv'>
-                        <img src={AboutUsImage} alt="" />
-                    </div>
-                    <div className='AdminDashboardTeachersDetail'>
-                        <div className='AdminDashboardTeachersDetailH3'>
-                            Name: <h3></h3>
+                {
+                    studentData.map((props) => (
+                        <div className='AdminDashboardTeachersCardBody' key={props?._id}>
+                            <div className='AdminDashboardTeachersImageDiv'>
+                                <img src={props.studentPassport} alt="" />
+                            </div>
+                            <div className='AdminDashboardTeachersDetail'>
+                                <div className='AdminDashboardTeachersDetailH3'>
+                                    Name: <h3>{props.studentName}</h3>
+                                </div>
+                                <div className='AdminDashboardTeachersDetailH3'>
+                                    Email: <h5>{props.studentEmail}</h5>
+                                </div>
+                                <h4></h4>
+                                <button className='AdminDashboardViewTeachProfile'
+                                onClick={
+                                    ()=>{
+                                    setViewProfile(true)
+                                    setViewProfileId(props._id)
+                                }
+                                }>View Profile</button>
+                            </div>
                         </div>
-                        <div className='AdminDashboardTeachersDetailH3'>
-                            Email: <h5></h5>
-                        </div>
-                        <h4></h4>
-                        <button className='AdminDashboardViewTeachProfile'>View Profile</button>
-                    </div>
-                </div>
+                    ))
+                }
+
+                
             </div>
+            
             {
                 addStudents ? <div className="AddStudentPop">
-                    <AiOutlineCloseCircle size={50} style={{fill: "red" , cursor: "pointer"}} onClick={()=>{
+                    <AiOutlineCloseCircle size={50} style={{ fill: "red", cursor: "pointer" }} onClick={() => {
                         setAddStudents(false)
-                    }}/>
-                <div className="AddStudentPopDiv">
-                    
-                    {/* <div className="StudentEmailInput"> */}
-                    <h3>STUDENT INFO</h3>
-                        <input type="text" placeholder='Student Name' className='StudentEmail' value={studentName} onChange={(e)=>setStudentName(e.target.value)}/>
-                        <input type="text" placeholder='Student Class' className='StudentEmail' value={studentClass} onChange={(e)=>setStudentClass(e.target.value)}/>
-                        <input type="text" placeholder='Student Age' className='StudentEmail' value={studentAge} onChange={(e)=>setStudentAge(e.target.value)}/>
-                        <input type="email" placeholder='Student Email' className='StudentEmail' value={studentEmail} onChange={(e)=>setStudentEmail(e.target.value)}/>
-                        <input type="text" placeholder='Student Pin' className='StudentEmail' value={password} onChange={(e)=>setPassword(e.target.value)}/>
+                    }} />
+                    <div className="AddStudentPopDiv">
 
-                        <input type="file" placeholder='Student Passport' className='StudentEmail' onChange={File}/>
+                        {/* <div className="StudentEmailInput"> */}
+                        <h3>STUDENT INFO</h3>
+                        <input type="text" placeholder='Student Name' className='StudentEmail' value={studentName} onChange={(e) => setStudentName(e.target.value)} />
+                        <input type="text" placeholder='Student Class' className='StudentEmail' value={studentClass} onChange={(e) => setStudentClass(e.target.value)} />
+                        <input type="text" placeholder='Student Age' className='StudentEmail' value={studentAge} onChange={(e) => setStudentAge(e.target.value)} />
+                        <input type="email" placeholder='Student Email' className='StudentEmail' value={studentEmail} onChange={(e) => setStudentEmail(e.target.value)} />
+                        <input type="text" placeholder='Student Pin' className='StudentEmail' value={password} onChange={(e) => setPassword(e.target.value)} />
+
+                        <input type="file" placeholder='Student Passport' className='StudentEmail' onChange={File} />
                         <button className='AddStudentButton' onClick={Register}>Send</button>
-                    {/* </div> */}
-                </div>
-            </div> : null
+                        {/* </div> */}
+                    </div>
+                </div> : null
             }
+            {
+                    viewprofile ? <StudentProfile viewprofileId={viewprofileId}/> : null
+                }
         </>
     )
 }

@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import "./AdminTeacherDashboard.css"
 import "./AdminTeacherDashboardMedia.css"
 import { AiOutlineSearch, AiOutlineCloseCircle } from 'react-icons/ai'
 import AboutUsImage from "../../../../assets/AboutUsImage.png"
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { adminAllTeacherApi } from '../../../../Redux/ProductState'
+import TeacherProfile from './TeacherProfile/TeacherProfile'
 
 
 
@@ -13,13 +15,17 @@ import { useSelector } from 'react-redux'
 
 const AdminTeacherDashboard = () => {
     const schoolUsers = useSelector(state => state.persisitedReducer.School)
+    const allTeacher = useSelector(state => state.persisitedReducer.adminTeachApi)
     const [addTeacher, setAddTeacher] = useState(false)
     const [teacherEmail, setTeacherEmail] = useState("")
+    const [viewTeacherProfile, setViewTeacherProfile] = useState(false)
+    // console.log(allTeacher)
 
     const BearerToken = schoolUsers.token
-    console.log(BearerToken)
+    // console.log(BearerToken)
 
     const data ={teacherEmail}
+    const dispatch = useDispatch()
 
     const teacherEmailData = new FormData()
     teacherEmailData.append("teacherEmail", teacherEmail)
@@ -50,6 +56,25 @@ const AdminTeacherDashboard = () => {
         console.log(schoolUsers)
     }
 
+
+    const teacherUrl = "https://progresspal-8rxj.onrender.com/progressPal/readAllTeachers"
+
+    async function GetAllTeacher(){
+        axios.get(teacherUrl)
+        .then((res)=>{
+            console.log(res.data.data)
+            dispatch(adminAllTeacherApi(res.data.data))
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+    }
+
+    useEffect(() => {
+      GetAllTeacher()
+    }, [])
+    
+
     return (
         <>
         
@@ -68,35 +93,29 @@ const AdminTeacherDashboard = () => {
                 </div>
             </div>
             <div className='AdminDashboardTeachersCard'>
-                <div className='AdminDashboardTeachersCardBody'>
+                {
+                    allTeacher.map((props)=>(
+                        <div className='AdminDashboardTeachersCardBody' key={props?._id}>
                     <div className='AdminDashboardTeachersImageDiv'>
                         <img src={AboutUsImage} alt="" />
                     </div>
                     <div className='AdminDashboardTeachersDetail'>
                         <div className='AdminDashboardTeachersDetailH3'>
-                            Name: <h3 className='DashboardSchoolName'>{schoolUsers.schoolName}</h3>
+                            Name: <h3 className='DashboardSchoolName'>{props.teacherName}</h3>
                         </div>
                         <div className='AdminDashboardTeachersDetailH3'>
-                            Email: <h5>{schoolUsers.schoolEmail}</h5>
+                            Email: <h5>{props.teacherEmail}</h5>
                         </div>
-                        <button className='AdminDashboardViewTeachProfile'>View Profile</button>
+                        <button className='AdminDashboardViewTeachProfile' onClick={
+                            ()=>{
+                                setViewTeacherProfile(true)
+                            }
+                        }>View Profile</button>
                     </div>
                 </div>
-                <div className='AdminDashboardTeachersCardBody'>
-                    <div className='AdminDashboardTeachersImageDiv'>
-                        <img src={AboutUsImage} alt="" />
-                    </div>
-                    <div className='AdminDashboardTeachersDetail'>
-                        <div className='AdminDashboardTeachersDetailH3'>
-                            Name: <h3 className='DashboardSchoolName'>{schoolUsers.schoolName}</h3>
-                        </div>
-                        <div className='AdminDashboardTeachersDetailH3'>
-                            Email: <h5>{schoolUsers.schoolEmail}</h5>
-                        </div>
-                        <button className='AdminDashboardViewTeachProfile'>View Profile</button>
-                    </div>
-                </div>
-                
+                    ))
+                }
+                              
             </div>
             {
                 addTeacher ? <div className='AddTeacherPop'>
@@ -106,6 +125,10 @@ const AdminTeacherDashboard = () => {
                         <button className='AddTeacherSendBtn' onClick={CreateTeacher}>Send</button>
                     </div>
                 </div> : null
+            }
+
+            {
+                viewTeacherProfile ? <TeacherProfile/> : null
             }
         </>
     )

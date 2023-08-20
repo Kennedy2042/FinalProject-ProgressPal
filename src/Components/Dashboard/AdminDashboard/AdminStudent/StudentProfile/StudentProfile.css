@@ -1,0 +1,108 @@
+.ProfilebodyHolder{
+    width: 87%;
+    height: 100vh;
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+}
+.Profilebody{
+    width: 60%;
+    height: 70%;
+    background-color:rgba(255, 255, 255, 0.63); 
+    display: flex;
+    justify-content: space-around;
+    align-items: center; 
+    border-radius: 10px;
+}
+.ProfileImage{
+    width: 35%;
+    height: 90%;
+    /* background-color: chocolate; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.ProfileInput{
+    width: 60%;
+    height: 90%;
+    /* background-color: rgb(240, 196, 20); */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+.ProfileInputName{
+    width: 80%;
+    height: 13%;
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 2px solid gray;
+    border-radius: 8px;
+
+}
+.ProfileInputNameinner{
+    width: 80%;
+    height: 80%;
+    /* background-color: beige; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.ProfileInputNameinnericonholder{
+    /* background-color: brown; */
+    width: 30%;
+    height: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.ProfileInputNameinnerName{
+    width: 66%;
+    height: 80%;
+    /* background-color: cadetblue; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ProfileImagecircle{
+    width: 120px;
+    height: 120px;
+    background-color: yellow;
+    border-radius: 100%;
+    border: 2px solid rgba(202, 202, 202, 0.614);
+    background:none;
+}
+.ProfileImageEmail{
+    width: 80%;
+    height: 8%;
+    display: flex;
+    justify-content: center;
+}
+.ProfileImageEmail p{
+    font-size: 15px;
+}
+.ProfileImageName{
+    width: 80%;
+    height: 8%;
+    /* background-color: #f8f804; */
+    display: flex;
+    justify-content: center;
+}
+.ProfileImageState{
+    width: 80%;
+    height: 8%;
+    /* background-color: rgb(58, 12, 240);  */
+    display: flex;
+    justify-content: center;
+}
+.ProfileImageState p{
+    font-size: 15px;
+
+}

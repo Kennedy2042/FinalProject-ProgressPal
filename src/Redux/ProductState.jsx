@@ -6,6 +6,8 @@ const initialState = {
     loginUser: [],
     logOut: "",
     studentApi: [],
+    adminTeachApi: [],
+    AdminStudentApi: [],
 }
 
 
@@ -28,7 +30,7 @@ const productState = createSlice({
         state.loginUser = payload
         console.log("first", payload)
       },
-      
+
       studentSignUpData: (state, {payload}) => {
         state.studentSignData = payload
         console.log("first", payload)
@@ -37,11 +39,21 @@ const productState = createSlice({
       allStudentApi: (state, {payload}) => {
         state.studentApi = payload
         console.log("first", payload)
+      },
+
+      adminAllTeacherApi: (state, {payload}) => {
+        state.adminTeachApi = payload
+        console.log("first", payload)
+      },
+
+      adminAllStudentApi: (state, {payload}) =>{
+        state.AdminStudentApi = payload
+        console.log("first", payload)
       }
     }
 })
 
-export const {schoolUserData, schoolTeacherData, loginUserData, studentSignUpData, allStudentApi} = productState.actions;
+export const {schoolUserData, schoolTeacherData, loginUserData, studentSignUpData, allStudentApi, adminAllTeacherApi, adminAllStudentApi} = productState.actions;
 export default productState.reducer
 
 

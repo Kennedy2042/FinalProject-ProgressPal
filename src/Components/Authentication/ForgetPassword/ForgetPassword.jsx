@@ -4,11 +4,14 @@ import "./ForgetPassword.css"
 import {PiWarningCircleBold} from "react-icons/pi"
 import {MdOutlineArrowBackIos} from "react-icons/md"
 import { useNavigate } from 'react-router-dom'
+import Swal from 'sweetalert2'
+import {SpinnerCircular} from "spinners-react"
 
 const ForgetPassword = () => {
     const [schoolEmail, setSchoolEmail] = useState("")
     const [success, setSuccess] = useState("")
     const navigate = useNavigate()
+    const [loading, setloading] =useState(false)
 
 
 
@@ -16,15 +19,30 @@ const ForgetPassword = () => {
     const data = { schoolEmail }
 
     const Forget = (e) => {
+        setloading(true)
         e.preventDefault();
         axios.post(url, data)
             .then((res) => {
                 console.log(res.data)
                 setSuccess(res.data.message)
+                Swal.fire({
+                    title: "Success",
+                    text: res.data.message,
+                    icon: "Success",
+                    confirmButtonText: "OK"
+                })
+                setloading(false)
             })
             .catch((err) => {
                 console.log(err)
                 setSuccess(err.response.data.message)
+                Swal.fire({
+                    title: "Failed",
+                    text: err.response.data.message,
+                    icon : "error",
+                    confirmButtonText: "OK"
+                })
+                setloading(false)
             })
 
 
@@ -42,7 +60,18 @@ const ForgetPassword = () => {
                 <h1 className='ForgetPasswordH1'>Forget Password</h1>
                 <p className='ForgetPasswordP'>Enter your email and we'll send you a link to reset your password</p>
                 <input className="ForgetPasswordInput" type="email" placeholder='Enter your Email'value={schoolEmail} onChange={(e)=>setSchoolEmail(e.target.value)}/>
-                <button className='ForgetPasswordSubmitBtn' onClick={Forget}>Submit</button>
+                <button className='ForgetPasswordSubmitBtn' onClick={Forget}>
+                    {
+                        loading ? (
+                            <SpinnerCircular
+                              size={35}
+                              thickness={99}
+                              speed={100}
+                              color="rgba(18, 124, 221, 1)"
+                            />
+                          ) : ("Submit")
+                    }
+                </button>
                 <div className='ForgetPasswordSubmitBtnLoginBtn' onClick={()=>navigate("/login")}>
                     <MdOutlineArrowBackIos/>Back to Login
                 </div>
