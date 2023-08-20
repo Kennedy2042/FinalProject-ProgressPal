@@ -21,7 +21,7 @@ import Swal from 'sweetalert2'
 
 const SchRegister = () => {
   const schoolUsers = useSelector(state => state.persisitedReducer.School)
-  console.log(schoolUsers._id)
+  // console.log(schoolUsers._id)
   const dispatch = useDispatch()
   const nav = useNavigate()
   const [showPassword, setShowPassword] = useState(false)
@@ -97,42 +97,6 @@ const SchRegister = () => {
         value: "schoolEmailError",
         msg: "Provide a valid email",
       });
-    // } else if (schoolAddress === "") {
-    //   setValidMessage({
-    //     error: "true",
-    //     value: "schoolAddress",
-    //     msg: "Please provide your school address",
-    //   });
-    // } else if (!schoolAddressRegex.test(schoolAddress)) {
-    //   setValidMessage({
-    //     error: "true",
-    //     value: "schoolAddressError",
-    //     msg: "Please input a valid address",
-    //   });
-    // } else if (state === "") {
-    //   setValidMessage({
-    //     error: "true",
-    //     value: "state",
-    //     msg: "Please input your state",
-    //   });
-    // } else if (country === "") {
-    //   setValidMessage({
-    //     error: "true",
-    //     value: "country",
-    //     msg: "Pleae input a country",
-    //   });
-    // } else if (country !== "Nigeria") {
-    //   setValidMessage({
-    //     error: "true",
-    //     value: "countryError",
-    //     msg: "Country must be Nigeria",
-    //   });
-    // } else if (website === "") {
-    //   setValidMessage({
-    //     error: "true",
-    //     value: "schoolWebsite",
-    //     msg: "Please input your school website",
-    //   });
     } else if (password === "") {
       setValidMessage({
         error: "true",
@@ -182,6 +146,12 @@ const SchRegister = () => {
           dispatch(schoolUserData(res.data.user))
           setSuccessErrorMessage(res.data.message);
           setLoading(false)
+          Swal.fire({
+            title: "Success!",
+            text: res.data.message,
+            icon: "success",
+            confirmButtonText: "Ok"
+          })
         })
         .catch((err) => {
           console.log(err);
@@ -266,72 +236,7 @@ const SchRegister = () => {
                 {/* <p className='errorParagraph'>{validMessage}</p> */}
 
               </div>
-              {/* <div className="instituteAddress">
-                <h3 className="inputTitle">Institute Address</h3>
-                <div className="instituteAddressHolder">
-                  <div className={ validMessage.value === "schoolAddress" || validMessage.value === "schoolAddressError" ? "instituteAddressIconDivError" : "instituteAddressIconDiv"}>
-                    <MdLocationOn className='instituteNameIcon' />
-                  </div>
-                  <input className={validMessage.value === "schoolAddress" || validMessage.value === "schoolAddressError" ? "InstituteAddressInputError" : 'InstituteAddressInput'} type="text" placeholder='Enter School Address' value={schoolAddress} onChange={(e) => setSchoolAddress(e.target.value)} />
-
-                </div>
-                {validMessage.value === "schoolAddress" ? (
-                  <p className='errorParagraph'>{validMessage.msg}</p>
-                ) : null}
-                {validMessage.value === "schoolAddressError" ? (
-                  <p className='errorParagraph'>{validMessage.msg}</p>
-                ) : null}
-              </div>
-              <div className="instituteState">
-                <h3 className="inputTitle">Institute State</h3>
-                <div className="instituteStateHolder">
-                  <div className={validMessage.value === "state" ? "instituteStateIconDivError" : "instituteStateIconDiv"}>
-                    <TbBuildingSkyscraper className='instituteNameIcon' />
-                  </div>
-                  <input className={validMessage.value === "state" ? "InstituteStateInputError" :'InstituteStateInput'} type="text" placeholder="Institution State" value={state} onChange={(e) => setState(e.target.value)} />
-
-                </div>
-                {validMessage.value === "state" ? (
-                  <p className='errorParagraph'>{validMessage.msg}</p>
-                ) : null}
-              </div>
-              <div className="instituteRegistrationNo">
-                <h3 className="inputTitle">Institute Registration Code</h3>
-                <div className="instituteRegistrationNoHolder">
-                  <div className="instituteRegistrationNoIconDiv">
-                    <RiMailSendLine className='instituteNameIcon' />
-                  </div>
-                  <input className='instituteRegistrationNoInput' type="text" placeholder="Enter School Registration Number" value={regNo} onChange={(e) => setRegNo(e.target.value)} />
-                </div>
-              </div>
-              <div className="instituteCountry">
-                <h3 className="inputTitle">Institute Country</h3>
-                <div className="instituteCountryHolder">
-                  <div className={validMessage.value === "country" || validMessage.value === "countryError" ? "instituteCountryIconDivError" : "instituteCountryIconDiv"}>
-                    <BiWorld className='instituteNameIcon' />
-                  </div>
-                  <input className={validMessage.value === "country" || validMessage.value === "countryError" ? "InstituteCountryInputError" :'InstituteCountryInput'} type="text" placeholder="Country" value={country} onChange={(e) => setCountry(e.target.value)} />
-                </div>
-                {validMessage.value === "country" ? (
-                  <p className='errorParagraph'>{validMessage.msg}</p>
-                ) : null}
-                {validMessage.value === "countryError" ? (
-                  <p className='errorParagraph'>{validMessage.msg}</p>
-                ) : null}
-              </div>
-              <div className="instituteWebsite">
-                <h3 className="inputTitle">Institute Website</h3>
-                <div className="instituteWebsiteHolder">
-                  <div className={validMessage.value === "schoolWebsite" ? "instituteWebsiteIconDivError" : "instituteWebsiteIconDiv"}>
-                    <TbWorldWww className='instituteNameIcon' />
-                  </div>
-                  <input className={validMessage.value === "schoolWebsite" ? "InstituteWebsiteInputError" : 'InstituteWebsiteInput'} type="text" placeholder="Website" value={website} onChange={(e) => setWebsite(e.target.value)} />
-
-                </div>
-                {validMessage.value === "schoolWebsite" ? (
-                  <p className='errorParagraph'>{validMessage.msg}</p>
-                ) : null}
-              </div> */}
+             
               <div className="institutePassword">
                 <h3 className="inputTitle">Password</h3>
                 <div className="institutePasswordHolder">

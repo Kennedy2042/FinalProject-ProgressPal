@@ -13,6 +13,7 @@ import TeacherForget from "./Components/Authentication/ForgetPassword/Teacher/Te
 import Teacher from "./Components/Dashboard/Teacher/Teacher"
 import Student from "./Components/Dashboard/Student/Student"
 import StudentProfile from './Components/Dashboard/AdminDashboard/AdminStudent/StudentProfile/StudentProfile'
+import TeacherProfile from './Components/Dashboard/AdminDashboard/AdminTeacher/TeacherProfile/TeacherProfile'
 
 
 
@@ -36,6 +37,7 @@ function App() {
             <Route path="/Dashboard/teacher*" element={<Teacher/>}/>
             <Route path="/Dashboard/student*" element={<Student/>} />
             <Route path='/student_profile/:studentId' element={<StudentProfile/>}/>
+            <Route path='/admindashboard/teacherProfile/:studentId' element={<TeacherProfile/>}/>
           </Routes>
         </HashRouter>
         {/* <TeacherUser/> */}

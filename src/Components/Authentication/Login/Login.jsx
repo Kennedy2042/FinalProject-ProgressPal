@@ -94,6 +94,7 @@ const Login = () => {
     return (
         <>
         <div className='LoginMainContainer'>
+            <div className="LoginMainContainerBody">
             <div className='LoginLogo'>
                 <img src={ProgressPalLogo} alt="" onClick={()=>{navigate("/")}}/>
 
@@ -143,7 +144,7 @@ const Login = () => {
 
                     <div className='Logintext2'>
                         <p className='AcctParagrph'>Don't have an account? <span className='LoginSpan' onClick={()=>{navigate("/sch_register")}}>Sign Up</span></p>
-                        <p className='AcctParagrph' style={{ cursor: "pointer", color: "blue" }} onClick={()=>navigate("/forget_password")}>Forgotten password?</p>
+                        <p className='AcctParagrph' style={{ cursor: "pointer", color: "red" }} onClick={()=>navigate("/forget_password")}>Forgotten password?</p>
                         {/* <div className='left'>
                         </div>
                         <div className='right'>
@@ -154,7 +155,7 @@ const Login = () => {
                         {
                             loading ? (
                                 <SpinnerCircular
-                                size={44}
+                                size={35}
                                 thickness={99}
                                 speed={100}
                                 color="rgba(18, 124, 221, 1)"
@@ -167,6 +168,7 @@ const Login = () => {
                     {/* <h2>Register Your School</h2> */}
                 </div>
             </div>
+        </div>
         </div>
         </>
     )

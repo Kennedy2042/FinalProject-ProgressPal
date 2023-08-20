@@ -4,10 +4,11 @@ import "./AdminTeacherDashboardMedia.css"
 import { AiOutlineSearch, AiOutlineCloseCircle } from 'react-icons/ai'
 import AboutUsImage from "../../../../assets/AboutUsImage.png"
 import axios from 'axios'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { adminAllTeacherApi } from '../../../../Redux/ProductState'
 import TeacherProfile from './TeacherProfile/TeacherProfile'
+import Swal from 'sweetalert2'
 
 
 
@@ -19,6 +20,7 @@ const AdminTeacherDashboard = () => {
     const [addTeacher, setAddTeacher] = useState(false)
     const [teacherEmail, setTeacherEmail] = useState("")
     const [viewTeacherProfile, setViewTeacherProfile] = useState(false)
+    const [teacherId, setTeacherId] = useState("")
     // console.log(allTeacher)
 
     const BearerToken = schoolUsers.token
@@ -43,9 +45,21 @@ const AdminTeacherDashboard = () => {
         axios.post(`${url}/${schoolUsers._id}`,data, config)
             .then ((res)=>{
                 console.log(res)
+                Swal.fire({
+                                title: "Success!",
+                                text: res.data.message,
+                                icon: "success",
+                                confirmButtonText: "Ok"
+                              })
             })
             .catch((err)=>{
                 console.log(err)
+                Swal.fire({
+                    title: "Error!",
+                    text: err.data.message,
+                    icon: "error",
+                    confirmButtonText: "Ok"
+                  })
             })
     }
 
@@ -57,7 +71,7 @@ const AdminTeacherDashboard = () => {
     }
 
 
-    const teacherUrl = "https://progresspal-8rxj.onrender.com/progressPal/readAllTeachers"
+    const teacherUrl = `https://progresspal-8rxj.onrender.com/progressPal/schoolTeachers/${schoolUsers._id}`
 
     async function GetAllTeacher(){
         axios.get(teacherUrl)
@@ -73,6 +87,7 @@ const AdminTeacherDashboard = () => {
     useEffect(() => {
       GetAllTeacher()
     }, [])
+    const nav = useNavigate()
     
 
     return (
@@ -109,6 +124,9 @@ const AdminTeacherDashboard = () => {
                         <button className='AdminDashboardViewTeachProfile' onClick={
                             ()=>{
                                 setViewTeacherProfile(true)
+                                // setTeacherId(props._id)
+                                nav(`/admindashboard/teacherProfile/${props._id}`)
+
                             }
                         }>View Profile</button>
                     </div>
@@ -122,13 +140,15 @@ const AdminTeacherDashboard = () => {
                         <AiOutlineCloseCircle className='CloseAddTeacherInput' size={60} onClick={()=>setAddTeacher(false)}/>
                     <div className='EmailHolder'>
                         <input type="email" placeholder='Enter teacher'  className='TeacherInput' value={teacherEmail} onChange={(e)=>setTeacherEmail(e.target.value)}/>
-                        <button className='AddTeacherSendBtn' onClick={CreateTeacher}>Send</button>
+                        <button className='AddTeacherSendBtn' onClick={()=>{
+                            CreateTeacher()
+                            }}>Send</button>
                     </div>
                 </div> : null
             }
 
             {
-                viewTeacherProfile ? <TeacherProfile/> : null
+                viewTeacherProfile ? <TeacherProfile teacherId={teacherId}/> : null
             }
         </>
     )

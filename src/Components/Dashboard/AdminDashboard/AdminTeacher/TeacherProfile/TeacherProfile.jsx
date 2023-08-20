@@ -3,13 +3,14 @@ import React, { useEffect, useState } from 'react'
 // import './StudentProfileMedia.css'
 import { BiDotsVerticalRounded } from 'react-icons/bi'
 import axios from 'axios'
+import { useParams } from 'react-router-dom'
 
 
 const TeacherProfile = () => {
 
-    // const url = `https://progresspal-8rxj.onrender.com/progressPal/readOneStudent/${viewProfileId}`
+    // const url = `https://progresspal-8rxj.onrender.com/progressPal/readOneTeacher/${teacherId}`
 
-    // async function GetStudentInfo(){
+    // async function GetTeacherInfo(){
     //     axios.get(url)
     //     .then((res)=>{
     //         console.log(res)
@@ -19,13 +20,23 @@ const TeacherProfile = () => {
     //     })
     // }
     // useEffect(()=>{
-    //     GetStudentInfo()
+    //     GetTeacherInfo()
     // }, [])
 
-    // console.log(viewProfileId)
+    // // console.log(viewProfileId)
 
+    // console.log(teacherId)
+    const teacherId = useParams()
 
+    useEffect(() => {
+        axios.get(`https://progresspal-8rxj.onrender.com/progressPal/readOneTeacher/${teacherId.studentId}`)
+        .then(res => console.log(res))
+        .catch((err) => {
+          console.log(err)
+        })
+    }, [])
 
+    console.log(teacherId)
 
     return (
         <>
@@ -50,7 +61,7 @@ const TeacherProfile = () => {
                         <div className='ProfileInputName'>
                             <div className='ProfileInputNameinner'>
                                 <div className='ProfileInputNameinnericonholder'>
-                                    <p>Name</p>
+                                    <p className='ProfileInputNameinnericonholderP'>Teacher Name</p>
                                     <BiDotsVerticalRounded />
                                 </div>
 
@@ -61,7 +72,7 @@ const TeacherProfile = () => {
                         <div className='ProfileInputName'>
                             <div className='ProfileInputNameinner'>
                                 <div className='ProfileInputNameinnericonholder'>
-                                    <p>Email</p>
+                                    <p>Teacher Class</p>
                                     <BiDotsVerticalRounded />
                                 </div>
 
@@ -71,32 +82,32 @@ const TeacherProfile = () => {
                         <div className='ProfileInputName'>
                             <div className='ProfileInputNameinner'>
                                 <div className='ProfileInputNameinnericonholder'>
-                                    <p>Contact</p>
+                                    <p>Teacher Age</p>
                                     <BiDotsVerticalRounded />
                                 </div>
 
-                                <div className='ProfileInputNameinnerName'>09134568790</div>
+                                <div className='ProfileInputNameinnerName'>{}</div>
                             </div>
                         </div>
                         <div className='ProfileInputName'>
                             <div className='ProfileInputNameinner'>
                                 <div className='ProfileInputNameinnericonholder'>
-                                    <p>Role</p>
+                                    <p>Teacher Email</p>
                                     <BiDotsVerticalRounded />
                                 </div>
 
-                                <div className='ProfileInputNameinnerName'>User</div>
+                                <div className='ProfileInputNameinnerName'>{}</div>
                             </div>
                         </div>
 
                         <div className='ProfileInputName'>
                             <div className='ProfileInputNameinner'>
                                 <div className='ProfileInputNameinnericonholder'>
-                                    <p>Status</p>
+                                    <p>Teacher Image</p>
                                     <BiDotsVerticalRounded />
                                 </div>
 
-                                <div className='ProfileInputNameinnerName'>Active</div>
+                                <div className='ProfileInputNameinnerName'>{}</div>
                             </div>
                         </div>
                     </div>
