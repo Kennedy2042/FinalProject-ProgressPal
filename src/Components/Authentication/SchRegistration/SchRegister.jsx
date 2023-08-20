@@ -13,6 +13,7 @@ import ProgressPalLogo from "../../../assets/ProgressPalLogo.png"
 import { useDispatch, useSelector } from 'react-redux'
 import { schoolUserData } from '../../../Redux/ProductState'
 import { SpinnerCircular } from "spinners-react";
+import Swal from 'sweetalert2'
 
 
 
@@ -186,7 +187,12 @@ const SchRegister = () => {
           console.log(err);
           setSuccessErrorMessage(err.response.data.message);
           setLoading(false)
-
+          Swal.fire({
+            title: "Error!",
+            text: err.response.data.message,
+            icon: "error",
+            confirmButtonText: "Ok"
+          })
         });
       // showAlert();
     }
@@ -372,9 +378,11 @@ const SchRegister = () => {
                   <p className='errorParagraph'>{validMessage.msg}</p>
                 ) : null}
               </div>
+              <p className='schRegParagraph'>Already have n account? <span className='schRegSpan' onClick={()=>{
+                nav("/login")
+              }}>Log in</span></p>
               {/* <p>{successErrorMessage}</p> */}
               <div className="RegisterSubmitBtnDiv">
-                {/* <button className='RegisterBackBtn' onClick={() => nav("/")}>Back</button> */}
                 <button className='RegisterSubmitBtn' onClick={Register}>
                   {loading ? (
                     <SpinnerCircular

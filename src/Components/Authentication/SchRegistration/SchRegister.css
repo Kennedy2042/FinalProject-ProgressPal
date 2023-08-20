@@ -753,6 +753,16 @@
     border-bottom: 2px solid red;
 }
 
+.schRegParagraph{
+    color: white;
+    width: 93%;
+}
+
+.schRegSpan{
+    color: blue;
+    cursor: pointer;
+}
+
 .RegisterSubmitBtnDiv {
     width: 95%;
     height: 9%;
@@ -761,21 +771,10 @@
     align-items: center;
 }
 
-.RegisterBackBtn {
-    cursor: pointer;
-    width: 25%;
-    height: 80%;
-    border: none;
-    background: #F7B905;
-    color: rgb(252, 252, 252);
-    font-size: 18px;
-    border-radius: 5px;
-}
-
 .RegisterSubmitBtn {
     cursor: pointer;
-    width: 70%;
-    height: 80%;
+    width: 80%;
+    height: 95%;
     border: none;
     background: #F7B905;
     font-size: 18px;

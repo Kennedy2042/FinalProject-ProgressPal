@@ -7,6 +7,8 @@ import ProgressPalLogo from "../../../assets/ProgressPalLogo.png"
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { loginUserData } from '../../../Redux/ProductState'
+import { SpinnerCircular } from "spinners-react"
+import Swal from 'sweetalert2'
 
 
 
@@ -24,6 +26,7 @@ const Login = () => {
     const [loginShowpass, setLoginShowPass] = useState(false)
     const [select, setSelect] = useState()
     const dispatch = useDispatch()
+    const [loading, setLoading] = useState(false)
     
 
 
@@ -37,6 +40,7 @@ const Login = () => {
 
     async function SignUp(e) {
         e.preventDefault();
+        setLoading(true)
         
 
         // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -53,10 +57,25 @@ const Login = () => {
                 setSuccessErrorMessage(res.data.message)
                 navigate(`/Dashboard/${select}/${select}User/${res.data.data._id}`)
                 dispatch(loginUserData(res))
+                Swal.fire({
+                    title: "Logged In Successfully",
+                    text: "Welcome back",
+                    icon: "success",
+                    confirmButtonText: "Okay"
+
+                })
+                setLoading(false)
             })
             .catch((err) => {
                 console.log(err)
                 setSuccessErrorMessage(err?.response?.data?.message);
+                Swal.fire({
+                    title: "Login Failed",
+                    text: err.response.data.message,
+                    icon: "error",
+                    confirmButtonText: "okay"
+                })
+                (setLoading(false))
             });
 
 
@@ -76,7 +95,7 @@ const Login = () => {
         <>
         <div className='LoginMainContainer'>
             <div className='LoginLogo'>
-                <img src={ProgressPalLogo} alt="" />
+                <img src={ProgressPalLogo} alt="" onClick={()=>{navigate("/")}}/>
 
             </div>
 
@@ -131,7 +150,20 @@ const Login = () => {
                         </div> */}
                     </div>
 
-                    <button className='LoginBtn' onClick={SignUp}>LOGIN</button>
+                    <button className='LoginBtn' onClick={SignUp}>
+                        {
+                            loading ? (
+                                <SpinnerCircular
+                                size={44}
+                                thickness={99}
+                                speed={100}
+                                color="rgba(18, 124, 221, 1)"
+                              />  
+                            ) : (
+                                "Login"
+                            )
+                        }
+                    </button>
                     {/* <h2>Register Your School</h2> */}
                 </div>
             </div>

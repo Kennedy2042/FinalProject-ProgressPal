@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
+    "animate.css": "^4.1.1",
     "axios": "^1.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -21,6 +22,7 @@
     "react-spinners": "^0.13.8",
     "redux-persist": "^6.0.0",
     "spinners-react": "^1.0.7",
+    "sweetalert2": "^11.7.23",
     "victory": "^36.6.11",
     "victory-chart": "^36.6.11"
   },

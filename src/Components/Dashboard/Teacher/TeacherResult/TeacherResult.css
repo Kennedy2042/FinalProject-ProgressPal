@@ -35,7 +35,7 @@
 .TeacherHeaderBody{
     width: 95%;
     height: 85%;
-    background: pink;
+    /* background: pink; */
     display: flex;
     align-items: center;
 }
@@ -62,7 +62,7 @@
 .TeacherDashboardHeroUpperContainer{
     width: 95%;
     height: 37%;
-    background: purple;
+    /* background: purple; */
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -96,7 +96,7 @@
 .TeacherDashboardHeroLowerIconsBody{
     width: 90%;
     height: 95%;
-    background: cornflowerblue;
+    /* background: cornflowerblue; */
 }
 
 .TotalNumberIcon{
@@ -111,8 +111,8 @@
 
 .GradeHolder{
     width: 95%;
-    height: 40%;
-    background-color: brown;
+    height: 42%;
+    /* background-color: brown; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -207,13 +207,21 @@ list-style: none;
 
 .GradeHolderHeaderResultHolder{
     width: 100%;
-    height: 79%;
-    background-color: rgb(255, 140, 0);   
+    height: 90%;
+    background-color: rgb(7, 198, 0); 
+    /* overflow-y: scroll;   */
+}
+
+.GradeHolderHeaderResultHolderBody{
+    width: 100%;
+    height: 100%;
+    /* background-color: rgb(255, 140, 0);  */
+    overflow-y: scroll;  
 }
 
 .StudentsGradeHolder{
     width: 100%;
-    height: 27%;
+    height: 10vh;
     background-color: bisque;
     display: flex;
     justify-content: space-around;
@@ -230,13 +238,9 @@ list-style: none;
 }
 
 .StudentsGradeHolderStudentsNameCircle{
-    width: 40px;
-    height: 40px;
-    border-radius: 100%;
-    border: 1px solid black;
-    background-color: blue;
-    background: none;
-
+    width: 25%;
+    height: 100%;
+    background: blue;
 }
 
 .StudentsGradeHolderStudentsRemark{
