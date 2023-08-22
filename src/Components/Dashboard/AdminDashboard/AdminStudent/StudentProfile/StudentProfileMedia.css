@@ -42,31 +42,49 @@
          height:60%;
          gap: 10px;
      }
+
      .ProfileImage h2{
          font-size: 15px;
      }
+
      .ProfileInput{
          /* background-color: yellow; */
          width:90%;
      }
+
      .ProfileInputNameinnericonholder {
        width: 40%;
      }
+
      .ProfileInputName{
          /* background-color: cadetblue; */
          width: 90%;
      }
+
      .ProfileInputNameinnerName{
          width: 57%;
-         font-size: 13px;
+         font-size: 10px;
+     }
+
+     .ProfileInputNameinnericonholder p{
+        font-size: 10px;
      }
  }
  
  @media screen and (max-width:375px){
      .ProfileInputName{
-       width: 90%;
+       width: 95%;
      }
+
      .Profilebody{
          width: 92%;
+     }
+
+     .ProfileInputNameinnericonholder{
+        width: 10%;
+     }
+
+     .ProfileInputNameinnericonholder p{
+        font-size: 10px;
      }
  }

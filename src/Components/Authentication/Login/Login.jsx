@@ -68,19 +68,26 @@ const Login = () => {
             })
             .catch((err) => {
                 console.log(err)
-                setSuccessErrorMessage(err?.response?.data?.message);
+                if(err?.message === "Network Error") {
+                    Swal.fire({
+                        title: "Login Failed",
+                        text: err.message,
+                        icon: "error",
+                        confirmButtonText: "okay"
+                    })
+                    setLoading(false)
+                }
+                setSuccessErrorMessage(err?.response?.data?.message)
                 Swal.fire({
                     title: "Login Failed",
                     text: err.response.data.message,
                     icon: "error",
                     confirmButtonText: "okay"
                 })
-                (setLoading(false))
+                setLoading(false)
             });
-
-
-
     }
+    console.log("this is loading state: ",loading)
 
     useEffect(() => {
         setSelect("0")
@@ -144,7 +151,7 @@ const Login = () => {
 
                     <div className='Logintext2'>
                         <p className='AcctParagrph'>Don't have an account? <span className='LoginSpan' onClick={()=>{navigate("/sch_register")}}>Sign Up</span></p>
-                        <p className='AcctParagrph' style={{ cursor: "pointer", color: "red" }} onClick={()=>navigate("/forget_password")}>Forgotten password?</p>
+                        <p className='AcctParagrph' style={{ cursor: "pointer", color: "#F7B905" }} onClick={()=>navigate("/forget_password")}>Forgotten password?</p>
                         {/* <div className='left'>
                         </div>
                         <div className='right'>
