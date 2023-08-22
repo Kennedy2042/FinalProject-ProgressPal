@@ -19,6 +19,7 @@ import {GrScorecard} from 'react-icons/gr'
 import TeacherResult from './TeacherResult/TeacherResult'
 import axios from 'axios'
 import TeacherStudent from './Student/TeacherStudent'
+import Swal from 'sweetalert2'
 
 const Teacher = () => {
 
