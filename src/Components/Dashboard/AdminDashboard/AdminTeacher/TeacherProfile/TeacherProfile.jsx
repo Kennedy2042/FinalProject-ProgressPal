@@ -3,22 +3,28 @@ import React, { useEffect, useState } from 'react'
 // import './StudentProfileMedia.css'
 import { BiDotsVerticalRounded } from 'react-icons/bi'
 import axios from 'axios'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { teacherInformation } from '../../../../../Redux/ProductState'
+import Swal from 'sweetalert2'
 
 
 const TeacherProfile = () => {
     const teacherId = useParams()
     const dispatch = useDispatch()
-    const teacherProfileInfo = useSelector((state) => state.persisitedReducer.teacherInfo)
+    const teacherProfileInfo = useSelector(state => state.persisitedReducer.teacherInfo)
+    const Users = useSelector(state => state.persisitedReducer.loginUser)
+    const navigate = useNavigate()
+    console.log('first', teacherProfileInfo)
+    console.log(teacherId)
 
-    const url = `https://progresspal-8rxj.onrender.com/progressPal/readOneTeacher/${teacherId.studentId}`
+
+    const url = `https://progresspal-8rxj.onrender.com/progressPal/readOneTeacher/${teacherId.teacherId}`
 
     async function GetTeacherInfo() {
         axios.get(url)
             .then((res) => {
-                console.log(res)
+                // console.log(res)
                 dispatch(teacherInformation(res.data.data))
             })
             .catch((err) => {
@@ -28,18 +34,38 @@ const TeacherProfile = () => {
     useEffect(() => {
         GetTeacherInfo()
     }, [])
+    console.log(Users)
+    const BearerToken = Users.data.token
+    // console.log("first", BearerToken)
+    const config = {
+        headers: {
+            Authorization : `Bearer ${BearerToken}`
+        }
+    }
 
-    // console.log(viewProfileId)
-
-    console.log(teacherId)
-    console.log('first', teacherProfileInfo)
-
-
-    const deleteUrl = `https://progresspal-8rxj.onrender.com/progressPal/deleteTeacher/${teacherId.studentId}`
+    const deleteUrl = `https://progresspal-8rxj.onrender.com/progressPal/deleteTeacher/${teacherId.teacherId}`
+    const showAlert = () => {
+        Swal.fire({
+            title: 'Delete Teacher',
+            text: 'Are you sure',
+            icon: 'warning',
+            cancelButtonColor: 'green',
+            showCancelButton: true,
+            confirmButtonText: 'yes',
+            customClass: {
+                confirmButton: 'sweet-alert-confirm-btn',
+              },
+        }).then((result) => {
+            if (result.isConfirmed) {
+                DeleteTeacher()
+            }
+        });
+    };
 async function DeleteTeacher(){
-    axios.delete(deleteUrl)
+    axios.delete(deleteUrl, config)
     .then((res)=>{
         console.log(res)
+        navigate("Dashboard/schoolAdmin/admin_teacher_dashboard")
     })
     .catch((err)=>{
         console.log(err)
@@ -119,8 +145,8 @@ async function DeleteTeacher(){
                             </div>
                         </div>
                         <div className='ProfileBtn'>
-                            <Link className="ProfileEditButtonLink" to={`/admindashboard/editteacherProfile/${teacherProfileInfo._id}`}><button className='ProfileEditButton'>Edit</button></Link>
-                            <button className='ProfileDeleteButton' onClick={DeleteTeacher}>Delete</button>
+                            <Link className="ProfileEditButtonLink" to={`/admindashboard/editteacherProfile/${teacherProfileInfo._id}}`}><button className='ProfileEditButton'>Edit</button></Link>
+                            <button className='ProfileDeleteButton' onClick={showAlert}>Delete</button>
                         </div>
 
                     </div>

@@ -38,7 +38,7 @@ function App() {
             <Route path="/Dashboard/teacher*" element={<Teacher/>}/>
             <Route path="/Dashboard/student*" element={<Student/>} />
             <Route path='/student_profile/:studentId' element={<StudentProfile/>}/>
-            <Route path='/admindashboard/teacherProfile/:studentId' element={<TeacherProfile/>}/>
+            <Route path='/admindashboard/teacherProfile/:teacherId' element={<TeacherProfile/>}/>
             <Route path='/admindashboard/editteacherProfile/:id' element={<EditTeacherProfile/>}/>
           </Routes>
         </HashRouter>
