@@ -168,6 +168,15 @@ const SchRegister = () => {
         })
         .catch((err) => {
           console.log(err);
+          if(err?.message === "Network Error") {
+            Swal.fire({
+                title: "Login Failed",
+                text: err.message,
+                icon: "error",
+                confirmButtonText: "okay"
+            })
+            setLoading(false)
+        }
           setSuccessErrorMessage(err.response.data.message);
           setLoading(false)
           Swal.fire({
