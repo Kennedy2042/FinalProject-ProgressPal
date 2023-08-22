@@ -13,6 +13,7 @@ import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import axios from 'axios'
 import Result from '../Teacher/ReportCard/ReportCard'
+import Swal from 'sweetalert2'
 
 
 const Student = () => {
@@ -23,35 +24,57 @@ const Student = () => {
     const BearerToken = studentData.data.token
     console.log(BearerToken)
 
-    const url = `https://progresspal-8rxj.onrender.com/progressPal/logoutStudent/${studentData.data.data._id}`;  
-    async function StudentLogout (){
+    const showAlert = () => {
+        Swal.fire({
+            title: 'Log Out',
+            text: 'Are you sure',
+            icon: 'warning',
+            cancelButtonColor: 'green',
+            // confirmButtonColor: 'red',
+            showCancelButton: true,
+            confirmButtonText: 'yes',
+            customClass: {
+                confirmButton: 'sweetAlertConfirmBtn',
+              },
+        }).then((result) => {
+            if (result.isConfirmed) {
+                StudentLogout()
+            }
+        });
+    };
+
+
+
+    const url = `https://progresspal-8rxj.onrender.com/progressPal/logoutStudent/${studentData.data.data._id}`;
+    async function StudentLogout() {
         console.log("inside the function")
+
         axios.post(url, {
-            Authorization : `Bearer ${BearerToken}`
+            Authorization: `Bearer ${BearerToken}`
         })
-        .then((res)=>{
-            console.log(res)
-            navigate("/")
-        })
-        .catch ((err)=>{
-            console.log(err)
-        })
+            .then((res) => {
+                console.log(res)
+                navigate("/")
+            })
+            .catch((err) => {
+                console.log(err)
+            })
     }
 
 
 
-  return (
-    <>
+    return (
+        <>
 
-<div className="AdminDashboardContainer">
+            <div className="AdminDashboardContainer">
                 <div className="AdminDashboardContainerMobile">
                     <div className="AdminDashboardMobileHeader">
                         <div className="AdminDashboardMobileHeaderCon">
                             <img src={ProgressPalLogo} alt="" />
                             {
-                                menu ? <AiOutlineCloseCircle style={{cursor:"pointer" , fill: "red"}} size={25} onClick={() => {
+                                menu ? <AiOutlineCloseCircle style={{ cursor: "pointer", fill: "red" }} size={25} onClick={() => {
                                     setMenu(false)
-                                }} /> : <RxHamburgerMenu style={{cursor:"pointer"}} size={25} onClick={() => {
+                                }} /> : <RxHamburgerMenu style={{ cursor: "pointer" }} size={25} onClick={() => {
                                     setMenu(true)
                                 }} />
                             }
@@ -94,7 +117,7 @@ const Student = () => {
                                             <p className='AdminDashboardIconsImageName'>Events</p>
                                         </div>
                                     </div>
-                                    <div className="AdminDashboardIcons"onClick={StudentLogout}>
+                                    <div className="AdminDashboardIcons" onClick={showAlert}>
                                         <div className='AdminHomeIcon'>
                                             <BiLogOut size={30} className='AdminDashboardIconsImage' />
                                         </div>
@@ -148,7 +171,7 @@ const Student = () => {
                                     <p className='AdminDashboardIconsImageName'>Events</p>
                                 </div>
                             </div>
-                            <div className="AdminDashboardIcons" onClick={StudentLogout}>
+                            <div className="AdminDashboardIcons" onClick={showAlert}>
                                 <div className='AdminHomeIcon'>
                                     <BiLogOut size={30} className='AdminDashboardIconsImage' />
                                 </div>
@@ -160,18 +183,18 @@ const Student = () => {
 
                     </div>
                 </div>
-                <div className='DashBoardRightBody'> 
+                <div className='DashBoardRightBody'>
                     <Routes>
                         {/* <Route path='/teacher_dash_Main' element={<TeacherUser />} /> */}
                         {/* <Route path='/admin_teacher_dashboard' element={<AdminTeacherDashboard />} /> */}
                         {/* <Route path='/teacher_student_dashboard' element={<AdminStudentDashboard />} /> */}
                     </Routes>
-                    <Result/>
+                    <Result />
                 </div>
             </div>
-    
-    </>
-  )
+
+        </>
+    )
 }
 
 export default Student

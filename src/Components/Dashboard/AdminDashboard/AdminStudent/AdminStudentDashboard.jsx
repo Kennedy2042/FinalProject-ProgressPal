@@ -95,9 +95,9 @@ const AdminStudentDashboard = () => {
                     </div>
                 </div>
                 <div className='AdminDashboardAddTeacherBtnDiv'>
-                    <button className='AdminDashboardAddTeacherBtn' onClick={() => {
+                    {/* <button className='AdminDashboardAddTeacherBtn' onClick={() => {
                         setAddStudents(true)
-                    }}>Add Student</button>
+                    }}>Add Student</button> */}
                 </div>
             </div>
             <div className='AdminDashboardTeachersCard'>

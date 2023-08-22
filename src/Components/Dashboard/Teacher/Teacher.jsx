@@ -29,6 +29,25 @@ const Teacher = () => {
 
     const [menu, setMenu] = useState(false)
 
+    const showAlert = () => {
+        Swal.fire({
+            title: 'Log Out',
+            text: 'Are you sure',
+            icon: 'warning',
+            cancelButtonColor: 'green',
+            confirmButtonColor: 'red',
+            showCancelButton: true,
+            confirmButtonText: 'yes',
+            customClass: {
+                confirmButton: 'sweetAlertConfirmBtn', // Add your custom class here
+              },
+        }).then((result) => {
+            if (result.isConfirmed) {
+                TeacherLogout ()
+            }
+        });
+    };
+
 
     const url = `https://progresspal-8rxj.onrender.com/progressPal/logoutTeacher/${teacherData.data.data._id}`;  
     async function TeacherLogout () {
@@ -99,7 +118,7 @@ const Teacher = () => {
                                             <p className='AdminDashboardIconsImageName'>Results</p>
                                         </div>
                                     </div>
-                                    <div className="AdminDashboardIcons" onClick={TeacherLogout}>
+                                    <div className="AdminDashboardIcons" onClick={showAlert}>
                                         <div className='AdminHomeIcon'>
                                             <BiLogOut size={30} className='AdminDashboardIconsImage' />
                                         </div>
@@ -153,7 +172,7 @@ const Teacher = () => {
                                     <p className='AdminDashboardIconsImageName'>Results</p>
                                 </div>
                             </div>
-                            <div className="AdminDashboardIcons" onClick={TeacherLogout}>
+                            <div className="AdminDashboardIcons" onClick={showAlert}>
                                 <div className='AdminHomeIcon'>
                                     <BiLogOut size={30} className='AdminDashboardIconsImage' />
                                 </div>

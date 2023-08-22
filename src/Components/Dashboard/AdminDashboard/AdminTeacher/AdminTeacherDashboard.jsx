@@ -124,7 +124,7 @@ const AdminTeacherDashboard = () => {
                         <button className='AdminDashboardViewTeachProfile' onClick={
                             ()=>{
                                 setViewTeacherProfile(true)
-                                // setTeacherId(props._id)
+                                setTeacherId(props._id)
                                 nav(`/admindashboard/teacherProfile/${props._id}`)
 
                             }

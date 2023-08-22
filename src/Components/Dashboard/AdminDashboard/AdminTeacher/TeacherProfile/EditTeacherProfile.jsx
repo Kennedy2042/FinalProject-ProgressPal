@@ -24,7 +24,7 @@ const EditTeacherProfile = () => {
         teacherImage: "",
     })
 
-    const {teacherName, teacherClass, teacherAge, teacherEmail, teacherImage} = teacherData
+    const { teacherName, teacherClass, teacherAge, teacherEmail, teacherImage } = teacherData
 
     const onInputChange = (e) => {
         setTeacherData({ ...teacherData, [e.target.name]: e.target.value })
@@ -63,19 +63,6 @@ const EditTeacherProfile = () => {
         GetTeacherInfo()
     }, [])
 
-    // console.log(teacherData)
-
-    // console.log(teacherId)
-    // console.log('first', teacherProfileInfo)
-
-    // useEffect(() => {
-    //     axios.get(`https://progresspal-8rxj.onrender.com/progressPal/readOneTeacher/${teacherId.studentId}`)
-    //     .then(res => console.log(res))
-    //     .catch((err) => {
-    //       console.log(err)
-    //     })
-    // }, [])
-
 
     return (
         <>
@@ -99,44 +86,44 @@ const EditTeacherProfile = () => {
                         </div> */}
                     </div>
 
+                    {/* <div className='ProfileInput'> */}
+                    {/* <input type="text" {edie?/> */}
+
+                    {/* <table> */}
+
+                    {/* <p>Name:</p> */}
+                    {/* <td>{teacherProfileInfo.teacherName}</td> */}
+                    {/* <input type="text" name='teacherName' value={teacherName} onChange={(e) => onInputChange(e)} /> */}
+
+                    {/* <p>Class:</p> */}
+                    {/* <td>{teacherProfileInfo.teacherClass}</td> */}
+                    {/* <input type="text" name='teacherClass' value={teacherClass} onChange={(e) => onInputChange(e)} /> */}
+
+
+                    {/* <p>Age:</p> */}
+                    {/* <td>{teacherProfileInfo.teacherAge}</td> */}
+                    {/* <input type="text" name='teacherAge' value={teacherAge} onChange={(e) => onInputChange(e)}/> */}
+
+
+                    {/* <p>Email:</p> */}
+                    {/* <td>{teacherProfileInfo.teacherEmail}</td> */}
+                    {/* <input type="text" name='teacherEmail' value={teacherEmail} onChange={(e) => onInputChange(e)} /> */}
+
+
+                    {/* <p>Image:</p> */}
+                    {/* <td>{teacherProfileInfo.teacherImage}</td> */}
+                    {/* <input type="file" name='teacherImage' onChange={(e) => onInputChange(e)} /> */}
+                    {/* <img src={teacherImage} alt="" /> */}
+
+                    {/* </table> */}
+                    {/* <div className='ProfileBtn'> */}
+                    {/* <button onClick={editTeacherInfo}>Save</button> */}
+                    {/* <button>Delete</button> */}
+                    {/* </div> */}
+                    {/* </div> */}
+
+
                     <div className='ProfileInput'>
-                        {/* <input type="text" {edie?/> */}
-
-                        {/* <table> */}
-                            
-                                <p>Name:</p>
-                                {/* <td>{teacherProfileInfo.teacherName}</td> */}
-                                <input type="text" name='teacherName' value={teacherName} onChange={(e) => onInputChange(e)} />
-                            
-                                <p>Class:</p>
-                                {/* <td>{teacherProfileInfo.teacherClass}</td> */}
-                                <input type="text" name='teacherClass' value={teacherClass} onChange={(e) => onInputChange(e)} />
-
-                            
-                                <p>Age:</p>
-                                {/* <td>{teacherProfileInfo.teacherAge}</td> */}
-                                <input type="text" name='teacherAge' value={teacherAge} onChange={(e) => onInputChange(e)}/>
-                            
-                        
-                                <p>Email:</p>
-                                {/* <td>{teacherProfileInfo.teacherEmail}</td> */}
-                                <input type="text" name='teacherEmail' value={teacherEmail} onChange={(e) => onInputChange(e)} />
-                            
-                            
-                                <p>Image:</p>
-                                {/* <td>{teacherProfileInfo.teacherImage}</td> */}
-                                {/* <input type="file" name='teacherImage' onChange={(e) => onInputChange(e)} /> */}
-                                <img src={teacherImage} alt="" />
-                            
-                        {/* </table> */}
-                        <div className='ProfileBtn'>
-                            <button onClick={editTeacherInfo}>Save</button>
-                            {/* <button>Delete</button> */}
-                        </div>
-                    </div>
-
-
-                    {/* <div className='ProfileInput'>
                         <div className='ProfileInputName'>
                             <div className='ProfileInputNameinner'>
                                 <div className='ProfileInputNameinnericonholder'>
@@ -144,7 +131,8 @@ const EditTeacherProfile = () => {
                                     <BiDotsVerticalRounded />
                                 </div>
 
-                                <div className='ProfileInputNameinnerName'>{teacherProfileInfo.teacherName}</div>
+                                {/* <div className='ProfileInputNameinnerName'>{teacherProfileInfo.teacherName}</div> */}
+                                <input className='ProfileInputNameinnerName' type="text" name='teacherName' value={teacherName} onChange={(e) => onInputChange(e)} />
                             </div>
                         </div>
 
@@ -155,8 +143,7 @@ const EditTeacherProfile = () => {
                                     <BiDotsVerticalRounded />
                                 </div>
 
-                                <div className='ProfileInputNameinnerName'>{teacherProfileInfo.teacherClass}</div>
-                            </div>
+                                <input className='ProfileInputNameinnerName' type="text" name='teacherClass' value={teacherClass} onChange={(e) => onInputChange(e)} />                            </div>
                         </div>
                         <div className='ProfileInputName'>
                             <div className='ProfileInputNameinner'>
@@ -165,8 +152,7 @@ const EditTeacherProfile = () => {
                                     <BiDotsVerticalRounded />
                                 </div>
 
-                                <div className='ProfileInputNameinnerName'>{teacherProfileInfo.teacherAge}</div>
-                            </div>
+                                <input className='ProfileInputNameinnerName' type="text" name='teacherAge' value={teacherAge} onChange={(e) => onInputChange(e)}/>                            </div>
                         </div>
                         <div className='ProfileInputName'>
                             <div className='ProfileInputNameinner'>
@@ -175,8 +161,7 @@ const EditTeacherProfile = () => {
                                     <BiDotsVerticalRounded />
                                 </div>
 
-                                <div className='ProfileInputNameinnerName'>{teacherProfileInfo.teacherEmail}</div>
-                            </div>
+                                <input className='ProfileInputNameinnerName' type="text" name='teacherEmail' value={teacherEmail} onChange={(e) => onInputChange(e)} />                            </div>
                         </div>
 
                         <div className='ProfileInputName'>
@@ -186,16 +171,14 @@ const EditTeacherProfile = () => {
                                     <BiDotsVerticalRounded />
                                 </div>
 
-                                <div className='ProfileInputNameinnerName'>{teacherProfileInfo.teacherImage}</div>
-                            </div>
+                                <input className='ProfileInputNameinnerName' type="file" name='teacherImage' onChange={(e) => onInputChange(e)} />                            </div>
                         </div>
                         <div className='ProfileBtn'>
-                            <button>Edit</button>
-                            <button>Save</button>
-                            <button>Delete</button>
+                                <button className='ProfileSendButton' onClick={editTeacherInfo}>Save</button>
+                            <button className='ProfileDeleteButton'>Delete</button>
                         </div>
 
-                    </div> */}
+                    </div>
                 </div>
             </div>
         </>
