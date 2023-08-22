@@ -73,6 +73,9 @@
     flex-wrap: wrap;
     word-break: break-all;
     font-size: 13px;
+    outline: none;
+    border: none;
+    background: none;
     
 }
 
@@ -119,17 +122,34 @@
     justify-content: space-between;
 }
 
-table{
-    border: 1px solid #000;
-    height: 90%;
-    width: 100%;
+.ProfileEditButtonLink{
+    width: 35%;
+    height: 60%;
 }
 
-td{
-    word-break: break-all;
-    border: 1px solid black;
+.ProfileEditButton{
+    width: 100%;
+    height: 100%;
+    background: blue;
+    border: none;
+    color: white;
+    border-radius: 5px;
 }
-th{
-    /* word-break: break-all; */
-    border: 1px solid black;
+
+.ProfileSendButton{
+    width: 35%;
+    height: 60%;
+    background: green;
+    border: none;
+    color: white;
+    border-radius: 5px;
+}
+
+.ProfileDeleteButton{
+    width: 35%;
+    height: 60%;
+    background: red;
+    border: none;
+    color: white;
+    border-radius: 5px;
 }

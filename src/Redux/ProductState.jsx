@@ -4,7 +4,6 @@ const initialState = {
     School: [],
     schoolTeacher: [],
     loginUser: [],
-    logOut: "",
     studentApi: [],
     adminTeachApi: [],
     AdminStudentApi: [],

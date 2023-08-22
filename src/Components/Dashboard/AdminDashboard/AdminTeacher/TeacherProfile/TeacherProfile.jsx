@@ -13,12 +13,6 @@ const TeacherProfile = () => {
     const dispatch = useDispatch()
     const teacherProfileInfo = useSelector((state) => state.persisitedReducer.teacherInfo)
 
-
-    const[teacherName, setTeacherName] = useState("")
-    const[readOnly, setReadOnly] = useState(true)
-
-
-
     const url = `https://progresspal-8rxj.onrender.com/progressPal/readOneTeacher/${teacherId.studentId}`
 
     async function GetTeacherInfo() {
@@ -40,14 +34,17 @@ const TeacherProfile = () => {
     console.log(teacherId)
     console.log('first', teacherProfileInfo)
 
-    // useEffect(() => {
-    //     axios.get(`https://progresspal-8rxj.onrender.com/progressPal/readOneTeacher/${teacherId.studentId}`)
-    //     .then(res => console.log(res))
-    //     .catch((err) => {
-    //       console.log(err)
-    //     })
-    // }, [])
 
+    const deleteUrl = `https://progresspal-8rxj.onrender.com/progressPal/deleteTeacher/${teacherId.studentId}`
+async function DeleteTeacher(){
+    axios.delete(deleteUrl)
+    .then((res)=>{
+        console.log(res)
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
+}
 
     return (
         <>
@@ -66,61 +63,20 @@ const TeacherProfile = () => {
                             <p>{teacherProfileInfo.teacherEmail}</p>
                             {/* <input type="text" value={teacherProfileInfo.teacherEmail} /> */}
                         </div>
-                        {/* <div className='ProfileImageState'>
-                            <p>United state</p>
-                        </div> */}
+
                     </div>
 
                     <div className='ProfileInput'>
-                        {/* <input type="text" {edie?/> */}
-
-                        <table>
-                            <tr>
-                                <th>Name:</th>
-                                <td>{teacherProfileInfo.teacherName}</td>
-                                {/* <input type="text" readOnly={readOnly} value={teacherProfileInfo.teacherName } onChange={(e) => setTeacherName(e.target.value)} /> */}
-                            </tr>
-                            <tr>
-                                <th>Class:</th>
-                                <td>{teacherProfileInfo.teacherClass}</td>
-                                {/* <input type="text" value={teacherProfileInfo.teacherClass} /> */}
-                            </tr>
-                            <tr>
-                                <th>Age:</th>
-                                <td>{teacherProfileInfo.teacherAge}</td>
-                                {/* <input type="text" value={teacherProfileInfo.teacherAge} /> */}
-                            </tr>
-                            <tr>
-                                <th>Email:</th>
-                                <td>{teacherProfileInfo.teacherEmail}</td>
-                                {/* <input type="text" value={teacherProfileInfo.teacherEmail} /> */}
-                            </tr>
-                            <tr>
-                                <th>Image:</th>
-                                <td>{teacherProfileInfo.teacherImage}</td>
-                                {/* <input type="text" value={teacherProfileInfo.teacherImage} /> */}
-                            </tr>
-                        </table>
-                        <div className='ProfileBtn'>
-                            <Link to={`/admindashboard/editteacherProfile/${teacherProfileInfo._id}`}><button>Edit</button></Link>
-                            <button>Save</button>
-                            <button>Delete</button>
-                        </div>
-                    </div>
-
-
-                    {/* <div className='ProfileInput'>
                         <div className='ProfileInputName'>
                             <div className='ProfileInputNameinner'>
                                 <div className='ProfileInputNameinnericonholder'>
-                                    <p className='ProfileInputNameinnericonholderP'>Name</p>
+                                    <p>Name</p>
                                     <BiDotsVerticalRounded />
                                 </div>
 
                                 <div className='ProfileInputNameinnerName'>{teacherProfileInfo.teacherName}</div>
                             </div>
                         </div>
-
                         <div className='ProfileInputName'>
                             <div className='ProfileInputNameinner'>
                                 <div className='ProfileInputNameinnericonholder'>
@@ -163,14 +119,13 @@ const TeacherProfile = () => {
                             </div>
                         </div>
                         <div className='ProfileBtn'>
-                            <button>Edit</button>
-                            <button>Save</button>
-                            <button>Delete</button>
+                            <Link className="ProfileEditButtonLink" to={`/admindashboard/editteacherProfile/${teacherProfileInfo._id}`}><button className='ProfileEditButton'>Edit</button></Link>
+                            <button className='ProfileDeleteButton' onClick={DeleteTeacher}>Delete</button>
                         </div>
 
-                    </div> */}
+                    </div>
                 </div>
-            </div>
+            </div >
         </>
     )
 }

@@ -15,6 +15,7 @@ import AdminStudentDashboard from './AdminDashboard/AdminStudent/AdminStudentDas
 import { useSelector } from 'react-redux'
 import AdminUser from './AdminDashboard/User/AdminUser'
 import axios from 'axios'
+import Swal from 'sweetalert2'
 
 
 
@@ -23,6 +24,24 @@ const Admin = () => {
     const schoolUsers = useSelector(state => state.persisitedReducer.School)
     const BearerToken = schoolUsers.token
     const [menu, setMenu] = useState(false)
+
+    const showAlert = () => {
+        Swal.fire({
+            title: 'Log Out',
+            text: 'Are you sure',
+            icon: 'warning',
+            cancelButtonColor: 'green',
+            showCancelButton: true,
+            confirmButtonText: 'yes',
+            customClass: {
+                confirmButton: 'sweet-alert-confirm-btn',
+              },
+        }).then((result) => {
+            if (result.isConfirmed) {
+                AdminLogout()
+            }
+        });
+    };
 
     const url = `https://progresspal-8rxj.onrender.com/progressPal/logout/${schoolUsers._id}`
     async function AdminLogout() {
@@ -95,7 +114,7 @@ const Admin = () => {
                                             <p className='AdminDashboardIconsImageName'>Events</p>
                                         </div>
                                     </div>
-                                    <div className="AdminDashboardIcons" onClick={AdminLogout}>
+                                    <div className="AdminDashboardIcons" onClick={showAlert}>
                                         <div className='AdminHomeIcon'>
                                             <BiLogOut size={30} className='AdminDashboardIconsImage' />
                                         </div>
@@ -149,7 +168,7 @@ const Admin = () => {
                                     <p className='AdminDashboardIconsImageName'>Events</p>
                                 </div>
                             </div> */}
-                            <div className="AdminDashboardIcons" onClick={AdminLogout}>
+                            <div className="AdminDashboardIcons" onClick={showAlert}>
                                 <div className='AdminHomeIcon'>
                                     <BiLogOut size={30} className='AdminDashboardIconsImage' />
                                 </div>

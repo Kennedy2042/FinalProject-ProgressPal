@@ -61,8 +61,7 @@ const Login = () => {
                     title: "Logged In Successfully",
                     text: "Welcome back",
                     icon: "success",
-                    confirmButtonText: "Okay"
-
+                    confirmButtonText: "Okay",
                 })
                 setLoading(false)
             })
@@ -87,7 +86,7 @@ const Login = () => {
                 setLoading(false)
             });
     }
-    console.log("this is loading state: ",loading)
+    // console.log("this is loading state: ",loading)
 
     useEffect(() => {
         setSelect("0")
