@@ -1,0 +1,236 @@
+  .ResultBody{
+    width: 100%;
+    height: 100vh;
+      background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .Resultmainbody{
+    width: 40%;
+    height: 90%;
+    border: 1px solid #000000;
+    border-radius: 5px;
+  }
+  
+  .Resultmainbodyheader{
+    width: 100%;
+    height: 40%;
+    background-color: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px 5px 0px 0px;
+    flex-direction: column;
+  }
+  
+  .Resultmainbodyheaderlogodiv{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+  .Resultmainbodyheaderlogo{
+    width: 15%;
+    height: 90%;
+  }
+  
+  .Resultmainbodyheaderlogo img{
+    width: 100%;
+    height: 100%;
+  }
+  
+  .ResultmainbodyheaderlogodivschoolName{
+    width: 60%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .ResultmainbodyheaderlogodivschoolName p{
+    font-size: 20px;
+  }
+  
+  .ResultmainbodyheaderTerm{
+    width: 100%;
+    height: 15%;
+    background-color: #127bdd57;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+    font-weight: 550;
+  }
+  
+  .ResultmainbodyheaderStudentnamediv{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .ResultmainbodyheaderStudentname {
+    width: 30%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .studentNameP2 {
+    font-weight: 550;
+  }
+  
+  .ResultmainbodyheaderStudentname2 {
+    width: 30%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .ResultTable{
+    width: 100%;
+    height: 59.5%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .TotalA {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-around;
+    height: 50vh;
+  }
+  
+  .TotalB {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-around;
+    height: 50vh;
+  }
+  
+  th {
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+  }
+  
+  table {
+    width: 530px;
+    height: 200px;
+  }
+  
+  tr {
+    font-weight: 100;
+    font-size: 18px;
+    
+  }
+  
+  td {
+    border-bottom: 1px solid black;
+  }
+  
+  @media screen and (max-width:865px){
+    .Resultmainbody{
+     /* background-color: red; */
+     width: 80%;
+     height: 95%;
+     gap: 15px;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+    } 
+    
+  }
+  
+  
+  @media screen and (max-width:768px){
+     .Resultmainbody{
+         width: 80%;
+         height: 100%;
+         display: flex;
+         justify-content: space-around;
+         align-items: center;
+         flex-direction: column;
+     gap: 15px;
+  
+     }
+  
+     .ResultmainbodyheaderlogodivschoolName p{
+         font-size: 18px;
+     }
+  
+     .ResultmainbodyheaderTerm p{
+         font-size: 18px;
+     }
+  
+     .studentNameP2{
+         font-size: 15px;
+     }
+  
+     .TotalA{
+         font-size: 15px;
+     }
+  
+     th{
+         font-weight: lighter;
+     }
+  
+     .TotalB{
+         font-size: 15px;
+     }
+  }
+  
+  @media screen and (max-width:425px){
+     .Resultmainbody{
+         gap: 15px;
+         width: 90%;
+         height: 92%;
+     }
+  .ResultmainbodyheaderlogodivschoolName p{
+     font-size: 16px;
+  }
+     .studentNameP2{
+         font-size: 10px;
+     }
+  
+     .ResultmainbodyheaderTerm p{
+         font-size: 15px;
+     }
+  }
+  
+  @media screen and (max-width:375px){
+     .Resultmainbody{
+         width: 95%;
+         height: 100%;
+     gap: 15px;
+  
+     }
+     .ResultmainbodyheaderStudentname {
+         width: 40%;
+     }
+  
+     th{
+         font-size: 17px;
+     }
+  }
+  
+  @media screen and (max-width:320px){
+   .Resultmainbody{
+     gap: 15px;
+   }
+  
+   th{
+     font-size: 14px;
+  } 
+  }

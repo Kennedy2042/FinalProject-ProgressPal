@@ -52,7 +52,20 @@ const SchRegister = () => {
 
   const File = (e) => {
     const file = e.target.files[0];
-    setSchoolLogo(file);
+    if(file){
+      const fileType = file.type;
+      if (fileType.startsWith("image/")) {
+        // Process the selected image file
+      setSchoolLogo(file);
+      } else {
+        setValidMessage({
+          error: "true",
+          value: "schoolLogo",
+          msg: "Please select an image",
+        });
+        e.target.value = "";
+      }
+    }
     console.log(file);
   };
 
@@ -210,8 +223,8 @@ const SchRegister = () => {
                     <AiOutlineFileImage className='instituteNameIcon' />
                   </div>
                   <div className={validMessage.value === "schoolLogo" ? 'instituteLogoInputDivError':'InstituteLogoInputDiv'}>
-                    <input className='InstituteLogoInput' type="file" name='file' accept="image*/" onChange={File} />
-                    
+                    <input className='InstituteLogoInput' type="file" name='file' accept="image/*" onChange={File} />
+
                   </div>
                 </div>
                 {validMessage.value === "schoolLogo" ? (

@@ -121,8 +121,9 @@ const ResultSheet = ({shareId}) => {
         .catch((err) => {
             console.log(err);
         });
-        // console.log(shareId)
     };
+    console.log(shareId)
+
 
 
 

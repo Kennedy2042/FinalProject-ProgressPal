@@ -12,6 +12,7 @@ import { Route, Routes, useNavigate } from 'react-router-dom'
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import axios from 'axios'
+import Result from '../Teacher/ReportCard/ReportCard'
 
 
 const Student = () => {
@@ -165,6 +166,7 @@ const Student = () => {
                         {/* <Route path='/admin_teacher_dashboard' element={<AdminTeacherDashboard />} /> */}
                         {/* <Route path='/teacher_student_dashboard' element={<AdminStudentDashboard />} /> */}
                     </Routes>
+                    <Result/>
                 </div>
             </div>
     

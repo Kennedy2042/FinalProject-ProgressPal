@@ -8,7 +8,7 @@ const initialState = {
     studentApi: [],
     adminTeachApi: [],
     AdminStudentApi: [],
-    TeacherInfo: [],
+    teacherInfo: [],
 }
 
 
@@ -53,7 +53,7 @@ const productState = createSlice({
       },
 
       teacherInformation: (state, {payload}) => {
-        state.TeacherInfo = payload
+        state.teacherInfo = payload
         console.log("first", payload)
       }
     }

@@ -3,29 +3,57 @@ import React, { useEffect, useState } from 'react'
 // import './StudentProfileMedia.css'
 import { BiDotsVerticalRounded } from 'react-icons/bi'
 import axios from 'axios'
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { teacherInformation } from '../../../../../Redux/ProductState'
 
 
-const TeacherProfile = () => {
+const EditTeacherProfile = () => {
     const teacherId = useParams()
     const dispatch = useDispatch()
     const teacherProfileInfo = useSelector((state) => state.persisitedReducer.teacherInfo)
+    const teacherInfo = useSelector(state => state.persisitedReducer.loginUser)
+    const BearerToken = teacherInfo.data.token
+    console.log(BearerToken, "first")
+
+    const [teacherData, setTeacherData] = useState({
+        teacherName: "",
+        teacherClass: "",
+        teacherAge: "",
+        teacherEmail: "",
+        teacherImage: "",
+    })
+
+    const {teacherName, teacherClass, teacherAge, teacherEmail, teacherImage} = teacherData
+
+    const onInputChange = (e) => {
+        setTeacherData({ ...teacherData, [e.target.name]: e.target.value })
+    }
+
+    async function editTeacherInfo() {
+        axios.put(`https://progresspal-8rxj.onrender.com/progressPal/updateTeacher/${teacherProfileInfo._id}`, teacherData, {
+            headers: {
+                "Content-type": "multipart/form-data",
+                Authorization: `Bearer ${BearerToken}`
+            }
+        })
+            .then((res) => {
+                console.log(res)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }
 
 
-    const[teacherName, setTeacherName] = useState("")
-    const[readOnly, setReadOnly] = useState(true)
 
-
-
-    const url = `https://progresspal-8rxj.onrender.com/progressPal/readOneTeacher/${teacherId.studentId}`
+    const url = `https://progresspal-8rxj.onrender.com/progressPal/readOneTeacher/${teacherProfileInfo._id}`
 
     async function GetTeacherInfo() {
         axios.get(url)
             .then((res) => {
                 console.log(res)
-                dispatch(teacherInformation(res.data.data))
+                setTeacherData(res.data.data)
             })
             .catch((err) => {
                 console.log(err)
@@ -35,10 +63,10 @@ const TeacherProfile = () => {
         GetTeacherInfo()
     }, [])
 
-    // console.log(viewProfileId)
+    // console.log(teacherData)
 
-    console.log(teacherId)
-    console.log('first', teacherProfileInfo)
+    // console.log(teacherId)
+    // console.log('first', teacherProfileInfo)
 
     // useEffect(() => {
     //     axios.get(`https://progresspal-8rxj.onrender.com/progressPal/readOneTeacher/${teacherId.studentId}`)
@@ -74,37 +102,36 @@ const TeacherProfile = () => {
                     <div className='ProfileInput'>
                         {/* <input type="text" {edie?/> */}
 
-                        <table>
-                            <tr>
-                                <th>Name:</th>
-                                <td>{teacherProfileInfo.teacherName}</td>
-                                {/* <input type="text" readOnly={readOnly} value={teacherProfileInfo.teacherName } onChange={(e) => setTeacherName(e.target.value)} /> */}
-                            </tr>
-                            <tr>
-                                <th>Class:</th>
-                                <td>{teacherProfileInfo.teacherClass}</td>
-                                {/* <input type="text" value={teacherProfileInfo.teacherClass} /> */}
-                            </tr>
-                            <tr>
-                                <th>Age:</th>
-                                <td>{teacherProfileInfo.teacherAge}</td>
-                                {/* <input type="text" value={teacherProfileInfo.teacherAge} /> */}
-                            </tr>
-                            <tr>
-                                <th>Email:</th>
-                                <td>{teacherProfileInfo.teacherEmail}</td>
-                                {/* <input type="text" value={teacherProfileInfo.teacherEmail} /> */}
-                            </tr>
-                            <tr>
-                                <th>Image:</th>
-                                <td>{teacherProfileInfo.teacherImage}</td>
-                                {/* <input type="text" value={teacherProfileInfo.teacherImage} /> */}
-                            </tr>
-                        </table>
+                        {/* <table> */}
+                            
+                                <p>Name:</p>
+                                {/* <td>{teacherProfileInfo.teacherName}</td> */}
+                                <input type="text" name='teacherName' value={teacherName} onChange={(e) => onInputChange(e)} />
+                            
+                                <p>Class:</p>
+                                {/* <td>{teacherProfileInfo.teacherClass}</td> */}
+                                <input type="text" name='teacherClass' value={teacherClass} onChange={(e) => onInputChange(e)} />
+
+                            
+                                <p>Age:</p>
+                                {/* <td>{teacherProfileInfo.teacherAge}</td> */}
+                                <input type="text" name='teacherAge' value={teacherAge} onChange={(e) => onInputChange(e)}/>
+                            
+                        
+                                <p>Email:</p>
+                                {/* <td>{teacherProfileInfo.teacherEmail}</td> */}
+                                <input type="text" name='teacherEmail' value={teacherEmail} onChange={(e) => onInputChange(e)} />
+                            
+                            
+                                <p>Image:</p>
+                                {/* <td>{teacherProfileInfo.teacherImage}</td> */}
+                                {/* <input type="file" name='teacherImage' onChange={(e) => onInputChange(e)} /> */}
+                                <img src={teacherImage} alt="" />
+                            
+                        {/* </table> */}
                         <div className='ProfileBtn'>
-                            <Link to={`/admindashboard/editteacherProfile/${teacherProfileInfo._id}`}><button>Edit</button></Link>
-                            <button>Save</button>
-                            <button>Delete</button>
+                            <button onClick={editTeacherInfo}>Save</button>
+                            {/* <button>Delete</button> */}
                         </div>
                     </div>
 
@@ -175,4 +202,4 @@ const TeacherProfile = () => {
     )
 }
 
-export default TeacherProfile
+export default EditTeacherProfile

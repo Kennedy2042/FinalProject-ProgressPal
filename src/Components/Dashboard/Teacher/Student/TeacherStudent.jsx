@@ -19,6 +19,8 @@ const TeacherStudent = () => {
     const [studentPassport, setStudentPassport] = useState("")
     const [shareId, setShareId] = useState("")
     const teacherData = useSelector(state => state.persisitedReducer.loginUser)
+    const BearerToken = teacherData.data.token
+    console.log(BearerToken)
     const dispatch = useDispatch()
     const File = (e) => {
         const file = e.target.files[0];
@@ -28,7 +30,7 @@ const TeacherStudent = () => {
     const StudentApi = useSelector(state => state.persisitedReducer.studentApi)
     const [result, setResult] = useState(false)
 
-    const url = `https://progresspal-8rxj.onrender.com/progressPal/newStudent/${teacherData.data.data_id}`;
+    const url = `https://progresspal-8rxj.onrender.com/progressPal/newStudent/${teacherData.data.data._id}`;
 
     async function Register(e) {
         console.log("test")
