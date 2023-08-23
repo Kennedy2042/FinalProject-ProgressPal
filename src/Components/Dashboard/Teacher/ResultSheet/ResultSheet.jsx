@@ -4,9 +4,13 @@ import "./ResultSheet.css"
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useSelector } from 'react-redux';
+import { SpinnerCircular } from 'spinners-react';
+import Swal from 'sweetalert2';
+
 
 const ResultSheet = ({shareId}) => {
     // const {id} = useParams
+    const [loading, setLoading] = useState(false)
     const [subName1, setSubName1] = useState("");
     const [subTest1, setSubTest1] = useState(0);
     const [subExam1, setSubExam1] = useState(0);
@@ -114,9 +118,29 @@ const ResultSheet = ({shareId}) => {
         resultTotal,
     };
 
+    const showAlert = () => {
+        Swal.fire({
+            title: 'Register Link',
+            text: 'Create Student Result',
+            icon: 'info',
+            cancelButtonColor: 'cyan',
+            showCancelButton: true,
+            confirmButtonText: 'yes',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                setLoading(true)
+
+                CreateResult()
+            }
+        });
+    }
+
     const CreateResult = () => {
         axios.post(url, resultsData)
-        .then((res) => console.log(res))
+        .then((res) => {
+            console.log(res)
+        })
+            
         // setSuccessMessage(res.data.message)
         .catch((err) => {
             console.log(err);
@@ -326,7 +350,19 @@ const ResultSheet = ({shareId}) => {
                         <div className='TeacherCreateRsltBtnDiv'>
                             <h4>TOTAL: {resultTotal}</h4>
                             <h4>TEACHER'S REMARK</h4>
-                            <button onClick={CreateResult} className='TeacherCreateRsltBtn'>Create Result</button>
+                            <button onClick={showAlert} className='TeacherCreateRsltBtn'>
+                            {
+                                loading ? (
+                                    <SpinnerCircular
+                                        size={35}
+                                        thickness={99}
+                                        speed={100}
+                                        color="rgba(18, 124, 221, 1)"
+                                    />
+                                ) : (
+                                    "Create Result"
+                                )
+                            }</button>
                         </div>
                     </div>
                 </section>

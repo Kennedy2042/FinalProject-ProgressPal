@@ -55,7 +55,6 @@ const SchRegister = () => {
     if(file){
       const fileType = file.type;
       if (fileType.startsWith("image/")) {
-        // Process the selected image file
       setSchoolLogo(file);
       } else {
         setValidMessage({

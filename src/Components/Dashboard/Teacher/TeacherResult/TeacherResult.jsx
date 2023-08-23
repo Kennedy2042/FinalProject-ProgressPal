@@ -1,8 +1,25 @@
 import React from 'react'
 import "./TeacherResult.css"
 import { PiStudentDuotone } from "react-icons/pi"
+import axios from 'axios'
 
 const TeacherResult = () => {
+    // const url = `https://progresspal-8rxj.onrender.com/progressPal/schoolTeachers/${User.data.data._id}`
+
+    // async function AllStudentResult (){
+    //     axios.get(url)
+    //     .then((res)=>{
+    //         console.log("first" , res)
+    //     })
+    //     .catch((err)=>{
+    //         console.log(err, "first")
+    //     })
+
+    // }
+
+
+
+
     return (
         <>
             <div className="TeacherResultContainer">
@@ -116,176 +133,6 @@ const TeacherResult = () => {
                     </div>
                     <div className='GradeHolderHeaderResultHolder'>
                         <div className='GradeHolderHeaderResultHolderBody'>
-                            <div className='StudentsGradeHolder'>
-                                <div className='StudentsGradeHolderStudentsName'>
-                                    <div className='StudentsGradeHolderStudentsNameCircle'></div>
-                                    <p>Aniku Kennedy</p>
-                                </div>
-                                <div className='StudentsGradeHolderStudentsRemark'>
-                                    <div className='StudentsGradeHolderStudentsRemarkbtn'>
-                                        <p>Passed</p>
-                                    </div>
-                                </div>
-                                <div className='StudentsGradeHolderstudentsScore'>
-                                    45/40 (85%)
-                                </div>
-                                <div className='StudentsGradeHolderstudentsGrade'>
-                                    <p> Excellent  </p>
-                                </div>
-                            </div>
-                            <div className='StudentsGradeHolder'>
-                                <div className='StudentsGradeHolderStudentsName'>
-                                    <div className='StudentsGradeHolderStudentsNameCircle'></div>
-                                    <p>Aniku Kennedy</p>
-                                </div>
-                                <div className='StudentsGradeHolderStudentsRemark'>
-                                    <div className='StudentsGradeHolderStudentsRemarkbtn'>
-                                        <p>Passed</p>
-                                    </div>
-                                </div>
-                                <div className='StudentsGradeHolderstudentsScore'>
-                                    45/40 (85%)
-                                </div>
-                                <div className='StudentsGradeHolderstudentsGrade'>
-                                    <p> Excellent  </p>
-                                </div>
-                            </div>
-                            <div className='StudentsGradeHolder'>
-                                <div className='StudentsGradeHolderStudentsName'>
-                                    <div className='StudentsGradeHolderStudentsNameCircle'></div>
-                                    <p>Aniku Kennedy</p>
-                                </div>
-                                <div className='StudentsGradeHolderStudentsRemark'>
-                                    <div className='StudentsGradeHolderStudentsRemarkbtn'>
-                                        <p>Passed</p>
-                                    </div>
-                                </div>
-                                <div className='StudentsGradeHolderstudentsScore'>
-                                    45/40 (85%)
-                                </div>
-                                <div className='StudentsGradeHolderstudentsGrade'>
-                                    <p> Excellent  </p>
-                                </div>
-                            </div>
-                            <div className='StudentsGradeHolder'>
-                                <div className='StudentsGradeHolderStudentsName'>
-                                    <div className='StudentsGradeHolderStudentsNameCircle'></div>
-                                    <p>Aniku Kennedy</p>
-                                </div>
-                                <div className='StudentsGradeHolderStudentsRemark'>
-                                    <div className='StudentsGradeHolderStudentsRemarkbtn'>
-                                        <p>Passed</p>
-                                    </div>
-                                </div>
-                                <div className='StudentsGradeHolderstudentsScore'>
-                                    45/40 (85%)
-                                </div>
-                                <div className='StudentsGradeHolderstudentsGrade'>
-                                    <p> Excellent  </p>
-                                </div>
-                            </div>
-                            <div className='StudentsGradeHolder'>
-                                <div className='StudentsGradeHolderStudentsName'>
-                                    <div className='StudentsGradeHolderStudentsNameCircle'></div>
-                                    <p>Aniku Kennedy</p>
-                                </div>
-                                <div className='StudentsGradeHolderStudentsRemark'>
-                                    <div className='StudentsGradeHolderStudentsRemarkbtn'>
-                                        <p>Passed</p>
-                                    </div>
-                                </div>
-                                <div className='StudentsGradeHolderstudentsScore'>
-                                    45/40 (85%)
-                                </div>
-                                <div className='StudentsGradeHolderstudentsGrade'>
-                                    <p> Excellent  </p>
-                                </div>
-                            </div>
-                            <div className='StudentsGradeHolder'>
-                                <div className='StudentsGradeHolderStudentsName'>
-                                    <div className='StudentsGradeHolderStudentsNameCircle'></div>
-                                    <p>Aniku Kennedy</p>
-                                </div>
-                                <div className='StudentsGradeHolderStudentsRemark'>
-                                    <div className='StudentsGradeHolderStudentsRemarkbtn'>
-                                        <p>Passed</p>
-                                    </div>
-                                </div>
-                                <div className='StudentsGradeHolderstudentsScore'>
-                                    45/40 (85%)
-                                </div>
-                                <div className='StudentsGradeHolderstudentsGrade'>
-                                    <p> Excellent  </p>
-                                </div>
-                            </div>
-                            <div className='StudentsGradeHolder'>
-                                <div className='StudentsGradeHolderStudentsName'>
-                                    <div className='StudentsGradeHolderStudentsNameCircle'></div>
-                                    <p>Aniku Kennedy</p>
-                                </div>
-                                <div className='StudentsGradeHolderStudentsRemark'>
-                                    <div className='StudentsGradeHolderStudentsRemarkbtn'>
-                                        <p>Passed</p>
-                                    </div>
-                                </div>
-                                <div className='StudentsGradeHolderstudentsScore'>
-                                    45/40 (85%)
-                                </div>
-                                <div className='StudentsGradeHolderstudentsGrade'>
-                                    <p> Excellent  </p>
-                                </div>
-                            </div>
-                            <div className='StudentsGradeHolder'>
-                                <div className='StudentsGradeHolderStudentsName'>
-                                    <div className='StudentsGradeHolderStudentsNameCircle'></div>
-                                    <p>Aniku Kennedy</p>
-                                </div>
-                                <div className='StudentsGradeHolderStudentsRemark'>
-                                    <div className='StudentsGradeHolderStudentsRemarkbtn'>
-                                        <p>Passed</p>
-                                    </div>
-                                </div>
-                                <div className='StudentsGradeHolderstudentsScore'>
-                                    45/40 (85%)
-                                </div>
-                                <div className='StudentsGradeHolderstudentsGrade'>
-                                    <p> Excellent  </p>
-                                </div>
-                            </div>
-                            <div className='StudentsGradeHolder'>
-                                <div className='StudentsGradeHolderStudentsName'>
-                                    <div className='StudentsGradeHolderStudentsNameCircle'></div>
-                                    <p>Aniku Kennedy</p>
-                                </div>
-                                <div className='StudentsGradeHolderStudentsRemark'>
-                                    <div className='StudentsGradeHolderStudentsRemarkbtn'>
-                                        <p>Passed</p>
-                                    </div>
-                                </div>
-                                <div className='StudentsGradeHolderstudentsScore'>
-                                    45/40 (85%)
-                                </div>
-                                <div className='StudentsGradeHolderstudentsGrade'>
-                                    <p> Excellent  </p>
-                                </div>
-                            </div>
-                            <div className='StudentsGradeHolder'>
-                                <div className='StudentsGradeHolderStudentsName'>
-                                    <div className='StudentsGradeHolderStudentsNameCircle'></div>
-                                    <p>Aniku Kennedy</p>
-                                </div>
-                                <div className='StudentsGradeHolderStudentsRemark'>
-                                    <div className='StudentsGradeHolderStudentsRemarkbtn'>
-                                        <p>Passed</p>
-                                    </div>
-                                </div>
-                                <div className='StudentsGradeHolderstudentsScore'>
-                                    45/40 (85%)
-                                </div>
-                                <div className='StudentsGradeHolderstudentsGrade'>
-                                    <p> Excellent  </p>
-                                </div>
-                            </div>
                             <div className='StudentsGradeHolder'>
                                 <div className='StudentsGradeHolderStudentsName'>
                                     <div className='StudentsGradeHolderStudentsNameCircle'></div>

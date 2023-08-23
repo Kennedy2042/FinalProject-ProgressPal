@@ -17,6 +17,7 @@ import { SpinnerCircular } from "spinners-react"
 
 
 const AdminTeacherDashboard = () => {
+    const User = useSelector(state => state.persisitedReducer.loginUser)
     const schoolUsers = useSelector(state => state.persisitedReducer.School)
     const allTeacher = useSelector(state => state.persisitedReducer.adminTeachApi)
     const [addTeacher, setAddTeacher] = useState(false)
@@ -27,8 +28,8 @@ const AdminTeacherDashboard = () => {
 
     // console.log(allTeacher)
 
-    const BearerToken = schoolUsers.token
-    // console.log(BearerToken)
+    const BearerToken = User.data.token
+    console.log(BearerToken)
 
     const data = { teacherEmail }
     const dispatch = useDispatch()
@@ -61,8 +62,8 @@ const AdminTeacherDashboard = () => {
             }
         }
 
-        console.log(url, schoolUsers._id, data)
-        axios.post(`${url}/${schoolUsers._id}`, data, config)
+        console.log(url, User.data._id, data, BearerToken)
+        axios.post(`${url}/${User.data.data._id}`, data, config)
             .then((res) => {
                 console.log(res)
                 Swal.fire({
@@ -106,11 +107,12 @@ const AdminTeacherDashboard = () => {
     //     // setTeacherEmail({teacherEmail, [e.target.name]::})
     // }
     {
-        console.log(schoolUsers)
+        console.log(User.data, BearerToken)
+
     }
 
 
-    const teacherUrl = `https://progresspal-8rxj.onrender.com/progressPal/schoolTeachers/${schoolUsers._id}`
+    const teacherUrl = `https://progresspal-8rxj.onrender.com/progressPal/schoolTeachers/${User.data.data._id}`
 
     async function GetAllTeacher() {
         axios.get(teacherUrl)
