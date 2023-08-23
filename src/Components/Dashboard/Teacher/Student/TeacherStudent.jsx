@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { allStudentApi } from '../../../../Redux/ProductState'
 import ResultSheet from '../ResultSheet/ResultSheet'
 import "./TeacherStudent.css"
+import Swal from 'sweetalert2'
+import { SpinnerCircular } from 'spinners-react'
 
 const TeacherStudent = () => {
 
@@ -18,6 +20,7 @@ const TeacherStudent = () => {
     const [password, setPassword] = useState("")
     const [studentPassport, setStudentPassport] = useState("")
     const [shareId, setShareId] = useState("")
+    const [loading, setLoading] = useState(false)
     const teacherData = useSelector(state => state.persisitedReducer.loginUser)
     const BearerToken = teacherData.data.token
     console.log(BearerToken)
@@ -29,14 +32,30 @@ const TeacherStudent = () => {
     };
     const StudentApi = useSelector(state => state.persisitedReducer.studentApi)
     const [result, setResult] = useState(false)
-    console.log("first", StudentApi )
+    console.log("first", StudentApi)
+
+    const showAlert = () => {
+        Swal.fire({
+            title: 'Register Link',
+            text: 'You are about to Register a Student',
+            icon: 'info',
+            cancelButtonColor: 'cyan',
+            showCancelButton: true,
+            confirmButtonText: 'yes',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                setLoading(true)
+                Register()
+            }
+        });
+    }
 
     const url = `https://progresspal-8rxj.onrender.com/progressPal/newStudent/${teacherData.data.data._id}`;
 
     async function Register(e) {
         console.log("test")
 
-        e.preventDefault()
+        // e.preventDefault()
         console.log(teacherData)
 
         const data = new FormData()
@@ -54,13 +73,31 @@ const TeacherStudent = () => {
         })
             .then((res) => {
                 console.log(res)
+                Swal.fire({
+                    title: "Success!",
+                    text: res.data.message,
+                    icon: "success",
+                    confirmButtonText: "Ok"
+                })
+                setAddStudents(false)
+                setLoading(false)
+
+
             })
             .catch((err) => {
                 console.log(err)
+                Swal.fire({
+                    title: "error!",
+                    text: rerr.data.message,
+                    icon: "error",
+                    confirmButtonText: "Ok"
+                })
+                setLoading(false)
+
             })
     }
 
-    const getUrl = "https://progresspal-8rxj.onrender.com/progressPal/readAllStudent"
+    const getUrl = `https://progresspal-8rxj.onrender.com/progressPal/teacherStudents/${teacherData.data.data._id}`
     async function getStudentApi() {
         axios.get(getUrl)
             .then((res) => {
@@ -82,7 +119,7 @@ const TeacherStudent = () => {
     return (
         <>
 
-{
+            {
                 result ? <div className="resultSheetHolder">
                     <AiOutlineCloseCircle size={38} style={{ fill: "red", cursor: "pointer" }} onClick={() => {
                         setResult(false)
@@ -112,33 +149,33 @@ const TeacherStudent = () => {
             <div className='AdminDashboardTeachersCard'>
                 {
                     StudentApi.length === 0 ? <h2>No Students added</h2> :
-                    (
-                        Array.from(StudentApi)?.map((props) => (
-                            <div className='AdminDashboardTeachersCardBody' key={props?._id}>
-                                <div className='AdminDashboardTeachersImageDiv'>
-                                    <img src={props.studentPassport} alt="" />
-                                </div>
-                                <div className='AdminDashboardTeachersDetail'>
-                                    <div className='AdminDashboardTeachersDetailH3'>
-                                        Name: <h3>{props.studentName}</h3>
+                        (
+                            Array.from(StudentApi)?.map((props) => (
+                                <div className='AdminDashboardTeachersCardBody' key={props?._id}>
+                                    <div className='AdminDashboardTeachersImageDiv'>
+                                        <img src={props.studentPassport} alt="" />
                                     </div>
-                                    <div className='AdminDashboardTeachersDetailH3'>
-                                        Email: <h5>{props.studentEmail}</h5>
+                                    <div className='AdminDashboardTeachersDetail'>
+                                        <div className='AdminDashboardTeachersDetailH3'>
+                                            Name: <h3>{props.studentName}</h3>
+                                        </div>
+                                        <div className='AdminDashboardTeachersDetailH3'>
+                                            Email: <h5>{props.studentEmail}</h5>
+                                        </div>
+                                        <h4>{props.studentClass}</h4>
+                                        <button className='AdminDashboardViewTeachProfile' onClick={() => {
+                                            setResult(true)
+                                            setShareId(props._id)
+                                        }}>Add Result</button>
                                     </div>
-                                    <h4>{props.studentClass}</h4>
-                                    <button className='AdminDashboardViewTeachProfile' onClick={() => {
-                                        setResult(true)
-                                        setShareId(props._id)
-                                    }}>Add Result</button>
                                 </div>
-                            </div>
-                        ))
-    
-    
-                    )
+                            ))
+
+
+                        )
                 }
             </div>
-            
+
 
 
             {
@@ -157,7 +194,20 @@ const TeacherStudent = () => {
                         <input type="text" placeholder='Student Pin' className='StudentEmail' value={password} onChange={(e) => setPassword(e.target.value)} />
 
                         <input type="file" placeholder='Student Passport' className='StudentEmail' onChange={File} />
-                        <button className='AddStudentButton' onClick={Register}>Send</button>
+                        <button className='AddStudentButton' onClick={showAlert}>
+                            {
+                                loading ? (
+                                    <SpinnerCircular
+                                        size={35}
+                                        thickness={99}
+                                        speed={100}
+                                        color="rgba(18, 124, 221, 1)"
+                                    />
+                                ) : (
+                                    "Send"
+                                )
+                            }
+                        </button>
                         {/* </div> */}
                     </div>
                 </div> : null

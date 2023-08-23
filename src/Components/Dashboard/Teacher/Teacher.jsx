@@ -21,6 +21,7 @@ import axios from 'axios'
 import TeacherStudent from './Student/TeacherStudent'
 import Swal from 'sweetalert2'
 import { allStudentApi } from '../../../Redux/ProductState'
+import { loginUserData } from '../../../Redux/ProductState'
 
 const Teacher = () => {
 
@@ -47,6 +48,7 @@ const Teacher = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 dispatch(allStudentApi([]))
+                dispatch(loginUserData([]))
                 return TeacherLogout()
             }
         });
