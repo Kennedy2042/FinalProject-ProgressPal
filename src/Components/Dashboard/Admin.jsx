@@ -12,18 +12,25 @@ import { Route, Routes, useNavigate } from 'react-router-dom'
 import React, { useState } from 'react'
 import AdminTeacherDashboard from './AdminDashboard/AdminTeacher/AdminTeacherDashboard'
 import AdminStudentDashboard from './AdminDashboard/AdminStudent/AdminStudentDashboard'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import AdminUser from './AdminDashboard/User/AdminUser'
 import axios from 'axios'
 import Swal from 'sweetalert2'
+import { adminAllTeacherApi } from '../../Redux/ProductState'
+import Login from '../Authentication/Login/Login'
+import { userLogin } from '../../Redux/ProductState'
 
 
 
 const Admin = () => {
     const navigate = useNavigate()
     const schoolUsers = useSelector(state => state.persisitedReducer.School)
+    const teacherData = useSelector(state => state.persisitedReducer.loginUser)
+    const isLogin = useSelector(state => state.persisitedReducer.isLoggedIn)
+
     const BearerToken = schoolUsers.token
     const [menu, setMenu] = useState(false)
+    const dispatch = useDispatch()
 
     const showAlert = () => {
         Swal.fire({
@@ -35,7 +42,7 @@ const Admin = () => {
             confirmButtonText: 'yes',
             customClass: {
                 confirmButton: 'sweet-alert-confirm-btn',
-              },
+            },
         }).then((result) => {
             if (result.isConfirmed) {
                 AdminLogout()
@@ -51,7 +58,10 @@ const Admin = () => {
         })
             .then((res) => {
                 console.log(res)
+                dispatch(adminAllTeacherApi([]))
                 navigate("/")
+                // console.log(res.data.data.isLogin, "res.data.data.isLogin")
+                dispatch(userLogin(false))
             })
             .catch((err) => {
                 console.log(err)
@@ -59,7 +69,7 @@ const Admin = () => {
 
     }
 
-    console.log(schoolUsers)
+    console.log(isLogin, "isLogin")
 
     return (
         <>
@@ -181,11 +191,19 @@ const Admin = () => {
                     </div>
                 </div>
                 <div className='DashBoardRightBody'>
-                    
+
                     <Routes>
-                        <Route path='/schoolAdminUser/:id' element={<AdminUser />} />
-                        <Route path='/admin_teacher_dashboard' element={<AdminTeacherDashboard />} />
-                        <Route path='/admin_student_dashboard' element={<AdminStudentDashboard />} />
+                        {
+                            isLogin ? <Route path='/schoolAdminUser/:id' element={<AdminUser />} /> : <Route path="/login" element={<Login />} />
+                        }
+                        {/* <Route path='/schoolAdminUser/:id' element={<AdminUser />} /> */}
+                        {
+                            isLogin ? <Route path='/admin_teacher_dashboard' element={<AdminTeacherDashboard />} /> : <Route path="/login" element={<Login />} />
+                        }
+
+                        {
+                        isLogin ? <Route path='/admin_student_dashboard' element={<AdminStudentDashboard />} /> : <Route path="/login" element={<Login />} />
+                        }
                     </Routes>
                 </div>
             </div>

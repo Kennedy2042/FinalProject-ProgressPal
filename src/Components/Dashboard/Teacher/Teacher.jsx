@@ -10,7 +10,7 @@ import { AiOutlineCloseCircle } from 'react-icons/ai'
 import { RxHamburgerMenu } from 'react-icons/rx'
 import { Route, Routes, useNavigate } from 'react-router-dom'
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 // import AdminUser from './AdminDashboard/User/AdminUser'
 import AdminTeacherDashboard from '../AdminDashboard/AdminTeacher/AdminTeacherDashboard'
 // import AdminStudentDashboard from '../AdminDashboard/AdminStudent/AdminStudentDashboard'
@@ -20,10 +20,12 @@ import TeacherResult from './TeacherResult/TeacherResult'
 import axios from 'axios'
 import TeacherStudent from './Student/TeacherStudent'
 import Swal from 'sweetalert2'
+import { allStudentApi } from '../../../Redux/ProductState'
 
 const Teacher = () => {
 
     const navigate = useNavigate()
+    const dispatch = useDispatch()
     const teacherData = useSelector (state => state.persisitedReducer.loginUser)
     const BearerToken = teacherData.data.token
     // console.log(BearerToken)
@@ -44,7 +46,8 @@ const Teacher = () => {
               },
         }).then((result) => {
             if (result.isConfirmed) {
-                TeacherLogout ()
+                dispatch(allStudentApi([]))
+                return TeacherLogout()
             }
         });
     };
@@ -58,7 +61,7 @@ const Teacher = () => {
     
         })
         .then ((res)=>{
-            console.log(res)
+            // console.log(res)
             navigate("/")
         })
         .catch ((err)=>{
