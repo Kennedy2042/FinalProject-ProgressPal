@@ -29,6 +29,7 @@ const TeacherStudent = () => {
     };
     const StudentApi = useSelector(state => state.persisitedReducer.studentApi)
     const [result, setResult] = useState(false)
+    console.log("first", StudentApi )
 
     const url = `https://progresspal-8rxj.onrender.com/progressPal/newStudent/${teacherData.data.data._id}`;
 
@@ -63,6 +64,7 @@ const TeacherStudent = () => {
     async function getStudentApi() {
         axios.get(getUrl)
             .then((res) => {
+                console.log(res.data.data, "response from api")
                 dispatch(allStudentApi(res.data.data))
             })
             .catch((err) => {
@@ -109,28 +111,31 @@ const TeacherStudent = () => {
 
             <div className='AdminDashboardTeachersCard'>
                 {
-                    Array.from(StudentApi)?.map((props) => (
-                        <div className='AdminDashboardTeachersCardBody' key={props?._id}>
-                            <div className='AdminDashboardTeachersImageDiv'>
-                                <img src={props.image} alt="" />
-                            </div>
-                            <div className='AdminDashboardTeachersDetail'>
-                                <div className='AdminDashboardTeachersDetailH3'>
-                                    Name: <h3>{props.studentName}</h3>
+                    StudentApi.length === 0 ? <h2>No Students added</h2> :
+                    (
+                        Array.from(StudentApi)?.map((props) => (
+                            <div className='AdminDashboardTeachersCardBody' key={props?._id}>
+                                <div className='AdminDashboardTeachersImageDiv'>
+                                    <img src={props.studentPassport} alt="" />
                                 </div>
-                                <div className='AdminDashboardTeachersDetailH3'>
-                                    Email: <h5>{props.studentEmail}</h5>
+                                <div className='AdminDashboardTeachersDetail'>
+                                    <div className='AdminDashboardTeachersDetailH3'>
+                                        Name: <h3>{props.studentName}</h3>
+                                    </div>
+                                    <div className='AdminDashboardTeachersDetailH3'>
+                                        Email: <h5>{props.studentEmail}</h5>
+                                    </div>
+                                    <h4>{props.studentClass}</h4>
+                                    <button className='AdminDashboardViewTeachProfile' onClick={() => {
+                                        setResult(true)
+                                        setShareId(props._id)
+                                    }}>Add Result</button>
                                 </div>
-                                <h4>{props.studentClass}</h4>
-                                <button className='AdminDashboardViewTeachProfile' onClick={() => {
-                                    setResult(true)
-                                    setShareId(props._id)
-                                }}>Add Result</button>
                             </div>
-                        </div>
-                    ))
-
-
+                        ))
+    
+    
+                    )
                 }
             </div>
             
@@ -151,7 +156,7 @@ const TeacherStudent = () => {
                         <input type="email" placeholder='Student Email' className='StudentEmail' value={studentEmail} onChange={(e) => setStudentEmail(e.target.value)} />
                         <input type="text" placeholder='Student Pin' className='StudentEmail' value={password} onChange={(e) => setPassword(e.target.value)} />
 
-                        <input type="file" placeholder='Student Passport' className='StudentEmail' value={studentPassport} onChange={File} />
+                        <input type="file" placeholder='Student Passport' className='StudentEmail' onChange={File} />
                         <button className='AddStudentButton' onClick={Register}>Send</button>
                         {/* </div> */}
                     </div>

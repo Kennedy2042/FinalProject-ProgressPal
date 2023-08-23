@@ -151,29 +151,33 @@ const AdminTeacherDashboard = () => {
             </div>
             <div className='AdminDashboardTeachersCard'>
                 {
-                    allTeacher.map((props) => (
-                        <div className='AdminDashboardTeachersCardBody' key={props?._id}>
-                            <div className='AdminDashboardTeachersImageDiv'>
-                                <img src={AboutUsImage} alt="" />
-                            </div>
-                            <div className='AdminDashboardTeachersDetail'>
-                                <div className='AdminDashboardTeachersDetailH3'>
-                                    Name: <h3 className='DashboardSchoolName'>{props.teacherName}</h3>
+                    allTeacher.length === 0 ? <h2>No Teachers added</h2> : 
+                    (
+                            allTeacher.map((props) => (
+                                <div className='AdminDashboardTeachersCardBody' key={props?._id}>
+                                    <div className='AdminDashboardTeachersImageDiv'>
+                                        <img src={AboutUsImage} alt="" />
+                                    </div>
+                                    <div className='AdminDashboardTeachersDetail'>
+                                        <div className='AdminDashboardTeachersDetailH3'>
+                                            Name: <h3 className='DashboardSchoolName'>{props.teacherName}</h3>
+                                        </div>
+                                        <div className='AdminDashboardTeachersDetailH3'>
+                                            Email: <h5>{props.teacherEmail}</h5>
+                                        </div>
+                                        <button className='AdminDashboardViewTeachProfile' onClick={
+                                            () => {
+                                                setViewTeacherProfile(true)
+                                                // setTeacherId(props._id)
+                                                nav(`/admindashboard/teacherProfile/${props._id}`)
+        
+                                            }
+                                        }>View Profile</button>
+                                    </div>
                                 </div>
-                                <div className='AdminDashboardTeachersDetailH3'>
-                                    Email: <h5>{props.teacherEmail}</h5>
-                                </div>
-                                <button className='AdminDashboardViewTeachProfile' onClick={
-                                    () => {
-                                        setViewTeacherProfile(true)
-                                        // setTeacherId(props._id)
-                                        nav(`/admindashboard/teacherProfile/${props._id}`)
-
-                                    }
-                                }>View Profile</button>
-                            </div>
-                        </div>
-                    ))
+                            ))
+                        
+                    )
                 }
 
             </div>

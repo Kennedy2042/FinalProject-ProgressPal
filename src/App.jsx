@@ -15,10 +15,16 @@ import Student from "./Components/Dashboard/Student/Student"
 import StudentProfile from './Components/Dashboard/AdminDashboard/AdminStudent/StudentProfile/StudentProfile'
 import TeacherProfile from './Components/Dashboard/AdminDashboard/AdminTeacher/TeacherProfile/TeacherProfile'
 import EditTeacherProfile from './Components/Dashboard/AdminDashboard/AdminTeacher/TeacherProfile/EditTeacherProfile'
+import { useSelector } from 'react-redux'
 
 
 
 function App() {
+
+  // const teacherData = useSelector(state => state.persisitedReducer.loginUser)
+  // console.log("data", teacherData?.data?.data?.isLogin)
+  const isLogin = useSelector(state => state.persisitedReducer.isLoggedIn)
+  console.log(isLogin)
 
   return (
     <>
@@ -29,7 +35,10 @@ function App() {
             <Route path="/sch_register" element={<SchRegister />} />
             <Route path="/login" element={<Login />} />
             <Route path="/verified_success/:token" element={<Verification/>} />
-            <Route path="/Dashboard/schoolAdmin*" element={<Admin/>} />
+            {
+              isLogin ? <Route path="/Dashboard/schoolAdmin*" element={<Admin/>} /> : <Route path="/login" element={<Login />} />
+            }
+            {/* <Route path="/Dashboard/schoolAdmin*" element={<Admin/>} /> */}
             <Route path="/forget_password" element={<ForgetPassword/>} />
             <Route path="/reset_password/:id/:token" element={<ResetPassword/>} />
             <Route path="/teacher_signup/:token" element={<TeacherSignUp/>} />

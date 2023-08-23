@@ -15,7 +15,7 @@ const TeacherProfile = () => {
     const teacherProfileInfo = useSelector(state => state.persisitedReducer.teacherInfo)
     const Users = useSelector(state => state.persisitedReducer.loginUser)
     const navigate = useNavigate()
-    console.log('first', teacherProfileInfo)
+    // console.log('first', teacherProfileInfo)
     console.log(teacherId)
 
 
@@ -24,7 +24,7 @@ const TeacherProfile = () => {
     async function GetTeacherInfo() {
         axios.get(url)
             .then((res) => {
-                // console.log(res)
+                console.log(res, "teacherIngo")
                 dispatch(teacherInformation(res.data.data))
             })
             .catch((err) => {
@@ -79,14 +79,14 @@ async function DeleteTeacher(){
 
                 <div className='Profilebody'>
                     <div className='ProfileImage'>
-                        <img className='ProfileImagecircle' src={teacherProfileInfo.teacherImage} alt="" />
+                        <img className='ProfileImagecircle' src={teacherProfileInfo?.teacherImage} alt="" />
                         {/* <div className='ProfileImagecircle'></div> */}
                         <div className='ProfileImageName'>
-                            <h2>{teacherProfileInfo.teacherName}</h2>
+                            <h2>{teacherProfileInfo?.teacherName}</h2>
                             {/* <input type="text" value={teacherProfileInfo.teacherName} /> */}
                         </div>
                         <div className='ProfileImageEmail'>
-                            <p>{teacherProfileInfo.teacherEmail}</p>
+                            <p>{teacherProfileInfo?.teacherEmail}</p>
                             {/* <input type="text" value={teacherProfileInfo.teacherEmail} /> */}
                         </div>
 
@@ -100,7 +100,7 @@ async function DeleteTeacher(){
                                     <BiDotsVerticalRounded />
                                 </div>
 
-                                <div className='ProfileInputNameinnerName'>{teacherProfileInfo.teacherName}</div>
+                                <div className='ProfileInputNameinnerName'>{teacherProfileInfo?.teacherName}</div>
                             </div>
                         </div>
                         <div className='ProfileInputName'>
@@ -110,7 +110,7 @@ async function DeleteTeacher(){
                                     <BiDotsVerticalRounded />
                                 </div>
 
-                                <div className='ProfileInputNameinnerName'>{teacherProfileInfo.teacherClass}</div>
+                                <div className='ProfileInputNameinnerName'>{teacherProfileInfo?.teacherClass}</div>
                             </div>
                         </div>
                         <div className='ProfileInputName'>
@@ -120,7 +120,7 @@ async function DeleteTeacher(){
                                     <BiDotsVerticalRounded />
                                 </div>
 
-                                <div className='ProfileInputNameinnerName'>{teacherProfileInfo.teacherAge}</div>
+                                <div className='ProfileInputNameinnerName'>{teacherProfileInfo?.teacherAge}</div>
                             </div>
                         </div>
                         <div className='ProfileInputName'>
@@ -130,7 +130,7 @@ async function DeleteTeacher(){
                                     <BiDotsVerticalRounded />
                                 </div>
 
-                                <div className='ProfileInputNameinnerName'>{teacherProfileInfo.teacherEmail}</div>
+                                <div className='ProfileInputNameinnerName'>{teacherProfileInfo?.teacherEmail}</div>
                             </div>
                         </div>
 
@@ -141,11 +141,11 @@ async function DeleteTeacher(){
                                     <BiDotsVerticalRounded />
                                 </div>
 
-                                <div className='ProfileInputNameinnerName'>{teacherProfileInfo.teacherImage}</div>
+                                <div className='ProfileInputNameinnerName'>{teacherProfileInfo?.teacherImage}</div>
                             </div>
                         </div>
                         <div className='ProfileBtn'>
-                            <Link className="ProfileEditButtonLink" to={`/admindashboard/editteacherProfile/${teacherProfileInfo._id}}`}><button className='ProfileEditButton'>Edit</button></Link>
+                            <Link className="ProfileEditButtonLink" to={`/admindashboard/editteacherProfile/${teacherProfileInfo?._id}}`}><button className='ProfileEditButton'>Edit</button></Link>
                             <button className='ProfileDeleteButton' onClick={showAlert}>Delete</button>
                         </div>
 

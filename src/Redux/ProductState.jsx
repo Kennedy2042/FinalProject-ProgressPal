@@ -8,6 +8,7 @@ const initialState = {
     adminTeachApi: [],
     AdminStudentApi: [],
     teacherInfo: [],
+    isLoggedIn:false
 }
 
 
@@ -54,11 +55,16 @@ const productState = createSlice({
       teacherInformation: (state, {payload}) => {
         state.teacherInfo = payload
         console.log("first", payload)
+      },
+
+      userLogin: (state, {payload}) => {
+        state.isLoggedIn = payload
+        console.log("first", payload)
       }
     }
 })
 
-export const {schoolUserData, schoolTeacherData, loginUserData, studentSignUpData, allStudentApi, adminAllTeacherApi, adminAllStudentApi, teacherInformation} = productState.actions;
+export const {schoolUserData, schoolTeacherData, loginUserData, studentSignUpData, allStudentApi, adminAllTeacherApi, adminAllStudentApi, teacherInformation, userLogin} = productState.actions;
 export default productState.reducer
 
 

@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { loginUserData } from '../../../Redux/ProductState'
 import { SpinnerCircular } from "spinners-react"
 import Swal from 'sweetalert2'
+import { userLogin } from '../../../Redux/ProductState'
 
 
 
@@ -53,16 +54,23 @@ const Login = () => {
             .post(url, select === 'schoolAdmin' ? data : select === 'teacher' ? info : detail )
 
             .then((res) => {
-                // console.log(res)
+                console.log(res)
                 setSuccessErrorMessage(res.data.message)
-                navigate(`/Dashboard/${select}/${select}User/${res.data.data._id}`)
-                dispatch(loginUserData(res))
                 Swal.fire({
                     title: "Logged In Successfully",
                     text: "Welcome back",
                     icon: "success",
                     confirmButtonText: "Okay",
+                    timer: "2500",
+                    showConfirmButton: false
                 })
+                navigate(`/Dashboard/${select}/${select}User/${res.data.data._id}`)
+                // setInterval(() => {
+                // }, 3000);
+                
+                dispatch(loginUserData(res))
+                dispatch(userLogin(res.data.data.isLogin))
+                
                 setLoading(false)
             })
             .catch((err) => {
