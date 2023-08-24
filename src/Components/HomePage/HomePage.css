@@ -661,12 +661,12 @@ h2 {
   main {
     width: 100%;
     height: max-content;
-    position: relative;
+    /* position: relative; */
   }
 
   .HomePageHeroSec {
     width: 100%;
-    height: 70vh;
+    height: 95vh;
     /* background-color: #127cdd; */
   }
 
@@ -679,50 +679,53 @@ h2 {
   }
 
   .HeroSectionWrapper {
-    width: 95%;
+    width: 91%;
     height: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
+    justify-content: center;
     /* background-color: red; */
   }
 
   .HeroSectionText {
     width: 100%;
-    height: 50%;
+    height: 45%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     /* align-items: center; */
-    gap: 20px;
+    gap: 10px;
     /* background-color: red; */
   }
 
   h1 {
-    font-size: 30px;
+    font-size: 22px;
     font-weight: 600;
+    text-align: center;
   }
 
   h2 {
-    font-size: 19px;
-    /* text-align: center; */
+    font-size: 17px;
+    text-align: center;
     font-weight: 600;
   }
 
   .GetStarted {
-    width: 130px;
-    height: 40px;
+    width: 120px;
+    height: 37px;
     cursor: pointer;
     border: none;
     font-size: 16px;
     color: white;
     border-radius: 7px;
     background-color: #127cdd;
+    align-self: center;
   }
 
   .HeroSectionImage {
     width: 100%;
-    height: 50%;
+    height: 52%;
     object-fit: contain;
   }
 
@@ -734,12 +737,38 @@ h2 {
   .PartnersContainer {
     width: 100%;
     height: 9vh;
+    display: flex;
+    justify-content: center;
+    /* background-color: white; */
+    background-color: #e7f2fc;
+    /* background-image: linear-gradient(#e7f2fc, white); */
+  }
+  
+  .PartnersContainerWrapper {
+    width: 91%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
     /* background-color: red; */
+  }
+  
+  .PartnersImage {
+    width: 23%;
+    height: 100%;
+    /* background-color: blue; */
+    object-fit: cover;
+  }
+  
+  .PartnersImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* background-color: #127cdd; */
   }
 
   .ServicesContainer {
     width: 100%;
-    height: 110vh;
+    height: 135vh;
     display: flex;
     justify-content: center;
     gap: 10px;
@@ -747,7 +776,7 @@ h2 {
   }
 
   .ServicesContainerWrapper {
-    width: 95%;
+    width: 91%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -761,10 +790,10 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    font-size: 25px;
+    font-size: 18px;
     text-decoration: underline;
     text-decoration-color: #127cdd;
-    text-decoration-thickness: 3px;
+    text-decoration-thickness: 2.5px;
     color: #76787b;
     font-weight: 500;
     /* background-color: pink; */
@@ -782,45 +811,80 @@ h2 {
   }
 
   .ServicesCard {
-    width: 75%;
-    height: 33%;
+    width: 70%;
+    height: 33.3%;
     display: flex;
     flex-direction: column;
     gap: 15px;
-    background-color: aqua;
+    background-color: white;
     padding: 12px 6px 0px 10px;
     border-radius: 10px;
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    /* transform: scale(1);
-    transition: all 350ms ease-in; */
   }
 
-  /* .ServicesCard:hover {
-    transform: scale(1.03);
-    transition: all 350ms ease-in;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  } */
-
   .ServicesIconHolder {
-    width: 24%;
-    height: 24%;
-    background-color: green;
+    width: 25%;
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #127bdd96;
     border-radius: 10px;
+    object-fit: contain;
+  }
+  
+  .ServicesIconHolder img {
+    width: 80%;
+    height: 80%;
+  }
+  
+  .ServicesIconHolder2 {
+    width: 25%;
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f7bb05cd;
+    border-radius: 10px;
+    object-fit: contain;
+  }
+  
+  .ServicesIconHolder2 img {
+    width: 80%;
+    height: 80%;
+  }
+  
+  .ServicesIconHolder3 {
+    width: 25%;
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(226, 78, 78, 0.863);
+    border-radius: 10px;
+    object-fit: contain;
+  }
+  
+  .ServicesIconHolder3 img {
+    width: 80%;
+    height: 80%;
   }
 
   .ServicesHeading {
     font-weight: 600;
+    font-size: 15px;
   }
 
   .ServicesDescription {
     font-weight: 400;
     color: #76787b;
+    font-size: 14px;
   }
 
   .BenefitsSection {
     width: 100%;
-    height: 95vh;
+    height: 120vh;
     display: flex;
     justify-content: center;
     background-color: #f8f8f8;
@@ -844,14 +908,14 @@ h2 {
     /* background-color: green; */
   }
 
-  /* .BenefitsBox2 {
+  .BenefitsBox2 {
     width: 100%;
     height: 50%;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: green;
-  } */
+    flex-direction: column-reverse;
+    /* justify-content: space-between; */
+    /* background-color: green; */
+  }
 
   .BenefitsImage {
     width: 100%;
@@ -867,29 +931,43 @@ h2 {
 
   .BenefitsText {
     width: 100%;
-    height: 40%;
+    height: 50%;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 8px;
+    margin-left: 0px;
+    /* background-color: red; */
+  }
+
+  .BenefitsText2 {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 1;
+    margin-left: 0px;
     /* background-color: red; */
   }
 
   .BenefitsTextTitle {
-    font-size: 15px;
+    font-size: 11px;
     font-weight: 500;
     color: #127cdd;
+    
   }
 
   .BenefitsTextHead {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 500;
     color: #212529;
   }
 
   .BenefitsTextDescription {
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 300;
     color: #76787b;
+    text-align: center;
   }
 
   .Circle1 {
@@ -900,3 +978,4 @@ h2 {
     display: none;
   }
 }
+

@@ -52,10 +52,10 @@ const SchRegister = () => {
 
   const File = (e) => {
     const file = e.target.files[0];
-    if(file){
+    if (file) {
       const fileType = file.type;
       if (fileType.startsWith("image/")) {
-      setSchoolLogo(file);
+        setSchoolLogo(file);
       } else {
         setValidMessage({
           error: "true",
@@ -167,15 +167,15 @@ const SchRegister = () => {
         })
         .catch((err) => {
           console.log(err);
-          if(err?.message === "Network Error") {
+          if (err?.message === "Network Error") {
             Swal.fire({
-                title: "Login Failed",
-                text: err.message,
-                icon: "error",
-                confirmButtonText: "okay"
+              title: "Login Failed",
+              text: err.message,
+              icon: "error",
+              confirmButtonText: "okay"
             })
             setLoading(false)
-        }
+          }
           setSuccessErrorMessage(err.response.data.message);
           setLoading(false)
           Swal.fire({
@@ -194,28 +194,29 @@ const SchRegister = () => {
   return (
     <>
       <div className="schRegContainer">
-        <div className="SchRegLogo">
-          <div className="SchRegLogoContainer" onClick={()=>{
+        {/* <div className="SchRegLogo">
+          
+        </div> */}
+        <div className="SchRegLogoInputs">
+          <div className="SchRegLogoContainer" onClick={() => {
             nav("/")
           }}>
             <img src={ProgressPalLogo} alt="" />
           </div>
-        </div>
-        <div className="SchRegLogoInputs">
-          <div className="SchRegLogoInputsBody"></div>
+          {/* <div className="SchRegLogoInputsBody"></div> */}
           <div className="leftInput">
             <h1 className="formTitle" >Register your Institute</h1>
             <div className="leftRegister">
               <div className="instituteName">
                 <h3 className="inputTitle">Institute Name</h3>
                 <div className="instituteNameHolder">
-                  <div className={ `${validMessage.value === "schoolName" || validMessage.value === "schoolNameError" ? "schoolInputIconError" : ""} instituteNameIconDiv`}>
-                    <FaUniversity className= "instituteNameIcon" />
+                  <div className={`${validMessage.value === "schoolName" || validMessage.value === "schoolNameError" ? "schoolInputIconError" : ""} instituteNameIconDiv`}>
+                    <FaUniversity className="instituteNameIcon" />
                   </div>
-                  <input className={ `${validMessage.value === "schoolName" || validMessage.value === "schoolNameError" ? "schoolNameInputError" : ""} InstituteNameInput`} 
-                  type="text" 
-                  placeholder='Institute Name' 
-                  value={schoolName} onChange={(e) => setSchoolName(e.target.value)} />
+                  <input className={`${validMessage.value === "schoolName" || validMessage.value === "schoolNameError" ? "schoolNameInputError" : ""} InstituteNameInput`}
+                    type="text"
+                    placeholder='Institute Name'
+                    value={schoolName} onChange={(e) => setSchoolName(e.target.value)} />
                 </div>
               </div>
               {validMessage.value === "schoolName" ? (
@@ -227,25 +228,25 @@ const SchRegister = () => {
               <div className="instituteLogo">
                 <h3 className="inputTitle">Institute Logo</h3>
                 <div className="instituteLogoHolder">
-                  <div className={validMessage.value === "schoolLogo"? "instituteLogoIconDivError" :  "instituteLogoIconDiv"}>
+                  <div className={validMessage.value === "schoolLogo" ? "instituteLogoIconDivError" : "instituteLogoIconDiv"}>
                     <AiOutlineFileImage className='instituteNameIcon' />
                   </div>
-                  <div className={validMessage.value === "schoolLogo" ? 'instituteLogoInputDivError':'InstituteLogoInputDiv'}>
+                  <div className={validMessage.value === "schoolLogo" ? 'instituteLogoInputDivError' : 'InstituteLogoInputDiv'}>
                     <input className='InstituteLogoInput' type="file" name='file' accept="image/*" onChange={File} />
 
                   </div>
                 </div>
                 {validMessage.value === "schoolLogo" ? (
-                      <p className='errorParagraph'>{validMessage.msg}</p>
-                    ) : null}
+                  <p className='errorParagraph'>{validMessage.msg}</p>
+                ) : null}
               </div>
               <div className="instituteEmail">
                 <h3 className="inputTitle">Institute Email</h3>
                 <div className="instituteEmailHolder">
-                  <div className={ validMessage.value === "schoolEmail" ? "instituteLogoIconDivError": "instituteEmailIconDiv"}>
+                  <div className={validMessage.value === "schoolEmail" ? "instituteLogoIconDivError" : "instituteEmailIconDiv"}>
                     <AiOutlineMail className='instituteNameIcon' />
                   </div>
-                  <input className={ validMessage.value === "schoolEmail" ? "InstituteEmailInputError": 'InstituteEmailInput'} type="text" placeholder="Email Address" value={schoolEmail} onChange={(e) => setSchoolEmail(e.target.value)} />
+                  <input className={validMessage.value === "schoolEmail" ? "InstituteEmailInputError" : 'InstituteEmailInput'} type="text" placeholder="Email Address" value={schoolEmail} onChange={(e) => setSchoolEmail(e.target.value)} />
 
                 </div>
                 {validMessage.value === "schoolEmail" ? (
@@ -257,16 +258,16 @@ const SchRegister = () => {
                 {/* <p className='errorParagraph'>{validMessage}</p> */}
 
               </div>
-             
+
               <div className="institutePassword">
                 <h3 className="inputTitle">Password</h3>
                 <div className="institutePasswordHolder">
                   <div className={validMessage.value === "password" || validMessage.value === "passwordError" ? "institutePasswordIconDivError" : "institutePasswordIconDiv"}>
                     <RiLockPasswordFill className='instituteNameIcon' />
                   </div>
-                  <input className={validMessage.value === "password" || validMessage.value === "passwordError" ? "InstitutePasswordInputError" :'InstitutePasswordInput'} type={showPassword ? "text" : "password"} placeholder="Enter your password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                  <input className={validMessage.value === "password" || validMessage.value === "passwordError" ? "InstitutePasswordInputError" : 'InstitutePasswordInput'} type={showPassword ? "text" : "password"} placeholder="Enter your password" value={password} onChange={(e) => setPassword(e.target.value)} />
 
-                  <div className={validMessage.value === "password" || validMessage.value === "passwordError" ? "instituteShowPasswordIconDivError" :"instituteShowPasswordIconDiv"} >
+                  <div className={validMessage.value === "password" || validMessage.value === "passwordError" ? "instituteShowPasswordIconDivError" : "instituteShowPasswordIconDiv"} >
                     {
                       showPassword ? <BiSolidHide className='showPassIcon' onClick={() => { setShowPassword(false) }} /> : <BiSolidShow className='showPassIcon' onClick={() => { setShowPassword(true) }} />
                     }
@@ -304,7 +305,7 @@ const SchRegister = () => {
                   <p className='errorParagraph'>{validMessage.msg}</p>
                 ) : null}
               </div>
-              <p className='schRegParagraph'>Already have n account? <span className='schRegSpan' onClick={()=>{
+              <p className='schRegParagraph'>Already have an account? <span className='schRegSpan' onClick={() => {
                 nav("/login")
               }}>Log in</span></p>
               {/* <p>{successErrorMessage}</p> */}

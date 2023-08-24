@@ -9,3 +9,41 @@
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
 }
+
+.cardButton{
+    width: 100%;
+    height: 30%;
+    /* background: #000; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.TeacherViewTeachProfile{
+    width: 30%;
+    height: 70%;
+    background: green;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.studentProfileBody{
+    width: 87%;
+    height: 100vh;
+    background: purple;
+    position: fixed;
+}
+
+.studentProfileBodyBackBtn{
+    height: 5%;
+    width: 100%;
+    background: yellow;
+    display: flex;
+    align-items: center;
+}
+
+.studentProfileBodyBackBtnIcon{
+    cursor: pointer;
+}

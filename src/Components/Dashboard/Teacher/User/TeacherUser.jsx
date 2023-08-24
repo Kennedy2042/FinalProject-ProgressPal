@@ -1,20 +1,59 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 // import "./AdminUser.css"
 // import "./AdminUserMedia.css"
 import { useSelector } from 'react-redux'
 import { VictoryPie, VictoryTheme } from 'victory'
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
+// import LiveClock from 'react-live-clock';
 
 
 
 const TeacherUser = () => {
 
     const schoolUsers = useSelector(state => state.persisitedReducer.School)
+    const teacherData = useSelector(state => state.persisitedReducer.loginUser)
+    const [date, setDate] = useState(new Date());
+
     // console.log(schoolUsers)
+    const [totalStudents, setTotalStudents] = useState(0);
+
+    const url = `https://progresspal-8rxj.onrender.com/progressPal/teacherStudents/${teacherData.data.data._id}`
+    async function GetAllStudents() {
+        axios.get(url)
+            .then((res) => {
+                console.log("first", res)
+                const studentsData = res.data.data;
+                const totalStudentsCount = studentsData.length;
+                setTotalStudents(totalStudentsCount);
+                console.log(studentsData)
+                console.log(totalStudentsCount) 
+            })
+            .catch((err) => {
+                console.log("first", err)
+            })
+    }
+
+    useEffect(() => {
+        GetAllStudents()
+    }, []);
+
+    const pieData = [
+        { key: "Enrolled", y: totalStudents },
+        { key: "Remaining", y: 100 - totalStudents }
+    ];
+    const handleDateChange = (newDate) => {
+    setDate(newDate)
+    };
+  
 
 
-  return (
-    <>
-        <div className='AdminDashBoardRightBodyUpperBody'>
+
+
+    return (
+        <>
+            <div className='AdminDashBoardRightBodyUpperBody'>
                 <div className="AdminDashBoardRightBodyHeader">
                     <div className="userProfile">
                         <div className="UserImageDiv">
@@ -34,7 +73,7 @@ const TeacherUser = () => {
                         <div className='AdminTotalTeacherBody'>
                             <div className='AdminTotalTeacherBodyTotal'>
                                 <h5 className='AdminTotalTeacherBodyTotalH5'>Students</h5>
-                                <h3 className='AdminTotalTeacherBodyTotalH3'>{0}</h3>
+                                <h3 className='AdminTotalTeacherBodyTotalH3'>{totalStudents}</h3>
                             </div>
                             <div className='AdminTotalTeacherBodyChart'>
                                 <div className="AdminChart">
@@ -54,7 +93,9 @@ const TeacherUser = () => {
                                             colorScale={["#19B3A6", "#EEEEEE"]}
                                             style={{ background: "red" }}
                                         />  */}
-                                    <VictoryPie
+
+
+                                    {/* <VictoryPie
                                         padAngle={0}
                                         // used to hide labels
                                         labelComponent={<span />}
@@ -63,12 +104,22 @@ const TeacherUser = () => {
                                         data={[{ 'key': "", 'y': 70 }, { 'key': "", 'y': (100 - 70) }]}
                                         colorScale={["#19B3A6", "#EEEEEE"]}
                                         style={{ background: "red" }}
+                                    /> */}
+                                    <VictoryPie
+                                        padAngle={0}
+                                        labelComponent={<span />}
+                                        innerRadius={200}
+                                        width={700}
+                                        height={700}
+                                        data={pieData}
+                                        colorScale={["#19B3A6", "#EEEEEE"]}
+                                        style={{ background: "red" }}
                                     />
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className='AdminTotalTeacher'>
+                    {/* <div className='AdminTotalTeacher'>
                         <div className='AdminTotalTeacherBody'>
                             <div className='AdminTotalTeacherBodyTotal'>
                                 <h5 className='AdminTotalTeacherBodyTotalH5' >Teachers</h5>
@@ -111,7 +162,7 @@ const TeacherUser = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
                 <div className='AdminDashboardPerformance'>
                     <div className='AdminDashboardPerformanceDetailCard'>
@@ -130,12 +181,15 @@ const TeacherUser = () => {
                             <div className="PerformanceDetailsCard"></div>
                         </div>
                     </div>
-                    <div className='AdminDashboardPerformanceDetailCardRight'></div>
+                    <div className='AdminDashboardPerformanceDetailCardRight'>
+                        <Calendar onChange={handleDateChange} value={date}/>
+                        {/* <LiveClock/> */}
+                    </div>
                 </div>
             </div>
-    
-    </>
-  )
+
+        </>
+    )
 }
 
 export default TeacherUser

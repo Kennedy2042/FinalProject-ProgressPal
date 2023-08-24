@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect, useState } from "react";
 import "./ResultSheet.css"
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import { SpinnerCircular } from 'spinners-react';
 import Swal from 'sweetalert2';
@@ -120,7 +120,7 @@ const ResultSheet = ({shareId}) => {
 
     const showAlert = () => {
         Swal.fire({
-            title: 'Register Link',
+            title: 'Result',
             text: 'Create Student Result',
             icon: 'info',
             cancelButtonColor: 'cyan',
@@ -134,16 +134,41 @@ const ResultSheet = ({shareId}) => {
             }
         });
     }
+    const nav = useNavigate()
 
     const CreateResult = () => {
         axios.post(url, resultsData)
         .then((res) => {
             console.log(res)
+            setLoading(false)
+            Swal.fire({
+                title: 'Success',
+                text: res.data.message,
+                icon: 'success',
+                cancelButtonColor: 'cyan',
+                showCancelButton: false,
+                confirmButtonText: 'yes',
+            }).then((result) => {
+            if (result.isConfirmed) {
+                nav("/Dashboard/teacher/teacherUser/:id")
+                return
+            }
+        });
         })
             
         // setSuccessMessage(res.data.message)
         .catch((err) => {
             console.log(err);
+            setLoading(false)
+            Swal.fire({
+                title: 'Fail',
+                text: err.data.data.message,
+                icon: 'error',
+                cancelButtonColor: 'cyan',
+                showCancelButton: false,
+                confirmButtonText: 'yes',
+            })
+
         });
     };
     console.log(shareId)

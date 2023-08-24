@@ -2,8 +2,12 @@ import React from 'react'
 import "./TeacherResult.css"
 import { PiStudentDuotone } from "react-icons/pi"
 import axios from 'axios'
+import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 const TeacherResult = () => {
+    const allStudent = useSelector((state)=>state.persisitedReducer.studentApi)
+    const nav = useNavigate()
     // const url = `https://progresspal-8rxj.onrender.com/progressPal/schoolTeachers/${User.data.data._id}`
 
     // async function AllStudentResult (){
@@ -17,7 +21,18 @@ const TeacherResult = () => {
 
     // }
 
+    // const url = `https://progresspal-8rxj.onrender.com/progressPal/schoolResult/${}`
+    // async function ViewStudentResult(){
+    //     axios.get(url)
+    //     .then((res)=>{
+    //         console.log("first", res)
+    //     })
+    //     .catch((err)=>{
+    //         console.log("first", err)
+    //     })
+    // }
 
+console.log(allStudent ,"all studenr")
 
 
     return (
@@ -125,31 +140,40 @@ const TeacherResult = () => {
                         </div> */}
                         <ul>
                             <li>Student Name</li>
-                            <li>Passed/Failed</li>
-                            <li>Score</li>
-                            <li>Grade</li>
+                            <li>Student Class</li>
+                            <li>Age</li>
+                            <li>Result</li>
                             {/* <li>Details</li> */}
                         </ul>
                     </div>
                     <div className='GradeHolderHeaderResultHolder'>
                         <div className='GradeHolderHeaderResultHolderBody'>
-                            <div className='StudentsGradeHolder'>
+                            {
+                                allStudent.map((props)=>(
+                                    <div className='StudentsGradeHolder'>
                                 <div className='StudentsGradeHolderStudentsName'>
-                                    <div className='StudentsGradeHolderStudentsNameCircle'></div>
-                                    <p>Aniku Kennedy</p>
+                                    <img className='StudentsGradeHolderStudentsNameCircle' src={props?.studentPassport} alt="" />
+                                    {/* <div className='StudentsGradeHolderStudentsNameCircle'></div> */}
+                                    <p>{props.studentName}</p>
                                 </div>
                                 <div className='StudentsGradeHolderStudentsRemark'>
                                     <div className='StudentsGradeHolderStudentsRemarkbtn'>
-                                        <p>Passed</p>
+                                        <p>{props.studentClass}</p>
                                     </div>
                                 </div>
                                 <div className='StudentsGradeHolderstudentsScore'>
-                                    45/40 (85%)
+                                    <p>{props.studentAge}</p>
                                 </div>
                                 <div className='StudentsGradeHolderstudentsGrade'>
-                                    <p> Excellent  </p>
+                                    <button
+                                    onClick={()=>{
+                                        // ViewStudentResult()
+                                        nav(`/teacher_studentResult/${props._id}`)
+                                    }}>View Result</button>
                                 </div>
                             </div>
+                                ))
+                            }
                         </div>
                     </div>
                 </div>
