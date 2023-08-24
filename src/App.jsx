@@ -16,6 +16,7 @@ import StudentProfile from './Components/Dashboard/AdminDashboard/AdminStudent/S
 import TeacherProfile from './Components/Dashboard/AdminDashboard/AdminTeacher/TeacherProfile/TeacherProfile'
 import EditTeacherProfile from './Components/Dashboard/AdminDashboard/AdminTeacher/TeacherProfile/EditTeacherProfile'
 import { useSelector } from 'react-redux'
+import Result from './Components/Dashboard/Teacher/ReportCard/ReportCard'
 
 
 
@@ -49,6 +50,7 @@ function App() {
             <Route path='/student_profile/:studentId' element={<StudentProfile/>}/>
             <Route path='/admindashboard/teacherProfile/:teacherId' element={<TeacherProfile/>}/>
             <Route path='/admindashboard/editteacherProfile/:id' element={<EditTeacherProfile/>}/>
+            <Route path='/teacher_studentResult/:studentId' element={<Result/>}/>
           </Routes>
         </HashRouter>
         {/* <TeacherUser/> */}

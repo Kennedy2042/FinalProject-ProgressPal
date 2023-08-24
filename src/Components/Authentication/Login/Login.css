@@ -4,24 +4,26 @@
     /* background-color: red; */
     display: flex;
     align-items: center;
-    /* justify-content: center; */
+    justify-content: center;
     flex-direction: column;
     background: url("/public/backgroundImage.jpg");
 }
 
 .LoginMainContainerBody{
-    width: 100%;
-    height: 100%;
+    width: 26%;
+    height: 55%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: #000000a9;
+    background: rgba(218, 218, 231, 0.312);
+    border: 0.01px solid blue;
+
 
 }
 
 .LoginLogo {
-    width: 100%;
-    height: 19%;
+    width: 20%;
+    height: 17%;
     /* display: flex;
     justify-content: center;
     align-items: center;  */
@@ -30,13 +32,13 @@
 }
 
 .LoginLogo img {
-    width: 15%;
+    width: 100%;
     height: 100%;
 }
 
 .LoginBody {
-    width: 40%;
-    height: 70%;
+    width: 90%;
+    height: 79%;
     /* background-color: rebeccapurple; */
     display: flex;
     justify-content: center;
@@ -46,8 +48,8 @@
 }
 
 .LoginLowerBody {
-    width: 70%;
-    height: 80%;
+    width: 90%;
+    height: 85%;
     /* background-color: #E5C726; */
     display: flex;
     justify-content: center;
@@ -63,15 +65,15 @@
 }
 
 .LoginWelText{
-    width: 100%;
-    font-size: 20px;
+    /* width: 100%; */
+    font-size: 15px;
     /* background: pink; */
-    color: white;
+    /* color: white; */
 }
 
 .EmailInputDiv {
     width: 90%;
-    height: 15%;
+    height: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -82,7 +84,7 @@
     width: 90%;
     outline: none;
     height: 10%;
-    border: 2px solid rgb(255, 255, 255);
+    border: 0.01px solid blue;
 
     /* height: 15%;
     display: flex;
@@ -95,14 +97,14 @@
     height: 70%;
     width: 100%;
     border-radius: 10px;
-    border: 2px solid rgb(255, 255, 255);
+    border: 0.01px solid blue;
     padding-left: 3%;
     outline: none;
     border-radius: 10px;
 }
 
 .PasswordInputDivHolder {
-    height: 15%;
+    height: 20%;
     width: 90%;
 }
 
@@ -117,9 +119,9 @@
     height: 70%;
     width: 85%;
     border-radius: 10px 0px 0px 10px;
-    border-bottom: 2px solid rgb(255, 255, 255);
-    border-left: 2px solid rgb(255, 255, 255);
-    border-top: 2px solid rgb(255, 255, 255);
+    border-bottom: 0.01px solid blue;
+    border-left: 0.01px solid blue;
+    border-top: 0.01px solid blue;
     border-right: 0px solid rgb(255, 255, 255);
     padding-left: 3%;
     outline: none;
@@ -132,9 +134,9 @@
     align-items: center;
     justify-content: center;
     border-radius: 0px 10px 10px 0px;
-    border-bottom: 2px solid rgb(255, 255, 255);
-    border-right: 2px solid rgb(255, 255, 255);
-    border-top: 2px solid rgb(255, 255, 255);
+    border-bottom: 0.01px solid blue;
+    border-right: 0.01px solid blue;
+    border-top: 0.01px solid blue;
     border-left: 0px solid rgb(255, 255, 255);
     background: white;
     cursor: pointer;
@@ -146,23 +148,24 @@
 
 .Logintext2 {
     width: 90%;
-    height: 5%;
+    height: 10%;
     display: flex;
     justify-content: space-between;
-    /* align-items: center; */
+    align-items: center;
 }
 .AcctParagrph{
-    font-size: 11px;
-    color: white;
+    font-size: 10px;
+    /* color: white; */
+    /* height: 10%; */
 }
 
 .LoginBtn{
     width: 90%;
-    height: 10%;
+    height: 13%;
     cursor: pointer;
-    background: #F7B905;
+    background: blue;
     border: none;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     color: white;
     font-size: 20px;
     display: flex;
@@ -171,7 +174,7 @@
 }
 
 .LoginSpan {
-    color: #F7B905;
+    color: blue;
     cursor: pointer;
 }
 

@@ -234,7 +234,16 @@ list-style: none;
     background-color: chocolate;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+}
+
+.StudentsGradeHolderStudentsName p{
+    width: 70%;
+    /* height:90%; */
+    background-color: chocolate;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
 }
 
 .StudentsGradeHolderStudentsNameCircle{

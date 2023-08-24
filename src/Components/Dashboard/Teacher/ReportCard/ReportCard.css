@@ -1,15 +1,18 @@
-  .ResultBody{
+  .TeacherResultBody{
     width: 100%;
-    height: 100vh;
+    height: max-content;
       background-color: white;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    gap: 10vh;
   }
   
   .Resultmainbody{
     width: 40%;
-    height: 90%;
+    height: 100vh;
     border: 1px solid #000000;
     border-radius: 5px;
   }
@@ -98,11 +101,31 @@
   
   .ResultTable{
     width: 100%;
-    height: 59.5%;
+    height: 60%;
     display: flex;
     justify-content: center;
+    align-items: center;
+    /* background-color: blue; */
+    flex-direction: column;
   }
-  
+  .subjectsword {
+    /* color: yellow; */
+    width: 100%;
+    height: 12%;
+    /* background-color: blueviolet; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #0000006b;
+
+  }
+  .table {
+    /* background-color: pink; */
+    width: 90%;
+    height: 95%;
+  }
+
+
   .TotalA {
     display: flex;
     flex-direction: column;
@@ -110,13 +133,36 @@
     justify-content: space-around;
     height: 50vh;
   }
-  
+  .TotalA td {
+    font-size: 12px;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .TotalB {
     display: flex;
     flex-direction: column;
     width: 100%;
     justify-content: space-around;
     height: 50vh;
+  }
+  .TotalB td {
+    font-size: 15px;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .TotalB td {
+    font-size: 16px;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   th {
@@ -138,6 +184,41 @@
   td {
     border-bottom: 1px solid black;
   }
+
+  .TotalScorediv {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+    gap: 240px;
+    /* background-color: red; */
+  }
+
+  .tableButton{
+    width: 100%;
+    height: 9%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   }
+
+   .tableButtonEdit{
+    width: 25%;
+    height: 70%;
+    background: blue;
+    border-radius: 5px;
+    border: none;
+    color: white;
+   }
+
+   .tableButtonDelete{
+    width: 25%;
+    height: 70%;
+    background: red;
+    border-radius: 5px;
+    border: none;
+    color: white;
+   }
   
   @media screen and (max-width:865px){
     .Resultmainbody{
@@ -207,6 +288,8 @@
      .ResultmainbodyheaderTerm p{
          font-size: 15px;
      }
+
+    
   }
   
   @media screen and (max-width:375px){
@@ -234,3 +317,4 @@
      font-size: 14px;
   } 
   }
+

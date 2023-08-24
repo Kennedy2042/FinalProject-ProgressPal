@@ -28,8 +28,8 @@ const Teacher = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const teacherData = useSelector (state => state.persisitedReducer.loginUser)
-    const BearerToken = teacherData.data.token
-    // console.log(BearerToken)
+    const BearerToken = teacherData?.data?.token
+    console.log(BearerToken)
 
     const [menu, setMenu] = useState(false)
 
@@ -43,19 +43,20 @@ const Teacher = () => {
             showCancelButton: true,
             confirmButtonText: 'yes',
             customClass: {
-                confirmButton: 'sweetAlertConfirmBtn', // Add your custom class here
+                confirmButton: 'sweetAlertConfirmBtn',
               },
         }).then((result) => {
             if (result.isConfirmed) {
+                TeacherLogout()
                 dispatch(allStudentApi([]))
                 dispatch(loginUserData([]))
-                return TeacherLogout()
+                return
             }
         });
     };
 
 
-    const url = `https://progresspal-8rxj.onrender.com/progressPal/logoutTeacher/${teacherData.data.data._id}`;  
+    const url = `https://progresspal-8rxj.onrender.com/progressPal/logoutTeacher/${teacherData?.data?.data?._id}`;  
     async function TeacherLogout () {
         // console.log("dstrstrdd")
         axios.post (url, {
@@ -116,14 +117,14 @@ const Teacher = () => {
                                             <p className='AdminDashboardIconsImageName'>Teachers</p>
                                         </div>
                                     </div>
-                                    <div className="AdminDashboardIcons">
+                                    {/* <div className="AdminDashboardIcons">
                                         <div className='AdminHomeIcon'>
                                             <GrScorecard size={30} className='AdminDashboardIconsImage' />
                                         </div>
                                         <div className="AdminHomeIconTitle">
                                             <p className='AdminDashboardIconsImageName'>Results</p>
                                         </div>
-                                    </div>
+                                    </div> */}
                                     <div className="AdminDashboardIcons" onClick={showAlert}>
                                         <div className='AdminHomeIcon'>
                                             <BiLogOut size={30} className='AdminDashboardIconsImage' />

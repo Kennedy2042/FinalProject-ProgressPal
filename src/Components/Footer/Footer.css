@@ -20,6 +20,10 @@
   /* background-color: red; */
 }
 
+.FooterWrapper2 {
+ display: none;
+}
+
 .FooterTextHolder {
   width: 100%;
   height: 83%;
@@ -89,7 +93,7 @@
   /* background-color: gray; */
 }
 
-.footerH4 {
+h4 {
   color: white;
 }
 
@@ -203,135 +207,210 @@ hr {
 
   .Footer {
     width: 100%;
-    height: 80vh;
+    height: 150vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #127cdd;
+    /* background-color: green; */
   }
 
   .FooterWrapper {
-    width: 92%;
-    height: 80%;
+    display: none;
   }
 
-  .FooterTextHolder {
-    width: 100%;
-    height: 83%;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .ProgressPalText {
-    width: 25%;
-    height: 100%;
+  .FooterWrapper2 {
+    width: 90%;
+    height: 92%;
     display: flex;
     flex-direction: column;
     gap: 20px;
+    /* background-color: red; */
   }
 
-  .ProgressPalLogo {
-    width: 38%;
-    height: 60px;
+  .FooterTextHolder2 {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* background-color: green; */
   }
 
-  .ProgressPalLogo img {
+  .ProgressPalText2 {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* background-color: aquamarine; */
+  }
+
+  .ProgressPalText2 p {
+    font-size: 15px;
+    color: white;
+  }
+
+  .ProgressPalLogo2 {
+    width: 25%;
+    height: 65px;
+  }
+
+  .ProgressPalLogo2 img {
     width: 100%;
     height: 100%;
   }
 
-  .LinksHolder {
-    width: 70%;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .CompanyHolder {
-    width: 33%;
-    height: 100%;
+  .ContactUs2 {
+    width: 100%;
+    height: 40%;
     display: flex;
     flex-direction: column;
     gap: 12px;
+    /* background-color: brown; */
   }
-
-  .CompanyHolder ul {
+  
+  .Contact2 {
     width: 100%;
     height: 20%;
-    /* gap: 2px; */
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    /* background-color: red; */
+  }
+  
+  .ContactIcons2 {
+    font-size: 16px;
+    fill: white;
+  }
+  
+  .Contact2 p {
+    color: white;
+    font-size: 13px;
   }
 
-  .CompanyHolder ul li {
-    font-size: 15px;
-  }
-
-  .QuickLinksHolder {
-    width: 33%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .QuickLinksHolder ul {
+  .LinksHolder2 {
     width: 100%;
-    height: 30%;
+    height: 70vh;
     display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    gap: 25px;
+    /* background-color: blueviolet; */
   }
 
-  .QuickLinksHolder ul li {
+  .LinksHeader {
     font-size: 14px;
   }
 
-  .MediaHolder {
-    width: 33%;
+  .CompanyHolder2 {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: space-between;
+    /* background-color: blue; */
+  }
+
+  .CompanyHolder2 ul {
+    width: 100%;
+    height: 100%;
+    gap: 12px;
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+  }
+
+  .CompanyHolder2 ul li {
+    font-size: 14px;
+    color: white;
+  }
+
+  .QuickLinksHolder2 {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* background-color: green; */
+  }
+
+  .QuickLinksHolder2 ul {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 12px;
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+  }
+
+  .QuickLinksHolder2 ul li {
+    font-size: 14px;
+    color: white;
+  }
+
+  .MediaHolder2 {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* background-color: green; */
+  }
+
+  .SocialMedia2 {
+    width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 13px;
+    /* background-color: red; */
   }
 
-  .SocialMedia {
-    width: 100%;
-    height: 70%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .Media {
+  .Media2 {
     width: 100%;
     height: 10%;
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 12px;
+    /* background-color: blue; */
   }
 
-  .facebook {
-    font-size: 18px;
+  .facebook2 {
+    font-size: 20px;
+    fill: white;
   }
 
-  .Media p {
+  .Media2 p {
     font-size: 14px;
+    color: white;
   }
 
-  .Copyright {
+  hr {
     width: 100%;
-    height: 16%;
+    background-color: white;
+    height: 2.5px;
+  }
+
+  .Copyright2 {
+    width: 100%;
+    height: 10vh;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 14px;
     /* background-color: brown; */
+    color: white;
   }
 }
+
+/* stop */
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
   .Footer {
     width: 100%;
-    height: 70vh;
+    height: 60vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -341,7 +420,14 @@ hr {
   .FooterWrapper {
     width: 91%;
     height: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     /* background-color: red; */
+  }
+
+  .FooterWrapper2 {
+   display: none;
   }
 
   .FooterTextHolder {
@@ -353,11 +439,11 @@ hr {
   }
 
   .ProgressPalText {
-    width: 27%;
+    width: 30%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
     /* background-color: gray; */
   }
 
@@ -377,7 +463,7 @@ hr {
 
   .ProgressPalText p {
     color: white;
-    font-size: 14px;
+    font-size: 11.5px;
   }
 
   .ContactUs {
@@ -385,8 +471,8 @@ hr {
     height: 40%;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    /* background-color: brown; */
+    gap: 8px;
+    background-color: brown;
   }
 
   .Contact {
@@ -394,30 +480,26 @@ hr {
     height: 20%;
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
     /* background-color: red; */
   }
   
   .ContactIcons {
-    font-size: 17px;
-    fill: white;
+    font-size: 14px;
+    color: white;
   }
   
   .Contact p {
     color: white;
-    font-size: 12px;
-  }
-
-  h4 {
-    font-size: 14px;
+    font-size: 10px;
   }
 
   .LinksHolder {
-    width: 70%;
+    width: 66%;
     height: 100%;
     display: flex;
     justify-content: space-between;
-    background-color: #127cdd;
+    background-color: green;
   }
 
   .CompanyHolder {
@@ -427,6 +509,10 @@ hr {
     flex-direction: column;
     gap: 12px;
     /* background-color: violet; */
+  }
+
+  .LinksHeader {
+    font-size: 12px;
   }
 
   .CompanyHolder ul {
@@ -439,7 +525,7 @@ hr {
   }
 
   .CompanyHolder ul li {
-    font-size: 12px;
+    font-size: 11px;
     /* background-color: green; */
   }
 
@@ -460,7 +546,7 @@ hr {
   }
 
   .QuickLinksHolder ul li {
-    font-size: 12px;
+    font-size: 11px;
     /* background-color: red; */
   }
 
@@ -501,11 +587,11 @@ hr {
 
   .Copyright {
     width: 100%;
-    height: 13%;
+    height: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 12px;
-    /* background-color: brown; */
+    /* background-color: brown;  */
   }
 }

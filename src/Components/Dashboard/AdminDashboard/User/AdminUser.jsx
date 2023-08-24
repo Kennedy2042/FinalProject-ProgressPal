@@ -1,13 +1,101 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./AdminUser.css"
 import "./AdminUserMedia.css"
 import { useSelector } from 'react-redux'
 import { VictoryPie, VictoryTheme } from 'victory'
+import axios from 'axios'
 
 const AdminUser = () => {
 
     const schoolUsers = useSelector(state => state.persisitedReducer.School)
+    const Users = useSelector(state => state.persisitedReducer.loginUser)
     console.log(schoolUsers)
+    const [studentData, setStudentData] = useState([]);
+    const [teacherData, setTeacherData] = useState([]);
+    const totalCapacity = 100;
+    console.log(Users)
+
+
+
+
+
+
+    useEffect(() => {
+        // Fetch student data from API
+        axios.get('https://progresspal-8rxj.onrender.com/progressPal/schoolStudents/${Users.data.data._id}')
+            .then(response => setStudentData(response.data))
+            .catch(error => console.error('Error fetching student data:', error));
+
+        // Fetch teacher data from API
+        axios.get(`https://progresspal-8rxj.onrender.com/progressPal/schoolTeachers/${Users.data.data._id}`)
+            .then((res) => {
+                setTeacherData(res.data.data)
+                console.log(res)
+            })
+            
+            .catch(error => console.error('Error fetching teacher data:', error));
+    }, []);
+
+
+    const totalStudents = studentData.reduce((total, student) => total + student.count, 0);
+    const totalTeachers = teacherData.reduce((total, teacher) => total + teacher.count, 0);
+    console.log(totalTeachers)
+    const totalStudentsAndTeachers = totalStudents + totalTeachers;
+
+    // const [totalStudents, setTotalStudents] = useState(0);
+
+    // const studentUrl = `https://progresspal-8rxj.onrender.com/progressPal/teacherStudents/${teacherData.data.data._id}`
+    // async function GetAllStudents() {
+    //     axios.get(studentUrl)
+    //         .then((res) => {
+    //             console.log("first", res)
+    //             const studentsData = res.data.data;
+    //             const totalStudentsCount = studentsData.length;
+    //             setTotalStudents(totalStudentsCount);
+    //             console.log(studentsData)
+    //             console.log(totalStudentsCount)
+    //         })
+    //         .catch((err) => {
+    //             console.log("first", err)
+    //         })
+    // }
+
+    // useEffect(() => {
+    //     GetAllStudents()
+    // }, []);
+
+    // const pieData = [
+    //     { key: "Enrolled", y: totalStudents },
+    //     { key: "Remaining", y: 100 - totalStudents }
+    // ];
+
+    // const teacherUrl = `https://progresspal-8rxj.onrender.com/progressPal/teacherStudents/${teacherData.data.data._id}`
+    // async function GetAllStudents() {
+    //     axios.get(teacherUrl)
+    //         .then((res) => {
+    //             console.log("first", res)
+    //             const studentsData = res.data.data;
+    //             const totalStudentsCount = studentsData.length;
+    //             setTotalStudents(totalStudentsCount);
+    //             console.log(studentsData)
+    //             console.log(totalStudentsCount)
+    //         })
+    //         .catch((err) => {
+    //             console.log("first", err)
+    //         })
+    // }
+
+    // useEffect(() => {
+    //     GetAllStudents()
+    // }, []);
+
+    // const chatData = [
+    //     { key: "Enrolled", y: totalTeachers },
+    //     { key: "Remaining", y: 100 - totalTeachers }
+    // ];
+
+
+
 
 
     return (
@@ -68,13 +156,15 @@ const AdminUser = () => {
                                         />  */}
                                     <VictoryPie
                                         padAngle={0}
-                                        // used to hide labels
                                         labelComponent={<span />}
                                         innerRadius={200}
-                                        width={700} height={700}
-                                        data={[{ 'key': "", 'y': 70 }, { 'key': "", 'y': (100 - 70) }]}
+                                        width={700}
+                                        height={700}
+                                        data={[
+                                            { 'key': 'Students', 'y': totalStudents },
+                                            { 'key': 'Remaining', 'y': totalCapacity - totalStudents }
+                                        ]}
                                         colorScale={["#19B3A6", "#EEEEEE"]}
-                                        style={{ background: "red" }}
                                     />
                                 </div>
                             </div>
@@ -84,19 +174,21 @@ const AdminUser = () => {
                         <div className='AdminTotalTeacherBody'>
                             <div className='AdminTotalTeacherBodyTotal'>
                                 <h5 className='AdminTotalTeacherBodyTotalH5' >Teachers</h5>
-                                <h3 className='AdminTotalTeacherBodyTotalH3'>{0}</h3>
+                                <h3 className='AdminTotalTeacherBodyTotalH3'>{totalTeachers}</h3>
                             </div>
                             <div className='AdminTotalTeacherBodyChart'>
                                 <div className="AdminChart">
                                     <VictoryPie
                                         padAngle={0}
-                                        // used to hide labels
                                         labelComponent={<span />}
                                         innerRadius={200}
-                                        width={700} height={700}
-                                        data={[{ 'key': "", 'y': 70 }, { 'key': "", 'y': (100 - 70) }]}
+                                        width={700}
+                                        height={700}
+                                        data={[
+                                            { 'key': 'Teachers', 'y': totalTeachers },
+                                            { 'key': 'Remaining', 'y': totalCapacity - totalTeachers }
+                                        ]}
                                         colorScale={["#19B3A6", "#EEEEEE"]}
-                                        style={{ background: "red" }}
                                     />
                                 </div>
                             </div>
@@ -112,13 +204,15 @@ const AdminUser = () => {
                                 <div className="AdminChart">
                                     <VictoryPie
                                         padAngle={0}
-                                        // used to hide labels
                                         labelComponent={<span />}
                                         innerRadius={200}
-                                        width={700} height={700}
-                                        data={[{ 'key': "", 'y': 10 }, { 'key': "", 'y': (100 - 10) }]}
+                                        width={700}
+                                        height={700}
+                                        data={[
+                                            { 'key': 'Total', 'y': totalStudentsAndTeachers },
+                                            { 'key': 'Remaining', 'y': totalCapacity - totalStudentsAndTeachers }
+                                        ]}
                                         colorScale={["red", "#1e306e"]}
-                                        style={{ background: "red" }}
                                     />
                                 </div>
                             </div>

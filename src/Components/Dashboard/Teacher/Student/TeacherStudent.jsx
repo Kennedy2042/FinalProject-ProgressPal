@@ -9,6 +9,7 @@ import ResultSheet from '../ResultSheet/ResultSheet'
 import "./TeacherStudent.css"
 import Swal from 'sweetalert2'
 import { SpinnerCircular } from 'spinners-react'
+import { MdKeyboardBackspace } from 'react-icons/md'
 
 const TeacherStudent = () => {
 
@@ -21,6 +22,7 @@ const TeacherStudent = () => {
     const [studentPassport, setStudentPassport] = useState("")
     const [shareId, setShareId] = useState("")
     const [loading, setLoading] = useState(false)
+    const [studentProfile, setStudentProfile] = useState(false)
     const teacherData = useSelector(state => state.persisitedReducer.loginUser)
     const BearerToken = teacherData.data.token
     console.log(BearerToken)
@@ -88,7 +90,7 @@ const TeacherStudent = () => {
                 console.log(err)
                 Swal.fire({
                     title: "error!",
-                    text: rerr.data.message,
+                    text: err.data.message,
                     icon: "error",
                     confirmButtonText: "Ok"
                 })
@@ -129,6 +131,20 @@ const TeacherStudent = () => {
                 </div> : null
             }
 
+            {
+                studentProfile ? <div className="studentProfileBody">
+                    <div className='studentProfileBodyBackBtn'>
+                        <MdKeyboardBackspace size={30}
+                        className='studentProfileBodyBackBtnIcon'
+                        onClick={()=>{
+                            setStudentProfile(false)
+                        }}/>
+                    </div>
+                    <div></div>
+                    <div></div>
+                </div> : null
+            }
+
             <div className='DashBoardRightBodyTitle'>
                 <div className='DashBoardRightBodyTitleHolderDiv'>
                     <h1 className='DashboardRightBodyTitleH1'>Students</h1>
@@ -163,10 +179,16 @@ const TeacherStudent = () => {
                                             Email: <h5>{props.studentEmail}</h5>
                                         </div>
                                         <h4>{props.studentClass}</h4>
-                                        <button className='AdminDashboardViewTeachProfile' onClick={() => {
-                                            setResult(true)
-                                            setShareId(props._id)
-                                        }}>Add Result</button>
+                                        <div className="cardButton">
+                                            <button className='TeacherViewTeachProfile' onClick={() => {
+                                                setResult(true)
+                                                setShareId(props._id)
+                                            }}>Add Result</button>
+                                            <button className='TeacherViewTeachProfile' onClick={()=>{
+                                                setStudentProfile(true)
+                                            }}>View Profile</button>
+                                        </div>
+
                                     </div>
                                 </div>
                             ))
