@@ -171,9 +171,9 @@ const Admin = () => {
                                     <p className='AdminDashboardIconsImageName'>Teachers</p>
                                 </div>
                             </div>
-                            <div className="AdminDashboardIcons" onClick={()=>navigate("/Upgrade_now")}>
+                            {/* <div className="AdminDashboardIcons" onClick={()=>navigate("/Upgrade_now")}>
                                         <button>Upgrade</button>
-                                    </div>
+                                    </div> */}
                             {/* <div className="AdminDashboardIcons">
                                 <div className='AdminHomeIcon'>
                                     <MdEmojiEvents size={30} className='AdminDashboardIconsImage' />
