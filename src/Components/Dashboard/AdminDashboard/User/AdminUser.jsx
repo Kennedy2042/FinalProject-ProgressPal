@@ -4,15 +4,18 @@ import "./AdminUserMedia.css"
 import { useSelector } from 'react-redux'
 import { VictoryPie, VictoryTheme } from 'victory'
 import axios from 'axios'
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
+
 
 const AdminUser = () => {
 
     const schoolUsers = useSelector(state => state.persisitedReducer.School)
     const Users = useSelector(state => state.persisitedReducer.loginUser)
     console.log(schoolUsers)
-    const [studentData, setStudentData] = useState([]);
-    const [teacherData, setTeacherData] = useState([]);
-    const totalCapacity = 100;
+    const [totalStudents, setTotalStudents] = useState(0);
+    const [totalTeachers, setTotalTeachers] = useState(0);
+    const totalCapacity = 58;
     console.log(Users)
 
 
@@ -21,80 +24,38 @@ const AdminUser = () => {
 
 
     useEffect(() => {
-        // Fetch student data from API
-        axios.get('https://progresspal-8rxj.onrender.com/progressPal/schoolStudents/${Users.data.data._id}')
-            .then(response => setStudentData(response.data))
+        axios.get(`https://progresspal-8rxj.onrender.com/progressPal/schoolStudents/${Users.data.data._id}`)
+            .then((res) => {
+                console.log("first", res)
+                const studentsData = res.data.data;
+                const totalStudentsCount = studentsData.length;
+                setTotalStudents(totalStudentsCount);
+                console.log(studentsData)
+                console.log(totalStudentsCount)
+            })
             .catch(error => console.error('Error fetching student data:', error));
 
-        // Fetch teacher data from API
         axios.get(`https://progresspal-8rxj.onrender.com/progressPal/schoolTeachers/${Users.data.data._id}`)
             .then((res) => {
-                setTeacherData(res.data.data)
+                console.log("first", res)
+                const teacherData = res.data.data;
+                const totalTeachersCount = teacherData.length;
+                setTotalTeachers(totalTeachersCount)
+                console.log(teacherData, "this is teacher Data")
+                console.log(totalTeachersCount, "this is total teachers counted")
                 console.log(res)
             })
-            
+
             .catch(error => console.error('Error fetching teacher data:', error));
     }, []);
 
+    const totalStudentsAndTeachers = totalStudents + totalTeachers
+    console.log(totalStudentsAndTeachers)
+    const [date, setDate] = useState(new Date());
 
-    const totalStudents = studentData.reduce((total, student) => total + student.count, 0);
-    const totalTeachers = teacherData.reduce((total, teacher) => total + teacher.count, 0);
-    console.log(totalTeachers)
-    const totalStudentsAndTeachers = totalStudents + totalTeachers;
-
-    // const [totalStudents, setTotalStudents] = useState(0);
-
-    // const studentUrl = `https://progresspal-8rxj.onrender.com/progressPal/teacherStudents/${teacherData.data.data._id}`
-    // async function GetAllStudents() {
-    //     axios.get(studentUrl)
-    //         .then((res) => {
-    //             console.log("first", res)
-    //             const studentsData = res.data.data;
-    //             const totalStudentsCount = studentsData.length;
-    //             setTotalStudents(totalStudentsCount);
-    //             console.log(studentsData)
-    //             console.log(totalStudentsCount)
-    //         })
-    //         .catch((err) => {
-    //             console.log("first", err)
-    //         })
-    // }
-
-    // useEffect(() => {
-    //     GetAllStudents()
-    // }, []);
-
-    // const pieData = [
-    //     { key: "Enrolled", y: totalStudents },
-    //     { key: "Remaining", y: 100 - totalStudents }
-    // ];
-
-    // const teacherUrl = `https://progresspal-8rxj.onrender.com/progressPal/teacherStudents/${teacherData.data.data._id}`
-    // async function GetAllStudents() {
-    //     axios.get(teacherUrl)
-    //         .then((res) => {
-    //             console.log("first", res)
-    //             const studentsData = res.data.data;
-    //             const totalStudentsCount = studentsData.length;
-    //             setTotalStudents(totalStudentsCount);
-    //             console.log(studentsData)
-    //             console.log(totalStudentsCount)
-    //         })
-    //         .catch((err) => {
-    //             console.log("first", err)
-    //         })
-    // }
-
-    // useEffect(() => {
-    //     GetAllStudents()
-    // }, []);
-
-    // const chatData = [
-    //     { key: "Enrolled", y: totalTeachers },
-    //     { key: "Remaining", y: 100 - totalTeachers }
-    // ];
-
-
+    const handleDateChange = (newDate) => {
+        setDate(newDate)
+    };
 
 
 
@@ -109,20 +70,6 @@ const AdminUser = () => {
                         <h4 className="UserImageH4">{schoolUsers.schoolName}</h4>
                     </div>
                     <h5>Welcome to ProgressPal</h5>
-
-
-                    {/* <div className="userProfile">
-                        <div className="UserImageDiv">
-                            <img className='UserImage' src={schoolUsers.schoolLogo} alt="" />
-                        </div>
-                        <h4 className="UserImageH4">{schoolUsers.schoolName}</h4>
-                    </div>
-                    <div className="userProfile">
-                        <div className="UserImageDiv">
-                            <img className='UserImage' src={schoolUsers.schoolLogo} alt="" />
-                        </div>
-                        <h4 className="UserImageH4">{schoolUsers.schoolName}</h4>
-                    </div> */}
                 </div>
             </div>
             <div className='AdminDashBoardLowerBodyUpperBody'>
@@ -134,26 +81,10 @@ const AdminUser = () => {
                         <div className='AdminTotalTeacherBody'>
                             <div className='AdminTotalTeacherBodyTotal'>
                                 <h5 className='AdminTotalTeacherBodyTotalH5'>Students</h5>
-                                <h3 className='AdminTotalTeacherBodyTotalH3'>{0}</h3>
+                                <h3 className='AdminTotalTeacherBodyTotalH3'>{totalStudents}</h3>
                             </div>
                             <div className='AdminTotalTeacherBodyChart'>
                                 <div className="AdminChart">
-                                    {/* <svg width={200} height={200} style={{ background: "green" }}>
-                                        <text x={100} y={110} textAnchor="middle" >
-                                            {70}%
-                                        </text>
-                                        
-                                    </svg> */}
-                                    {/* <VictoryPie
-                                            padAngle={0}
-                                            // used to hide labels
-                                            labelComponent={<span />}
-                                            innerRadius={70}
-                                            width={200} height={200}
-                                            data={[{ 'key': "", 'y': 70 }, { 'key': "", 'y': (100 - 70) }]}
-                                            colorScale={["#19B3A6", "#EEEEEE"]}
-                                            style={{ background: "red" }}
-                                        />  */}
                                     <VictoryPie
                                         padAngle={0}
                                         labelComponent={<span />}
@@ -162,7 +93,7 @@ const AdminUser = () => {
                                         height={700}
                                         data={[
                                             { 'key': 'Students', 'y': totalStudents },
-                                            { 'key': 'Remaining', 'y': totalCapacity - totalStudents }
+                                            { 'key': 'Remaining', 'y': 50 - totalStudents }
                                         ]}
                                         colorScale={["#19B3A6", "#EEEEEE"]}
                                     />
@@ -186,7 +117,7 @@ const AdminUser = () => {
                                         height={700}
                                         data={[
                                             { 'key': 'Teachers', 'y': totalTeachers },
-                                            { 'key': 'Remaining', 'y': totalCapacity - totalTeachers }
+                                            { 'key': 'Remaining', 'y': 5 - totalTeachers }
                                         ]}
                                         colorScale={["#19B3A6", "#EEEEEE"]}
                                     />
@@ -198,7 +129,7 @@ const AdminUser = () => {
                         <div className='AdminTotalTeacherBody'>
                             <div className='AdminTotalTeacherBodyTotal'>
                                 <h5 className='AdminTotalTeacherBodyTotalH5'>Total</h5>
-                                <h3 className='AdminTotalTeacherBodyTotalH3'>{0}</h3>
+                                <h3 className='AdminTotalTeacherBodyTotalH3'>{totalStudentsAndTeachers}</h3>
                             </div>
                             <div className='AdminTotalTeacherBodyChart'>
                                 <div className="AdminChart">
@@ -236,7 +167,10 @@ const AdminUser = () => {
                             <div className="PerformanceDetailsCard"></div>
                         </div>
                     </div>
-                    <div className='AdminDashboardPerformanceDetailCardRight'></div>
+                    <div className='AdminDashboardPerformanceDetailCardRight'>
+                        <Calendar onChange={handleDateChange} value={date} />
+
+                    </div>
                 </div>
             </div>
         </>

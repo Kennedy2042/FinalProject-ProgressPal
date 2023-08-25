@@ -59,13 +59,13 @@ const AdminStudentDashboard = () => {
 
 
     const dispatch = useDispatch()
-    const adminStudent = "https://progresspal-8rxj.onrender.com/progressPal/readAllStudent";
+    const adminStudent = `https://progresspal-8rxj.onrender.com/progressPal/schoolStudents/${teacherData.data.data._id}`;
     async function GetAllStudent() {
         axios.get(adminStudent)
             .then((res) => {
                 console.log(res)
                 dispatch(adminAllStudentApi(res.data.data))
-
+                console.log("first", res)
             })
             .catch((err) => {
                 console.log(err)
