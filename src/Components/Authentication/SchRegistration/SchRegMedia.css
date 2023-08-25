@@ -1,147 +1,3 @@
-/* @media only screen and (min-width: 320px) and (max-width: 580px) {
-.signUpContainer{
-    width: 100%;
-    height: max-content;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.signUpLogo{
-    width: 100%;
-    height: 10vh;
-    display: flex;
-    justify-content: center;
-}
-.signUpLogoContainer{
-    width: 15%;
-    height: 100%;
-}
-.signUpLogoContainer img {
-    width: 100%;
-    height: 100%;
-}
-.SignUpInputs{
-    width: 90%;
-    height: 150vh;
-}
-.MobileUpperInput{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-}
-.RegisterMobile{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-.Register{
-    display: none;
-}
-.RegistrationImage{
-    display: none;
-}
-.instituteName{
-    width: 100%;
-    height: 10%;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
-.lowerInput{
-    display: none;
-}
-.hidePasswordIconMobile{
-    position: absolute;
-    right: 20%;
-    top: 59%;
-    cursor: pointer;
-}
-.BackAndSubmitBtn{
-    width: 100%;
-    height: 20%;
-    display: flex;
-    justify-content: space-between;
-}
-.backButtonMobie{
-    width: 30%;
-    height: 20%;
-    border: none;
-    border-radius: 7px;
-    background: #F7B905;
-}
-.submitButtonMobile{
-    width: 30%;
-    height: 20%;
-    border: none;
-    border-radius: 7px;
-    background: #F7B905;
-}
-} */
-
-/* @media only screen and (min-width: 580px) and (max-width: 1024px) {
-.signUpContainer{
-    width: 100%;
-    height: max-content;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.signUpLogo{
-    width: 100%;
-    height: 20vh;
-    display: flex;
-    justify-content: center;
-}
-.signUpLogoContainer{
-    width: 15%;
-    height: 100%;
-}
-.signUpLogoContainer img {
-    width: 100%;
-    height: 100%;
-}
-.SignUpInputs{
-    width: 90%;
-    height: 150vh;
-}
-.RegistrationImage{
-    width: 49%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-.RegistrationImage img{
-    height: 60%;
-    width: 100%;
-}
-.RegisterMobile{
-    display: none;
-}
-.MobileUpperInput{
-    display: none;
-}
-.backButton{
-    width: 30%;
-    height: 40%;
-    border: none;
-    border-radius: 7px;
-    background: #F7B905;
-}
-.Submit{
-    width: 30%;
-    height: 40%;
-    border: none;
-    border-radius: 7px;
-    background: #F7B905;
-}
-} */
-
 @media (max-width: 580px) {
     *{
         padding: 0;
@@ -222,8 +78,9 @@
     }
     
     .SchRegLogoContainer{
-        width: 30%;
-        height: 100%;
+        width: 15%;
+        height: 10%;
+        /* background: #000; */
     }
     
     .SchRegLogoContainer img {
@@ -234,19 +91,19 @@
     .formTitle{
         font-size: 20px;
         height: 3%;
-        color: #ffffff;
+        /* color: #ffffff; */
 
     }
 
     .inputTitle{
-        color: #ffffff;
+        /* color: #ffffff; */
         width: 95%;
         font-size: 12px;
     }
 
     .SchRegLogoInputs{
-        width: 100%;
-        height: 100%;
+        width: 40%;
+        height: 80%;
         /* background: cyan; */
         display: flex;
         align-items: center;
@@ -262,14 +119,15 @@
         width: 85%;
         height: 100%;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
         flex-direction: column;
+        /* background: yellow; */
     }
 
     .leftRegister{
-        width: 60%;
-        height: 100%;
+        width: 95%;
+        height: 90%;
         display: flex;
         flex-direction: column;
         align-items: center;

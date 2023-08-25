@@ -41,7 +41,7 @@ const TeacherUser = () => {
 
     const pieData = [
         { key: "Enrolled", y: totalStudents },
-        { key: "Remaining", y: 100 - totalStudents }
+        { key: "Remaining", y: 50 - totalStudents }
     ];
     const handleDateChange = (newDate) => {
     setDate(newDate)
