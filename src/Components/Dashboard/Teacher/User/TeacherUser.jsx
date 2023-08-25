@@ -24,7 +24,7 @@ const TeacherUser = () => {
         axios.get(url)
             .then((res) => {
                 console.log("first", res)
-                const studentsData = res.data.data;
+                const studentsData = res?.data?.data;
                 const totalStudentsCount = studentsData.length;
                 setTotalStudents(totalStudentsCount);
                 console.log(studentsData)
