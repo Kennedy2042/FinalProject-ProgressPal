@@ -14,6 +14,7 @@ import { useSelector } from 'react-redux'
 import axios from 'axios'
 import Result from '../Teacher/ReportCard/ReportCard'
 import Swal from 'sweetalert2'
+import StudentUser from './User/StudentUser'
 
 
 const Student = () => {
@@ -147,14 +148,14 @@ const Student = () => {
                                     <p className='AdminDashboardIconsImageName'>Dashboard</p>
                                 </div>
                             </div>
-                            <div className="AdminDashboardIcons" onClick={() => navigate()}>
+                            {/* <div className="AdminDashboardIcons" onClick={() => navigate()}>
                                 <div className='AdminHomeIcon'>
                                     <PiStudentDuotone size={30} className='AdminDashboardIconsImage' />
                                 </div>
                                 <div className="AdminHomeIconTitle">
                                     <p className='AdminDashboardIconsImageName'>Students</p>
                                 </div>
-                            </div>
+                            </div> */}
                             {/* <div className="AdminDashboardIcons" onClick={() => navigate("/Admin_Dashboard/admin_teacher_dashboard")}>
                                 <div className='AdminHomeIcon'>
                                     <FaChalkboardTeacher size={30} className='AdminDashboardIconsImage' />
@@ -163,14 +164,14 @@ const Student = () => {
                                     <p className='AdminDashboardIconsImageName'>Teachers</p>
                                 </div>
                             </div> */}
-                            <div className="AdminDashboardIcons">
+                            {/* <div className="AdminDashboardIcons">
                                 <div className='AdminHomeIcon'>
                                     <MdEmojiEvents size={30} className='AdminDashboardIconsImage' />
                                 </div>
                                 <div className="AdminHomeIconTitle">
                                     <p className='AdminDashboardIconsImageName'>Events</p>
                                 </div>
-                            </div>
+                            </div> */}
                             <div className="AdminDashboardIcons" onClick={showAlert}>
                                 <div className='AdminHomeIcon'>
                                     <BiLogOut size={30} className='AdminDashboardIconsImage' />
@@ -183,13 +184,14 @@ const Student = () => {
 
                     </div>
                 </div>
-                <div className='DashBoardRightBody'>
+                <div className='StudentDashBoardRightBody'>
                     <Routes>
-                        {/* <Route path='/teacher_dash_Main' element={<TeacherUser />} /> */}
+                        <Route path='/studentUser/:id' element={<StudentUser />} />
+                        {/* <Route path='/studentUser/:id' element={<Result />} /> */}
                         {/* <Route path='/admin_teacher_dashboard' element={<AdminTeacherDashboard />} /> */}
                         {/* <Route path='/teacher_student_dashboard' element={<AdminStudentDashboard />} /> */}
                     </Routes>
-                    <Result />
+                    {/* <Result /> */}
                 </div>
             </div>
 
