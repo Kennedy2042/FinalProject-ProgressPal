@@ -17,6 +17,7 @@ import TeacherProfile from './Components/Dashboard/AdminDashboard/AdminTeacher/T
 import EditTeacherProfile from './Components/Dashboard/AdminDashboard/AdminTeacher/TeacherProfile/EditTeacherProfile'
 import { useSelector } from 'react-redux'
 import Result from './Components/Dashboard/Teacher/ReportCard/ReportCard'
+import PremiumUpgradeComponent from './Upgrade/Upgrade'
 
 
 
@@ -51,6 +52,7 @@ function App() {
             <Route path='/admindashboard/teacherProfile/:teacherId' element={<TeacherProfile/>}/>
             <Route path='/admindashboard/editteacherProfile/:id' element={<EditTeacherProfile/>}/>
             <Route path='/teacher_studentResult/:studentId' element={<Result/>}/>
+            <Route path='/Upgrade_now' element={<PremiumUpgradeComponent/>} />
           </Routes>
         </HashRouter>
         {/* <TeacherUser/> */}
