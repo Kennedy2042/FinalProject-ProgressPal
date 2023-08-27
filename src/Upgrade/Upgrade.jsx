@@ -4,23 +4,36 @@ import { useSelector } from 'react-redux';
 
 const PremiumUpgradeComponent = () => {
     const Users = useSelector(state => state.persisitedReducer.loginUser)
+    console.log(Users , "this is user")
+    
 
 
-    const Payment = () =>{
-        const refVal = "colin"+ Math.random() * 1000;
-        window.Korapay.initialize({
-          key: "pk_test_eR5xsWZRG1XfPVe8JvDJyHQWR1nieyBU2DaE5dBm",
-          reference: `${refVal}`,
-          amount: 20000, 
-          currency: "NGN",
-          customer: {
-            name: Users.schoolName,
-            email: Users.schoolEmail
-          },
-          notification_url: "https://example.com/webhook"
-        });
   
+      function payKorapay() {
+        let key = `key${Math.random()}`
+        window.Korapay.initialize({
+            key: "pk_test_eR5xsWZRG1XfPVe8JvDJyHQWR1nieyBU2DaE5dBm",
+            reference: key,
+            amount: 50000, 
+            currency: "NGN",
+            customer: {
+              name: Users?.data?.data?.schoolName,
+              email: Users?.data?.data?.schoolEmail
+            },
+            onClose: function () {
+              // Handle when modal is closed
+            },
+            onSuccess: function (data) {
+              // Handle when payment is successful
+            },
+            onFailed: function (data) {
+              // Handle when payment fails
+            }
+            
+        });
     }
+  
+    
 
 
   return (
@@ -34,7 +47,7 @@ const PremiumUpgradeComponent = () => {
         <li>Early access to new features</li>
         <li>Unlimited downloads and streaming</li>
       </ul>
-      <button className="upgrade-button" onClick={Payment}>Upgrade Now</button>
+      <button className="upgrade-button" onClick={payKorapay}>Upgrade Now</button>
     </div>
   );
 };

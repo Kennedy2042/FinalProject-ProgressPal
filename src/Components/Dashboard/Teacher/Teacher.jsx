@@ -38,12 +38,12 @@ const Teacher = () => {
             title: 'Log Out',
             text: 'Are you sure',
             icon: 'warning',
-            cancelButtonColor: 'green',
-            confirmButtonColor: 'red',
+            cancelButtonColor: '#127cdd',
+            // confirmButtonColor: 'red',
             showCancelButton: true,
             confirmButtonText: 'yes',
             customClass: {
-                confirmButton: 'sweetAlertConfirmBtn',
+                confirmButton: 'sweet-alert-confirm-btn',
               },
         }).then((result) => {
             if (result.isConfirmed) {

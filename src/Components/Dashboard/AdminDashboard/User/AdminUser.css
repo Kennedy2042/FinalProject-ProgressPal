@@ -38,6 +38,7 @@
 
 .UserImageH4 {
     width: 75%;
+    color: black;
 }
 
 .AdminDashBoardLowerBodyUpperBody {
@@ -73,7 +74,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #1e306e;
+    border: 2px solid rgba(218, 218, 231, 0.312);
+    box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.3);
+
 }
 
 .AdminTotalTeacherBody{
@@ -145,25 +148,50 @@
 
 .AdminDashboardPerformanceDetailCardTop {
     width: 100%;
-    height: 48%;
+    height: 96%;
     /* background: red; */
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
+    justify-content: space-between;
+    align-items: center;
+    /* border: 2px solid rgba(218, 218, 231, 0.312); */
+
+}
+
+.adCardLeft{
+    width: 48.5%;
+    height: 95%;
+    border: 2px solid rgba(218, 218, 231, 0.312);
+    display: flex;
+    align-items: center;
     justify-content: center;
+    box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.3);
+    
 }
 
-.AdminDashboardPerformanceDetailCardDown {
-    width: 100%;
-    height: 48%;
-    /* background: gray; */
+.adCardLeft h1{
+    font-size: 30px;
 }
 
-.PerformanceDetailsCard {
-    width: 100%;
+.eligibleText{
+    background: rgba(218, 218, 231, 0.312);
     height: 90%;
-    /* background: #000; */
-    border: 1px solid #1e306e;
+    width: 95%;
+    /* box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.3); */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
 
+}
+
+.adCardRight{
+    width: 48.5%;
+    height: 95%;
+    border: 2px solid rgba(218, 218, 231, 0.312);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .AdminDashboardPerformanceDetailCardRight {
@@ -176,10 +204,3 @@
 
 }
 
-.ExamDetailsCard {
-    width: 100%;
-    height: 85%;
-    /* background: #b39393; */
-    border: 1px solid #1e306e;
-
-}

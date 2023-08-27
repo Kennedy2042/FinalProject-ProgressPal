@@ -6,6 +6,7 @@ import { VictoryPie, VictoryTheme } from 'victory'
 import axios from 'axios'
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import { useNavigate } from 'react-router-dom'
 
 
 const AdminUser = () => {
@@ -15,8 +16,9 @@ const AdminUser = () => {
     console.log(schoolUsers)
     const [totalStudents, setTotalStudents] = useState(0);
     const [totalTeachers, setTotalTeachers] = useState(0);
-    const totalCapacity = 58;
+    const totalCapacity = 55;
     console.log(Users)
+    const nav = useNavigate()
 
 
 
@@ -88,14 +90,14 @@ const AdminUser = () => {
                                     <VictoryPie
                                         padAngle={0}
                                         labelComponent={<span />}
-                                        innerRadius={200}
-                                        width={700}
-                                        height={700}
+                                        innerRadius={2900}
+                                        width={8000}
+                                        height={8000}
                                         data={[
                                             { 'key': 'Students', 'y': totalStudents },
                                             { 'key': 'Remaining', 'y': 50 - totalStudents }
                                         ]}
-                                        colorScale={["#19B3A6", "#EEEEEE"]}
+                                        colorScale={["#127cdd", "#EEEEEE"]}
                                     />
                                 </div>
                             </div>
@@ -112,14 +114,14 @@ const AdminUser = () => {
                                     <VictoryPie
                                         padAngle={0}
                                         labelComponent={<span />}
-                                        innerRadius={200}
-                                        width={700}
-                                        height={700}
+                                        innerRadius={2900}
+                                        width={8000}
+                                        height={8000}
                                         data={[
                                             { 'key': 'Teachers', 'y': totalTeachers },
                                             { 'key': 'Remaining', 'y': 5 - totalTeachers }
                                         ]}
-                                        colorScale={["#19B3A6", "#EEEEEE"]}
+                                        colorScale={["#127cdd", "#EEEEEE"]}
                                     />
                                 </div>
                             </div>
@@ -136,14 +138,14 @@ const AdminUser = () => {
                                     <VictoryPie
                                         padAngle={0}
                                         labelComponent={<span />}
-                                        innerRadius={200}
-                                        width={700}
-                                        height={700}
+                                        innerRadius={2900}
+                                        width={8000}
+                                        height={8000}
                                         data={[
                                             { 'key': 'Total', 'y': totalStudentsAndTeachers },
                                             { 'key': 'Remaining', 'y': totalCapacity - totalStudentsAndTeachers }
                                         ]}
-                                        colorScale={["red", "#1e306e"]}
+                                        colorScale={["red", "#127cdd"]}
                                     />
                                 </div>
                             </div>
@@ -153,18 +155,31 @@ const AdminUser = () => {
                 <div className='AdminDashboardPerformance'>
                     <div className='AdminDashboardPerformanceDetailCard'>
                         <div className='AdminDashboardPerformanceDetailCardTop' >
-                            <h4>
-                                Exam Details
-                            </h4>
-                            <div className="ExamDetailsCard">
+                            <div className="adCardLeft">
+                                <div className="eligibleText">
+                                    You can only add
+                                    <h1>
+                                        5 Teachers
+                                    </h1>
+                                    and they can each add
+                                    <h1>
+                                        10 Students
+                                    </h1>
+                                </div>
 
                             </div>
-                        </div>
-                        <div className='AdminDashboardPerformanceDetailCardDown'>
-                            <h4>
-                                Performance Details
-                            </h4>
-                            <div className="PerformanceDetailsCard"></div>
+                            <div className="adCardRight">
+                            <div className="eligibleText">
+
+                                <h1>
+                                    Click on the subscribe button to subscribe
+                                </h1>
+                                <button
+                                onClick={()=>{
+                                    nav("/Upgrade_now")
+                                }}>Subscribe</button>
+                            </div>
+                            </div>
                         </div>
                     </div>
                     <div className='AdminDashboardPerformanceDetailCardRight'>

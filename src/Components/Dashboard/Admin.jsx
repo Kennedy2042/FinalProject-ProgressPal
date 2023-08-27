@@ -31,13 +31,15 @@ const Admin = () => {
     const BearerToken = schoolUsers.token
     const [menu, setMenu] = useState(false)
     const dispatch = useDispatch()
-
+    const [dashboard, setDashboard] = useState(true)
+    const [student, setStudent] = useState(false)
+    const [teacher, setTeacher] = useState(false)
     const showAlert = () => {
         Swal.fire({
             title: 'Log Out',
             text: 'Are you sure',
             icon: 'warning',
-            cancelButtonColor: 'green',
+            cancelButtonColor: '#127cdd',
             showCancelButton: true,
             confirmButtonText: 'yes',
             customClass: {
@@ -116,14 +118,14 @@ const Admin = () => {
                                             <p className='AdminDashboardIconsImageName'>Teachers</p>
                                         </div>
                                     </div>
-                                    <div className="AdminDashboardIcons">
+                                    {/* <div className="AdminDashboardIcons">
                                         <div className='AdminHomeIcon'>
                                             <MdEmojiEvents size={30} className='AdminDashboardIconsImage' />
                                         </div>
                                         <div className="AdminHomeIconTitle">
                                             <p className='AdminDashboardIconsImageName'>Events</p>
                                         </div>
-                                    </div>
+                                    </div> */}
                                     
                                     <div className="AdminDashboardIcons" onClick={showAlert}>
                                         <div className='AdminHomeIcon'>
@@ -145,30 +147,43 @@ const Admin = () => {
                     </div>
                     <div className="AdminDashboardSideMenuMainBody">
                         <div className='AdminDashboardSideMenuIconDiv'>
-                            <div className="AdminDashboardIcons" onClick={() => {
+                            <div className={dashboard ? "Active" : "AdminDashboardIcons"} onClick={() => {
                                 navigate("/Dashboard/schoolAdmin/schoolAdminUser/:id")
+                                setDashboard(true)
+                                setStudent(false)
+                                setTeacher(false)
                             }}>
                                 <div className='AdminHomeIcon'>
-                                    <BiHomeAlt size={30} className='AdminDashboardIconsImage' />
+                                    <BiHomeAlt size={30} className={ dashboard ? "AdminDashboardIconsImageActive" : 'AdminDashboardIconsImage'} />
                                 </div>
                                 <div className="AdminHomeIconTitle">
-                                    <p className='AdminDashboardIconsImageName'>Dashboard</p>
+                                    <p className={dashboard ? "AdminDashboardIconsImageNameActive" : 'AdminDashboardIconsImageName'}>Dashboard</p>
                                 </div>
                             </div>
-                            <div className="AdminDashboardIcons" onClick={() => navigate("/Dashboard/schoolAdmin/admin_student_dashboard")}>
+                            <div className={ student? "Active" : "AdminDashboardIcons"} onClick={() => {
+                                navigate("/Dashboard/schoolAdmin/admin_student_dashboard")
+                                setStudent(true)
+                                setTeacher(false)
+                                setDashboard(false)
+                                }}>
                                 <div className='AdminHomeIcon'>
-                                    <PiStudentDuotone size={30} className='AdminDashboardIconsImage' />
+                                    <PiStudentDuotone size={30} className={ student ? "AdminDashboardIconsImageActive" : 'AdminDashboardIconsImage'} />
                                 </div>
                                 <div className="AdminHomeIconTitle">
-                                    <p className='AdminDashboardIconsImageName'>Students</p>
+                                    <p className={student ? "AdminDashboardIconsImageNameActive" : 'AdminDashboardIconsImageName'}>Students</p>
                                 </div>
                             </div>
-                            <div className="AdminDashboardIcons" onClick={() => navigate("/Dashboard/schoolAdmin/admin_teacher_dashboard")}>
+                            <div className={teacher ? "Active" : "AdminDashboardIcons"} onClick={() => {
+                                navigate("/Dashboard/schoolAdmin/admin_teacher_dashboard")
+                                setTeacher(true)
+                                setDashboard(false)
+                                setStudent(false)
+                                }}>
                                 <div className='AdminHomeIcon'>
-                                    <FaChalkboardTeacher size={30} className='AdminDashboardIconsImage' />
+                                    <FaChalkboardTeacher size={30} className={ teacher ? "AdminDashboardIconsImageActive" : 'AdminDashboardIconsImage'} />
                                 </div>
                                 <div className="AdminHomeIconTitle">
-                                    <p className='AdminDashboardIconsImageName'>Teachers</p>
+                                    <p className={teacher ? "AdminDashboardIconsImageNameActive" : 'AdminDashboardIconsImageName'}>Teachers</p>
                                 </div>
                             </div>
                             {/* <div className="AdminDashboardIcons" onClick={()=>navigate("/Upgrade_now")}>

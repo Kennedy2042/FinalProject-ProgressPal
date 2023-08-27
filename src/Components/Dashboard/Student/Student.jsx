@@ -36,7 +36,7 @@ const Student = () => {
             confirmButtonText: 'yes',
             customClass: {
                 confirmButton: 'sweetAlertConfirmBtn',
-              },
+            },
         }).then((result) => {
             if (result.isConfirmed) {
                 StudentLogout()

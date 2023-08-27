@@ -1,3 +1,9 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .schRegContainer {
     width: 100%;
     height: 100vh;
@@ -70,7 +76,7 @@
 
 .instituteName {
     width: 100%;
-    height: 15%;
+    height: 18%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -94,7 +100,7 @@
 
 .instituteNameIconDiv {
     width: 10%;
-    height: 70%;
+    height: 60%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -111,15 +117,15 @@
 }
 
 .InstituteNameInput {
-    width: 90%;
-    height: 70%;
+    width: 100%;
+    height: 60%;
     border-right: 0.01px solid blue;;
     border-top: 0.01px solid blue;;
     border-bottom: 0.01px solid blue;;
-    border-left: 0px solid #000;
+    border-left: 0.01px solid blue;
     outline: none;
     padding-left: 2%;
-    border-radius: 0px 10px 10px 0px;
+    border-radius: 10px;
     background-color: #ffffff;
     color: #2a2a2a;
     font-size: 12px;
@@ -133,10 +139,10 @@
 }
 
 .schoolNameInputError {
-    border-top: 2px solid red;
-    border-right: 2px solid red;
-    border-bottom: 2px solid red;
-    border-left: 0px solid red;
+    border-top: 1px solid red;
+    border-right: 1px solid red;
+    border-bottom: 1px solid red;
+    border-left: 1px solid red;
 }
 
 .errorParagraph{
@@ -147,7 +153,7 @@
 
 .instituteLogo {
     width: 100%;
-    height: 15%;
+    height: 18%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -163,7 +169,7 @@
 
 .instituteLogoIconDiv {
     width: 10%;
-    height: 70%;
+    height: 60%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -177,7 +183,7 @@
 
 .instituteLogoIconDivError {
     width: 10%;
-    height: 70%;
+    height: 60%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -190,28 +196,30 @@
 }
 
 .InstituteLogoInputDiv {
-    width: 90%;
-    height: 70%;
-    border-right: 0.01px solid blue;;
-    border-top: 0.01px solid blue;;
-    border-bottom: 0.01px solid blue;;
+    width: 100%;
+    height: 60%;
+    border-right: 0.01px solid blue;
+    border-top: 0.01px solid blue;
+    border-bottom: 0.01px solid blue;
+    border-left: 0.01px solid blue;
     outline: none;
     padding-left: 2%;
-    border-radius: 0px 10px 10px 0px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     background-color: #ffffff;
 }
 
 .instituteLogoInputDivError{
-    width: 90%;
-    height: 70%;
-    border-right: 2px solid red;
-    border-top: 2px solid red;
-    border-bottom: 2px solid red;
+    width: 100%;
+    height: 60%;
+    border-right: 1px solid red;
+    border-top: 1px solid red;
+    border-bottom: 1px solid red;
+    border-left: 1px solid red;
     outline: none;
     padding-left: 2%;
-    border-radius: 0px 10px 10px 0px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
 }
@@ -225,7 +233,7 @@
 
 .instituteEmail {
     width: 100%;
-    height: 15%;
+    height: 18%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -241,7 +249,7 @@
 
 .instituteEmailIconDiv {
     width: 10%;
-    height: 70%;
+    height: 60%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -254,29 +262,29 @@
 }
 
 .InstituteEmailInput {
-    width: 90%;
-    height: 70%;
+    width: 100%;
+    height: 60%;
     border-right: 0.01px solid blue;;
     border-top: 0.01px solid blue;;
     border-bottom: 0.01px solid blue;;
-    border-left: 0px solid#127CDD;
+    border-left: 0.01px solid#127CDD;
     outline: none;
     padding-left: 2%;
-    border-radius: 0px 10px 10px 0px;
+    border-radius: 10px;
     font-size: 12px;
 
 }
 
 .InstituteEmailInputError {
-    width: 90%;
-    height: 70%;
-    border-right: 2px solid red;
-    border-top: 2px solid red;
-    border-bottom: 2px solid red;
-    border-left: 0px solid red;
+    width: 100%;
+    height: 60%;
+    border-right: 1px solid red;
+    border-top: 1px solid red;
+    border-bottom: 1px solid red;
+    border-left: 1px solid red;
     outline: none;
     padding-left: 2%;
-    border-radius: 0px 10px 10px 0px;
+    border-radius: 10px;
 }
 
 .rightInputs {
@@ -304,7 +312,7 @@
 
 .institutePassword {
     width: 100%;
-    height: 15%;
+    height: 18%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -320,7 +328,7 @@
 
 .institutePasswordIconDiv {
     width: 10%;
-    height: 70%;
+    height: 60%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -334,41 +342,41 @@
 
 .institutePasswordIconDivError {
     width: 10%;
-    height: 70%;
+    height: 60%;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 10px 0px 0px 10px;
-    border-left: 2px solid red;
-    border-top: 2px solid red;
-    border-bottom: 2px solid red;
+    border-left: 1px solid red;
+    border-top: 1px solid red;
+    border-bottom: 1px solid red;
 }
 
 .InstitutePasswordInput {
-    width: 80%;
-    height: 70%;
+    width: 100%;
+    height: 60%;
     border-right: 0px solid#127CDD;
     border-top: 0.01px solid blue;;
     border-bottom: 0.01px solid blue;;
-    border-left: 0px solid#127CDD;
+    border-left: 0.01px solid#127CDD;
     outline: none;
     padding-left: 2%;
-    border-radius: 0px;
+    border-radius: 10px 0px 0px 10px;
     background-color: #ffffff;
     font-size: 12px;
 
 }
 
 .InstitutePasswordInputError {
-    width: 80%;
-    height: 70%;
+    width: 100%;
+    height: 60%;
     border-right: 0px solid red;
-    border-top: 2px solid red;
-    border-bottom: 2px solid red;
-    border-left: 0px solid red;
+    border-top: 1px solid red;
+    border-bottom: 1px solid red;
+    border-left: 1px solid red;
     outline: none;
     padding-left: 2%;
-    border-radius: 0px;
+    border-radius: 10px 0px 0px 10px;
 }
 
 .showPassIcon {
@@ -378,7 +386,7 @@
 
 .confirmPassword {
     width: 100%;
-    height: 15%;
+    height: 18%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -394,7 +402,7 @@
 
 .instituteConfrimPasswordIconDiv {
     width: 10%;
-    height: 70%;
+    height: 60%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -408,45 +416,45 @@
 
 .instituteConfrimPasswordIconDivError {
     width: 10%;
-    height: 70%;
+    height: 60%;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 10px 0px 0px 10px;
-    border-left: 2px solid red;
-    border-top: 2px solid red;
-    border-bottom: 2px solid red;
+    border-left: 1px solid red;
+    border-top: 1px solid red;
+    border-bottom: 1px solid red;
 }
 
 .InstituteConfirmPasswordInput {
-    width: 80%;
-    height: 70%;
+    width: 100%;
+    height: 60%;
     border-right: 0px solid#127CDD;
     border-top: 0.01px solid blue;;
     border-bottom: 0.01px solid blue;;
-    border-left: 0px solid#127CDD;
+    border-left: 0.01px solid#127CDD;
     outline: none;
     padding-left: 2%;
-    border-radius: 0px;
+    border-radius: 10px 0px 0px 10px;
     font-size: 12px;
     
 }
 
 .InstituteConfirmPasswordInputError {
-    width: 80%;
-    height: 70%;
+    width: 100%;
+    height: 60%;
     border-right: 0px solid red;
-    border-top: 2px solid red;
-    border-bottom: 2px solid red;
-    border-left: 0px solid red;
+    border-top: 1px solid red;
+    border-bottom: 1px solid red;
+    border-left: 1px solid red;
     outline: none;
     padding-left: 2%;
-    border-radius: 0px;
+    border-radius: 10px 0px 0px 10px;
 }
 
 .instituteShowPasswordIconDiv {
     width: 10%;
-    height: 70%;
+    height: 60%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -459,20 +467,21 @@
 
 .instituteShowPasswordIconDivError {
     width: 10%;
-    height: 70%;
+    height: 60%;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 0px 10px 10px 0px;
-    border-right: 2px solid red;
-    border-top: 2px solid red;
-    border-bottom: 2px solid red;
+    border-right: 1px solid red;
+    border-top: 1px solid red;
+    border-bottom: 1px solid red;
 }
 
 .schRegParagraph{
     /* color: white; */
     width: 100%;
     font-size: 10px;
+    height: 5%;
 }
 
 .schRegSpan{
