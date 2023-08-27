@@ -38,9 +38,9 @@ console.log(allStudent ,"all studenr")
     return (
         <>
             <div className="TeacherResultContainer">
-                <div className="TeacherResultContainerheader">
+                {/* <div className="TeacherResultContainerheader">
                     <div className="TeacherResultContainerheaderBody"></div>
-                </div>
+                </div> */}
                 <div className="TeacherResultHeader">
                     <div className="TeacherHeaderBody">
                         <h3>Exam Results</h3>

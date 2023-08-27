@@ -210,9 +210,9 @@ const SchRegister = () => {
               <div className="instituteName">
                 <h3 className="inputTitle">Institute Name</h3>
                 <div className="instituteNameHolder">
-                  <div className={`${validMessage.value === "schoolName" || validMessage.value === "schoolNameError" ? "schoolInputIconError" : ""} instituteNameIconDiv`}>
+                  {/* <div className={`${validMessage.value === "schoolName" || validMessage.value === "schoolNameError" ? "schoolInputIconError" : ""} instituteNameIconDiv`}>
                     <FaUniversity className="instituteNameIcon" />
-                  </div>
+                  </div> */}
                   <input className={`${validMessage.value === "schoolName" || validMessage.value === "schoolNameError" ? "schoolNameInputError" : ""} InstituteNameInput`}
                     type="text"
                     placeholder='Institute Name'
@@ -228,9 +228,9 @@ const SchRegister = () => {
               <div className="instituteLogo">
                 <h3 className="inputTitle">Institute Logo</h3>
                 <div className="instituteLogoHolder">
-                  <div className={validMessage.value === "schoolLogo" ? "instituteLogoIconDivError" : "instituteLogoIconDiv"}>
+                  {/* <div className={validMessage.value === "schoolLogo" ? "instituteLogoIconDivError" : "instituteLogoIconDiv"}>
                     <AiOutlineFileImage className='instituteNameIcon' />
-                  </div>
+                  </div> */}
                   <div className={validMessage.value === "schoolLogo" ? 'instituteLogoInputDivError' : 'InstituteLogoInputDiv'}>
                     <input className='InstituteLogoInput' type="file" name='file' accept="image/*" onChange={File} />
 
@@ -243,9 +243,9 @@ const SchRegister = () => {
               <div className="instituteEmail">
                 <h3 className="inputTitle">Institute Email</h3>
                 <div className="instituteEmailHolder">
-                  <div className={validMessage.value === "schoolEmail" ? "instituteLogoIconDivError" : "instituteEmailIconDiv"}>
+                  {/* <div className={validMessage.value === "schoolEmail" ? "instituteLogoIconDivError" : "instituteEmailIconDiv"}>
                     <AiOutlineMail className='instituteNameIcon' />
-                  </div>
+                  </div> */}
                   <input className={validMessage.value === "schoolEmail" ? "InstituteEmailInputError" : 'InstituteEmailInput'} type="text" placeholder="Email Address" value={schoolEmail} onChange={(e) => setSchoolEmail(e.target.value)} />
 
                 </div>
@@ -262,9 +262,9 @@ const SchRegister = () => {
               <div className="institutePassword">
                 <h3 className="inputTitle">Password</h3>
                 <div className="institutePasswordHolder">
-                  <div className={validMessage.value === "password" || validMessage.value === "passwordError" ? "institutePasswordIconDivError" : "institutePasswordIconDiv"}>
+                  {/* <div className={validMessage.value === "password" || validMessage.value === "passwordError" ? "institutePasswordIconDivError" : "institutePasswordIconDiv"}>
                     <RiLockPasswordFill className='instituteNameIcon' />
-                  </div>
+                  </div> */}
                   <input className={validMessage.value === "password" || validMessage.value === "passwordError" ? "InstitutePasswordInputError" : 'InstitutePasswordInput'} type={showPassword ? "text" : "password"} placeholder="Enter your password" value={password} onChange={(e) => setPassword(e.target.value)} />
 
                   <div className={validMessage.value === "password" || validMessage.value === "passwordError" ? "instituteShowPasswordIconDivError" : "instituteShowPasswordIconDiv"} >
@@ -287,9 +287,9 @@ const SchRegister = () => {
               <div className="confirmPassword">
                 <h3 className="inputTitle">Confirm Password</h3>
                 <div className="instituteConfirmPasswordHolder">
-                  <div className={validMessage.value === "confirmPassword" || validMessage.value === "confirmPasswordError" ? "instituteConfrimPasswordIconDivError" : "instituteConfrimPasswordIconDiv"}>
+                  {/* <div className={validMessage.value === "confirmPassword" || validMessage.value === "confirmPasswordError" ? "instituteConfrimPasswordIconDivError" : "instituteConfrimPasswordIconDiv"}>
                     <RiLockPasswordFill className='instituteNameIcon' />
-                  </div>
+                  </div> */}
                   <input className={validMessage.value === "confirmPassword" || validMessage.value === "confirmPasswordError" ? "InstituteConfirmPasswordInputError" : 'InstituteConfirmPasswordInput'} type={showConfirmPassword ? "text" : "password"} placeholder="Confirm your password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
 
                   <div className={validMessage.value === "confirmPassword" || validMessage.value === "confirmPasswordError" ? "instituteShowPasswordIconDivError" : "instituteShowPasswordIconDiv"}>
