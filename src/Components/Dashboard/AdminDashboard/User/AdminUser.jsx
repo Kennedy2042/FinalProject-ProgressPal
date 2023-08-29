@@ -169,16 +169,16 @@ const AdminUser = () => {
 
                             </div>
                             <div className="adCardRight">
-                            <div className="eligibleText">
+                                <div className="eligibleText">
 
-                                <h1>
-                                    Click on the subscribe button to subscribe
-                                </h1>
-                                <button
-                                onClick={()=>{
-                                    nav("/Upgrade_now")
-                                }}>Subscribe</button>
-                            </div>
+                                    <h1>
+                                        Click on the subscribe button to subscribe
+                                    </h1>
+                                    <button className='SubscribeBtn'
+                                        onClick={() => {
+                                            nav("/Upgrade_now")
+                                        }}>Subscribe</button>
+                                </div>
                             </div>
                         </div>
                     </div>

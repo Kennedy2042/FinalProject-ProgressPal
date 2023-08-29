@@ -52,9 +52,9 @@ const AdminStudentDashboard = () => {
             .then((res) => {
                 console.log(res)
             })
-            // .catch((err) => {
-            //     console.log(err)
-            // })
+        // .catch((err) => {
+        //     console.log(err)
+        // })
     }
 
 
@@ -89,10 +89,10 @@ const AdminStudentDashboard = () => {
                     <h1 className='DashboardRightBodyTitleH1'>Students</h1>
                 </div>
                 <div className='DashboardSearchIconDiv'>
-                    <input type="text" placeholder='Search here' className='DashboardSearchIconInput' />
+                    {/* <input type="text" placeholder='Search here' className='DashboardSearchIconInput' />
                     <div className="DashboardSearchIconInputImage">
                         <AiOutlineSearch size={20} />
-                    </div>
+                    </div> */}
                 </div>
                 <div className='AdminDashboardAddTeacherBtnDiv'>
                     {/* <button className='AdminDashboardAddTeacherBtn' onClick={() => {
@@ -103,42 +103,64 @@ const AdminStudentDashboard = () => {
             <div className='AdminDashboardTeachersCard'>
                 {
                     studentData.map((props) => (
-                        <div className='AdminDashboardTeachersCardBody' key={props?._id}>
-                            <div className='AdminDashboardTeachersImageDiv'>
-                                <img src={props.studentPassport} alt="" />
+                        // <div className='AdminDashboardTeachersCardBody' key={props?._id}>
+                        //     <div className='AdminDashboardTeachersImageDiv'>
+                        //         <img src={props.studentPassport} alt="" />
+                        //     </div>
+                        //     <div className='AdminDashboardTeachersDetail'>
+                        //         <div className='AdminDashboardTeachersDetailH3'>
+                        //             Name: <h3>{props.studentName}</h3>
+                        //         </div>
+                        //         <div className='AdminDashboardTeachersDetailH3'>
+                        //             Email: <h5>{props.studentEmail}</h5>
+                        //         </div>
+                        //         <h4></h4>
+                        //         <button className='AdminDashboardViewTeachProfile'
+                        //         onClick={
+                        //             ()=>{
+                        //             setViewProfile(true)
+                        //             setViewProfileId(props._id)
+                        //         }
+                        //         }>View Profile</button>
+                        //     </div>
+                        // </div>
+
+                        <span className='TeacherStudentDetailsCard' key={props?._id}>
+                            <div className='TeacherStudentMainDetailsHolder'>
+                                <div className='TeacherStudentProfileImage2'>
+                                    <img src={props?.studentPassport} alt="" />
+                                </div>
+                                <h2 className='TeacherStudentName'>{props?.studentName}</h2>
+                                <p className='TeacherStudentEmail'>{props?.studentEmail}</p>
+                                <h4 className='TeacherStudentClass'>{props?.studentClass}</h4>
                             </div>
-                            <div className='AdminDashboardTeachersDetail'>
-                                <div className='AdminDashboardTeachersDetailH3'>
-                                    Name: <h3>{props.studentName}</h3>
-                                </div>
-                                <div className='AdminDashboardTeachersDetailH3'>
-                                    Email: <h5>{props.studentEmail}</h5>
-                                </div>
-                                <h4></h4>
-                                <button className='AdminDashboardViewTeachProfile'
-                                onClick={
-                                    ()=>{
+                            <div className='TeacherUpdateStudentProfileHolder'>
+                                <button className='TeacherAddStudentResult' onClick={() => {
+                                    setResult(true)
+                                    setShareId
+                                }}>Add Result</button>
+                                <button className='TeacherViewStudentProfile' onClick={() => {
                                     setViewProfile(true)
                                     setViewProfileId(props._id)
-                                }
-                                }>View Profile</button>
+                                }}>View Profile</button>
                             </div>
-                        </div>
+                        </span>
                     ))
                 }
 
-                
-            </div>
-            
+
+            </div >
+
             {
                 addStudents ? <div className="AddStudentPop">
-                    <AiOutlineCloseCircle size={50} style={{ fill: "red", cursor: "pointer" }} onClick={() => {
+                    < AiOutlineCloseCircle size={50} style={{ fill: "red", cursor: "pointer" }
+                    } onClick={() => {
                         setAddStudents(false)
                     }} />
-                    <div className="AddStudentPopDiv">
+                    < div className="AddStudentPopDiv" >
 
                         {/* <div className="StudentEmailInput"> */}
-                        <h3>STUDENT INFO</h3>
+                        < h3 > STUDENT INFO</h3 >
                         <input type="text" placeholder='Student Name' className='StudentEmail' value={studentName} onChange={(e) => setStudentName(e.target.value)} />
                         <input type="text" placeholder='Student Class' className='StudentEmail' value={studentClass} onChange={(e) => setStudentClass(e.target.value)} />
                         <input type="text" placeholder='Student Age' className='StudentEmail' value={studentAge} onChange={(e) => setStudentAge(e.target.value)} />
@@ -148,12 +170,12 @@ const AdminStudentDashboard = () => {
                         <input type="file" placeholder='Student Passport' className='StudentEmail' onChange={File} />
                         <button className='AddStudentButton' onClick={Register}>Send</button>
                         {/* </div> */}
-                    </div>
-                </div> : null
+                    </div >
+                </div > : null
             }
             {
-                    viewprofile ? <StudentProfile viewprofileId={viewprofileId}/> : null
-                }
+                viewprofile ? <StudentProfile viewprofileId={viewprofileId} /> : null
+            }
         </>
     )
 }

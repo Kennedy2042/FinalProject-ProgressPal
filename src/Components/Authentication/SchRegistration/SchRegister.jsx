@@ -155,15 +155,19 @@ const SchRegister = () => {
 
         .then((res) => {
           console.log(res.data.user);
-          dispatch(schoolUserData(res.data.user))
-          setSuccessErrorMessage(res.data.message);
-          setLoading(false)
+          
           Swal.fire({
             title: "Success!",
             text: res.data.message,
             icon: "success",
-            confirmButtonText: "Ok"
+            confirmButtonText: "Ok",
+            timer: 2500,
+            showConfirmButton: false,
           })
+          navigate("/login")
+          dispatch(schoolUserData(res.data.user))
+          setSuccessErrorMessage(res.data.message);
+          setLoading(false)
         })
         .catch((err) => {
           console.log(err);
@@ -172,7 +176,9 @@ const SchRegister = () => {
               title: "Login Failed",
               text: err.message,
               icon: "error",
-              confirmButtonText: "okay"
+              confirmButtonText: "okay",
+              timer: 1800,
+              showConfirmButton: false,
             })
             setLoading(false)
           }
@@ -182,7 +188,9 @@ const SchRegister = () => {
             title: "Error!",
             text: err.response.data.message,
             icon: "error",
-            confirmButtonText: "Ok"
+            confirmButtonText: "Ok",
+            timer: 1800,
+            showConfirmButton: false,
           })
         });
       // showAlert();

@@ -18,31 +18,23 @@ import { SpinnerCircular } from "spinners-react"
 
 const AdminTeacherDashboard = () => {
     const User = useSelector(state => state.persisitedReducer.loginUser)
-    const schoolUsers = useSelector(state => state.persisitedReducer.School)
     const allTeacher = useSelector(state => state.persisitedReducer.adminTeachApi)
     const [addTeacher, setAddTeacher] = useState(false)
     const [teacherEmail, setTeacherEmail] = useState("")
     const [viewTeacherProfile, setViewTeacherProfile] = useState(false)
     const [teacherId, setTeacherId] = useState("")
     const [loading, setLoading] = useState(false)
-
-    // console.log(allTeacher)
-
     const BearerToken = User.data.token
-    console.log(BearerToken)
-
     const data = { teacherEmail }
     const dispatch = useDispatch()
-
     const teacherEmailData = new FormData()
     teacherEmailData.append("teacherEmail", teacherEmail)
-    // console.log(teacherEmail)
     const showAlert = () => {
         Swal.fire({
             title: 'Register Link',
             text: 'You are about to send an Email, a Teacher Registration link',
             icon: 'info',
-            cancelButtonColor: 'cyan',
+            cancelButtonColor: 'red',
             showCancelButton: true,
             confirmButtonText: 'yes',
         }).then((result) => {
@@ -70,7 +62,10 @@ const AdminTeacherDashboard = () => {
                     title: "Success!",
                     text: res.data.message,
                     icon: "success",
-                    confirmButtonText: "Ok"
+                    confirmButtonText: "Ok",
+                    showConfirmButton: false,
+                    timer: 2000
+
                 })
                 setLoading(false)
                 setAddTeacher(false)
@@ -84,7 +79,8 @@ const AdminTeacherDashboard = () => {
                         title: "Registration Failed",
                         text: err.message,
                         icon: "error",
-                        confirmButtonText: "okay"
+                        showConfirmButton: false,
+                        timer: 2000
                     })
                     setLoading(false)
                     setAddTeacher(false)
@@ -94,21 +90,14 @@ const AdminTeacherDashboard = () => {
                     title: "Error!",
                     text: err.data.message,
                     icon: "error",
-                    confirmButtonText: "Ok"
+                    showConfirmButton: false,
+                    timer: 2000
                 })
                 setLoading(false)
                 setAddTeacher(false)
 
 
             })
-    }
-
-    // const createTeacher = async(e) => {
-    //     // setTeacherEmail({teacherEmail, [e.target.name]::})
-    // }
-    {
-        console.log(User.data, BearerToken)
-
     }
 
 
@@ -142,10 +131,10 @@ const AdminTeacherDashboard = () => {
                     <h1 className='DashboardRightBodyTitleH1'>Teachers</h1>
                 </div>
                 <div className='DashboardSearchIconDiv'>
-                    <input type="text" placeholder='Search here' className='DashboardSearchIconInput' />
+                    {/* <input type="text" placeholder='Search here' className='DashboardSearchIconInput' />
                     <div className="DashboardSearchIconInputImage">
                         <AiOutlineSearch size={20} />
-                    </div>
+                    </div> */}
                 </div>
                 <div className='AdminDashboardAddTeacherBtnDiv'>
                     <button className='AdminDashboardAddTeacherBtn' onClick={() => setAddTeacher(true)}>Add Teacher</button>
@@ -153,43 +142,68 @@ const AdminTeacherDashboard = () => {
             </div>
             <div className='AdminDashboardTeachersCard'>
                 {
-                    allTeacher.length === 0 ? <h2>No Teachers added</h2> : 
-                    (
+                    allTeacher.length === 0 ? <h2>No Teachers added</h2> :
+                        (
                             allTeacher.map((props) => (
-                                <div className='AdminDashboardTeachersCardBody' key={props?._id}>
-                                    <div className='AdminDashboardTeachersImageDiv'>
-                                        <img src={AboutUsImage} alt="" />
-                                    </div>
-                                    <div className='AdminDashboardTeachersDetail'>
-                                        <div className='AdminDashboardTeachersDetailH3'>
-                                            Name: <h3 className='DashboardSchoolName'>{props.teacherName}</h3>
+                                // <div className='AdminDashboardTeachersCardBody' key={props?._id}>
+                                //     <div className='AdminDashboardTeachersImageDiv'>
+                                //         <img src={AboutUsImage} alt="" />
+                                //     </div>
+                                //     <div className='AdminDashboardTeachersDetail'>
+                                //         <div className='AdminDashboardTeachersDetailH3'>
+                                //             Name: <h3 className='DashboardSchoolName'>{props.teacherName}</h3>
+                                //         </div>
+                                //         <div className='AdminDashboardTeachersDetailH3'>
+                                //             Email: <h5>{props.teacherEmail}</h5>
+                                //         </div>
+                                //         <button className='AdminDashboardViewTeachProfile' onClick={
+                                //             () => {
+                                //                 setViewTeacherProfile(true)
+                                //                 // setTeacherId(props._id)
+                                //                 nav(`/admindashboard/teacherProfile/${props._id}`)
+
+                                //             }
+                                //         }>View Profile</button>
+                                //     </div>
+                                // </div>
+
+                                <span className='TeacherStudentDetailsCard' key={props?._id}>
+                                    <div className='TeacherStudentMainDetailsHolder'>
+                                        <div className='TeacherStudentProfileImage2'>
+                                            <img src={props?.teacherImage} alt="" />
                                         </div>
-                                        <div className='AdminDashboardTeachersDetailH3'>
-                                            Email: <h5>{props.teacherEmail}</h5>
-                                        </div>
-                                        <button className='AdminDashboardViewTeachProfile' onClick={
-                                            () => {
-                                                setViewTeacherProfile(true)
-                                                // setTeacherId(props._id)
-                                                nav(`/admindashboard/teacherProfile/${props._id}`)
-        
-                                            }
-                                        }>View Profile</button>
+                                        <h2 className='TeacherStudentName'>{props?.teacherName}</h2>
+                                        <p className='TeacherStudentEmail'>{props?.teacherEmail}</p>
+                                        <h4 className='TeacherStudentClass'>{props?.teacherClass}</h4>
                                     </div>
-                                </div>
+                                    <div className='TeacherUpdateStudentProfileHolder'>
+                                        {/* <button className='TeacherAddStudentResult' onClick={() => {
+                                            setResult(true)
+                                            setShareId
+                                        }}>View Result</button> */}
+                                        <button className='TeacherAddStudentResult' onClick={() => {
+                                            setViewTeacherProfile(true)
+                                            setTeacherId(props._id)
+                                            nav(`/admindashboard/teacherProfile/${props._id}`)
+                                        }}>View Profile</button>
+                                    </div>
+                                </span>
+
+
                             ))
-                        
-                    )
+
+                        )
                 }
 
             </div>
             {
                 addTeacher ? <div className='AddTeacherPop'>
-                    <AiOutlineCloseCircle className='CloseAddTeacherInput' size={60} onClick={() => setAddTeacher(false)} />
+                    <AiOutlineCloseCircle className='CloseAddTeacherInput'  onClick={() => setAddTeacher(false)} />
                     <div className='EmailHolder'>
                         <input type="email" placeholder='Enter teacher' className='TeacherInput' value={teacherEmail} onChange={(e) => setTeacherEmail(e.target.value)} />
                         <button className='AddTeacherSendBtn' onClick={() => {
                             showAlert()
+                            setTeacherEmail("")
                         }}>{
                                 loading ? (
                                     <SpinnerCircular

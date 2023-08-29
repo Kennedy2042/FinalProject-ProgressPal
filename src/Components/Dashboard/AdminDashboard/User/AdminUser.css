@@ -173,6 +173,17 @@
     font-size: 30px;
 }
 
+.adCardRight{
+    width: 48.5%;
+    height: 95%;
+    border: 2px solid rgba(218, 218, 231, 0.312);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.3);
+
+}
+
 .eligibleText{
     background: rgba(218, 218, 231, 0.312);
     height: 90%;
@@ -185,14 +196,12 @@
 
 }
 
-.adCardRight{
-    width: 48.5%;
-    height: 95%;
-    border: 2px solid rgba(218, 218, 231, 0.312);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.eligibleText h1{
+    font-size: 35px;
+    text-align: center;
+
 }
+
 
 .AdminDashboardPerformanceDetailCardRight {
     width: 29%;
@@ -204,3 +213,12 @@
 
 }
 
+.SubscribeBtn{
+    width: 60%;
+    height: 15%;
+    background: #127cdd;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 20px;
+}

@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import { AiOutlineMail, AiOutlineFileImage } from 'react-icons/ai'
-import { FaUserAlt } from 'react-icons/fa'
+import { AiOutlineMail, AiOutlineFileImage, AiOutlineLock } from 'react-icons/ai'
+import { FaRegUser, } from 'react-icons/fa'
 import { RiLockPasswordFill } from 'react-icons/ri'
 import { BiSolidHide, BiSolidShow } from 'react-icons/bi'
+import {SiGoogleclassroom} from "react-icons/si"
 import ProgressPalLogo from "../../../../assets/ProgressPalLogo.png"
 import "./TeacherSignUp.css"
 import "./TeacherSignUpMedia.css"
@@ -71,28 +72,45 @@ const SignUp = () => {
             })
             .then((res) => {
                 console.log(res);
-                dispatch(schoolTeacherData(res.data))
-                setSuccessErrorMessage(res.data.message);
-                navigate("/login")
-                setLoading(false);
+                
                 Swal.fire({
                     title: "Success!",
                     text: res.data.message,
                     icon: "success",
-                    confirmButtonText: "Ok"
-                  })
+                    confirmButtonText: "Ok",
+                    showConfirmButton: false,
+                    timer: 1800
+                })
+                navigate("/login")
+                dispatch(schoolTeacherData(res.data))
+                setSuccessErrorMessage(res.data.message);
+                setLoading(false);
+
 
             })
             .catch((err) => {
                 console.log(err);
-                setSuccessErrorMessage(err?.response?.message ? err?.response?.message : err?.response?.data?.message);
-                setLoading(false);
+                if (err?.message === "Network Error") {
+                    Swal.fire({
+                        title: "Registration Failed",
+                        text: err.message,
+                        icon: "error",
+                        showConfirmButton: false,
+                        timer: 1800
+                    })
+                    setLoading(false)
+
+                }
                 Swal.fire({
                     title: "Error!",
                     text: err.response.data.message,
                     icon: "error",
-                    confirmButtonText: "Ok"
-                  })
+                    confirmButtonText: "Ok",
+                    showConfirmButton: false,
+                    timer: 1800
+                })
+                setSuccessErrorMessage(err?.response?.message ? err?.response?.message : err?.response?.data?.message);
+                setLoading(false);
             });
     }
     // }
@@ -108,9 +126,9 @@ const SignUp = () => {
                     <h1>Sign Up</h1>
                     <div className="signUpNameHolder">
                         <div className="signUpNameIconDiv">
-                            <FaUserAlt className='signUpNameIcon' />
+                            <FaRegUser className='signUpNameIcon' />
                         </div>
-                        <input className='signUpNameInput' type="text" placeholder='teacher Name' value={teacherName} onChange={(e) => setTeacherName(e.target.value)} />
+                        <input className='signUpNameInput' type="text" placeholder='Teacher Name' value={teacherName} onChange={(e) => setTeacherName(e.target.value)} />
                         {
                             validMessage.value === "teacherName" ? <p>{validMessage.msg}</p> : null
                         }
@@ -119,7 +137,7 @@ const SignUp = () => {
                     </div>
                     <div className="signUpNameHolder">
                         <div className="signUpNameIconDiv">
-                            <FaUserAlt className='signUpNameIcon' />
+                            <SiGoogleclassroom className='signUpNameIcon' />
                         </div>
                         <input className='signUpNameInput' type="text" placeholder='Teacher Class' value={teacherClass} onChange={(e) => setTeacherClass(e.target.value)} />
                         {
@@ -151,7 +169,7 @@ const SignUp = () => {
                             <AiOutlineFileImage className='signUpNameIcon' />
                         </div>
                         <div className="signUpTeacherInput">
-                            <input className='' type="file" placeholder='Teacher Image' accept='image*/' onChange={File} />
+                            <input className='' type="file" placeholder='Teacher Image' accept='image/*' onChange={File} />
 
                         </div>
                         {
@@ -161,7 +179,7 @@ const SignUp = () => {
                     </div>
                     <div className="signUpPasswordHolder">
                         <div className="signUpPasswordIconDiv">
-                            <RiLockPasswordFill className='signUpNameIcon' />
+                            <AiOutlineLock className='signUpNameIcon' />
                         </div>
                         <input className='signUpPassordInput' type={signUpPass ? "text" : "password"} placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
                         <div className="signUpshowPassword">
@@ -175,7 +193,7 @@ const SignUp = () => {
                     </div>
                     <div className="signUpPasswordHolder">
                         <div className="signUpPasswordIconDiv">
-                            <RiLockPasswordFill className='signUpNameIcon' />
+                            <AiOutlineLock className='signUpNameIcon' />
                         </div>
                         <input className='signUpPassordInput' type={signUpConfirmPass ? "text" : "password"} placeholder='Confirm Password' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
                         <div className="signUpshowPassword">
@@ -194,11 +212,11 @@ const SignUp = () => {
                     {/* <p style={{ width: "95%" }}>Already have an Account? <span className='LoginSpan' onClick={() => navigate("/teacher_login")}>Log In</span></p> */}
                     <div className="signUpPasswordHolder">
                         <button className='signUpSubmitBtn' onClick={teacherRegister}>{
-                            loading ? < SpinnerCircular 
-                            size={35}
+                            loading ? < SpinnerCircular
+                                size={35}
                                 thickness={99}
                                 speed={100}
-                                color="rgba(18, 124, 221, 1)"/> : "Submit"
+                                color="rgba(18, 124, 221, 1)" /> : "Submit"
                         }</button>
                     </div>
                 </div>

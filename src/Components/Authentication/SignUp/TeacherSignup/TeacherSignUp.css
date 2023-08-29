@@ -39,9 +39,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom: 2px solid cyan;
-    border-left: 2px solid cyan;
-    border-top: 2px solid cyan;
+    border-bottom: 0.01px solid blue;
+    border-left: 0.01px solid blue;
+    border-top: 0.01px solid blue;
 }
 .signUpNameInput{
     width:85%;
@@ -51,9 +51,9 @@
     justify-content: center;
     outline: none;
     border: none;
-    border-bottom: 2px solid cyan;
-    border-right: 2px solid cyan;
-    border-top: 2px solid cyan;
+    border-bottom: 0.01px solid blue;
+    border-right: 0.01px solid blue;
+    border-top: 0.01px solid blue;
 }
 .signUpTeacherInput{
     width:85%;
@@ -62,9 +62,9 @@
     align-items: center;
     outline: none;
     border: none;
-    border-bottom: 2px solid cyan;
-    border-right: 2px solid cyan;
-    border-top: 2px solid cyan;
+    border-bottom: 0.01px solid blue;
+    border-right: 0.01px solid blue;
+    border-top: 0.01px solid blue;
 }
 .signUpPasswordHolder{
     width: 95%;
@@ -78,9 +78,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom: 2px solid cyan;
-    border-left: 2px solid cyan;
-    border-top: 2px solid cyan;
+    border-bottom: 0.01px solid blue;
+    border-left: 0.01px solid blue;
+    border-top: 0.01px solid blue;
 }
 
 .signUpPassordInput{
@@ -91,8 +91,8 @@
     justify-content: center;
     outline: none;
     border: none;
-    border-bottom: 2px solid cyan;
-    border-top: 2px solid cyan;
+    border-bottom: 0.01px solid blue;
+    border-top: 0.01px solid blue;
 }
 
 .signUpshowPassword{
@@ -101,9 +101,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom: 2px solid cyan;
-    border-right: 2px solid cyan;
-    border-top: 2px solid cyan;
+    border-bottom: 0.01px solid blue;
+    border-right: 0.01px solid blue;
+    border-top: 0.01px solid blue;
 }
 
 .signUpSubmitBtn{
@@ -114,6 +114,9 @@
     justify-content: center;
     border: none;
     cursor: pointer;
-    background: #F7B905;
+    background: blue;
+    color: white;
+    font-size: 15px;
+    /* background: #F7B905; */
 
 }

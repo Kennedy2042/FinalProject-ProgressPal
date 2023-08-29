@@ -135,10 +135,10 @@ const TeacherStudent = () => {
                 studentProfile ? <div className="studentProfileBody">
                     <div className='studentProfileBodyBackBtn'>
                         <MdKeyboardBackspace size={30}
-                        className='studentProfileBodyBackBtnIcon'
-                        onClick={()=>{
-                            setStudentProfile(false)
-                        }}/>
+                            className='studentProfileBodyBackBtnIcon'
+                            onClick={() => {
+                                setStudentProfile(false)
+                            }} />
                     </div>
                     <div></div>
                     <div></div>
@@ -167,30 +167,50 @@ const TeacherStudent = () => {
                     StudentApi.length === 0 ? <h2>No Students added</h2> :
                         (
                             Array.from(StudentApi)?.map((props) => (
-                                <div className='AdminDashboardTeachersCardBody' key={props?._id}>
-                                    <div className='AdminDashboardTeachersImageDiv'>
-                                        <img src={props.studentPassport} alt="" />
-                                    </div>
-                                    <div className='AdminDashboardTeachersDetail'>
-                                        <div className='AdminDashboardTeachersDetailH3'>
-                                            Name: <h3>{props.studentName}</h3>
-                                        </div>
-                                        <div className='AdminDashboardTeachersDetailH3'>
-                                            Email: <h5>{props.studentEmail}</h5>
-                                        </div>
-                                        <h4>{props.studentClass}</h4>
-                                        <div className="cardButton">
-                                            <button className='TeacherViewTeachProfile' onClick={() => {
-                                                setResult(true)
-                                                setShareId(props._id)
-                                            }}>Add Result</button>
-                                            <button className='TeacherViewTeachProfile' onClick={()=>{
-                                                setStudentProfile(true)
-                                            }}>View Profile</button>
-                                        </div>
+                                // <div className='AdminDashboardTeachersCardBody' key={props?._id}>
+                                //     <div className='AdminDashboardTeachersImageDiv'>
+                                //         <img src={props.studentPassport} alt="" />
+                                //     </div>
+                                //     <div className='AdminDashboardTeachersDetail'>
+                                //         <div className='AdminDashboardTeachersDetailH3'>
+                                //             Name: <h3>{props.studentName}</h3>
+                                //         </div>
+                                //         <div className='AdminDashboardTeachersDetailH3'>
+                                //             Email: <h5>{props.studentEmail}</h5>
+                                //         </div>
+                                //         <h4>{props.studentClass}</h4>
+                                //         <div className="cardButton">
+                                //             <button className='TeacherViewTeachProfile' onClick={() => {
+                                //                 setResult(true)
+                                //                 setShareId(props._id)
+                                //             }}>Add Result</button>
+                                //             <button className='TeacherViewTeachProfile' onClick={()=>{
+                                //                 setStudentProfile(true)
+                                //             }}>View Profile</button>
+                                //         </div>
 
+                                //     </div>
+                                // </div>
+
+                                <span className='TeacherStudentDetailsCard' key={props?._id}>
+                                    <div className='TeacherStudentMainDetailsHolder'>
+                                        <div className='TeacherStudentProfileImage2'>
+                                            <img src={props?.studentPassport} alt="" />
+                                        </div>
+                                        <h2 className='TeacherStudentName'>{props?.studentName}</h2>
+                                        <p className='TeacherStudentEmail'>{props?.studentEmail}</p>
+                                        <h4 className='TeacherStudentClass'>{props?.studentClass}</h4>
                                     </div>
-                                </div>
+                                    <div className='TeacherUpdateStudentProfileHolder'>
+                                        <button className='TeacherAddStudentResult' onClick={() => {
+                                            setResult(true)
+                                            setShareId
+                                        }}>Add Result</button>
+                                        <button className='TeacherViewStudentProfile' onClick={() => {
+                                            setStudentProfile(true)
+                                        }}>View Profile</button>
+                                    </div>
+                                </span>
                             ))
 
 

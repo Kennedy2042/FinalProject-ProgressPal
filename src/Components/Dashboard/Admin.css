@@ -119,4 +119,5 @@
 
 .sweet-alert-confirm-btn{
     background-color: red !important;
+    align-items: flex-end;
 }
