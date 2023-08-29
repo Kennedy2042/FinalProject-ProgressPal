@@ -3,6 +3,10 @@
     width: 100%;
     padding: 20px;
     box-sizing: border-box;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
   
   .premium-upgrade-container h2 {

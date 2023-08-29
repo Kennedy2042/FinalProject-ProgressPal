@@ -45,7 +45,7 @@ const PremiumUpgradeComponent = () => {
         <li>Ad-free browsing experience</li>
         <li>Priority customer support</li>
         <li>Early access to new features</li>
-        <li>Unlimited downloads and streaming</li>
+        <li>Unlimited Teachers and Students</li>
       </ul>
       <button className="upgrade-button" onClick={payKorapay}>Upgrade Now</button>
     </div>

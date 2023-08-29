@@ -109,12 +109,12 @@ const Teacher = () => {
                                             <p className='AdminDashboardIconsImageName'>Students</p>
                                         </div>
                                     </div>
-                                    <div className="AdminDashboardIcons" onClick={() => navigate("/Dashboard/teacher/admin_teacher_dashboard")}>
+                                    <div className="AdminDashboardIcons" onClick={() => navigate("/Dashboard/teacher/Teacher_resultSheet")}>
                                         <div className='AdminHomeIcon'>
-                                            <FaChalkboardTeacher size={30} className='AdminDashboardIconsImage' />
+                                            <GrScorecard size={30} className='AdminDashboardIconsImage' />
                                         </div>
                                         <div className="AdminHomeIconTitle">
-                                            <p className='AdminDashboardIconsImageName'>Teachers</p>
+                                            <p className='AdminDashboardIconsImageName'>Results</p>
                                         </div>
                                     </div>
                                     {/* <div className="AdminDashboardIcons">

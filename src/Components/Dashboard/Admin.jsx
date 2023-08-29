@@ -61,9 +61,10 @@ const Admin = () => {
             .then((res) => {
                 console.log(res)
                 dispatch(adminAllTeacherApi([]))
-                navigate("/")
+
                 // console.log(res.data.data.isLogin, "res.data.data.isLogin")
                 dispatch(userLogin(false))
+                navigate("/")
             })
             .catch((err) => {
                 console.log(err)
@@ -93,7 +94,7 @@ const Admin = () => {
                             menu ?
                                 <div className="AdminDashboardMobileDropMenu">
                                     <div className="AdminDashboardIcons" onClick={() => {
-                                        navigate("/Dashboard/schoolAdmin/schoolAdminUser/:id")
+                                        navigate(`/Dashboard/schoolAdmin/schoolAdminUser/${schoolUsers._id}`)
                                     }}>
                                         <div className='AdminHomeIcon'>
                                             <BiHomeAlt size={30} className='AdminDashboardIconsImage' />
@@ -126,7 +127,7 @@ const Admin = () => {
                                             <p className='AdminDashboardIconsImageName'>Events</p>
                                         </div>
                                     </div> */}
-                                    
+
                                     <div className="AdminDashboardIcons" onClick={showAlert}>
                                         <div className='AdminHomeIcon'>
                                             <BiLogOut size={30} className='AdminDashboardIconsImage' />
@@ -148,26 +149,26 @@ const Admin = () => {
                     <div className="AdminDashboardSideMenuMainBody">
                         <div className='AdminDashboardSideMenuIconDiv'>
                             <div className={dashboard ? "Active" : "AdminDashboardIcons"} onClick={() => {
-                                navigate("/Dashboard/schoolAdmin/schoolAdminUser/:id")
+                                navigate(`/Dashboard/schoolAdmin/schoolAdminUser/${schoolUsers._id}`)
                                 setDashboard(true)
                                 setStudent(false)
                                 setTeacher(false)
                             }}>
                                 <div className='AdminHomeIcon'>
-                                    <BiHomeAlt size={30} className={ dashboard ? "AdminDashboardIconsImageActive" : 'AdminDashboardIconsImage'} />
+                                    <BiHomeAlt size={30} className={dashboard ? "AdminDashboardIconsImageActive" : 'AdminDashboardIconsImage'} />
                                 </div>
                                 <div className="AdminHomeIconTitle">
                                     <p className={dashboard ? "AdminDashboardIconsImageNameActive" : 'AdminDashboardIconsImageName'}>Dashboard</p>
                                 </div>
                             </div>
-                            <div className={ student? "Active" : "AdminDashboardIcons"} onClick={() => {
+                            <div className={student ? "Active" : "AdminDashboardIcons"} onClick={() => {
                                 navigate("/Dashboard/schoolAdmin/admin_student_dashboard")
                                 setStudent(true)
                                 setTeacher(false)
                                 setDashboard(false)
-                                }}>
+                            }}>
                                 <div className='AdminHomeIcon'>
-                                    <PiStudentDuotone size={30} className={ student ? "AdminDashboardIconsImageActive" : 'AdminDashboardIconsImage'} />
+                                    <PiStudentDuotone size={30} className={student ? "AdminDashboardIconsImageActive" : 'AdminDashboardIconsImage'} />
                                 </div>
                                 <div className="AdminHomeIconTitle">
                                     <p className={student ? "AdminDashboardIconsImageNameActive" : 'AdminDashboardIconsImageName'}>Students</p>
@@ -178,9 +179,9 @@ const Admin = () => {
                                 setTeacher(true)
                                 setDashboard(false)
                                 setStudent(false)
-                                }}>
+                            }}>
                                 <div className='AdminHomeIcon'>
-                                    <FaChalkboardTeacher size={30} className={ teacher ? "AdminDashboardIconsImageActive" : 'AdminDashboardIconsImage'} />
+                                    <FaChalkboardTeacher size={30} className={teacher ? "AdminDashboardIconsImageActive" : 'AdminDashboardIconsImage'} />
                                 </div>
                                 <div className="AdminHomeIconTitle">
                                     <p className={teacher ? "AdminDashboardIconsImageNameActive" : 'AdminDashboardIconsImageName'}>Teachers</p>
@@ -206,11 +207,9 @@ const Admin = () => {
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
                 <div className='DashBoardRightBody'>
-
                     <Routes>
                         {
                             isLogin ? <Route path='/schoolAdminUser/:id' element={<AdminUser />} /> : <Route path="/login" element={<Login />} />
@@ -221,7 +220,7 @@ const Admin = () => {
                         }
 
                         {
-                        isLogin ? <Route path='/admin_student_dashboard' element={<AdminStudentDashboard />} /> : <Route path="/login" element={<Login />} />
+                            isLogin ? <Route path='/admin_student_dashboard' element={<AdminStudentDashboard />} /> : <Route path="/login" element={<Login />} />
                         }
                     </Routes>
                 </div>

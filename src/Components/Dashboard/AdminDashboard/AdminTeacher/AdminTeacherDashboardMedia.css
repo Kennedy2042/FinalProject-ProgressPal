@@ -69,7 +69,6 @@
     .AdminDashboardTeachersCard {
         width: 100%;
         height: 88vh;
-        /* background-color: burlywood; */
         display: flex;
         justify-content: space-around;
         overflow-y: scroll;
@@ -77,55 +76,25 @@
         gap: 20px;
     }
 
-    .AdminDashboardTeachersCardBody {
-        width: 100%;
-        height: 20vh;
-        background-color: rgb(238, 238, 237);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        box-shadow: 8px 8px 8px;
-    
-    }
-
-    .AdminDashboardTeachersImageDiv {
-        width: 35%;
-        height: 50%;
-        background: none;
-    }
-    
-    .AdminDashboardTeachersImageDiv img{
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-    }
-
-    .DashboardSchoolName{
-        font-size: 10px;
-        text-align: justify;
-    }
-
-    .AdminDashboardTeachersDetail {
-        width: 65%;
-        height: 60%;
-        /* background-color: bisque; */
+    /* .AdminDashboardTeachersCard {
+        width: 100% !important;
+        height: 88vh;
+        background: rgb(160, 37, 37) !important;
         display: flex;
         justify-content: space-around;
-        align-items: center;
-        flex-direction: column;
+        overflow-y: scroll;
+        flex-wrap: wrap;
+        gap: 20px;
     }
 
-    .AdminDashboardTeachersDetailH3{
-        width: 100%;
-        height: 10%;
-        /* background: pink; */
-        text-align: center;
-        display: flex;
-        align-items: center;
-        font-size: 10px;
-    
-    }
-
+    .TeacherStudentDetailsCard {
+        width: 90% !important;
+        height: 50%  !important;
+        border-radius: 6px;
+        background-color: rgb(158, 0, 0);
+        margin-top: 10px !important;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    } */
 
 
 }
@@ -133,5 +102,26 @@
 
 
 @media only screen and (min-width: 580px) and (max-width: 1024px){
+
+    /* .AdminDashboardTeachersCard {
+        width: 100%;
+        height: 88vh;
+        background: rgb(255,255,255) !important;
+        display: flex;
+        justify-content: space-around;
+        overflow-y: scroll;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .TeacherStudentDetailsCard {
+        width: 40% !important;
+        height: 50%  !important;
+        border-radius: 6px;
+        background-color: rgb(158, 0, 0);
+        margin-top: 10px !important;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    } */
+
 
 }

@@ -7,6 +7,9 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { teacherInformation } from '../../../../../Redux/ProductState'
 import Swal from 'sweetalert2'
+import { MdOutlineKeyboardBackspace } from 'react-icons/md'
+import "./TeacherProfile.css"
+
 
 
 const TeacherProfile = () => {
@@ -39,7 +42,7 @@ const TeacherProfile = () => {
     // console.log("first", BearerToken)
     const config = {
         headers: {
-            Authorization : `Bearer ${BearerToken}`
+            Authorization: `Bearer ${BearerToken}`
         }
     }
 
@@ -54,32 +57,45 @@ const TeacherProfile = () => {
             confirmButtonText: 'yes',
             customClass: {
                 confirmButton: 'sweet-alert-confirm-btn',
-              },
+            },
         }).then((result) => {
             if (result.isConfirmed) {
                 DeleteTeacher()
             }
         });
     };
-async function DeleteTeacher(){
-    axios.delete(deleteUrl, config)
-    .then((res)=>{
-        console.log(res)
-        navigate("Dashboard/schoolAdmin/admin_teacher_dashboard")
-    })
-    .catch((err)=>{
-        console.log(err)
-    })
-}
+    async function DeleteTeacher() {
+        axios.delete(deleteUrl, config)
+            .then((res) => {
+                console.log(res)
+                navigate("Dashboard/schoolAdmin/admin_teacher_dashboard")
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }
 
     return (
         <>
 
-            <div className='ProfilebodyHolder'>
+            <div className='TeacherProfilebodyHolder'>
+
 
                 <div className='Profilebody'>
+
                     <div className='ProfileImage'>
-                        <img className='ProfileImagecircle' src={teacherProfileInfo?.teacherImage} alt="" />
+                        <div className="BackArrowDiv">
+                            <MdOutlineKeyboardBackspace size={35} style={{ cursor: "pointer" }} onClick={
+                                () => {
+                                    navigate("/Dashboard/schoolAdmin/admin_teacher_dashboard")
+
+                                }
+                            } />
+                        </div>
+                        <div className='ProfileImagecircle' >
+                            <img src={teacherProfileInfo?.teacherImage} alt="" />
+
+                        </div>
                         {/* <div className='ProfileImagecircle'></div> */}
                         <div className='ProfileImageName'>
                             <h2>{teacherProfileInfo?.teacherName}</h2>
@@ -145,7 +161,7 @@ async function DeleteTeacher(){
                             </div>
                         </div>
                         <div className='ProfileBtn'>
-                            <Link className="ProfileEditButtonLink" to={`/admindashboard/editteacherProfile/${teacherProfileInfo?._id}}`}><button className='ProfileEditButton'>Edit</button></Link>
+                            <Link className="ProfileEditButtonLink" to={`/admindashboard/editteacherProfile/${teacherProfileInfo?._id}`}><button className='ProfileEditButton'>Edit</button></Link>
                             <button className='ProfileDeleteButton' onClick={showAlert}>Delete</button>
                         </div>
 

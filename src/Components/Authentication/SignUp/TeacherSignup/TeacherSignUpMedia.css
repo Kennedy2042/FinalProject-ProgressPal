@@ -41,9 +41,9 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        border-bottom: 2px solid cyan;
-        border-left: 2px solid cyan;
-        border-top: 2px solid cyan;
+        border-bottom: 0.01px solid blue;;
+        border-left: 0.01px solid blue;;
+        border-top: 0.01px solid blue;;
     }
 
     .signUpNameInput {
@@ -54,9 +54,9 @@
         justify-content: center;
         outline: none;
         border: none;
-        border-bottom: 2px solid cyan;
-        border-right: 2px solid cyan;
-        border-top: 2px solid cyan;
+        border-bottom: 0.01px solid blue;;
+        border-right: 0.01px solid blue;;
+        border-top: 0.01px solid blue;;
     }
     .signUpTeacherInput {
         width: 85%;
@@ -66,9 +66,9 @@
         justify-content: center;
         outline: none;
         border: none;
-        border-bottom: 2px solid cyan;
-        border-right: 2px solid cyan;
-        border-top: 2px solid cyan;
+        border-bottom: 0.01px solid blue;;
+        border-right: 0.01px solid blue;;
+        border-top: 0.01px solid blue;;
     }
 
     .signUpPasswordHolder {
@@ -84,9 +84,9 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        border-bottom: 2px solid cyan;
-        border-left: 2px solid cyan;
-        border-top: 2px solid cyan;
+        border-bottom: 0.01px solid blue;;
+        border-left: 0.01px solid blue;;
+        border-top: 0.01px solid blue;;
     }
     .signUpshowPassword {
         width: 15%;
@@ -94,8 +94,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        border-bottom: 2px solid cyan;
-        border-top: 2px solid cyan;
+        border-bottom: 0.01px solid blue;;
+        border-top: 0.01px solid blue;;
     }
 
     .signUpPassordInput {
@@ -106,8 +106,8 @@
         justify-content: center;
         outline: none;
         border: none;
-        border-bottom: 2px solid cyan;
-        border-top: 2px solid cyan;
+        border-bottom: 0.01px solid blue;;
+        border-top: 0.01px solid blue;;
     }
 
     .signUpSubmitBtn {
@@ -117,7 +117,7 @@
         align-items: center;
         justify-content: center;
         border: none;
-        background: #F7B905;
+        background: blue;
         cursor: pointer;
     }
 
@@ -154,39 +154,39 @@
     }
 
     .signUpNameIconDiv {
-        width: 15%;
-        height: 50%;
+        width: 13%;
+        height: 55%;
         display: flex;
         align-items: center;
         justify-content: center;
-        border-bottom: 2px solid cyan;
-        border-left: 2px solid cyan;
-        border-top: 2px solid cyan;
+        border-bottom: 0.01px solid blue;;
+        border-left: 0.01px solid blue;;
+        border-top: 0.01px solid blue;;
     }
 
     .signUpNameInput {
-        width: 85%;
-        height: 50%;
+        width: 80%;
+        height: 55%;
         display: flex;
         align-items: center;
         justify-content: center;
         outline: none;
         border: none;
-        border-bottom: 2px solid cyan;
-        border-right: 2px solid cyan;
-        border-top: 2px solid cyan;
+        border-bottom: 0.01px solid blue;;
+        border-right: 0.01px solid blue;;
+        border-top: 0.01px solid blue;;
     }
     .signUpTeacherInput {
-        width: 85%;
-        height: 50%;
+        width: 80%;
+        height: 55%;
         display: flex;
         align-items: center;
-        justify-content: center;
+        /* justify-content: center; */
         outline: none;
         border: none;
-        border-bottom: 2px solid cyan;
-        border-right: 2px solid cyan;
-        border-top: 2px solid cyan;
+        border-bottom: 0.01px solid blue;;
+        border-right: 0.01px solid blue;;
+        border-top: 0.01px solid blue;;
     }
 
     .signUpPasswordHolder {
@@ -197,46 +197,46 @@
     }
 
     .signUpPasswordIconDiv {
-        width: 15%;
-        height: 50%;
+        width: 13%;
+        height: 55%;
         display: flex;
         align-items: center;
         justify-content: center;
-        border-bottom: 2px solid cyan;
-        border-left: 2px solid cyan;
-        border-top: 2px solid cyan;
+        border-bottom: 0.01px solid blue;;
+        border-left: 0.01px solid blue;;
+        border-top: 0.01px solid blue;;
     }
     .signUpshowPassword {
-        width: 15%;
-        height: 50%;
+        width: 13%;
+        height: 55%;
         display: flex;
         align-items: center;
         justify-content: center;
-        border-bottom: 2px solid cyan;
-        /* border-left: 2px solid cyan; */
-        border-top: 2px solid cyan;
+        border-bottom: 0.01px solid blue;;
+        /* border-left: 0.01px solid blue;; */
+        border-top: 0.01px solid blue;;
     }
 
     .signUpPassordInput {
-        width: 70%;
-        height: 50%;
+        width: 67%;
+        height: 55%;
         display: flex;
         align-items: center;
         justify-content: center;
         outline: none;
         border: none;
-        border-bottom: 2px solid cyan;
-        border-top: 2px solid cyan;
+        border-bottom: 0.01px solid blue;;
+        border-top: 0.01px solid blue;;
     }
 
     .signUpSubmitBtn {
-        width: 100%;
+        width: 93%;
         height: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         border: none;
-        background: #F7B905;
+        background: blue;
         cursor: pointer;
     }
 
