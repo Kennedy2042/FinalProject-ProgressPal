@@ -84,18 +84,18 @@ const AdminStudentDashboard = () => {
 
     return (
         <>
-            <div className='DashBoardRightBodyTitle'>
-                <div className='DashBoardRightBodyTitleHolderDiv'>
-                    <h1 className='DashboardRightBodyTitleH1'>Students</h1>
+            <div className='StudentDashBoardRightBodyTitle'>
+                <div className='StudentDashBoardRightBodyTitleHolderDiv'>
+                    <h1 className='StudentDashboardRightBodyTitleH1'>Students</h1>
                 </div>
-                <div className='DashboardSearchIconDiv'>
+                <div className='StudentDashboardSearchIconDiv'>
                     {/* <input type="text" placeholder='Search here' className='DashboardSearchIconInput' />
-                    <div className="DashboardSearchIconInputImage">
+                    <div className="StudentDashboardSearchIconInputImage">
                         <AiOutlineSearch size={20} />
                     </div> */}
                 </div>
-                <div className='AdminDashboardAddTeacherBtnDiv'>
-                    {/* <button className='AdminDashboardAddTeacherBtn' onClick={() => {
+                <div className='AdminStudentDashboardAddTeacherBtnDiv'>
+                    {/* <button className='AdminStudentDashboardAddTeacherBtn' onClick={() => {
                         setAddStudents(true)
                     }}>Add Student</button> */}
                 </div>
@@ -139,7 +139,7 @@ const AdminStudentDashboard = () => {
                                     setResult(true)
                                     setShareId
                                 }}>Add Result</button>
-                                <button className='TeacherViewStudentProfile' onClick={() => {
+                                <button className='TeacherViewStudentProfileBtn' onClick={() => {
                                     setViewProfile(true)
                                     setViewProfileId(props._id)
                                 }}>View Profile</button>

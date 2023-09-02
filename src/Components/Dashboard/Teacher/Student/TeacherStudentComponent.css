@@ -1,0 +1,457 @@
+.TeacherStudentDashBoardRightBodyTitle {
+  width: 100%;
+  height: 10%;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 20px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.TeacherDashBoardRightBodyTitleHolderDiv {
+  width: 15%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+  /* background-color: brown; */
+}
+
+.TeacherDashboardRightBodyTitleH1 {
+  width: 100%;
+  font-size: 40px;
+}
+
+.TeacherDashboardSearchIconDiv {
+  width: 50%;
+  height: 70%;
+  /* background-color: rgb(255, 0, 81); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+
+}
+
+.TeacherDashboardSearchIconInput {
+  width: 85%;
+  height: 90%;
+  font-size: 14px;
+  border-left: 2px solid rgb(243, 242, 242);
+  border-right: 0px solid rgb(243, 242, 242);
+  border-bottom: 2px solid rgb(243, 242, 242);
+  border-top: 2px solid rgb(243, 242, 242);
+  outline: none;
+  padding-left: 2%;
+  color: rgb(32, 32, 32);
+  border-radius: 10px 0px 0px 10px;
+}
+
+.TeacherDashboardSearchIconInputImage {
+  width: 8%;
+  height: 90%;
+  border-left: 0px solid rgb(243, 242, 242);
+  border-right: 2px solid rgb(243, 242, 242);
+  border-bottom: 2px solid rgb(243, 242, 242);
+  border-top: 2px solid rgb(243, 242, 242);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(255, 255, 255);
+  border-radius: 0px 10px 10px 0px;
+  cursor: pointer;
+}
+
+.AdminDashboardAddTeacherBtnDiv {
+  width: 20%;
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.AdminDashboardAddTeacherBtn {
+  width: 100%;
+  height: 100%;
+  background-color: #127cdd;
+  color: white;
+  border-radius: 7px;
+  border: none;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.TeacherDashBoardStudentsHolder {
+  width: 100%;
+  height: 90%;
+  background-color: rgb(243, 242, 242);
+  display: flex;
+  justify-content: center;
+  /* padding-inline: 16px; */
+  overflow-y: scroll;
+  flex-wrap: wrap;
+  row-gap: 3px;
+  column-gap: 20px;
+}
+
+.TeacherStudentDetailsCard {
+  width: 23%;
+  height: 48%;
+  border-radius: 6px;
+  background-color: white;
+  margin-top: 20px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.TeacherStudentMainDetailsHolder {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 13px;
+  padding-top: 20px;
+  /* background-color: red; */
+}
+
+.TeacherStudentProfileImage2 {
+  width: 30%;
+  height: 38%;
+  border-radius: 50%;
+  object-fit: cover;
+  /* background-color: green; */
+}
+
+.TeacherStudentProfileImage2 img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.TeacherStudentName {
+  font-size: 23px;
+  font-weight: 500;
+}
+
+.TeacherStudentEmail {
+  font-size: 15px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.TeacherStudentClass {
+  font-size: 20px;
+  font-weight: 500;
+  color: black;
+}
+
+.TeacherUpdateStudentProfileHolder {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  /* background-color: yellow; */
+}
+
+.TeacherAddStudentResult {
+  width: 43%;
+  height: 70%;
+  background-color: #127cdd;
+  color: white;
+  border-radius: 7px;
+  border: none;
+  font-size: 15px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.TeacherViewStudentProfileBtn {
+  width: 43%;
+  height: 70%;
+  color: #127cdd;
+  border: 2px solid #127cdd;
+  border-radius: 7px;
+  font-size: 15px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.AddTeacherPop {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  bottom: 0%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  flex-direction: column;
+  color: white;
+}
+
+.CloseAddTeacherInput {
+  cursor: pointer;
+  fill: red;
+}
+
+.OutLineCloseIcon{
+  fill: #127cdd;
+  cursor: pointer;
+  font-size: 40px;
+  position: absolute;
+  top: 12%;
+  right: 35%;
+}
+
+.AddStudentPopDiv {
+  width: 30%;
+  height: 75%;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  /* flex-direction: column; */
+  /* gap: 8px; */
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background-color: white;
+}
+
+.studentinfotext {
+  font-size: 20px;
+}
+
+.StudentEmail {
+  width: 80%;
+  height: 11%;
+  outline: none;
+  padding-left: 15px;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: bold;
+  border: 2px solid #127cdd;
+  /* background-color: red; */
+}
+
+.StudentEmaildiv {
+  width: 80%;
+  height: 11%;
+  display: flex;
+  align-items: center;
+  border: 2px solid #127cdd;
+  border-radius: 7px;
+  /* background-color: red; */
+}
+
+.StudentImageInput {
+  width: 100%;
+  /* height: 90%; */
+  outline: none;
+  padding-left: 15px;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: bold;
+  /* border: 2px solid #127cdd; */
+}
+
+.AddStudentButton {
+  width: 80%;
+  height: 10%;
+  font-size: 16px;
+  border: none;
+  border-radius: 7px;
+  background-color: #127cdd;
+  cursor: pointer;
+  color: white;
+}
+
+.TeacherResultSheetHolder {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+  background-color: blue;
+}
+
+
+
+@media only screen and (min-width: 320px) and (max-width: 580px) {
+  .TeacherStudentDashBoardRightBodyTitle {
+    width: 100%;
+    height: 7vh;
+    /* background-color: rgb(208, 150, 150); */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .TeacherDashBoardRightBodyTitleHolderDiv {
+    width: 20%;
+    height: 70%;
+    /* background-color: aqua; */
+    display: flex;
+    align-items: center;
+  }
+
+  .TeacherDashboardRightBodyTitleH1 {
+    width: 100%;
+    font-size: 15px;
+  }
+
+  .CloseAddTeacherInput {
+    font-size: 30px;
+  }
+
+  .OutLineCloseIcon{
+    fill: #127cdd;
+    cursor: pointer;
+    font-size: 25px;
+    position: absolute;
+    top: 14%;
+    right: 1%;
+  }
+
+  .TeacherDashBoardStudentsHolder {
+    width: 100%;
+    height: 83vh;
+    background: rgb(255, 255, 255) !important;
+    display: flex;
+    justify-content: space-around;
+    overflow-y: scroll;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .AddStudentPopDiv {
+    width: 100%;
+    height: 75%;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    /* flex-direction: column; */
+    /* gap: 8px; */
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    background-color: white;
+  }
+
+  .studentinfotext {
+    font-size: 16px;
+  }
+
+  .StudentEmail {
+    width: 80%;
+    height: 8%;
+    outline: none;
+    padding-left: 15px;
+    border-radius: 7px;
+    font-size: 12px;
+    font-weight: bold;
+    border: 2px solid #127cdd;
+    /* background-color: red; */
+  }
+  
+  .StudentEmaildiv {
+    width: 80%;
+    height: 8%;
+    display: flex;
+    align-items: center;
+    border: 2px solid #127cdd;
+    border-radius: 7px;
+    /* background-color: red; */
+  }
+
+  .AddStudentButton {
+    width: 80%;
+    height: 8%;
+    font-size: 16px;
+    border: none;
+    border-radius: 7px;
+    background-color: #127cdd;
+    cursor: pointer;
+    color: white;
+  }
+
+  
+
+}
+
+
+@media only screen and (min-width: 580px) and (max-width: 1024px) {
+  .TeacherStudentDashBoardRightBodyTitle {
+    width: 100%;
+    height: 7vh;
+    /* background-color: rgb(208, 150, 150); */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .OutLineCloseIcon{
+    fill: #127cdd;
+    cursor: pointer;
+    font-size: 40px;
+    position: absolute;
+    top: 13%;
+    right: 20%;
+  }
+
+  .AddStudentPopDiv {
+    width: 60%;
+    height: 75%;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    /* flex-direction: column; */
+    /* gap: 8px; */
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    background-color: white;
+  }
+
+  .studentinfotext {
+    font-size: 18px;
+  }
+
+  .StudentEmail {
+    width: 80%;
+    height: 9%;
+    outline: none;
+    padding-left: 15px;
+    border-radius: 7px;
+    font-size: 12px;
+    font-weight: bold;
+    border: 2px solid #127cdd;
+    /* background-color: red; */
+  }
+  
+  .StudentEmaildiv {
+    width: 80%;
+    height: 9%;
+    display: flex;
+    align-items: center;
+    border: 2px solid #127cdd;
+    border-radius: 7px;
+    /* background-color: red; */
+  }
+
+  .AddStudentButton {
+    width: 80%;
+    height: 9%;
+    font-size: 16px;
+    border: none;
+    border-radius: 7px;
+    background-color: #127cdd;
+    cursor: pointer;
+    color: white;
+  }
+
+  
+}

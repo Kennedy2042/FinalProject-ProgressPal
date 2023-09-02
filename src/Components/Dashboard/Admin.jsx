@@ -19,13 +19,13 @@ import Swal from 'sweetalert2'
 import { adminAllTeacherApi } from '../../Redux/ProductState'
 import Login from '../Authentication/Login/Login'
 import { userLogin } from '../../Redux/ProductState'
+import Auth from "../Authentication/Auth"
 
 
 
 const Admin = () => {
     const navigate = useNavigate()
     const schoolUsers = useSelector(state => state.persisitedReducer.School)
-    const teacherData = useSelector(state => state.persisitedReducer.loginUser)
     const isLogin = useSelector(state => state.persisitedReducer.isLoggedIn)
 
     const BearerToken = schoolUsers.token
@@ -82,7 +82,7 @@ const Admin = () => {
                         <div className="AdminDashboardMobileHeaderCon">
                             <img src={ProgressPalLogo} alt="" />
                             {
-                                menu ? <AiOutlineCloseCircle style={{ cursor: "pointer", fill: "red" }} size={25} onClick={() => {
+                                menu ? <AiOutlineCloseCircle style={{ cursor: "pointer", }} size={25} onClick={() => {
                                     setMenu(false)
                                 }} /> : <RxHamburgerMenu style={{ cursor: "pointer" }} size={25} onClick={() => {
                                     setMenu(true)
@@ -209,12 +209,19 @@ const Admin = () => {
                         </div>
                     </div>
                 </div>
-                <div className='DashBoardRightBody'>
+                <div className='AdminDashBoardRightBody'>
                     <Routes>
+                        <Route element={<Auth />} >
+                            <Route path='/schoolAdminUser/:id' element={<AdminUser />}/>
+                            <Route path='/admin_teacher_dashboard' element={<AdminTeacherDashboard />}/>
+                            <Route path='/admin_student_dashboard' element={<AdminStudentDashboard />}/>
+                        </Route>
+                    </Routes>
+                    {/* <Routes>
                         {
                             isLogin ? <Route path='/schoolAdminUser/:id' element={<AdminUser />} /> : <Route path="/login" element={<Login />} />
                         }
-                        {/* <Route path='/schoolAdminUser/:id' element={<AdminUser />} /> */}
+                       
                         {
                             isLogin ? <Route path='/admin_teacher_dashboard' element={<AdminTeacherDashboard />} /> : <Route path="/login" element={<Login />} />
                         }
@@ -222,7 +229,7 @@ const Admin = () => {
                         {
                             isLogin ? <Route path='/admin_student_dashboard' element={<AdminStudentDashboard />} /> : <Route path="/login" element={<Login />} />
                         }
-                    </Routes>
+                    </Routes> */}
                 </div>
             </div>
         </>

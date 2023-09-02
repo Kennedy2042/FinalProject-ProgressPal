@@ -10,12 +10,14 @@ import Swal from 'sweetalert2';
 
 
 
+// import anime3 from "../../assets/anime3.jpg"
 const Result = () => {
     const studentData = useSelector(state => state.persisitedReducer.loginUser)
     const [studentResult, setStudentResult] = useState([])
     const studentId = useParams()
     const [editResult, setEditResult] = useState(false)
     const [resultId, setResultId] = useState("")
+    console.log(resultId)
 
 
     const url =
@@ -47,7 +49,7 @@ const Result = () => {
             confirmButtonText: 'yes',
             customClass: {
                 confirmButton: 'sweet-alert-confirm-btn',
-            },
+              },
         }).then((result) => {
             if (result.isConfirmed) {
                 DelStudentReslt()
@@ -56,33 +58,33 @@ const Result = () => {
         });
     };
 
-    const delUrl = `https://progresspal-8rxj.onrender.com/progressPal/deleteResult/${studentId.studentId}/${resultId}`;
-    async function DelStudentReslt() {
+    const delUrl =`https://progresspal-8rxj.onrender.com/progressPal/deleteResult/${studentId.studentId}/${resultId}`;
+    async function DelStudentReslt (){
         axios.delete(delUrl)
-            .then((res) => {
-                console.log("first", res)
-                Swal.fire({
-                    title: 'Success',
-                    text: res.data.message,
-                    icon: 'success',
-                    cancelButtonColor: 'cyan',
-                    showCancelButton: false,
-                    confirmButtonText: 'yes',
-                })
+        .then((res)=>{
+            console.log("first" , res)
+            Swal.fire({
+                title: 'Success',
+                text: res.data.message,
+                icon: 'success',
+                cancelButtonColor: 'cyan',
+                showCancelButton: false,
+                confirmButtonText: 'Okay',
             })
-            .catch((err) => {
-                console.log("first", err)
-                Swal.fire({
-                    title: 'Fail',
-                    text: err.data.message,
-                    icon: 'error',
-                    cancelButtonColor: 'cyan',
-                    showCancelButton: false,
-                    confirmButtonText: 'yes',
-                })
+        })
+        .catch((err)=>{
+            console.log("first", err)
+            Swal.fire({
+                title: 'Fail',
+                text: err.data.message,
+                icon: 'error',
+                cancelButtonColor: 'cyan',
+                showCancelButton: false,
+                confirmButtonText: 'yes',
             })
+        })
     }
-    console.log(resultId)
+console.log(resultId)
 
 
 
@@ -93,16 +95,16 @@ const Result = () => {
                     <AiOutlineCloseCircle size={38} style={{ fill: "red", cursor: "pointer" }} onClick={() => {
                         setEditResult(false)
                     }} />
-                    <EditReportCard resultId={resultId} />
+                    <EditReportCard resultId={resultId}/>
 
                 </div> : null
             }
 
 
             {
-                studentResult.length === 0 ? <h2>No result for this student yet {studentResult.studentName}</h2> : (
+                studentResult.length === 0 ? <h2>No result for this student yet {studentResult.studentName}</h2> :  (
                     studentResult.map((props) => (
-                        <div className='Resultmainbody'>
+                        <div className='ResultMainbody' key={props._id}>
                             <div className='Resultmainbodyheader'>
                                 <div className='Resultmainbodyheaderlogodiv'>
                                     <div className='Resultmainbodyheaderlogo'>
@@ -121,12 +123,12 @@ const Result = () => {
                                         <p className='studentNameP'>Student Name</p>
                                         <p className='studentNameP2'>{studentData.data.data.studentName}</p>
                                     </div>
-
+    
                                     <div className='ResultmainbodyheaderStudentname2'>
                                         <p className='studentNameP'>Class</p>
                                         <p className='studentNameP2'>{studentData.data.data.studentClass}</p>
                                     </div>
-
+    
                                     <div></div>
                                 </div>
                             </div>
@@ -164,7 +166,7 @@ const Result = () => {
                                             </tr>
                                         </th>
                                         <th>
-                                            <p className='subjectsword'>Exam Score</p>
+                                        <p className='subjectsword'>Exam Score</p>
                                             <tr className='TotalB'>
                                                 <td>{props?.subExam1}</td>
                                                 <td>{props?.subExam2}</td>
@@ -195,30 +197,30 @@ const Result = () => {
                                             </tr>
                                         </th>
                                     </tr>
-
-
+                                    
+                                    
                                 </table>
 
                                 <div className='TotalScorediv'>
-                                    <p>Total : </p>
+                                   <p>Total : </p>
                                     <p>{props.resultTotal}</p>
                                 </div>
-
+                                
                             </div>
                             <div className="tableButton">
-                                <button className='tableButtonEdit'
-                                    onClick={() => {
+                                    <button className='tableButtonEdit'
+                                    onClick={()=>{
                                         setEditResult(true)
                                         setResultId(props._id)
                                     }}>Edit Result</button>
-                                <button className='tableButtonDelete' resultId={props._id} onClick={() => {
-                                    showAlert()
-                                    setResultId(props._id)
-                                }}>Delete Result</button>
-                            </div>
+                                    <button className='tableButtonDelete' resultId={props._id} onClick={()=>{
+                                        showAlert()
+                                        setResultId(props._id)
+                                    }}>Delete Result</button>
+                                </div>
                         </div>
                     ))
-                )
+                    )
             }
         </div>
     )

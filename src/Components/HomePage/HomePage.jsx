@@ -11,6 +11,7 @@ import grading from "../../assets/grading.png"
 import result from "../../assets/result.png"
 import analytics from "../../assets/analytics.png"
 import About from "../About/About";
+import Plans from "../FathiaAbout/FathiaAbout";
 // import Testimonial from "../Testimonial/Testimonial";
 
 const HomePage = () => {
@@ -130,6 +131,7 @@ const HomePage = () => {
         <About/>
         {/* <Testimonial /> */}
         <Footer />
+        {/* <Plans/> */}
       </main>
     </>
   );

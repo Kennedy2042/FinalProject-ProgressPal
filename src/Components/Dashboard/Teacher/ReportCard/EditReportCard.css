@@ -1,13 +1,16 @@
-.ResultBody {
+.EditResultBody {
   width: 100%;
   height: 100vh;
   display: flex;
+  position: fixed;
+  top: 0%;
+  left: 0%;
   justify-content: center;
   align-items: center;
-  /* background-color: grey; */
+  background-color: white;
 }
 
-.ResultBodyWrapper {
+.EditResultBodyWrapper {
   width: 80%;
   height: 95%;
   display: flex;
@@ -16,7 +19,7 @@
   align-items: center;
 }
 
-.ResultsHolder {
+.EditResultsHolder {
   width: 95%;
   height: 93%;
   display: flex;
@@ -26,13 +29,13 @@
   /* background-color: green; */
 }
 
-.ResultHeader {
+.EditResultHeader {
   width: 100%;
   height: 7%;
   /* background-color: yellow; */
 }
 
-.ResultHeader ul {
+.EditResultHeader ul {
   width: 100%;
   height: 100%;
   display: flex;
@@ -42,13 +45,13 @@
   /* background-color: red; */
 }
 
-.ResultHeader ul li {
+.EditResultHeader ul li {
   font-size: 18px;
   font-weight: 500;
   color: rgb(19, 19, 19);
 }
 
-.SubjectScore {
+.EditSubjectScore {
   width: 100%;
   height: 10%;
   display: flex;
@@ -57,7 +60,7 @@
   /* background-color: red; */
 }
 
-.ScoreInput {
+.EditScoreInput {
   width: 20%;
   height: 85%;
   outline: none;
@@ -68,13 +71,13 @@
   border: 2px solid #127cdd;
 }
 
-.SubjectScore input {
+.EditSubjectScore input {
   width: 20%;
   height: 85%;
   /* background-color: green; */
 }
 
-.TeacherCreateRsltBtnDiv {
+.EditTeacherCreateRsltBtnDiv{
   width: 100%;
   height: 20%;
   /* background: #000; */
@@ -83,23 +86,13 @@
   justify-content: space-between;
 }
 
-.StudentResultTotalScoresDiv {
-  width: 100%;
-  height: 50%;
-  /* background: red; */
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.StudentResultTotalScores {
+.EditTeacherCreateRsltBtnDivH4{
   font-size: 20px;
   font-weight: 600;
-  color: rgb(36, 36, 36);
-}
+  color: rgb(36, 36, 36);}
 
 
-.StudentResultButtonHolder {
+.EditStudentResultButtonHolder {
   width: 100%;
   height: 45%;
   display: flex;
@@ -107,7 +100,7 @@
   /* background-color: yellow; */
 }
 
-.TeacherCreateRsltBtn {
+.EditTeacherEditRsltBtn{
   width: 16%;
   height: 100%;
   background: #127cdd;
@@ -118,7 +111,7 @@
   cursor: pointer;
 }
 
-.TeacherBackBtn {
+.EditTeacherBackBtn{
   width: 16%;
   height: 100%;
   color: #127cdd;
@@ -131,23 +124,20 @@
 
 
 
-
-
-
 @media only screen and (min-width: 320px) and (max-width: 580px){
-  .ResultHeader ul li {
+  .EditResultHeader ul li {
     font-size: 8px;
     font-weight: 600;
     color: rgb(19, 19, 19);
   }
 
-  .StudentResultTotalScores {
+  .EditTeacherCreateRsltBtnDivH4 {
     font-size: 16px ;
     font-weight: 550;
     color: rgb(36, 36, 36);
   }
 
-  .TeacherCreateRsltBtn {
+  .EditTeacherEditRsltBtn {
     width: 30%;
     height: 100%;
     background: #127cdd;
@@ -158,7 +148,7 @@
     cursor: pointer;
   }
 
-  .TeacherBackBtn {
+  .EditTeacherBackBtn {
     width: 30%;
     height: 100%;
     color: #127cdd;
