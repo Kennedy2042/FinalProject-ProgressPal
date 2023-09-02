@@ -1,4 +1,5 @@
-import '../Admin.css'
+import './Teacher.css'
+import './TeacherMedia.css'
 import ProgressPalLogo from "../../../assets/ProgressPalLogo.png"
 import AboutUsImage from "../../../assets/AboutUsImage.png"
 import { BiHomeAlt, BiLogOut } from 'react-icons/bi'
@@ -22,6 +23,7 @@ import TeacherStudent from './Student/TeacherStudent'
 import Swal from 'sweetalert2'
 import { allStudentApi } from '../../../Redux/ProductState'
 import { loginUserData } from '../../../Redux/ProductState'
+import { BsFileSpreadsheet } from 'react-icons/bs'
 
 const Teacher = () => {
 
@@ -32,6 +34,9 @@ const Teacher = () => {
     console.log(BearerToken)
 
     const [menu, setMenu] = useState(false)
+    const [dashboard, setDashboard] = useState(true)
+    const [student, setStudent] = useState(false)
+    const [result, setResult] = useState(false)
 
     const showAlert = () => {
         Swal.fire({
@@ -64,7 +69,7 @@ const Teacher = () => {
     
         })
         .then ((res)=>{
-            // console.log(res)
+            console.log(res)
             navigate("/")
         })
         .catch ((err)=>{
@@ -74,15 +79,15 @@ const Teacher = () => {
 
   return (
     <>
-        <div className="AdminDashboardContainer">
-                <div className="AdminDashboardContainerMobile">
-                    <div className="AdminDashboardMobileHeader">
-                        <div className="AdminDashboardMobileHeaderCon">
+        <div className="TeacherDashboardContainer">
+                <div className="TeacherDashboardContainerMobile">
+                    <div className="TeacherDashboardMobileHeader">
+                        <div className="TeacherDashboardMobileHeaderCon">
                             <img src={ProgressPalLogo} alt="" />
                             {
-                                menu ? <AiOutlineCloseCircle style={{cursor:"pointer" , fill: "red"}} size={25} onClick={() => {
+                                menu ? <AiOutlineCloseCircle style={{cursor:"pointer" }} size={30} onClick={() => {
                                     setMenu(false)
-                                }} /> : <RxHamburgerMenu style={{cursor:"pointer"}} size={25} onClick={() => {
+                                }} /> : <RxHamburgerMenu style={{cursor:"pointer"}} size={30} onClick={() => {
                                     setMenu(true)
                                 }} />
                             }
@@ -90,47 +95,47 @@ const Teacher = () => {
                         </div>
                         {
                             menu ?
-                                <div className="AdminDashboardMobileDropMenu">
-                                    <div className="AdminDashboardIcons" onClick={() => {
-                                        navigate("/Dashboard/teacher/admin_dash_Main")
+                                <div className="TeacherDashboardMobileDropMenu">
+                                    <div className="TeacherDashboardIcons" onClick={() => {
+                                        navigate("/Dashboard/teacher/teacherUser/:id")
                                     }}>
-                                        <div className='AdminHomeIcon'>
-                                            <BiHomeAlt size={30} className='AdminDashboardIconsImage' />
+                                        <div className='TeacherHomeIcon'>
+                                            <BiHomeAlt size={30} className='TeacherDashboardIconsImage' />
                                         </div>
-                                        <div className="AdminHomeIconTitle">
-                                            <p className='AdminDashboardIconsImageName'>Dashboard</p>
-                                        </div>
-                                    </div>
-                                    <div className="AdminDashboardIcons" onClick={() => navigate("/Dashboard/teacher/admin_student_dashboard")}>
-                                        <div className='AdminHomeIcon'>
-                                            <PiStudentDuotone size={30} className='AdminDashboardIconsImage' />
-                                        </div>
-                                        <div className="AdminHomeIconTitle">
-                                            <p className='AdminDashboardIconsImageName'>Students</p>
+                                        <div className="TeacherHomeIconTitle">
+                                            <p className='TeacherDashboardIconsImageName'>Dashboard</p>
                                         </div>
                                     </div>
-                                    <div className="AdminDashboardIcons" onClick={() => navigate("/Dashboard/teacher/Teacher_resultSheet")}>
-                                        <div className='AdminHomeIcon'>
-                                            <GrScorecard size={30} className='AdminDashboardIconsImage' />
+                                    <div className="TeacherDashboardIcons" onClick={() => navigate("/Dashboard/teacher/Teacher_student_dashboard")}>
+                                        <div className='TeacherHomeIcon'>
+                                            <PiStudentDuotone size={30} className='TeacherDashboardIconsImage' />
                                         </div>
-                                        <div className="AdminHomeIconTitle">
-                                            <p className='AdminDashboardIconsImageName'>Results</p>
+                                        <div className="TeacherHomeIconTitle">
+                                            <p className='TeacherDashboardIconsImageName'>Students</p>
                                         </div>
                                     </div>
-                                    {/* <div className="AdminDashboardIcons">
-                                        <div className='AdminHomeIcon'>
-                                            <GrScorecard size={30} className='AdminDashboardIconsImage' />
+                                    <div className="TeacherDashboardIcons" onClick={() => navigate("/Dashboard/teacher/Teacher_resultSheet")}>
+                                        <div className='TeacherHomeIcon'>
+                                            <BsFileSpreadsheet size={30} className='TeacherDashboardIconsImage' />
                                         </div>
-                                        <div className="AdminHomeIconTitle">
-                                            <p className='AdminDashboardIconsImageName'>Results</p>
+                                        <div className="TeacherHomeIconTitle">
+                                            <p className='TeacherDashboardIconsImageName'>Results</p>
+                                        </div>
+                                    </div>
+                                    {/* <div className="TeacherDashboardIcons">
+                                        <div className='TeacherHomeIcon'>
+                                            <GrScorecard size={30} className='TeacherDashboardIconsImage' />
+                                        </div>
+                                        <div className="TeacherHomeIconTitle">
+                                            <p className='TeacherDashboardIconsImageName'>Results</p>
                                         </div>
                                     </div> */}
-                                    <div className="AdminDashboardIcons" onClick={showAlert}>
-                                        <div className='AdminHomeIcon'>
-                                            <BiLogOut size={30} className='AdminDashboardIconsImage' />
+                                    <div className="TeacherDashboardIcons" onClick={showAlert}>
+                                        <div className='TeacherHomeIcon'>
+                                            <BiLogOut size={30} className='TeacherDashboardIconsImage' />
                                         </div>
-                                        <div className="AdminHomeIconTitle">
-                                            <p className='AdminDashboardIconsImageName'>Logout</p>
+                                        <div className="TeacherHomeIconTitle">
+                                            <p className='TeacherDashboardIconsImageName'>Logout</p>
                                         </div>
                                     </div>
                                 </div> : null
@@ -139,52 +144,65 @@ const Teacher = () => {
                 </div>
 
 
-                <div className="AdminDashboardSideMenu">
-                    <div className="AdminDashboardSideMenuLogo">
+                <div className="TeacherDashboardSideMenu">
+                    <div className="TeacherDashboardSideMenuLogo">
                         <img src={ProgressPalLogo} alt="" />
                     </div>
-                    <div className="AdminDashboardSideMenuMainBody">
-                        <div className='AdminDashboardSideMenuIconDiv'>
-                            <div className="AdminDashboardIcons" onClick={() => {
+                    <div className="TeacherDashboardSideMenuMainBody">
+                        <div className='TeacherDashboardSideMenuIconDiv'>
+                            <div className={dashboard ? "Active" :"TeacherDashboardIcons"} onClick={() => {
                                 navigate("/Dashboard/teacher/teacherUser/:id")
+                                setDashboard(true)
+                                setStudent(false)
+                                setResult(false)
                             }}>
-                                <div className='AdminHomeIcon'>
-                                    <BiHomeAlt size={30} className='AdminDashboardIconsImage' />
+                                <div className='TeacherHomeIcon'>
+                                    <BiHomeAlt size={30} className={dashboard ? "AdminDashboardIconsImageActive" : 'TeacherDashboardIconsImage'} />
                                 </div>
-                                <div className="AdminHomeIconTitle">
-                                    <p className='AdminDashboardIconsImageName'>Dashboard</p>
-                                </div>
-                            </div>
-                            <div className="AdminDashboardIcons" onClick={() => navigate("/Dashboard/teacher/teacher_student_dashboard")}>
-                                <div className='AdminHomeIcon'>
-                                    <PiStudentDuotone size={30} className='AdminDashboardIconsImage' />
-                                </div>
-                                <div className="AdminHomeIconTitle">
-                                    <p className='AdminDashboardIconsImageName'>Students</p>
+                                <div className="TeacherHomeIconTitle">
+                                    <p className={dashboard ? "AdminDashboardIconsImageNameActive" :'TeacherDashboardIconsImageName'}>Dashboard</p>
                                 </div>
                             </div>
-                            {/* <div className="AdminDashboardIcons" onClick={() => navigate("/Admin_Dashboard/admin_teacher_dashboard")}>
-                                <div className='AdminHomeIcon'>
-                                    <FaChalkboardTeacher size={30} className='AdminDashboardIconsImage' />
+                            <div className={student ? "Active" : "TeacherDashboardIcons"} onClick={() => {
+                                navigate("/Dashboard/teacher/teacher_student_dashboard")
+                                setDashboard(false)
+                                setStudent(true)
+                                setResult(false)
+                                }}>
+                                <div className='TeacherHomeIcon'>
+                                    <PiStudentDuotone size={30} className={student ? "AdminDashboardIconsImageActive" :'TeacherDashboardIconsImage'} />
                                 </div>
-                                <div className="AdminHomeIconTitle">
-                                    <p className='AdminDashboardIconsImageName'>Teachers</p>
+                                <div className="TeacherHomeIconTitle">
+                                    <p className={student ? "AdminDashboardIconsImageNameActive" :'TeacherDashboardIconsImageName'}>Students</p>
+                                </div>
+                            </div>
+                            {/* <div className="TeacherDashboardIcons" onClick={() => navigate("/Teacher_Dashboard/Teacher_teacher_dashboard")}>
+                                <div className='TeacherHomeIcon'>
+                                    <FaChalkboardTeacher size={30} className='TeacherDashboardIconsImage' />
+                                </div>
+                                <div className="TeacherHomeIconTitle">
+                                    <p className='TeacherDashboardIconsImageName'>Teachers</p>
                                 </div>
                             </div> */}
-                            <div className="AdminDashboardIcons" onClick={()=> navigate("/Dashboard/teacher/Teacher_resultSheet")}>
-                                <div className='AdminHomeIcon'>
-                                    <GrScorecard size={30} className='AdminDashboardIconsImage' />
+                            <div className={result ? "Active" : "TeacherDashboardIcons"} onClick={()=> {
+                                navigate("/Dashboard/teacher/Teacher_resultSheet")
+                                setDashboard(false)
+                                setStudent(false)
+                                setResult(true)
+                            }}>
+                                <div className='TeacherHomeIcon'>
+                                    <BsFileSpreadsheet size={30}  className={result ? "AdminDashboardIconsImageActive" :'TeacherDashboardIconsImage'} />
                                 </div>
-                                <div className="AdminHomeIconTitle">
-                                    <p className='AdminDashboardIconsImageName'>Results</p>
+                                <div className="TeacherHomeIconTitle">
+                                    <p className={result ? "AdminDashboardIconsImageNameActive" :'TeacherDashboardIconsImageName'}>Results</p>
                                 </div>
                             </div>
-                            <div className="AdminDashboardIcons" onClick={showAlert}>
-                                <div className='AdminHomeIcon'>
-                                    <BiLogOut size={30} className='AdminDashboardIconsImage' />
+                            <div className="TeacherDashboardIcons" onClick={showAlert}>
+                                <div className='TeacherHomeIcon'>
+                                    <BiLogOut size={30} className='TeacherDashboardIconsImage' />
                                 </div>
-                                <div className="AdminHomeIconTitle">
-                                    <p className='AdminDashboardIconsImageName'>Logout</p>
+                                <div className="TeacherHomeIconTitle">
+                                    <p className='TeacherDashboardIconsImageName'>Logout</p>
                                 </div>
                             </div>
                         </div>
@@ -194,7 +212,6 @@ const Teacher = () => {
                 <div className='DashBoardRightBody'> 
                     <Routes>
                         <Route path='/teacherUser/:id' element={<TeacherUser />} />
-                        {/* <Route path='/admin_teacher_dashboard' element={<AdminTeacherDashboard />} /> */}
                         <Route path='/teacher_student_dashboard' element={<TeacherStudent />} />
                         <Route path='/Teacher_resultSheet' element={<TeacherResult/>}/>
                     </Routes>
@@ -207,12 +224,3 @@ const Teacher = () => {
 }
 
 export default Teacher
-
-
-
-
-
-
-
-
-

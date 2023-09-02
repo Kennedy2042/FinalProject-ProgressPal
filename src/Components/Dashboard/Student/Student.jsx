@@ -10,11 +10,12 @@ import { AiOutlineCloseCircle } from 'react-icons/ai'
 import { RxHamburgerMenu } from 'react-icons/rx'
 import { Route, Routes, useNavigate } from 'react-router-dom'
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 import Result from '../Teacher/ReportCard/ReportCard'
 import Swal from 'sweetalert2'
 import StudentUser from './User/StudentUser'
+import { studentUserResult } from '../../../Redux/ProductState'
 
 
 const Student = () => {
@@ -23,7 +24,8 @@ const Student = () => {
     const studentData = useSelector(state => state.persisitedReducer.loginUser)
     const [menu, setMenu] = useState(false)
     const BearerToken = studentData.data.token
-    console.log(BearerToken)
+    // console.log(BearerToken)
+    const dispatch = useDispatch()
 
     const showAlert = () => {
         Swal.fire({
@@ -40,6 +42,7 @@ const Student = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 StudentLogout()
+                dispatch(studentUserResult([]))
             }
         });
     };
@@ -85,7 +88,7 @@ const Student = () => {
                             menu ?
                                 <div className="AdminDashboardMobileDropMenu">
                                     <div className="AdminDashboardIcons" onClick={() => {
-                                        navigate()
+                                        navigate("/Dashboard/student/studentUser/:id")
                                     }}>
                                         <div className='AdminHomeIcon'>
                                             <BiHomeAlt size={30} className='AdminDashboardIconsImage' />
@@ -94,14 +97,14 @@ const Student = () => {
                                             <p className='AdminDashboardIconsImageName'>Dashboard</p>
                                         </div>
                                     </div>
-                                    <div className="AdminDashboardIcons" onClick={() => navigate("/Dashboard/loginStudent/admin_student_dashboard")}>
+                                    {/* <div className="AdminDashboardIcons" onClick={() => navigate("/Dashboard/loginStudent/admin_student_dashboard")}>
                                         <div className='AdminHomeIcon'>
                                             <PiStudentDuotone size={30} className='AdminDashboardIconsImage' />
                                         </div>
                                         <div className="AdminHomeIconTitle">
                                             <p className='AdminDashboardIconsImageName'>Students</p>
                                         </div>
-                                    </div>
+                                    </div> */}
                                     {/* <div className="AdminDashboardIcons" onClick={() => navigate("/Dashboard/loginStudent/admin_teacher_dashboard")}>
                                         <div className='AdminHomeIcon'>
                                             <FaChalkboardTeacher size={30} className='AdminDashboardIconsImage' />
@@ -110,14 +113,14 @@ const Student = () => {
                                             <p className='AdminDashboardIconsImageName'>Teachers</p>
                                         </div>
                                     </div> */}
-                                    <div className="AdminDashboardIcons">
+                                    {/* <div className="AdminDashboardIcons">
                                         <div className='AdminHomeIcon'>
                                             <MdEmojiEvents size={30} className='AdminDashboardIconsImage' />
                                         </div>
                                         <div className="AdminHomeIconTitle">
                                             <p className='AdminDashboardIconsImageName'>Events</p>
                                         </div>
-                                    </div>
+                                    </div> */}
                                     <div className="AdminDashboardIcons" onClick={showAlert}>
                                         <div className='AdminHomeIcon'>
                                             <BiLogOut size={30} className='AdminDashboardIconsImage' />
@@ -139,7 +142,7 @@ const Student = () => {
                     <div className="AdminDashboardSideMenuMainBody">
                         <div className='AdminDashboardSideMenuIconDiv'>
                             <div className="AdminDashboardIcons" onClick={() => {
-                                navigate()
+                                navigate("/Dashboard/student/studentUser/:id")
                             }}>
                                 <div className='AdminHomeIcon'>
                                     <BiHomeAlt size={30} className='AdminDashboardIconsImage' />

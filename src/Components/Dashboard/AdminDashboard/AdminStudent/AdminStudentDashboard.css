@@ -1,23 +1,29 @@
-.DashBoardRightBodyTitle {
+.StudentDashBoardRightBodyTitle {
     width: 100%;
     height: 10%;
-    /* background-color: rgb(208, 222, 244); */
+    background-color: white;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    padding-inline: 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+ 
 }
 
-.DashBoardRightBodyTitleHolderDiv {
-    width: 20%;
-    height: 70%;
+.StudentDashBoardRightBodyTitleHolderDiv {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
     /* background-color: aqua; */
 }
 
-.DashboardRightBodyTitleH1{
-    width: 95%;
+.StudentDashboardRightBodyTitleH1{
+    width: 100%;
+    font-size: 40px;
 }
 
-.DashboardSearchIconDiv {
+.StudentDashboardSearchIconDiv {
     width: 50%;
     height: 70%;
     /* background-color: rgb(255, 0, 81); */
@@ -27,34 +33,35 @@
     color: black;
 }
 
-.DashboardSearchIconInput {
-    width: 50%;
-    height: 80%;
-    font-size: large;
-    border-left: 1px solid cyan;
-    border-right: 0px solid cyan;
-    border-bottom: 1px solid cyan;
-    border-top: 1px solid cyan;
+.StudentDashboardSearchIconInput {
+    width: 85%;
+    height: 90%;
+    font-size: 14px;
+    border-left: 2px solid rgb(243, 242, 242);
+    border-right: 0px solid rgb(243, 242, 242);
+    border-bottom: 2px solid rgb(243, 242, 242);
+    border-top: 2px solid rgb(243, 242, 242);
     outline: none;
     padding-left: 2%;
+    color: rgb(32, 32, 32);
     border-radius: 10px 0px 0px 10px;
 }
-.DashboardSearchIconInputImage {
+.StudentDashboardSearchIconInputImage {
     width: 8%;
-    height: 80%;
-    border-left: 0px solid cyan;
-    border-right: 1px solid cyan;
-    border-bottom: 1px solid cyan;
-    border-top: 1px solid cyan;
+    height: 90%;
+    border-left: 0px solid rgb(243, 242, 242);
+    border-right: 2px solid rgb(243, 242, 242);
+    border-bottom: 2px solid rgb(243, 242, 242);
+    border-top: 2px solid rgb(243, 242, 242);
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgb(255,255,255);
+    background: rgb(255, 255, 255);
     border-radius: 0px 10px 10px 0px;
     cursor: pointer;
 }
 
-.AdminDashboardAddTeacherBtnDiv {
+.AdminStudentDashboardAddTeacherBtnDiv {
     width: 20%;
     height: 70%;
     display: flex;
@@ -62,7 +69,7 @@
     align-items: center;
 }
 
-.AdminDashboardAddTeacherBtn {
+.AdminStudentDashboardAddTeacherBtn {
     width: 60%;
     height: 90%;
     background-color: rgba(0, 0, 255, 0.887);

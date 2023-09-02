@@ -1,0 +1,368 @@
+/* .resultSheetHolder{
+    width: 87%;
+    height: 100%;
+    background: red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+} */
+
+.TeacherViewStudentProfileMain {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: white;
+}
+
+.TeacherStudentProfileClose {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    cursor: pointer;
+    position: absolute;
+    top: 15%;
+    right: 19.6%;
+    color: white;
+    background-color: #127cdd;
+}
+
+.TeacherStudentProfilebody {
+    width: 55%;
+    height: 70%;
+    display: flex;
+    border-radius: 7px;
+    /* background-color: blue; */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.TeacherStudentProfileImage {
+    width: 40%;
+    height: 100%;
+    border-radius: 7px 0px 0px 7px;
+    object-fit: cover;
+    background-color: #127cdd;
+}
+
+
+.TeacherStudentProfileImage ing {
+    width: 100%;
+    height: 100%;
+}
+
+.TeacherStudentProfileInput {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 0px 7px 7px 0px;
+    gap: 13px;
+    
+}
+
+.TeacherStudentProfileInputName {
+    width: 80%;
+    height: 12%;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    border: 2px solid #127cdd;
+    /* background-color: brown; */
+}
+
+.TeacherStudentProfileInputNameinner {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* background-color: aqua; */
+}
+
+.TeacherStudentProfileInputNameinnericonholder {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* background-color: green; */
+}
+
+.TeacherStudentName {
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.TeacherStudentProfileInputNameinnerName {
+    width: 76%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 17px;
+    font-weight: 400;
+    /* background-color: pink; */
+}
+
+.TeacherStudentProfileBtn {
+    width: 80%;
+    height: 12%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: brown; */
+}
+
+.TeacherStudentProfileEditButton {
+    width: 40%;
+    height: 85%;
+    font-size: 15px;
+    border: none;
+    border-radius: 7px;
+    background-color: #127cdd;
+    cursor: pointer;
+    color: white;
+}
+
+.TeacherStudentProfileDeleteButton {
+    width: 40%;
+    height: 85%;
+    font-size: 15px;
+    border: none;
+    border-radius: 7px;
+    background-color: red;
+    cursor: pointer;
+    color: white;
+}
+
+
+
+@media only screen and (min-width: 320px) and (max-width: 580px){
+
+    .TeacherViewStudentProfileMain {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        background-color: white;
+    }
+
+    .TeacherStudentProfileClose {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+        cursor: pointer;
+        position: absolute;
+        top: 15%;
+        right: 5%;
+        color: white;
+        background-color: #127cdd;
+        border-radius: 7px;
+    }
+
+    .TeacherStudentProfilebody {
+        width: 90%;
+        height: 70%;
+        display: flex;
+        border-radius: 7px;
+        background-color: blue;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .TeacherStudentProfileImage {
+        width: 100%;
+        height: 40%;
+        border-radius: 5px 5px 0px 0px;
+        /* object-fit: cover; */
+        background-color: #127cdd;
+    }
+
+    .TeacherStudentProfileInput {
+        width: 100%;
+        height: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        border-radius: 0px 0px 5px 5px;
+        gap: 13px;
+        
+    }
+
+    .TeacherStudentProfileInputName {
+        width: 100%;
+        height: 12%;
+        border-radius: 3px;
+        display: flex;
+        justify-content: center;
+        border: 0.01px solid #127cdd;
+        /* background-color: brown; */
+    }
+
+    .TeacherStudentName {
+        font-size: 12px;
+        font-weight: 100;
+    }
+
+    .TeacherStudentProfileBtn {
+        width: 100%;
+        height: 12%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        /* background-color: brown; */
+    }
+
+    .TeacherStudentProfileEditButton {
+        width: 30%;
+        height: 85%;
+        font-size: 15px;
+        border: none;
+        border-radius: 5px;
+        background-color: #127cdd;
+        cursor: pointer;
+        color: white;
+    }
+    
+    .TeacherStudentProfileDeleteButton {
+        width: 30%;
+        height: 85%;
+        font-size: 15px;
+        border: none;
+        border-radius: 5px;
+        background-color: red;
+        cursor: pointer;
+        color: white;
+    }
+
+
+
+}
+
+
+@media only screen and (min-width: 580px) and (max-width: 1024px){
+
+
+    .TeacherViewStudentProfileMain {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        background-color: white;
+    }
+
+    .TeacherStudentProfileClose {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+        cursor: pointer;
+        position: absolute;
+        top: 15%;
+        right: 30%;
+        color: white;
+        background-color: #127cdd;
+        border-radius: 7px;
+    }
+
+    .TeacherStudentProfilebody {
+        width: 40%;
+        height: 70%;
+        display: flex;
+        border-radius: 7px;
+        background-color: blue;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .TeacherStudentProfileImage {
+        width: 100%;
+        height: 40%;
+        border-radius: 5px 5px 0px 0px;
+        /* object-fit: cover; */
+        background-color: #127cdd;
+    }
+
+    .TeacherStudentProfileInput {
+        width: 100%;
+        height: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        border-radius: 0px 0px 5px 5px;
+        gap: 13px;
+        
+    }
+
+    .TeacherStudentProfileInputName {
+        width: 100%;
+        height: 12%;
+        border-radius: 3px;
+        display: flex;
+        justify-content: center;
+        border: 0.01px solid #127cdd;
+        /* background-color: brown; */
+    }
+
+    .TeacherStudentName {
+        font-size: 12px;
+        font-weight: 100;
+    }
+
+    .TeacherStudentProfileBtn {
+        width: 100%;
+        height: 12%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        /* background-color: brown; */
+    }
+
+    .TeacherStudentProfileEditButton {
+        width: 30%;
+        height: 85%;
+        font-size: 15px;
+        border: none;
+        border-radius: 5px;
+        background-color: #127cdd;
+        cursor: pointer;
+        color: white;
+    }
+    
+    .TeacherStudentProfileDeleteButton {
+        width: 30%;
+        height: 85%;
+        font-size: 15px;
+        border: none;
+        border-radius: 5px;
+        background-color: red;
+        cursor: pointer;
+        color: white;
+    }
+}

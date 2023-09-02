@@ -24,7 +24,7 @@ const TeacherUser = () => {
         axios.get(url)
             .then((res) => {
                 console.log("first", res)
-                const studentsData = res?.data?.data;
+                const studentsData = res.data.data;
                 const totalStudentsCount = studentsData.length;
                 setTotalStudents(totalStudentsCount);
                 console.log(studentsData)
@@ -41,7 +41,7 @@ const TeacherUser = () => {
 
     const pieData = [
         { key: "Enrolled", y: totalStudents },
-        { key: "Remaining", y: 50 - totalStudents }
+        { key: "Remaining", y: 10 - totalStudents }
     ];
     const handleDateChange = (newDate) => {
     setDate(newDate)
@@ -53,7 +53,7 @@ const TeacherUser = () => {
 
     return (
         <>
-            <div className='AdminDashBoardRightBodyUpperBody'>
+            <div className='TeacherAdminDashBoardRightBodyUpperBody'>
                 <div className="AdminDashBoardRightBodyHeader">
                     <div className="userProfile">
                         <div className="UserImageDiv">

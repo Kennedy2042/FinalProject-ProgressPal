@@ -1,28 +1,79 @@
 @media only screen and (min-width: 320px) and (max-width: 580px) {
-   .CloseAddTeacherInput{
-    font-size: 30px;
-   }
-
-    .AddTeacherPop {
+   
+    .StudentDashBoardRightBodyTitle {
         width: 100%;
-        height: 100vh;
-        background-color: rgba(0, 0, 0, 0.582);
-        -webkit-backdrop-filter: blur(0px);
-        backdrop-filter: blur(0px);
-        position: fixed;
-        top: 0%;
-        left: 0%;
-        bottom: 0%;
+        height: 7vh;
+        /* background-color: rgb(208, 150, 150); */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 70px;
+    }
+
+    .StudentDashBoardRightBodyTitleHolderDiv {
+        width: 20%;
+        height: 70%;
+        /* background-color: aqua; */
+        display: flex;
+        align-items: center;
+    }
+
+    .StudentDashboardRightBodyTitleH1{
+        width: 100%;
+        font-size: 15px;
+    }
+
+    .StudentDashboardSearchIconDiv {
+        width: 40%;
+        height: 70%;
+        /* background-color: rgb(255, 0, 81); */
         display: flex;
         justify-content: center;
         align-items: center;
-        z-index: 1;
-        flex-direction: column;
-        color: white;
+        color: black;
+    }
+
+    .StudentDashboardSearchIconInput {
+        width: 80%;
+        height: 80%;
+        font-size: 15px;
+        border-left: 1px solid cyan;
+        border-right: 0px solid cyan;
+        border-bottom: 1px solid cyan;
+        border-top: 1px solid cyan;
+        outline: none;
+        padding-left: 2%;
+        border-radius: 10px 0px 0px 10px;
+        /* background: #000; */
+    }
+
+    .AdminStudentDashboardAddTeacherBtnDiv {
+        width: 30%;
+        height: 70%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     
     }
-    
-    
+
+    /* .AdminStudentDashboardAddTeacherBtn {
+        width: 90%;
+        height: 95%;
+        background-color: #127cdd;
+        border: none;
+        border-radius: 10px;
+        font-size: 12px;
+        cursor: pointer;
+        color: antiquewhite;
+    } */
+   
+   
+   
+   
+    .CloseAddTeacherInput{
+    font-size: 30px;
+   }
+ 
     .EmailHolder {
         width: 80%;
         height: 20%;
@@ -51,7 +102,7 @@
         font-size: 16px;
         border: none;
         border-radius: 7px;
-        background-color: green;
+        background-color: #127cdd;
         cursor: pointer; 
         color: white;
     }
@@ -65,17 +116,6 @@
     
     }
    
-    .AdminDashboardAddTeacherBtn {
-        width: 90%;
-        height: 95%;
-        background-color: #127cdd;
-        border: none;
-        border-radius: 10px;
-        font-size: 12px;
-        cursor: pointer;
-        color: antiquewhite;
-    }
-
 
     .AdminDashboardTeachersCard {
         width: 100%;
@@ -100,7 +140,7 @@
 }
 
 @media screen and (min-width: 580px) and (max-width: 1024px){
-    .AddTeacherPop {
+    /* .AddTeacherPop {
         width: 100%;
         height: 100vh;
         background-color: rgba(0, 0, 0, 0.582);
@@ -117,6 +157,15 @@
         flex-direction: column;
         color: white;
     
+    } */
+    .StudentDashBoardRightBodyTitle {
+        width: 100%;
+        height: 7vh;
+        /* background-color: rgb(208, 150, 150); */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 75px;
     }
     
     
@@ -173,6 +222,7 @@
         overflow-y: scroll;
         flex-wrap: wrap;
         gap: 20px;
+        
     }
 
     .TeacherStudentDetailsCard {

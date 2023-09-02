@@ -18,6 +18,9 @@ import EditTeacherProfile from './Components/Dashboard/AdminDashboard/AdminTeach
 import { useSelector } from 'react-redux'
 import Result from './Components/Dashboard/Teacher/ReportCard/ReportCard'
 import PremiumUpgradeComponent from './Upgrade/Upgrade'
+import ResultSheet from './Components/Dashboard/Teacher/ResultSheet/ResultSheet'
+import TeacherViewStudentProfile from './Components/Dashboard/Teacher/Student/TeacherViewStudentProfile'
+import TeacherStudentEditProfile from './Components/Dashboard/Teacher/TeacherStudentProfile/TeacherStudentEditProfile'
 
 
 
@@ -37,22 +40,24 @@ function App() {
             <Route path="/sch_register" element={<SchRegister />} />
             <Route path="/login" element={<Login />} />
             <Route path="/verified_success/:token" element={<Verification/>} />
-            {
-              isLogin ? <Route path="/Dashboard/schoolAdmin*" element={<Admin/>} /> : <Route path="/login" element={<Login />} />
-            }
+              <Route path="/Dashboard/schoolAdmin/*" element={<Admin/>} />
+            
             {/* <Route path="/Dashboard/schoolAdmin*" element={<Admin/>} /> */}
             <Route path="/forget_password" element={<ForgetPassword/>} />
             <Route path="/reset_password/:id/:token" element={<ResetPassword/>} />
             <Route path="/teacher_signup/:token" element={<TeacherSignUp/>} />
             <Route path="/teacher_login" element={<TeacherLogin/>} />
             <Route path="/teacher_forgot_password" element={<TeacherForget/>} />
-            <Route path="/Dashboard/teacher*" element={<Teacher/>}/>
-            <Route path="/Dashboard/student*" element={<Student/>} />
+            <Route path="/Dashboard/teacher/*" element={<Teacher/>}/>
+            <Route path="/Dashboard/student/*" element={<Student/>} />
             <Route path='/student_profile/:studentId' element={<StudentProfile/>}/>
             <Route path='/admindashboard/teacherProfile/:teacherId' element={<TeacherProfile/>}/>
+            <Route path="/teacherdashboard/studentProfile/:studentId" element={<TeacherViewStudentProfile/>}/>
             <Route path='/admindashboard/editteacherProfile/:id' element={<EditTeacherProfile/>}/>
             <Route path='/teacher_studentResult/:studentId' element={<Result/>}/>
             <Route path='/Upgrade_now' element={<PremiumUpgradeComponent/>} />
+            <Route path='/teacher_create_studentResult/:shareId' element={<ResultSheet/>} />
+            <Route path='/teacherdashboard/editStudentProfile/:studentId' element={<TeacherStudentEditProfile/>} />
           </Routes>
         </HashRouter>
         {/* <TeacherUser/> */}
