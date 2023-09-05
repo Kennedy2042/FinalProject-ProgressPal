@@ -12,8 +12,8 @@ import result from "../../assets/result.png"
 import analytics from "../../assets/analytics.png"
 import About from "../About/About";
 import Plans from "../FathiaAbout/FathiaAbout";
+import AboutPage from "../AboutPage/AboutPage";
 // import Testimonial from "../Testimonial/Testimonial";
-import { Link, animateScroll as scroll } from "react-scroll";
 
 const HomePage = () => {
   const nav = useNavigate();
@@ -23,7 +23,7 @@ const HomePage = () => {
       <main>
         <div className="HomePageHeroSec">
           <Header />
-          <section className="HeroSection">
+          <section className="HeroSection" id="Hero">
             <article className="HeroSectionWrapper">
               <div className="HeroSectionText">
                 <h1>Your Result, Our Priority</h1>
@@ -57,42 +57,7 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-        <section className="ServicesContainer">
-          <article className="ServicesContainerWrapper">
-            <div className="ServicesContainerText">Our Services</div>
-            <div className="ServicesCardsHolder">
-              <span className="ServicesCard">
-                <div className="ServicesIconHolder">
-                  <img src={result} alt="" />
-                </div>
-                <h3 className="ServicesHeading">Result Compilation</h3>
-                <p className="ServicesDescription">
-                  Instantly collect and collate student results, streamlining
-                  the process for educators.
-                </p>
-              </span>
-              <span className="ServicesCard">
-                <div className="ServicesIconHolder2">
-                  <img src={analytics} alt="" />
-                </div>
-                <h3 className="ServicesHeading">Real-Time Analytics</h3>
-                <p className="ServicesDescription">
-                  Gain valuable insights into student performance
-                </p>
-              </span>
-              <span className="ServicesCard">
-                <div className="ServicesIconHolder3">
-                  <img src={grading} alt="" />
-                </div>
-                <h3 className="ServicesHeading">Grading Systems</h3>
-                <p className="ServicesDescription">
-                  Tailor the app to your institution's unique grading systems,
-                  ensuring accuracy and consistency
-                </p>
-              </span>
-            </div>
-          </article>
-        </section>
+      
         <section className="BenefitsSection">
           <article className="BenefitsSectionWrapper">
             <div className="BenefitsBox">
@@ -100,7 +65,7 @@ const HomePage = () => {
                 <img src={BenefitOneImage} alt="" />
               </article>
               <article className="BenefitsText">
-                <h2 className="BenefitsTextTitle">PROGRESS<span style={{color: "#f7b905"}}>PAL</span> BENEFITS</h2>
+                <h2 className="BenefitsTextTitle">PROGRESS<span style={{ color: "#f7b905" }}>PAL</span> BENEFITS</h2>
                 <h1 className="BenefitsTextHead">
                   We aid in students Academic Performance
                 </h1>
@@ -112,7 +77,7 @@ const HomePage = () => {
             </div>
             <div className="BenefitsBox">
               <article className="BenefitsText2">
-                <h2 className="BenefitsTextTitle">PROGRESS<span style={{color: "#f7b905"}}>PAL</span> BENEFITS</h2>
+                <h2 className="BenefitsTextTitle">PROGRESS<span style={{ color: "#f7b905" }}>PAL</span> BENEFITS</h2>
                 <h1 className="BenefitsTextHead">
                   Teachers can track students performance
                 </h1>
@@ -129,10 +94,53 @@ const HomePage = () => {
           <div className="Circle1"></div>
           <div className="Circle2"></div>
         </section>
-        <About/>
+<AboutPage/>
+
+          <section className="ServicesContainer">
+          <article className="ServicesContainerWrapper" id="Services">
+            <div className="ServicesContainerText">Our Services</div>
+            <div className="ServicesCardsHolder">
+              <span className="ServicesCard">
+                <div className="ServicesIconHolder">
+                  <img src={result} alt="Result Image" />
+                </div>
+                <h3 className="ServicesHeading">Result Compilation</h3>
+                <p className="ServicesDescription">
+                  Instantly collect and collate student results, streamlining
+                  the process for educators.
+                </p>
+              </span>
+              <span className="ServicesCard">
+                <div className="ServicesIconHolder2">
+                  <img src={analytics} alt="Analytic Image" />
+                </div>
+                <h3 className="ServicesHeading">Real-Time Analytics</h3>
+                <p className="ServicesDescription">
+                  Gain valuable insights into student performance
+                </p>
+              </span>
+              <span className="ServicesCard">
+                <div className="ServicesIconHolder3">
+                  <img src={grading} alt="Grading Image" />
+                </div>
+                <h3 className="ServicesHeading">Grading Systems</h3>
+                <p className="ServicesDescription">
+                  Tailor the app to your institution's unique grading systems,
+                  ensuring accuracy and consistency
+                </p>
+              </span>
+            </div>
+          </article>
+        </section>
+        <About />
+        {/* <Plans/> */}
+{/* <div className="AboutHolder">
+<AboutPage/>
+
+</div> */}
+
         {/* <Testimonial /> */}
         <Footer />
-        {/* <Plans/> */}
       </main>
     </>
   );

@@ -52,6 +52,8 @@ const Admin = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 AdminLogout()
+                navigate("/")
+
             }
         });
     };

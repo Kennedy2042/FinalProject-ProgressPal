@@ -12,6 +12,7 @@ import StudentProfile from './StudentProfile/StudentProfile'
 
 const AdminStudentDashboard = () => {
     const teacherData = useSelector(state => state.persisitedReducer.loginUser)
+    console.log(teacherData)
     const studentData = useSelector(state => state.persisitedReducer.AdminStudentApi)
     const BearerToken = teacherData.data.token
     const [addStudents, setAddStudents] = useState(false)
@@ -77,6 +78,7 @@ const AdminStudentDashboard = () => {
     }, [])
 
     console.log(studentData)
+    const nav = useNavigate()
 
 
 
@@ -136,9 +138,8 @@ const AdminStudentDashboard = () => {
                             </div>
                             <div className='TeacherUpdateStudentProfileHolder'>
                                 <button className='TeacherAddStudentResult' onClick={() => {
-                                    setResult(true)
-                                    setShareId
-                                }}>Add Result</button>
+                                    nav(`/admin_studentResult/${props?._id}`)
+                                }}>View Result</button>
                                 <button className='TeacherViewStudentProfileBtn' onClick={() => {
                                     setViewProfile(true)
                                     setViewProfileId(props._id)

@@ -1,6 +1,6 @@
 import React from 'react'
 import './FathiaAbout.css'
-// import progress from "../../assets/progress.jpg"
+import progress from "../../assets/progress.jpg"
 
 const Plans = () => {
     return (
@@ -18,13 +18,13 @@ const Plans = () => {
             <div className='PlansBodyHolderCards'>
                 <div className='Card1'>
                     <div className='Card1Image'>
-                        <img src="" alt="" />
+                        <img src={progress} alt="" />
                     </div>
                     <p>we manage staffs,teachers and students</p>
                 </div>
                 <div className='Card1'>
                     <div className='Card1Image'>
-                        <img src="" alt="" />
+                        <img src={progress} alt="" />
                     </div>
 
 
@@ -34,7 +34,7 @@ const Plans = () => {
                 </div>
                 <div className='Card1'>
                     <div className='Card1Image'>
-                        <img src="" alt="" />
+                        <img src={progress} alt="" />
                     </div>
 
                     <p>ProgressPal serves as a general platform where all schools not only manage their staffs, teachers, and students, but also upload and manage the students’ results.</p>
@@ -43,7 +43,7 @@ const Plans = () => {
                 </div>
                 <div className='Card1'>
                     <div className='Card1Image'>
-                        <img src="" alt="" />
+                        <img src={progress} alt="" />
                     </div>
                     <p> The students’ result when uploaded validates the student and makes it easier for companies and scholarship bodies to know who their prospective client is, when he/she graduated, what result he/she have and lots more.
                     </p>

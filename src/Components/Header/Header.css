@@ -6,10 +6,13 @@
 
 .HeaderHolder {
   width: 100%;
-  height: 75px;
+  height: 10vh;
   display: flex;
   justify-content: center;
-  /* background-color: blue; */
+  background-color: white;
+  position: fixed;
+  border-bottom: 75px;
+  z-index: 100;
 
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
@@ -58,12 +61,17 @@ nav ul li {
   color: #76787b;
 }
 
-.active {
+.active-scroll-link {
+  border-bottom: 1px solid #127cdd;
+  color: #127cdd;
+}
+
+/* .active {
   font-size: 20px;
   font-weight: 600;
   cursor: pointer;
   color: #127cdd;
-}
+} */
 
 .AuthHolder {
   width: 18%;
@@ -111,6 +119,10 @@ nav ul li {
     height: 60px;
     display: flex;
     justify-content: center;
+    position: fixednpm run dev;
+    align-items: center;
+    top: 0;
+
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   }
 
