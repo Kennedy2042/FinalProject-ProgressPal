@@ -1,24 +1,30 @@
 import React, { useEffect, useState } from 'react'
 import "./AdminUser.css"
 import "./AdminUserMedia.css"
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { VictoryPie, VictoryTheme } from 'victory'
 import axios from 'axios'
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import { useNavigate } from 'react-router-dom'
+import { adminSchoolStudents, adminSchoolTeachers } from '../../../../Redux/ProductState'
 
 
 const AdminUser = () => {
 
-    const schoolUsers = useSelector(state => state.persisitedReducer.School)
-    const Users = useSelector(state => state.persisitedReducer.loginUser)
-    console.log(schoolUsers)
-    const [totalStudents, setTotalStudents] = useState(0);
-    const [totalTeachers, setTotalTeachers] = useState(0);
+    const schoolAdmin = useSelector(state => state.persisitedReducer.loginUser)
+    const studentsData = useSelector(state => state.persisitedReducer.adminStudent)
+    const teacherData = useSelector(state => state.persisitedReducer.adminTeachers)
+    // const [totalStudents, setTotalStudents] = useState(0);
+    // const [totalTeachers, setTotalTeachers] = useState(0);
     const totalCapacity = 55;
-    console.log(Users)
+    // console.log(schoolAdmin)
     const nav = useNavigate()
+    const dispatch = useDispatch()
+    // console.log(studentsData)
+    // console.log(teacherData)
+    const totalStudents = studentsData.length
+    const totalTeachers = teacherData.length
 
 
 
@@ -26,26 +32,28 @@ const AdminUser = () => {
 
 
     useEffect(() => {
-        axios.get(`https://progresspal-8rxj.onrender.com/progressPal/schoolStudents/${Users.data.data._id}`)
+        axios.get(`https://progresspal-8rxj.onrender.com/progressPal/schoolStudents/${schoolAdmin.data.data._id}`)
             .then((res) => {
                 console.log("first", res)
-                const studentsData = res.data.data;
-                const totalStudentsCount = studentsData.length;
-                setTotalStudents(totalStudentsCount);
-                console.log(studentsData)
-                console.log(totalStudentsCount)
+                dispatch(adminSchoolStudents(res.data.data))
+                // const studentsData = res.data.data;
+                // const totalStudentsCount = studentsData.length;
+                // setTotalStudents(totalStudentsCount);
+                // console.log(studentsData)
+                // console.log(totalStudentsCount)
             })
             .catch(error => console.error('Error fetching student data:', error));
 
-        axios.get(`https://progresspal-8rxj.onrender.com/progressPal/schoolTeachers/${Users.data.data._id}`)
+        axios.get(`https://progresspal-8rxj.onrender.com/progressPal/schoolTeachers/${schoolAdmin.data.data._id}`)
             .then((res) => {
                 console.log("first", res)
-                const teacherData = res.data.data;
-                const totalTeachersCount = teacherData.length;
-                setTotalTeachers(totalTeachersCount)
-                console.log(teacherData, "this is teacher Data")
-                console.log(totalTeachersCount, "this is total teachers counted")
-                console.log(res)
+                dispatch(adminSchoolTeachers(res.data.data))
+                // const teacherData = res.data.data;
+                // const totalTeachersCount = teacherData.length;
+                // setTotalTeachers(totalTeachersCount)
+                // console.log(teacherData, "this is teacher Data")
+                // console.log(totalTeachersCount, "this is total teachers counted")
+                // console.log(res)
             })
 
             .catch(error => console.error('Error fetching teacher data:', error));
@@ -67,9 +75,9 @@ const AdminUser = () => {
                 <div className="AdminDashBoardRightBodyHeader">
                     <div className="userProfile">
                         <div className="UserImageDiv">
-                            <img className='UserImage' src={schoolUsers.schoolLogo} alt="" />
+                            <img className='UserImage' src={schoolAdmin.data.data.schoolLogo} alt="" />
                         </div>
-                        <h4 className="UserImageH4">{schoolUsers.schoolName}</h4>
+                        <h4 className="UserImageH4">{schoolAdmin.data.data.schoolName}</h4>
                     </div>
                     <h5>Welcome to ProgressPal</h5>
                 </div>

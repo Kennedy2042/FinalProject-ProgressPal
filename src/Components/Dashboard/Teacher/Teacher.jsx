@@ -16,7 +16,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import AdminTeacherDashboard from '../AdminDashboard/AdminTeacher/AdminTeacherDashboard'
 // import AdminStudentDashboard from '../AdminDashboard/AdminStudent/AdminStudentDashboard'
 import TeacherUser from './User/TeacherUser'
-import {GrScorecard} from 'react-icons/gr'
+import { GrScorecard } from 'react-icons/gr'
 import TeacherResult from './TeacherResult/TeacherResult'
 import axios from 'axios'
 import TeacherStudent from './Student/TeacherStudent'
@@ -29,9 +29,9 @@ const Teacher = () => {
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const teacherData = useSelector (state => state.persisitedReducer.loginUser)
+    const teacherData = useSelector(state => state.persisitedReducer.loginUser)
     const BearerToken = teacherData?.data?.token
-    console.log(BearerToken)
+    // console.log(BearerToken)
 
     const [menu, setMenu] = useState(false)
     const [dashboard, setDashboard] = useState(true)
@@ -49,45 +49,47 @@ const Teacher = () => {
             confirmButtonText: 'yes',
             customClass: {
                 confirmButton: 'sweet-alert-confirm-btn',
-              },
+            },
         }).then((result) => {
             if (result.isConfirmed) {
                 TeacherLogout()
                 dispatch(allStudentApi([]))
                 dispatch(loginUserData([]))
+                navigate("/")
+
                 return
             }
         });
     };
 
 
-    const url = `https://progresspal-8rxj.onrender.com/progressPal/logoutTeacher/${teacherData?.data?.data?._id}`;  
-    async function TeacherLogout () {
+    const url = `https://progresspal-8rxj.onrender.com/progressPal/logoutTeacher/${teacherData?.data?.data?._id}`;
+    async function TeacherLogout() {
         // console.log("dstrstrdd")
-        axios.post (url, {
-                Authorization : `Bearer ${BearerToken}`
-    
+        axios.post(url, {
+            Authorization: `Bearer ${BearerToken}`
+
         })
-        .then ((res)=>{
-            console.log(res)
-            navigate("/")
-        })
-        .catch ((err)=>{
-            console.log(err)
-        })
+            .then((res) => {
+                console.log(res)
+               
+            })
+            .catch((err) => {
+                console.log(err)
+            })
     }
 
-  return (
-    <>
-        <div className="TeacherDashboardContainer">
+    return (
+        <>
+            <div className="TeacherDashboardContainer">
                 <div className="TeacherDashboardContainerMobile">
                     <div className="TeacherDashboardMobileHeader">
                         <div className="TeacherDashboardMobileHeaderCon">
                             <img src={ProgressPalLogo} alt="" />
                             {
-                                menu ? <AiOutlineCloseCircle style={{cursor:"pointer" }} size={30} onClick={() => {
+                                menu ? <AiOutlineCloseCircle style={{ cursor: "pointer" }} size={30} onClick={() => {
                                     setMenu(false)
-                                }} /> : <RxHamburgerMenu style={{cursor:"pointer"}} size={30} onClick={() => {
+                                }} /> : <RxHamburgerMenu style={{ cursor: "pointer" }} size={30} onClick={() => {
                                     setMenu(true)
                                 }} />
                             }
@@ -150,7 +152,7 @@ const Teacher = () => {
                     </div>
                     <div className="TeacherDashboardSideMenuMainBody">
                         <div className='TeacherDashboardSideMenuIconDiv'>
-                            <div className={dashboard ? "Active" :"TeacherDashboardIcons"} onClick={() => {
+                            <div className={dashboard ? "Active" : "TeacherDashboardIcons"} onClick={() => {
                                 navigate("/Dashboard/teacher/teacherUser/:id")
                                 setDashboard(true)
                                 setStudent(false)
@@ -160,7 +162,7 @@ const Teacher = () => {
                                     <BiHomeAlt size={30} className={dashboard ? "AdminDashboardIconsImageActive" : 'TeacherDashboardIconsImage'} />
                                 </div>
                                 <div className="TeacherHomeIconTitle">
-                                    <p className={dashboard ? "AdminDashboardIconsImageNameActive" :'TeacherDashboardIconsImageName'}>Dashboard</p>
+                                    <p className={dashboard ? "AdminDashboardIconsImageNameActive" : 'TeacherDashboardIconsImageName'}>Dashboard</p>
                                 </div>
                             </div>
                             <div className={student ? "Active" : "TeacherDashboardIcons"} onClick={() => {
@@ -168,12 +170,12 @@ const Teacher = () => {
                                 setDashboard(false)
                                 setStudent(true)
                                 setResult(false)
-                                }}>
+                            }}>
                                 <div className='TeacherHomeIcon'>
-                                    <PiStudentDuotone size={30} className={student ? "AdminDashboardIconsImageActive" :'TeacherDashboardIconsImage'} />
+                                    <PiStudentDuotone size={30} className={student ? "AdminDashboardIconsImageActive" : 'TeacherDashboardIconsImage'} />
                                 </div>
                                 <div className="TeacherHomeIconTitle">
-                                    <p className={student ? "AdminDashboardIconsImageNameActive" :'TeacherDashboardIconsImageName'}>Students</p>
+                                    <p className={student ? "AdminDashboardIconsImageNameActive" : 'TeacherDashboardIconsImageName'}>Students</p>
                                 </div>
                             </div>
                             {/* <div className="TeacherDashboardIcons" onClick={() => navigate("/Teacher_Dashboard/Teacher_teacher_dashboard")}>
@@ -184,17 +186,17 @@ const Teacher = () => {
                                     <p className='TeacherDashboardIconsImageName'>Teachers</p>
                                 </div>
                             </div> */}
-                            <div className={result ? "Active" : "TeacherDashboardIcons"} onClick={()=> {
+                            <div className={result ? "Active" : "TeacherDashboardIcons"} onClick={() => {
                                 navigate("/Dashboard/teacher/Teacher_resultSheet")
                                 setDashboard(false)
                                 setStudent(false)
                                 setResult(true)
                             }}>
                                 <div className='TeacherHomeIcon'>
-                                    <BsFileSpreadsheet size={30}  className={result ? "AdminDashboardIconsImageActive" :'TeacherDashboardIconsImage'} />
+                                    <BsFileSpreadsheet size={30} className={result ? "AdminDashboardIconsImageActive" : 'TeacherDashboardIconsImage'} />
                                 </div>
                                 <div className="TeacherHomeIconTitle">
-                                    <p className={result ? "AdminDashboardIconsImageNameActive" :'TeacherDashboardIconsImageName'}>Results</p>
+                                    <p className={result ? "AdminDashboardIconsImageNameActive" : 'TeacherDashboardIconsImageName'}>Results</p>
                                 </div>
                             </div>
                             <div className="TeacherDashboardIcons" onClick={showAlert}>
@@ -209,18 +211,18 @@ const Teacher = () => {
 
                     </div>
                 </div>
-                <div className='DashBoardRightBody'> 
+                <div className='DashBoardRightBody'>
                     <Routes>
                         <Route path='/teacherUser/:id' element={<TeacherUser />} />
                         <Route path='/teacher_student_dashboard' element={<TeacherStudent />} />
-                        <Route path='/Teacher_resultSheet' element={<TeacherResult/>}/>
+                        <Route path='/Teacher_resultSheet' element={<TeacherResult />} />
                     </Routes>
                 </div>
             </div>
-    
-    
-    </>
-  )
+
+
+        </>
+    )
 }
 
 export default Teacher

@@ -16,7 +16,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import AdminUser from './AdminDashboard/User/AdminUser'
 import axios from 'axios'
 import Swal from 'sweetalert2'
-import { adminAllTeacherApi } from '../../Redux/ProductState'
+import { adminAllTeacherApi, adminSchoolStudents, adminSchoolTeachers, schoolUserData, teacherInformation } from '../../Redux/ProductState'
 import Login from '../Authentication/Login/Login'
 import { userLogin } from '../../Redux/ProductState'
 import Auth from "../Authentication/Auth"
@@ -27,8 +27,11 @@ const Admin = () => {
     const navigate = useNavigate()
     const schoolUsers = useSelector(state => state.persisitedReducer.School)
     const isLogin = useSelector(state => state.persisitedReducer.isLoggedIn)
+    const schoolAdmin = useSelector(state => state.persisitedReducer.loginUser)
+    // console.log(schoolAdmin)
 
-    const BearerToken = schoolUsers.token
+
+    const BearerToken = schoolAdmin.data.token
     const [menu, setMenu] = useState(false)
     const dispatch = useDispatch()
     const [dashboard, setDashboard] = useState(true)
@@ -44,6 +47,7 @@ const Admin = () => {
             confirmButtonText: 'yes',
             customClass: {
                 confirmButton: 'sweet-alert-confirm-btn',
+                cancelButton: 'sweet-alert-cancel-btn'
             },
         }).then((result) => {
             if (result.isConfirmed) {
@@ -52,7 +56,7 @@ const Admin = () => {
         });
     };
 
-    const url = `https://progresspal-8rxj.onrender.com/progressPal/logout/${schoolUsers._id}`
+    const url = `https://progresspal-8rxj.onrender.com/progressPal/logout/${schoolAdmin.data.data._id}`
     async function AdminLogout() {
         axios.post(url, {
             Authorization: `Bearer ${BearerToken}`
@@ -60,19 +64,34 @@ const Admin = () => {
         })
             .then((res) => {
                 console.log(res)
-                dispatch(adminAllTeacherApi([]))
-
-                // console.log(res.data.data.isLogin, "res.data.data.isLogin")
-                dispatch(userLogin(false))
                 navigate("/")
+                dispatch(adminAllTeacherApi([]))
+                dispatch(schoolUserData([]))
+                dispatch(adminSchoolTeachers([]))
+                dispatch(adminSchoolStudents([]))
+                dispatch(teacherInformation([]))
+                dispatch(userLogin(false))
+                // console.log(res.data.data.isLogin, "res.data.data.isLogin")
             })
             .catch((err) => {
                 console.log(err)
+                err?.message === "Network Error"
+                    Swal.fire({
+                        title: "Login Failed",
+                        text: err.message,
+                        icon: "error",
+                        confirmButtonText: "okay",
+                        timer: "2000",
+                        showConfirmButton: false
+
+                    
             })
+        })
 
     }
 
-    console.log(isLogin, "isLogin")
+    // console.log(isLogin, "isLogin")
+    // console.log("this is school User data", schoolAdmin)
 
     return (
         <>
@@ -94,7 +113,7 @@ const Admin = () => {
                             menu ?
                                 <div className="AdminDashboardMobileDropMenu">
                                     <div className="AdminDashboardIcons" onClick={() => {
-                                        navigate(`/Dashboard/schoolAdmin/schoolAdminUser/${schoolUsers._id}`)
+                                        navigate(`/Dashboard/schoolAdmin/schoolAdminUser/${schoolAdmin.data.data._id}`)
                                     }}>
                                         <div className='AdminHomeIcon'>
                                             <BiHomeAlt size={30} className='AdminDashboardIconsImage' />
@@ -143,13 +162,15 @@ const Admin = () => {
 
 
                 <div className="AdminDashboardSideMenu">
-                    <div className="AdminDashboardSideMenuLogo">
+                    <div className="AdminDashboardSideMenuLogo" onClick={()=>{
+                        // navigate("/")
+                    }}>
                         <img src={ProgressPalLogo} alt="" />
                     </div>
                     <div className="AdminDashboardSideMenuMainBody">
                         <div className='AdminDashboardSideMenuIconDiv'>
                             <div className={dashboard ? "Active" : "AdminDashboardIcons"} onClick={() => {
-                                navigate(`/Dashboard/schoolAdmin/schoolAdminUser/${schoolUsers._id}`)
+                                navigate(`/Dashboard/schoolAdmin/schoolAdminUser/${schoolAdmin.data.data._id}`)
                                 setDashboard(true)
                                 setStudent(false)
                                 setTeacher(false)

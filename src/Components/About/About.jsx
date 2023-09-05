@@ -23,7 +23,6 @@ const About = () => {
         <p>ProgressPal is a platform based result Management System for educational institutions like Schools and Colleges. It provides completely automated tools to simplify the process of managing all your results. It helps manage student’s results and saves time for automated fee.
         Progresspal help school to manage their results.ProgressPal as a product targeted to meet Nigerian Schools, mainly Nursery, Primary and Secondary schools. 
         </p>
-
     </div>
     
     </div>
@@ -33,14 +32,3 @@ const About = () => {
 }
 
 export default About
-
-// import image1 from "../../assets/image1.svg" 
-// import './Admin.css'
-// import './Responses.css'
-// const Admin = () => {
-//   return (
-    
-//   )
-// }
-
-// export default Admin

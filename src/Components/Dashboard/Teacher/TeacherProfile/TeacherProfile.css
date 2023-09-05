@@ -1,0 +1,85 @@
+.TeacherDetailsCard {
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    /* background-color: white; */
+    /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
+    /*  */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-top: 20px;
+    /* background-color: red; */
+    justify-content: center;
+}
+
+.TeacherProfileImage2 {
+    width: 16%;
+    height: 40%;
+    border-radius: 50%;
+    object-fit: cover;
+    /* background-color: green; */
+}
+
+.TeacherProfileImage2 img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.TeacherName {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.TeacherEmails {
+    font-size: 15px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.TeacherClass {
+    font-size: 18px;
+    font-weight: 500;
+    color: black;
+}
+
+.TeachersUpdateButton {
+    width: 40%;
+    /* height: ; */
+    background: #127cdd;
+    border: none;
+    color: white;
+}
+
+
+
+
+
+@media only screen and (min-width: 320px) and (max-width: 580px) {
+
+    .TeacherProfileImage2 {
+        width: 80%;
+        height: 26%;
+        border-radius: 50%;
+        object-fit: cover;
+        /* background-color: green; */
+    }
+
+    .TeacherProfileImage2 img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+    }
+
+    .TeachersUpdateButton {
+        width: 85%;
+        height: 10%;
+        background: #127cdd;
+        border: none;
+        color: white;
+        border-radius: 4px;
+    }
+
+}

@@ -6,13 +6,14 @@ import { useSelector } from 'react-redux'
 import { VictoryPie, VictoryTheme } from 'victory'
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import TeacherUserProfile from '../TeacherProfile/TeacherProfile';
 // import LiveClock from 'react-live-clock';
 
 
 
 const TeacherUser = () => {
 
-    const schoolUsers = useSelector(state => state.persisitedReducer.School)
+    // const schoolUsers = useSelector(state => state.persisitedReducer.School)
     const teacherData = useSelector(state => state.persisitedReducer.loginUser)
     const [date, setDate] = useState(new Date());
 
@@ -23,12 +24,12 @@ const TeacherUser = () => {
     async function GetAllStudents() {
         axios.get(url)
             .then((res) => {
-                console.log("first", res)
+                // console.log("first", res)
                 const studentsData = res.data.data;
                 const totalStudentsCount = studentsData.length;
                 setTotalStudents(totalStudentsCount);
-                console.log(studentsData)
-                console.log(totalStudentsCount) 
+                // console.log(studentsData)
+                // console.log(totalStudentsCount) 
             })
             .catch((err) => {
                 console.log("first", err)
@@ -44,9 +45,12 @@ const TeacherUser = () => {
         { key: "Remaining", y: 10 - totalStudents }
     ];
     const handleDateChange = (newDate) => {
-    setDate(newDate)
+        setDate(newDate)
     };
-  
+
+    // console.log(teacherData)
+
+
 
 
 
@@ -57,9 +61,9 @@ const TeacherUser = () => {
                 <div className="AdminDashBoardRightBodyHeader">
                     <div className="userProfile">
                         <div className="UserImageDiv">
-                            <img className='UserImage' src={schoolUsers.schoolLogo} alt="" />
+                            <img className='UserImage' src={teacherData.data.school.schoolLogo} alt="" />
                         </div>
-                        <h4 className="UserImageH4">{schoolUsers.schoolName}</h4>
+                        <h4 className="UserImageH4">{teacherData.data.school.schoolName}</h4>
                     </div>
                     <h5>Welcome to ProgressPal</h5>
                 </div>
@@ -77,34 +81,6 @@ const TeacherUser = () => {
                             </div>
                             <div className='AdminTotalTeacherBodyChart'>
                                 <div className="AdminChart">
-                                    {/* <svg width={200} height={200} style={{ background: "green" }}>
-                                        <text x={100} y={110} textAnchor="middle" >
-                                            {70}%
-                                        </text>
-                                        
-                                    </svg> */}
-                                    {/* <VictoryPie
-                                            padAngle={0}
-                                            // used to hide labels
-                                            labelComponent={<span />}
-                                            innerRadius={70}
-                                            width={200} height={200}
-                                            data={[{ 'key': "", 'y': 70 }, { 'key': "", 'y': (100 - 70) }]}
-                                            colorScale={["#19B3A6", "#EEEEEE"]}
-                                            style={{ background: "red" }}
-                                        />  */}
-
-
-                                    {/* <VictoryPie
-                                        padAngle={0}
-                                        // used to hide labels
-                                        labelComponent={<span />}
-                                        innerRadius={200}
-                                        width={700} height={700}
-                                        data={[{ 'key': "", 'y': 70 }, { 'key': "", 'y': (100 - 70) }]}
-                                        colorScale={["#19B3A6", "#EEEEEE"]}
-                                        style={{ background: "red" }}
-                                    /> */}
                                     <VictoryPie
                                         padAngle={0}
                                         labelComponent={<span />}
@@ -116,74 +92,51 @@ const TeacherUser = () => {
                                         style={{ background: "red" }}
                                     />
                                 </div>
+
                             </div>
                         </div>
+
                     </div>
-                    {/* <div className='AdminTotalTeacher'>
-                        <div className='AdminTotalTeacherBody'>
-                            <div className='AdminTotalTeacherBodyTotal'>
-                                <h5 className='AdminTotalTeacherBodyTotalH5' >Teachers</h5>
-                                <h3 className='AdminTotalTeacherBodyTotalH3'>{0}</h3>
-                            </div>
-                            <div className='AdminTotalTeacherBodyChart'>
-                                <div className="AdminChart">
-                                    <VictoryPie
-                                        padAngle={0}
-                                        // used to hide labels
-                                        labelComponent={<span />}
-                                        innerRadius={200}
-                                        width={700} height={700}
-                                        data={[{ 'key': "", 'y': 70 }, { 'key': "", 'y': (100 - 70) }]}
-                                        colorScale={["#19B3A6", "#EEEEEE"]}
-                                        style={{ background: "red" }}
-                                    />
-                                </div>
-                            </div>
-                        </div>
+                    <div className="TeacherProfileClaender">
+                        <TeacherUserProfile/>
+                        {/* <Calendar onChange={handleDateChange} value={date} /> */}
                     </div>
-                    <div className='AdminTotalTeacher'>
-                        <div className='AdminTotalTeacherBody'>
-                            <div className='AdminTotalTeacherBodyTotal'>
-                                <h5 className='AdminTotalTeacherBodyTotalH5'>Total</h5>
-                                <h3 className='AdminTotalTeacherBodyTotalH3'>{0}</h3>
-                            </div>
-                            <div className='AdminTotalTeacherBodyChart'>
-                                <div className="AdminChart">
-                                    <VictoryPie
-                                        padAngle={0}
-                                        // used to hide labels
-                                        labelComponent={<span />}
-                                        innerRadius={200}
-                                        width={700} height={700}
-                                        data={[{ 'key': "", 'y': 10 }, { 'key': "", 'y': (100 - 10) }]}
-                                        colorScale={["red", "#1e306e"]}
-                                        style={{ background: "red" }}
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </div> */}
+
+
                 </div>
                 <div className='AdminDashboardPerformance'>
                     <div className='AdminDashboardPerformanceDetailCard'>
                         <div className='AdminDashboardPerformanceDetailCardTop' >
-                            <h4>
-                                Exam Details
-                            </h4>
-                            <div className="ExamDetailsCard">
+                            <div className="adCardLeft">
+                                <div className="eligibleText">
+                                    <h1>
+                                        
+                                    You can only add
+                                    </h1>
+                                    
+                                    <h1>
+                                        10 Students
+                                    </h1>
+                                </div>
 
                             </div>
-                        </div>
-                        <div className='AdminDashboardPerformanceDetailCardDown'>
-                            <h4>
-                                Performance Details
-                            </h4>
-                            <div className="PerformanceDetailsCard"></div>
+                            <div className="adCardRight">
+                                <div className="eligibleText">
+
+                                    <h1>
+                                        Refer to your Admin to add more Students
+                                    </h1>
+                                    {/* <button className='SubscribeBtn'
+                                        onClick={() => {
+                                            nav("/Upgrade_now")
+                                        }}>Subscribe</button> */}
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div className='AdminDashboardPerformanceDetailCardRight'>
-                        <Calendar onChange={handleDateChange} value={date}/>
-                        {/* <LiveClock/> */}
+                        <Calendar onChange={handleDateChange} value={date} />
+
                     </div>
                 </div>
             </div>

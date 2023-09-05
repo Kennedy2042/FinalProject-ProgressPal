@@ -128,7 +128,7 @@ const AdminStudentDashboard = () => {
                         <span className='TeacherStudentDetailsCard' key={props?._id}>
                             <div className='TeacherStudentMainDetailsHolder'>
                                 <div className='TeacherStudentProfileImage2'>
-                                    <img src={props?.studentPassport} alt="" />
+                                    <img src={props?.studentPassport} alt="student Passport" />
                                 </div>
                                 <h2 className='TeacherStudentName'>{props?.studentName}</h2>
                                 <p className='TeacherStudentEmail'>{props?.studentEmail}</p>

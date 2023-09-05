@@ -5,7 +5,6 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { allStudentApi } from "../../../../Redux/ProductState";
-// import { newStudent } from "../../../../Redux/ProductState";
 import ResultSheet from "../ResultSheet/ResultSheet";
 import "../Teacher.css";
 import "./TeacherStudentComponent.css";
@@ -34,31 +33,33 @@ const TeacherStudent = () => {
   });
   const teacherData = useSelector((state) => state.persisitedReducer.loginUser);
   const BearerToken = teacherData.data.token;
-  console.log(BearerToken);
+  // console.log(BearerToken);
   const dispatch = useDispatch();
   const File = (e) => {
     const file = e.target.files[0];
-    if (file) {
-      const fileType = file.type;
-      if (fileType.startsWith("image/")) {
-        setSchoolLogo(file);
-      } else {
-        setValidMessage({
-          error: "true",
-          value: "schoolLogo",
-          msg: "Please select an image",
-        });
-        e.target.value = "";
-      }
-    }
-    console.log(file);
+    setStudentPassport(file);
+
+    // if (file) {
+    //   const fileType = file.type;
+    //   if (fileType.startsWith("image/")) {
+    //     setStudentPassport(file);
+    //   } else {
+    //     setValidMessage({
+    //       error: "true",
+    //       value: "schoolLogo",
+    //       msg: "Please select an image",
+    //     });
+    //     e.target.value = "";
+    //   }
+    // }
+    // console.log(file);
   };
   const StudentApi = useSelector((state) => state.persisitedReducer.studentApi);
-  const StudentDetails = useSelector(
-    (state) => state.persisitedReducer.newStudentDetails
-  );
+  // const StudentDetails = useSelector(
+  //   (state) => state.persisitedReducer.newStudentDetails
+  // );
   const [result, setResult] = useState(false);
-  console.log("first", StudentDetails);
+  // console.log("first", StudentDetails);
 
   const showAlert = () => {
     Swal.fire({
@@ -82,7 +83,7 @@ const TeacherStudent = () => {
     console.log("test");
 
     // e.preventDefault()
-    console.log(teacherData);
+    // console.log(teacherData);
 
     const data = new FormData();
     data.append("studentName", studentName);
@@ -99,24 +100,40 @@ const TeacherStudent = () => {
         },
       })
       .then((res) => {
-        console.log(res);
-        dispatch(newStudent(res.data.student));
+        // console.log(res);
         Swal.fire({
           title: "Success!",
           text: res.data.message,
           icon: "success",
           confirmButtonText: "Ok",
+          showConfirmButton: false,
+          timer: 1500
         });
         setAddStudents(false);
         setLoading(false);
       })
       .catch((err) => {
         console.log(err);
+        if (err?.message === "Network Error") {
+          Swal.fire({
+            title: "Student Registration Failed",
+            text: err.message,
+            icon: "error",
+            confirmButtonText: "okay",
+            timer: 1200,
+            showConfirmButton: false,
+          })
+          setLoading(false)
+        }
+        // setSuccessErrorMessage(err.response.data.message);
+        setLoading(false)
         Swal.fire({
-          title: "error!",
+          title: "Error!",
           text: err.response.data.message,
           icon: "error",
           confirmButtonText: "Ok",
+          timer: 1200,
+          showConfirmButton: false,
         });
         setLoading(false);
       });
@@ -127,30 +144,18 @@ const TeacherStudent = () => {
     axios
       .get(getUrl)
       .then((res) => {
-        console.log(res.data.data, "response from api");
+        // console.log(res.data.data, "response from api");
         dispatch(allStudentApi(res.data.data));
       })
       .catch((err) => {
         console.log(err);
       });
   }
-
-    const oneStudentUrl = `https://progresspal-8rxj.onrender.com/progressPal/readOneStudent/${StudentDetails?._id}`;
-
-  async function getOneStudentApi() {
-    axios
-      .get(oneStudentUrl)
-      .then((res) => {
-        console.log(res.data.data, "response from api");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
-
   useEffect(() => {
     getStudentApi();
-    getOneStudentApi();
+    const interval = setInterval(getStudentApi, 5000);
+    return () => clearInterval(interval);
+    // getOneStudentApi();
   }, []);
 
   // function ShowPop(id) {
@@ -224,11 +229,11 @@ const TeacherStudent = () => {
                 >
                   Add Result
                 </button>
-                  <button className="TeacherViewStudentProfileBtn" onClick={() => {
-                    nav(`/teacherdashboard/studentProfile/${props._id}`)
-                  }}>
-                    View Profile
-                  </button>
+                <button className="TeacherViewStudentProfileBtn" onClick={() => {
+                  nav(`/teacherdashboard/studentProfile/${props._id}`)
+                }}>
+                  View Profile
+                </button>
               </div>
             </span>
           ))
@@ -286,6 +291,7 @@ const TeacherStudent = () => {
             <div className="StudentEmaildiv">
               <input
                 type="file"
+                accept="image/*"
                 placeholder="Student Passport"
                 className="StudentImageInput"
                 onChange={File}

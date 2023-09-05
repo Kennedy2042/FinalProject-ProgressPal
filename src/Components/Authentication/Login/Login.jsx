@@ -28,7 +28,7 @@ const Login = () => {
     const [select, setSelect] = useState()
     const dispatch = useDispatch()
     const [loading, setLoading] = useState(false)
-    
+
 
 
     const url = `https://progresspal-8rxj.onrender.com/progressPal/login/${select}`
@@ -42,7 +42,7 @@ const Login = () => {
     async function SignUp(e) {
         e.preventDefault();
         setLoading(true)
-        
+
 
         // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -51,36 +51,39 @@ const Login = () => {
         // }
 
         axios
-            .post(url, select === 'schoolAdmin' ? data : select === 'teacher' ? info : detail )
+            .post(url, select === 'schoolAdmin' ? data : select === 'teacher' ? info : detail)
 
             .then((res) => {
                 console.log(res)
                 setSuccessErrorMessage(res.data.message)
+                navigate(`/Dashboard/${select}/${select}User/${res.data.data._id}`)
                 Swal.fire({
                     title: "Logged In Successfully",
                     text: "Welcome back",
                     icon: "success",
                     confirmButtonText: "Okay",
-                    timer: "2500",
+                    timer: "2000",
                     showConfirmButton: false
                 })
-                navigate(`/Dashboard/${select}/${select}User/${res.data.data._id}`)
                 // setInterval(() => {
                 // }, 3000);
-                
+
                 dispatch(loginUserData(res))
                 dispatch(userLogin(res.data.data.isLogin))
-                
+
                 setLoading(false)
             })
             .catch((err) => {
                 console.log(err)
-                if(err?.message === "Network Error") {
+                if (err?.message === "Network Error") {
                     Swal.fire({
                         title: "Login Failed",
                         text: err.message,
                         icon: "error",
-                        confirmButtonText: "okay"
+                        confirmButtonText: "okay",
+                        timer: "2000",
+                        showConfirmButton: false
+
                     })
                     setLoading(false)
                 }
@@ -89,7 +92,10 @@ const Login = () => {
                     title: "Login Failed",
                     text: err.response.data.message,
                     icon: "error",
-                    confirmButtonText: "okay"
+                    confirmButtonText: "okay",
+                    timer: "2000",
+                    showConfirmButton: false
+
                 })
                 setLoading(false)
             });
@@ -99,7 +105,7 @@ const Login = () => {
     useEffect(() => {
         setSelect("0")
     }, [])
-    
+
 
 
     const navigate = useNavigate()
@@ -107,83 +113,83 @@ const Login = () => {
 
     return (
         <>
-        <div className='LoginMainContainer'>
-            <div className="LoginMainContainerBody">
-            <div className='LoginLogo'>
-                <img src={ProgressPalLogo} alt="" onClick={()=>{navigate("/")}}/>
+            <div className='LoginMainContainer'>
+                <div className="LoginMainContainerBody">
+                    <div className='LoginLogo'>
+                        <img src={ProgressPalLogo} alt="" onClick={() => { navigate("/") }} />
 
-            </div>
-
-            <div className='LoginBody'>
-                <div className='LoginLowerBody'>
-
-                    <div className='LoginWelTextDiv'>
-                        <h1 className='LoginWelText'>Welcome To ProgressPal</h1>
                     </div>
-                    <select className="LoginSelect" value={select} onChange={(e) => setSelect(e.target.value)}>
-                        <option value="0">Log In as </option>
-                        <option value="schoolAdmin">School Admin</option>
-                        <option value="teacher">Teacher</option>
-                        <option value="student">Student</option>
-                    </select>
-                    {
-                        select !== "0"  && select !== undefined &&
-                        <div className="EmailInputDiv">
-                        {
-                            select === "schoolAdmin" && <input type="email" className={`${emailError.length > 0 ? "error" : ""} LoginEmailInput`} placeholder='Email' value={schoolEmail} onChange={(e) => setSchoolEmail(e.target.value)} />
-                        }
-                        {
-                            select === "teacher" && <input type="email" className={`${emailError.length > 0 ? "error" : ""} LoginEmailInput`} placeholder='Email' value={teacherEmail} onChange={(e) => setTeacherEmail(e.target.value)} />
-                        }
-                        {
-                            select === "student" && <input type="email" className={`${emailError.length > 0 ? "error" : ""} LoginEmailInput`} placeholder='Email' value={studentEmail} onChange={(e) => setStudentEmail(e.target.value)} />
-                        }
-                        <p className='ErrorloginMsg'>{emailError}</p>
-                    </div>
-                    }
-                    <div className="PasswordInputDivHolder">
-                        <div className="PasswordInputDiv">
-                            <input type={loginShowpass ? "text" : "password"} className='LoginPassInput' placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
-                            <div className="LoginShowPass">
-                                {
-                                    loginShowpass ? <BiSolidHide onClick={()=>{setLoginShowPass(false)}}/> : <BiSolidShow onClick={()=>{setLoginShowPass(true)}}/>
-                                }
+
+                    <div className='LoginBody'>
+                        <div className='LoginLowerBody'>
+
+                            <div className='LoginWelTextDiv'>
+                                <h1 className='LoginWelText'>Welcome To ProgressPal</h1>
                             </div>
-                        </div>
-                    </div>
-                    {/* {console.log(select, "This is select")} */}
-                    
-                    
-                    {/* <p className='ErrorloginMsg'>{successErrorMessage}</p> */}
+                            <select className="LoginSelect" value={select} onChange={(e) => setSelect(e.target.value)}>
+                                <option value="0">Log In as </option>
+                                <option value="schoolAdmin">School Admin</option>
+                                <option value="teacher">Teacher</option>
+                                <option value="student">Student</option>
+                            </select>
+                            {
+                                select !== "0" && select !== undefined &&
+                                <div className="EmailInputDiv">
+                                    {
+                                        select === "schoolAdmin" && <input type="email" className={`${emailError.length > 0 ? "error" : ""} LoginEmailInput`} placeholder='Email' value={schoolEmail} onChange={(e) => setSchoolEmail(e.target.value)} />
+                                    }
+                                    {
+                                        select === "teacher" && <input type="email" className={`${emailError.length > 0 ? "error" : ""} LoginEmailInput`} placeholder='Email' value={teacherEmail} onChange={(e) => setTeacherEmail(e.target.value)} />
+                                    }
+                                    {
+                                        select === "student" && <input type="email" className={`${emailError.length > 0 ? "error" : ""} LoginEmailInput`} placeholder='Email' value={studentEmail} onChange={(e) => setStudentEmail(e.target.value)} />
+                                    }
+                                    <p className='ErrorloginMsg'>{emailError}</p>
+                                </div>
+                            }
+                            <div className="PasswordInputDivHolder">
+                                <div className="PasswordInputDiv">
+                                    <input type={loginShowpass ? "text" : "password"} className='LoginPassInput' placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
+                                    <div className="LoginShowPass">
+                                        {
+                                            loginShowpass ? <BiSolidHide onClick={() => { setLoginShowPass(false) }} /> : <BiSolidShow onClick={() => { setLoginShowPass(true) }} />
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            {/* {console.log(select, "This is select")} */}
 
-                    <div className='Logintext2'>
-                        <p className='AcctParagrph'>Don't have an account? <span className='LoginSpan' onClick={()=>{navigate("/sch_register")}}>Sign Up</span></p>
-                        <p className='AcctParagrph' style={{ cursor: "pointer", color: "blue" }} onClick={()=>navigate("/forget_password")}>Forgotten password?</p>
-                        {/* <div className='left'>
+
+                            {/* <p className='ErrorloginMsg'>{successErrorMessage}</p> */}
+
+                            <div className='Logintext2'>
+                                <p className='AcctParagrph'>Don't have an account? <span className='LoginSpan' onClick={() => { navigate("/sch_register") }}>Sign Up</span></p>
+                                <p className='AcctParagrph' style={{ cursor: "pointer", color: "blue" }} onClick={() => navigate("/forget_password")}>Forgotten password?</p>
+                                {/* <div className='left'>
                         </div>
                         <div className='right'>
                         </div> */}
-                    </div>
+                            </div>
 
-                    <button className='LoginBtn' onClick={SignUp}>
-                        {
-                            loading ? (
-                                <SpinnerCircular
-                                size={35}
-                                thickness={99}
-                                speed={100}
-                                color="rgba(18, 124, 221, 1)"
-                              />  
-                            ) : (
-                                "Login"
-                            )
-                        }
-                    </button>
-                    {/* <h2>Register Your School</h2> */}
+                            <button className='LoginBtn' onClick={SignUp}>
+                                {
+                                    loading ? (
+                                        <SpinnerCircular
+                                            size={35}
+                                            thickness={99}
+                                            speed={100}
+                                            color="rgba(18, 124, 221, 1)"
+                                        />
+                                    ) : (
+                                        "Login"
+                                    )
+                                }
+                            </button>
+                            {/* <h2>Register Your School</h2> */}
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        </div>
         </>
     )
 }

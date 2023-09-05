@@ -10,6 +10,8 @@ const initialState = {
     teacherInfo: [],
     isLoggedIn:false,
     studentResult: [],
+    adminStudent: [],
+    adminTeachers: [],
 }
 
 
@@ -20,7 +22,7 @@ const productState = createSlice({
     reducers:{
       schoolUserData: (state, {payload}) => {
         state.School = payload
-        console.log("first", payload)
+        // console.log("first", payload)
       },
       
       // schoolTeacherData: (state, {payload}) => {
@@ -30,48 +32,58 @@ const productState = createSlice({
 
       loginUserData: (state, {payload}) => {
         state.loginUser = payload
-        console.log("first", payload)
+        // console.log("first", payload)
       },
 
       studentSignUpData: (state, {payload}) => {
         state.studentSignData = payload
-        console.log("first", payload)
+        // console.log("first", payload)
       },
 
       allStudentApi: (state, {payload}) => {
         state.studentApi = payload
-        console.log("first", payload)
+        // console.log("first", payload)
       },
 
       adminAllTeacherApi: (state, {payload}) => {
         state.adminTeachApi = payload
-        console.log("first", payload)
+        // console.log("first", payload)
       },
 
       adminAllStudentApi: (state, {payload}) =>{
         state.AdminStudentApi = payload
-        console.log("first", payload)
+        // console.log("first", payload)
       },
 
       teacherInformation: (state, {payload}) => {
         state.teacherInfo = payload
-        console.log("first", payload)
+        // console.log("first", payload)
       },
 
       userLogin: (state, {payload}) => {
         state.isLoggedIn = payload
-        console.log("first", payload)
+        // console.log("first", payload)
       },
 
       studentUserResult: (state, {payload}) => {
         state.studentResult = payload
-        console.log("first", payload)
-      }
+        // console.log("first", payload)
+      },
+
+      adminSchoolStudents: (state, {payload}) => {
+        state.adminStudent = payload
+        // console.log("first", payload)
+      },
+
+      adminSchoolTeachers: (state, {payload}) => {
+        state.adminTeachers = payload
+        // console.log("first", payload)
+      },
 
     }
 })
 
-export const {schoolUserData, schoolTeacherData, loginUserData, studentSignUpData, allStudentApi, adminAllTeacherApi, adminAllStudentApi, teacherInformation, userLogin, studentUserResult} = productState.actions;
+export const {schoolUserData, schoolTeacherData, loginUserData, studentSignUpData, allStudentApi, adminAllTeacherApi, adminAllStudentApi, teacherInformation, userLogin, studentUserResult,adminSchoolStudents, adminSchoolTeachers} = productState.actions;
 export default productState.reducer
 
 

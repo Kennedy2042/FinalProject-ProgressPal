@@ -113,7 +113,7 @@
     }
 
     .UserImageDiv {
-        width: 30%;
+        width: 25%;
         height: 75%;
     }
 
@@ -124,7 +124,7 @@
     }
 
     .UserImageH4 {
-        width: 60%;
+        width: 65%;
         color: black;
         font-size: 10px;
 
@@ -149,6 +149,7 @@
 
     .AdminDashBoardLowerBodyUpperBodyTitle h3 {
         height: 1%;
+        font-size: 12px;
     }
 
     .AdminDashboardTotalStudentsCards {

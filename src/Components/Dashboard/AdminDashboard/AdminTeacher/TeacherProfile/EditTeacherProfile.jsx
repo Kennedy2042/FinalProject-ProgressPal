@@ -7,6 +7,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { teacherInformation } from '../../../../../Redux/ProductState'
 import { MdOutlineKeyboardBackspace } from 'react-icons/md'
+import Swal from 'sweetalert2'
 
 
 const EditTeacherProfile = () => {
@@ -40,10 +41,36 @@ const EditTeacherProfile = () => {
         })
             .then((res) => {
                 console.log(res)
+                Swal.fire({
+                    title: "Success!",
+                    text: res.data.message,
+                    icon: "success",
+                    confirmButtonText: "Ok",
+                    showConfirmButton: false,
+                    timer: 2000,
+                  });
                 navigate("/Dashboard/schoolAdmin/admin_teacher_dashboard")
             })
             .catch((err) => {
                 console.log(err)
+                if (err?.message === "Network Error") {
+                    Swal.fire({
+                      title: "Update Failed",
+                      text: err.message,
+                      icon: "error",
+                      confirmButtonText: "okay",
+                      timer: 1800,
+                      showConfirmButton: false,
+                    })
+                  }
+                Swal.fire({
+                    title: "error!",
+                    text: err.response.data.message,
+                    icon: "error",
+                    confirmButtonText: "Ok",
+                    showConfirmButton: false,
+                    timer: 2000,
+                  })
             })
     }
 
@@ -150,7 +177,9 @@ const EditTeacherProfile = () => {
                             </div>
                             <div className='ProfileBtn'>
                                 <button className='ProfileSendButton' onClick={editTeacherInfo}>Save</button>
-                                <button className='ProfileDeleteButton'>Delete</button>
+                                <button className='ProfileDeleteButton' onClick={()=>{
+                                    navigate("/Dashboard/schoolAdmin/admin_teacher_dashboard")
+                                }}>Back</button>
                             </div>
 
                         </div>

@@ -13,6 +13,7 @@ import analytics from "../../assets/analytics.png"
 import About from "../About/About";
 import Plans from "../FathiaAbout/FathiaAbout";
 // import Testimonial from "../Testimonial/Testimonial";
+import { Link, animateScroll as scroll } from "react-scroll";
 
 const HomePage = () => {
   const nav = useNavigate();
