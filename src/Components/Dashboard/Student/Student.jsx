@@ -24,6 +24,7 @@ const Student = () => {
     const studentData = useSelector(state => state.persisitedReducer.loginUser)
     const [menu, setMenu] = useState(false)
     const BearerToken = studentData.data.token
+    // console.log(studentData)
     // console.log(BearerToken)
     const dispatch = useDispatch()
 
@@ -151,30 +152,7 @@ const Student = () => {
                                     <p className='AdminDashboardIconsImageName'>Dashboard</p>
                                 </div>
                             </div>
-                            {/* <div className="AdminDashboardIcons" onClick={() => navigate()}>
-                                <div className='AdminHomeIcon'>
-                                    <PiStudentDuotone size={30} className='AdminDashboardIconsImage' />
-                                </div>
-                                <div className="AdminHomeIconTitle">
-                                    <p className='AdminDashboardIconsImageName'>Students</p>
-                                </div>
-                            </div> */}
-                            {/* <div className="AdminDashboardIcons" onClick={() => navigate("/Admin_Dashboard/admin_teacher_dashboard")}>
-                                <div className='AdminHomeIcon'>
-                                    <FaChalkboardTeacher size={30} className='AdminDashboardIconsImage' />
-                                </div>
-                                <div className="AdminHomeIconTitle">
-                                    <p className='AdminDashboardIconsImageName'>Teachers</p>
-                                </div>
-                            </div> */}
-                            {/* <div className="AdminDashboardIcons">
-                                <div className='AdminHomeIcon'>
-                                    <MdEmojiEvents size={30} className='AdminDashboardIconsImage' />
-                                </div>
-                                <div className="AdminHomeIconTitle">
-                                    <p className='AdminDashboardIconsImageName'>Events</p>
-                                </div>
-                            </div> */}
+                           
                             <div className="AdminDashboardIcons" onClick={showAlert}>
                                 <div className='AdminHomeIcon'>
                                     <BiLogOut size={30} className='AdminDashboardIconsImage' />

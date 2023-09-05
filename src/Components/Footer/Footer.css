@@ -207,7 +207,7 @@ hr {
 
   .Footer {
     width: 100%;
-    height: 150vh;
+    height: 110vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -227,18 +227,18 @@ hr {
     /* background-color: red; */
   }
 
-  .FooterTextHolder2 {
+  /* .FooterTextHolder2 {
     width: 100%;
     height: 90%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* background-color: green; */
-  }
+    background-color: green;
+  } */
 
   .ProgressPalText2 {
     width: 100%;
-    height: 50vh;
+    height: 40%;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -286,11 +286,11 @@ hr {
   .Contact2 p {
     color: white;
     font-size: 13px;
-  }
+  } 
 
   .LinksHolder2 {
     width: 100%;
-    height: 70vh;
+    height: 53%;
     display: flex;
     flex-direction: column;
     /* justify-content: space-between; */
@@ -395,7 +395,7 @@ hr {
 
   .Copyright2 {
     width: 100%;
-    height: 10vh;
+    height: 8%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -472,7 +472,7 @@ hr {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    background-color: brown;
+    /* background-color: brown; */
   }
 
   .Contact {
@@ -499,7 +499,7 @@ hr {
     height: 100%;
     display: flex;
     justify-content: space-between;
-    background-color: green;
+    background-color: #127cdd;
   }
 
   .CompanyHolder {

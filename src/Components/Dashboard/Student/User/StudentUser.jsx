@@ -12,7 +12,7 @@ import { studentUserResult } from '../../../../Redux/ProductState';
 
 const StudentUser = () => {
     const studentData = useSelector(state => state.persisitedReducer.loginUser)
-    console.log(studentData)
+    // console.log(studentData)
     // const [studentResult, setStudentResult] = useState([])
     const [date, setDate] = useState(new Date());
     const dispatch = useDispatch()
@@ -25,7 +25,7 @@ const StudentUser = () => {
     useEffect(() => {
         axios.get(url)
             .then((res) => {
-                console.log(res)
+                // console.log(res)
                 // setStudentResult(res.data.data)
                 dispatch(studentUserResult(res.data.data))
             })
@@ -33,11 +33,11 @@ const StudentUser = () => {
                 console.log("This is an error", err)
             })
     }, []);
-    console.log(studentResult)
+    // console.log(studentResult)
     const handleDateChange = (newDate) => {
         setDate(newDate)
     }
-    console.log(studentResult)
+    // console.log(studentResult)
 
 
     return (
@@ -46,7 +46,7 @@ const StudentUser = () => {
                 <div className="AdminDashBoardRightBodyHeader">
                     <div className="userProfile">
                         <div className="UserImageDiv">
-                            <img className='UserImage' src={studentData.data.schoolLogo} alt="school logo" />
+                            <img className='UserImage' src={studentData.data.school.schoolLogo} alt="school logo" />
                         </div>
                         <h4 className="UserImageH4">{studentData.data.school.schoolName}</h4>
                     </div>
@@ -68,7 +68,7 @@ const StudentUser = () => {
                         <div className='studentResultmainbodyheader'>
                             <div className='studentResultmainbodyheaderlogodiv'>
                                 <div className='studentResultmainbodyheaderlogo'>
-                                    <img src={studentData.data.schoolLogo} alt="School Logo" />
+                                    <img src={studentData.data.school.schoolLogo} alt="School Logo" />
                                 </div>
                                 <div className='studentResultMainbodyHeaderLogoDivSchoolName'>
                                     <p>{studentData.data.school.schoolName}</p>

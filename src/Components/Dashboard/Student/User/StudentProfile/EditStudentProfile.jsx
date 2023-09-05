@@ -5,17 +5,14 @@ import { BiDotsVerticalRounded } from 'react-icons/bi'
 import axios from 'axios'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { MdKeyboardBackspace, MdOutlineKeyboardBackspace } from 'react-icons/md'
 // import { teacherInformation } from '../../../../../Redux/ProductState'
-import Swal from 'sweetalert2'
 
 
-const TeacherStudentEditProfile = () => {  
+const StudentEditProfile = () => {  
     const studentId = useParams()
-    // const dispatch = useDispatch()
-    // const teacherProfileInfo = useSelector((state) => state.persisitedReducer.teacherInfo)
-    const teacherData = useSelector(state => state.persisitedReducer.loginUser)
-    const BearerToken = teacherData.data.token
+    // console.log(studentId)
+    const studentInfo = useSelector(state => state.persisitedReducer.loginUser)
+    const BearerToken = studentInfo.data.token
     // console.log(BearerToken, "first")
     const nav = useNavigate()
 
@@ -26,6 +23,7 @@ const TeacherStudentEditProfile = () => {
         studentEmail: "",
         studentPassport: "",
     })
+    
 
     const { studentName, studentClass, studentAge, studentEmail, studentPassport } = studentData
 
@@ -42,13 +40,12 @@ const TeacherStudentEditProfile = () => {
             }
         })
             .then((res) => {
-                // console.log(res)
+                console.log(res)
             })
             .catch((err) => {
                 console.log(err)
             })
     }
-    console.log(studentId)
 
 
 
@@ -69,8 +66,6 @@ const TeacherStudentEditProfile = () => {
     useEffect(() => {
       getOneStudentApi();
     }, []);
-    // console.log(studentData)
-    // console.log(studentId)
 
 
     return (
@@ -80,24 +75,19 @@ const TeacherStudentEditProfile = () => {
 
                 <div className='Profilebody'>
                     <div className='ProfileImage'>
-                    <div className="BackArrowDiv">
-                                <MdOutlineKeyboardBackspace size={35} style={{ cursor: "pointer" }} onClick={
-                                    () => {
-                                        nav(`/teacherdashboard/studentProfile/${studentId.studentId}`)
-
-                                    }
-                                } />
-                            </div>
-                            <div className='ProfileImagecircle'>
-                                <img src={studentPassport} alt="Student Passport"  />
-
-                            </div>
-                            <div className='ProfileImageName'>
-                                <h2>{studentName}</h2>
-                            </div>
-                            <div className='ProfileImageEmail'>
-                                <p>{studentEmail}</p>
-                            </div>
+                        <img className='ProfileImagecircle' src={studentPassport} alt="Student Passport" />
+                        {/* <div className='ProfileImagecircle'></div> */}
+                        <div className='ProfileImageName'>
+                            <h2>{studentName}</h2>
+                            {/* <input type="text" value={teacherProfileInfo.teacherName} /> */}
+                        </div>
+                        <div className='ProfileImageEmail'>
+                            <p>{studentEmail}</p>
+                            {/* <input type="text" value={teacherProfileInfo.teacherEmail} /> */}
+                        </div>
+                        {/* <div className='ProfileImageState'>
+                            <p>United state</p>
+                        </div> */}
                     </div>
                     <div className='ProfileInput'>
                         <div className='ProfileInputName'>
@@ -147,14 +137,13 @@ const TeacherStudentEditProfile = () => {
                                     <BiDotsVerticalRounded />
                                 </div>
 
-                                <input className='ProfileInputNameinnerName' type="file" name='studentPassport' onChange={(e) => onInputChange(e)} />                            </div>
+                                <input className='ProfileInputNameinnerName' type="file" name='studentPassport' accept='image/*' onChange={(e) => onInputChange(e)} />                            </div>
                         </div>
                         <div className='ProfileBtn'>
                                 <button className='ProfileSendButton' onClick={editStudentInfo}>Save</button>
-                            <button className='ProfileDeleteButton' onClick={() => {
-                                        nav(`/teacherdashboard/studentProfile/${studentId.studentId}`)
-
-                                    }}>Back</button>
+                            <button className='ProfileDeleteButton' onClick={()=>{
+                                nav(`/Dashboard/student/studentUser/${studentId.studentId}`)
+                            }} >Back</button>
                         </div>
 
                     </div>
@@ -164,4 +153,4 @@ const TeacherStudentEditProfile = () => {
     )
 }
 
-export default TeacherStudentEditProfile
+export default StudentEditProfile;

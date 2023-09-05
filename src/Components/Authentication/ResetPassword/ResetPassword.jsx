@@ -2,9 +2,11 @@ import React, { useState } from 'react'
 import "./ResetPassword.css"
 import axios from 'axios'
 import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 const ResetPassword = () => {
   const schoolUsers = useSelector(state => state.persisitedReducer.School)
+  const nav = useNavigate()
 
   const[password, setPassword] = useState("")
   const[confirmPassword, setConfirmPassword] = useState("")
@@ -16,7 +18,10 @@ const ResetPassword = () => {
 
   const ResetPassword = () => {
     axios.put(url, data)
-    .then(res => console.log(res))
+    .then((res) => {
+      console.log(res)
+      nav("/login")
+    })
     .catch((err) => {
       console.log(err)
     })

@@ -21,6 +21,8 @@ import PremiumUpgradeComponent from './Upgrade/Upgrade'
 import ResultSheet from './Components/Dashboard/Teacher/ResultSheet/ResultSheet'
 import TeacherViewStudentProfile from './Components/Dashboard/Teacher/Student/TeacherViewStudentProfile'
 import TeacherStudentEditProfile from './Components/Dashboard/Teacher/TeacherStudentProfile/TeacherStudentEditProfile'
+import StudentEditProfile from './Components/Dashboard/Student/User/StudentProfile/EditStudentProfile'
+import TeacherEditProfile from './Components/Dashboard/Teacher/TeacherProfile/EditTeacherPofile'
 
 
 
@@ -58,6 +60,8 @@ function App() {
             <Route path='/Upgrade_now' element={<PremiumUpgradeComponent/>} />
             <Route path='/teacher_create_studentResult/:shareId' element={<ResultSheet/>} />
             <Route path='/teacherdashboard/editStudentProfile/:studentId' element={<TeacherStudentEditProfile/>} />
+            <Route path='/Dashboard/student/studentUser/editProfile/:studentId' element={<StudentEditProfile/>} />
+            <Route path='/Dashboard/teacher/teacherUser/editProfile/:teacherId' element={<TeacherEditProfile/>} />
           </Routes>
         </HashRouter>
         {/* <TeacherUser/> */}

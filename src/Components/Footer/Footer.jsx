@@ -6,6 +6,7 @@ import { BiLogoLinkedin } from "react-icons/bi";
 import { BiLogoInstagram } from "react-icons/bi";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { MdLocationOn } from "react-icons/md";
+import ProgressPalLogo from "../../assets/ProgressPalLogo.png"
 
 const Footer = () => {
   return (
@@ -15,7 +16,7 @@ const Footer = () => {
           <div className="FooterTextHolder">
             <article className="ProgressPalText">
               <span className="ProgressPalLogo">
-                <img src="" alt="" />
+                <img src={ProgressPalLogo} alt="progress pal logo" />
               </span>
               <p>
                 ProgressPal builds educational software to manage students
@@ -84,7 +85,7 @@ const Footer = () => {
         <article className="FooterWrapper2">
             <article className="ProgressPalText2">
               <span className="ProgressPalLogo2">
-                <img src="" alt="" />
+                <img src={ProgressPalLogo} alt="progress pal logo" />
               </span>
               <p>
                 ProgressPal builds educational software to manage students

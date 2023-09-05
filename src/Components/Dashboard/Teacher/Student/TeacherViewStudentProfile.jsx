@@ -5,6 +5,10 @@ import TeacherStudent from "./TeacherStudent";
 import axios from "axios";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Swal from 'sweetalert2'
+import { SpinnerCircular } from "spinners-react";
+
+
 
 const TeacherViewStudentProfile = () => {
   const studentId = useParams()
@@ -14,6 +18,9 @@ const TeacherViewStudentProfile = () => {
   const studentInfo = useSelector(state => state.persisitedReducer.loginUser)
   const BearerToken = studentInfo.data.token
   console.log(BearerToken, "first")
+  const [loading, setLoading] = useState(false)
+
+
 
   const oneStudentUrl = `https://progresspal-8rxj.onrender.com/progressPal/readOneStudent/${studentId.studentId}`;
 
@@ -33,20 +40,71 @@ const TeacherViewStudentProfile = () => {
     getOneStudentApi();
   }, []);
 
+  const showAlert = () => {
+    Swal.fire({
+      title: 'Delete Teacher',
+      text: 'Are you sure',
+      icon: 'warning',
+      cancelButtonColor: '#127cdd',
+      showCancelButton: true,
+      confirmButtonText: 'yes',
+      customClass: {
+        confirmButton: 'sweet-alert-confirm-btn',
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleteStudent()
+      }
+    });
+  };
+
   async function deleteStudent() {
-    axios.delete(`https://progresspal-8rxj.onrender.com/progressPal/deleteStudent/${studentId.studentId}`,{
-        headers: {
-            "Content-type": "multipart/form-data",
-            Authorization: `Bearer ${BearerToken}`
-        }
+    axios.delete(`https://progresspal-8rxj.onrender.com/progressPal/deleteStudent/${studentId.studentId}`, {
+      headers: {
+        "Content-type": "multipart/form-data",
+        Authorization: `Bearer ${BearerToken}`
+      }
     })
-        .then((res) => {
-            console.log(res)
+      .then((res) => {
+        console.log(res)
+        nav('/Dashboard/teacher/teacher_student_dashboard')
+        Swal.fire({
+          title: "Success!",
+          text: res.data.message,
+          icon: "success",
+          confirmButtonText: "Ok",
+          showConfirmButton: false,
+          timer: 1500
         })
-        .catch((err) => {
-            console.log(err)
+        setLoading(false)
+
+      })
+      .catch((err) => {
+        console.log(err);
+        if (err?.message === "Network Error") {
+          Swal.fire({
+            title: "Update Failed",
+            text: err.message,
+            icon: "error",
+            confirmButtonText: "okay",
+            timer: 1800,
+            showConfirmButton: false,
+          })
+          setLoading(false)
+
+        }
+        Swal.fire({
+          title: "Error!",
+          text: err.response.data.message,
+          icon: "error",
+          confirmButtonText: "Ok",
+          timer: 1800,
+          showConfirmButton: false,
         })
-}
+        setLoading(false)
+
+      })
+  }
 
   return (
     <>
@@ -61,7 +119,7 @@ const TeacherViewStudentProfile = () => {
             x
           </div>
           <div className="TeacherStudentProfileImage">
-            <img src={studentDetails?.studentPassport} alt="" />
+            <img src={studentDetails?.studentPassport} alt="Student Passport" />
           </div>
 
           <div className="TeacherStudentProfileInput">
@@ -85,7 +143,7 @@ const TeacherViewStudentProfile = () => {
                 </div>
 
                 <div className="TeacherStudentProfileInputNameinnerName">
-                {studentDetails?.studentEmail}
+                  {studentDetails?.studentEmail}
                 </div>
               </div>
             </div>
@@ -97,7 +155,7 @@ const TeacherViewStudentProfile = () => {
                 </div>
 
                 <div className="TeacherStudentProfileInputNameinnerName">
-                {studentDetails?.studentClass}
+                  {studentDetails?.studentClass}
                 </div>
               </div>
             </div>
@@ -109,7 +167,7 @@ const TeacherViewStudentProfile = () => {
                 </div>
 
                 <div className="TeacherStudentProfileInputNameinnerName">
-                {studentDetails?.studentAge}
+                  {studentDetails?.studentAge}
                 </div>
               </div>
             </div>
@@ -127,9 +185,18 @@ const TeacherViewStudentProfile = () => {
               </div>
             </div> */}
             <div className="TeacherStudentProfileBtn">
-             <button className="TeacherStudentProfileEditButton" onClick={() => {nav(`/teacherdashboard/editStudentProfile/${studentDetails._id}`)}} >Edit</button>
-              <button className="TeacherStudentProfileDeleteButton" onClick={deleteStudent}>
-                Delete
+              <button className="TeacherStudentProfileEditButton" onClick={() => { nav(`/teacherdashboard/editStudentProfile/${studentDetails._id}`) }} >Edit</button>
+              <button className="TeacherStudentProfileDeleteButton" onClick={showAlert}>
+              {loading ? (
+                    <SpinnerCircular
+                      size={44}
+                      thickness={99}
+                      speed={100}
+                      color="rgba(18, 124, 221, 1)"
+                    />
+                  ) : (
+                    "Delete"
+                  )}
               </button>
             </div>
           </div>

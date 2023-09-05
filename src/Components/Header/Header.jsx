@@ -15,14 +15,14 @@ const Header = () => {
           <div className="Logo">
             <img
               src={ProgressPalLogo}
-              alt=""
+              alt="Progress pal logo"
             />
           </div>
           <nav>
             <ul>
               <li onClick={() => nav("/")}>Home</li>
               <li>About</li>
-              <li>Search</li>
+              {/* <li>Search</li> */}
               <li>Services</li>
             </ul>
           </nav>
