@@ -1,7 +1,5 @@
 import React from 'react'
 import "./TeacherResult.css"
-import { PiStudentDuotone } from "react-icons/pi"
-import axios from 'axios'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
@@ -32,7 +30,7 @@ const TeacherResult = () => {
     //     })
     // }
 
-    console.log(allStudent, "all studenr")
+    // console.log(allStudent, "all student")
 
 
     return (

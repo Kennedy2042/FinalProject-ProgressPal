@@ -48,7 +48,7 @@ const TeacherUser = () => {
         setDate(newDate)
     };
 
-    // console.log(teacherData)
+    console.log(teacherData)
 
 
 

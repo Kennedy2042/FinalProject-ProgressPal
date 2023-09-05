@@ -9,7 +9,6 @@ import ForgetPassword from "./Components/Authentication/ForgetPassword/ForgetPas
 import ResetPassword from "./Components/Authentication/ResetPassword/ResetPassword"
 import TeacherSignUp from "./Components/Authentication/SignUp/TeacherSignup/TeacherSignUp"
 import TeacherLogin from "./Components/Authentication/Login/TeacherLogin/TeacherLogin"
-import TeacherForget from "./Components/Authentication/ForgetPassword/Teacher/TeacherForget"
 import Teacher from "./Components/Dashboard/Teacher/Teacher"
 import Student from "./Components/Dashboard/Student/Student"
 import StudentProfile from './Components/Dashboard/AdminDashboard/AdminStudent/StudentProfile/StudentProfile'
@@ -23,6 +22,9 @@ import TeacherViewStudentProfile from './Components/Dashboard/Teacher/Student/Te
 import TeacherStudentEditProfile from './Components/Dashboard/Teacher/TeacherStudentProfile/TeacherStudentEditProfile'
 import StudentEditProfile from './Components/Dashboard/Student/User/StudentProfile/EditStudentProfile'
 import TeacherEditProfile from './Components/Dashboard/Teacher/TeacherProfile/EditTeacherPofile'
+import StudentResult from './Components/Dashboard/AdminDashboard/AdminStudent/StudentProfile/StudentResult'
+import TeacherResetPassword from './Components/Authentication/ResetPassword/TeacherResetPassword'
+import StudentResetPassword from './Components/Authentication/ResetPassword/StudentResetPassword'
 
 
 
@@ -41,27 +43,27 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/sch_register" element={<SchRegister />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/verified_success/:token" element={<Verification/>} />
-              <Route path="/Dashboard/schoolAdmin/*" element={<Admin/>} />
-            
-            {/* <Route path="/Dashboard/schoolAdmin*" element={<Admin/>} /> */}
-            <Route path="/forget_password" element={<ForgetPassword/>} />
-            <Route path="/reset_password/:id/:token" element={<ResetPassword/>} />
-            <Route path="/teacher_signup/:token" element={<TeacherSignUp/>} />
-            <Route path="/teacher_login" element={<TeacherLogin/>} />
-            <Route path="/teacher_forgot_password" element={<TeacherForget/>} />
-            <Route path="/Dashboard/teacher/*" element={<Teacher/>}/>
-            <Route path="/Dashboard/student/*" element={<Student/>} />
-            <Route path='/student_profile/:studentId' element={<StudentProfile/>}/>
-            <Route path='/admindashboard/teacherProfile/:teacherId' element={<TeacherProfile/>}/>
-            <Route path="/teacherdashboard/studentProfile/:studentId" element={<TeacherViewStudentProfile/>}/>
-            <Route path='/admindashboard/editteacherProfile/:id' element={<EditTeacherProfile/>}/>
-            <Route path='/teacher_studentResult/:studentId' element={<Result/>}/>
-            <Route path='/Upgrade_now' element={<PremiumUpgradeComponent/>} />
-            <Route path='/teacher_create_studentResult/:shareId' element={<ResultSheet/>} />
-            <Route path='/teacherdashboard/editStudentProfile/:studentId' element={<TeacherStudentEditProfile/>} />
-            <Route path='/Dashboard/student/studentUser/editProfile/:studentId' element={<StudentEditProfile/>} />
-            <Route path='/Dashboard/teacher/teacherUser/editProfile/:teacherId' element={<TeacherEditProfile/>} />
+            <Route path="/verified_success/:token" element={<Verification />} />
+            <Route path="/Dashboard/schoolAdmin/*" element={<Admin />} />
+            <Route path="/forget_password" element={<ForgetPassword />} />
+            <Route path="/school_reset_password/:id/:token" element={<ResetPassword />} />
+            <Route path="/teacher_reset_password/:id/:token" element={<TeacherResetPassword />} />
+            <Route path="/student_reset_password/:id/:token" element={<StudentResetPassword />} />
+            <Route path="/teacher_signup/:token" element={<TeacherSignUp />} />
+            <Route path="/teacher_login" element={<TeacherLogin />} />
+            <Route path="/Dashboard/teacher/*" element={<Teacher />} />
+            <Route path="/Dashboard/student/*" element={<Student />} />
+            <Route path='/student_profile/:studentId' element={<StudentProfile />} />
+            <Route path='/admindashboard/teacherProfile/:teacherId' element={<TeacherProfile />} />
+            <Route path="/teacherdashboard/studentProfile/:studentId" element={<TeacherViewStudentProfile />} />
+            <Route path='/admindashboard/editteacherProfile/:id' element={<EditTeacherProfile />} />
+            <Route path='/teacher_studentResult/:studentId' element={<Result />} />
+            <Route path='/admin_studentResult/:studentId' element={<StudentResult />} />
+            <Route path='/Upgrade_now' element={<PremiumUpgradeComponent />} />
+            <Route path='/teacher_create_studentResult/:shareId' element={<ResultSheet />} />
+            <Route path='/teacherdashboard/editStudentProfile/:studentId' element={<TeacherStudentEditProfile />} />
+            <Route path='/Dashboard/student/studentUser/editProfile/:studentId' element={<StudentEditProfile />} />
+            <Route path='/Dashboard/teacher/teacherUser/editProfile/:teacherId' element={<TeacherEditProfile />} />
           </Routes>
         </HashRouter>
         {/* <TeacherUser/> */}

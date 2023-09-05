@@ -2,16 +2,18 @@ import React, { useState } from 'react'
 import "./ResetPassword.css"
 import axios from 'axios'
 import { useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 const ResetPassword = () => {
-  const schoolUsers = useSelector(state => state.persisitedReducer.School)
+  // const schoolUsers = useSelector(state => state.persisitedReducer.School)
   const nav = useNavigate()
+  const schoolId = useParams()
+  const {token} = useParams()
 
   const[password, setPassword] = useState("")
   const[confirmPassword, setConfirmPassword] = useState("")
 
-  const url = `https://progresspal-8rxj.onrender.com/progressPal/reset-password/${schoolUsers._id}/:token`
+  const url = `https://progresspal-8rxj.onrender.com/progressPal/reset-password/${schoolId._id}/:token`
 
   const data = {password, confirmPassword}
 

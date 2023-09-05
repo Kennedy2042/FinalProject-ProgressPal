@@ -1,0 +1,413 @@
+/* *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #13131b;
+} */
+
+/* .active-scroll-link {
+    border-bottom: 1px solid #127cdd;
+    color: #127cdd;
+  } */
+
+.AboutMainContainer {
+    height: max-content;
+    width: 100%;
+    background-color: #f8f8f8;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.aboutHead {
+    height: 15vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    /* background-color: aquamarine; */
+}
+
+.aboutHead h1 {
+    width: 100%;
+    height: 17%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 34px;
+    text-decoration: underline;
+    text-decoration-color: #127cdd;
+    text-decoration-thickness: 4px;
+    color: #76787b;
+    font-weight: 500;
+}
+
+.aboutHead p {
+    font-size: 20px;
+}
+
+.AboutVision {
+    height: 70vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: aqua; */
+
+}
+
+.MainAboutVision {
+    height: 100%;
+    width: 90%;
+    display: flex;
+    /* background-color: gray; */
+    justify-content: center;
+    align-items: center;
+}
+
+.AboutVisionText {
+    height: 50%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+    /* background: #000; */
+}
+
+.AboutVisionHeader {
+    height: 30%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+.ourVisionH1 {
+    font-size: 45px;
+    font-weight: 500;
+    color: #212529;
+}
+
+.AboutVisionBody {
+    height: 60%;
+    width: 90%;
+    /* border: 2px solid black; */
+    /* display: flex; */
+    /* align-items: center; */
+    justify-content: center;
+}
+
+.AboutVisionBodyP {
+    font-size: 18px;
+    font-weight: 300;
+    color: #76787b;
+}
+
+
+.AboutVisionImg {
+    height: 100%;
+    width: 50%;
+    /* background-color: pink; */
+}
+
+.AboutVisionImg img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+
+.AboutApproach {
+    height: 70vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: aqua; */
+
+}
+
+.MainAboutApproach {
+    height: 100%;
+    width: 90%;
+    display: flex;
+    /* background-color: paleturquoise; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.AboutApproachImg {
+    height: 100%;
+    width: 50%;
+    /* background-color: pink; */
+}
+
+.AboutApproachImg img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+
+.AboutApproachText {
+    height: 50%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    /* background-color: blueviolet; */
+    justify-content: center;
+}
+
+.AboutApproachHeader {
+    height: 30%;
+    width: 90%;
+    /* border: 2px solid black; */
+    display: flex;
+    /* align-items: flex-end; */
+    align-items: center;
+    /* justify-content: baseline; */
+    /* background-color: aqua; */
+}
+
+.ourApproachH1 {
+    font-size: 45px;
+    font-weight: 500;
+    color: #212529;
+}
+
+.AboutApproachBody {
+    height: 70%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* background-color: blue; */
+}
+
+.AboutApproachBody P {
+    font-size: 18px;
+    font-weight: 300;
+    color: #76787b;
+}
+
+
+@media screen and (max-width: 580px) {
+
+    /* main{ 
+        height: 100vh;
+        width: 100vw;
+        background: red;
+    } */
+    .aboutHead {
+        height: 10vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .aboutHead h1 {
+        width: 100%;
+        height: 5%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        font-size: 18px;
+        text-decoration: underline;
+        text-decoration-color: #127cdd;
+        text-decoration-thickness: 2.5px;
+        color: #76787b;
+        font-weight: 500;
+    }
+
+    .aboutHead p {
+        font-size: 15px;
+    }
+
+    .AboutVision {
+        height: 120vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* background-color: aqua; */
+
+    }
+
+    .MainAboutVision {
+        height: 100%;
+        width: 90%;
+        display: flex;
+        /* justify-content: space-between; */
+        flex-direction: column-reverse;
+        /* background-color: paleturquoise; */
+    }
+
+    .AboutVisionText {
+        height: 60%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        /* background-color: blue; */
+        /* align-items: center; */
+        /* justify-content: center; */
+    }
+
+    .AboutVisionHeader {
+        height: 30%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .ourVisionH1 {
+        font-size: 18px;
+        font-weight: 500;
+        color: #212529;
+    }
+
+    .AboutVisionBody {
+        height: 60%;
+        width: 90%;
+        /* border: 2px solid black; */
+        display: flex;
+        /* align-items: center; */
+        justify-content: center;
+    }
+
+    .AboutVisionBody P {
+        font-size: 13px;
+        /* margin-top: 2px; */
+    }
+
+
+    .AboutVisionImg {
+        height: 60%;
+        width: 100%;
+        /* background-color: pink; */
+    }
+
+    .AboutVisionImg img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+
+    .AboutApproach {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* background-color: aqua; */
+
+    }
+
+    .MainAboutApproach {
+        height: 100%;
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        /* background-color: paleturquoise; */
+    }
+
+
+    .AboutApproachImg {
+        height: 40%;
+        width: 100%;
+        /* background-color: pink; */
+    }
+
+    .AboutApproachImg img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+
+    .AboutApproachText {
+        height: 60%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        /* align-items: flex-end; */
+        /* justify-content: center; */
+    }
+
+    .AboutApproachHeader {
+        height: 30%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .ourApproachH1 {
+        font-size: 18px;
+        font-weight: 500;
+        color: #212529;
+    }
+
+    .AboutApproachBody {
+        height: 60%;
+        width: 90%;
+        justify-content: center;
+    }
+
+    .AboutApproachBody P {
+        font-size: 13px;
+        /* margin-top: 5px; */
+    }
+}
+
+
+
+@media screen and (max-width: 1024px) {
+
+    .AboutVisionText {
+        height: 60%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .ourVisionH1 {
+        font-size: 25px;
+        font-weight: 500;
+        color: #212529;
+    }
+
+    .AboutVisionBody P {
+        font-size: 15px;
+        margin-top: 2px;
+    }
+
+    .ourApproachH1 {
+        font-size: 25px;
+        font-weight: 500;
+        color: #212529;    }
+
+    .AboutApproachBody P {
+        font-size: 15px;
+        margin-top: 2px;
+    }
+}

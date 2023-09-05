@@ -61,6 +61,10 @@
   font-size: 20px;
 }
 
+ .SchoolAddressP{
+    font-size: 20px;
+  }
+
 .ResultmainbodyheaderTerm {
   width: 100%;
   height: 15%;
@@ -326,7 +330,468 @@ td {
     border-radius: 5px;
   }
 
+ 
+  .Resultmainbodyheader {
+    width: 100%;
+    height: 40%;
+    background-color: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px 5px 0px 0px;
+    flex-direction: column;
+  }
+  
+  .Resultmainbodyheaderlogodiv {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .Resultmainbodyheaderlogo {
+    width: 15%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .Resultmainbodyheaderlogo img {
+    width: 100%;
+    height: 80%;
+  }
+  
+  .ResultmainbodyheaderlogodivschoolName {
+    width: 75%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .ResultmainbodyheaderlogodivschoolName p {
+    font-size: 16px;
+    word-wrap: break-word;
+    text-align: center;
+  }
+
+  .SchoolAddressP{
+    font-size: 10px !important;
+    word-wrap: break-word;
+    text-align: center;
+  }
+  
+  .ResultmainbodyheaderTerm {
+    width: 100%;
+    height: 15%;
+    background-color: #127bdd57;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 550;
+  }
+  
+  .ResultmainbodyheaderStudentnamediv {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .ResultmainbodyheaderStudentname {
+    width: 30%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .studentNameP2 {
+    font-weight: normal;
+    font-size: 13px;
+  }
+  
+  .ResultmainbodyheaderStudentname2 {
+    width: 30%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .ResultTable {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: blue; */
+    flex-direction: column;
+  }
+  
+  .subjectsword {
+    /* color: yellow; */
+    width: 100%;
+    height: 12%;
+    /* background-color: blueviolet; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #0000006b;
+  
+  }
+  
+  .table {
+    /* background-color: pink; */
+    width: 90%;
+    height: 95%;
+  }
+  
+  
+  .TotalA {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-around;
+    height: 50vh;
+  }
+  
+  .TotalA td {
+    font-size: 12px;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .TotalB {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-around;
+    height: 50vh;
+  }
+  
+  .TotalB td {
+    font-size: 15px;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .TotalB td {
+    font-size: 16px;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
   th {
+    border-right: 1px solid black;
+    border-left: 1px solid black;
     font-size: 14px;
+
+  }
+  
+  table {
+    width: 530px;
+    height: 200px;
+  }
+  
+  tr {
+    font-weight: 100;
+    font-size: 18px;
+  
+  }
+  
+  td {
+    border-bottom: 1px solid black;
+  }
+  
+  .TotalScorediv {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+    gap: 240px;
+    /* background-color: red; */
+  }
+  
+  .tableButton {
+    width: 100%;
+    height: 9%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .tableButtonEdit {
+    width: 25%;
+    height: 70%;
+    background: blue;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-size: 11px;
+
+  }
+  
+  .tableButtonDelete {
+    width: 25%;
+    height: 70%;
+    background: red;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-size: 11px;
+  }
+}
+
+
+@media only screen and (min-width: 580px) and (max-width:1024px) {
+  .ResultMainbody {
+    gap: 15px;
+    width: 40%;
+    height: 100vh;
+    border: 1px solid #000000;
+    border-radius: 5px;
+  }
+
+ 
+  .Resultmainbodyheader {
+    width: 100%;
+    height: 40%;
+    background-color: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px 5px 0px 0px;
+    flex-direction: column;
+  }
+  
+  .Resultmainbodyheaderlogodiv {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .Resultmainbodyheaderlogo {
+    width: 25%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .Resultmainbodyheaderlogo img {
+    width: 100%;
+    height: 80%;
+  }
+  
+  .ResultmainbodyheaderlogodivschoolName {
+    width: 60%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .ResultmainbodyheaderlogodivschoolName p {
+    font-size: 16px;
+    word-wrap: break-word;
+    text-align: center;
+  }
+
+  .SchoolAddressP{
+    font-size: 10px !important;
+    word-wrap: break-word;
+    text-align: center;
+  }
+  
+  .ResultmainbodyheaderTerm {
+    width: 100%;
+    height: 15%;
+    background-color: #127bdd57;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 550;
+  }
+  
+  .ResultmainbodyheaderStudentnamediv {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .ResultmainbodyheaderStudentname {
+    width: 30%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .studentNameP2 {
+    font-weight: normal;
+    font-size: 13px;
+  }
+  
+  .ResultmainbodyheaderStudentname2 {
+    width: 30%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .ResultTable {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: blue; */
+    flex-direction: column;
+  }
+  
+  .subjectsword {
+    /* color: yellow; */
+    width: 100%;
+    height: 12%;
+    /* background-color: blueviolet; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #0000006b;
+  
+  }
+  
+  .table {
+    /* background-color: pink; */
+    width: 90%;
+    height: 95%;
+  }
+  
+  
+  .TotalA {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-around;
+    height: 50vh;
+  }
+  
+  .TotalA td {
+    font-size: 12px;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .TotalB {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-around;
+    height: 50vh;
+  }
+  
+  .TotalB td {
+    font-size: 15px;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .TotalB td {
+    font-size: 16px;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  th {
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    font-size: 14px;
+
+  }
+  
+  table {
+    width: 530px;
+    height: 200px;
+  }
+  
+  tr {
+    font-weight: 100;
+    font-size: 18px;
+  
+  }
+  
+  td {
+    border-bottom: 1px solid black;
+  }
+  
+  .TotalScorediv {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+    gap: 240px;
+    /* background-color: red; */
+  }
+  
+  .tableButton {
+    width: 100%;
+    height: 9%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .tableButtonEdit {
+    width: 25%;
+    height: 70%;
+    background: blue;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-size: 11px;
+
+  }
+  
+  .tableButtonDelete {
+    width: 25%;
+    height: 70%;
+    background: red;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-size: 11px;
   }
 }
