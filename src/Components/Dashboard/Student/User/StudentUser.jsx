@@ -48,8 +48,13 @@ const StudentUser = () => {
     const pdfRefCurrent = pdfRef.current;
 
     // Use html2canvas to capture the content
-    const canvas = await html2canvas(pdfRefCurrent);
-
+    const canvas = await html2canvas(pdfRefCurrent, {
+        x: 0,
+        y: 0,
+        width: pdfRefCurrent.clientWidth,
+        height: pdfRefCurrent.clientHeight,
+      });
+      
     // Add the captured content to the PDF
     const imgData = canvas.toDataURL("image/png");
     pdf.addImage(imgData, "PNG", 10, 10, 190, 277);

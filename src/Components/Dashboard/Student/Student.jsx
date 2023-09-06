@@ -45,9 +45,7 @@ const Student = () => {
             },
         }).then((result) => {
             if (result.isConfirmed) {
-                StudentLogout()
-                dispatch(studentUserResult([]))
-                dispatch(userLogin({isLoggedIn:""}))
+                
 
             }
         });
@@ -65,6 +63,9 @@ const Student = () => {
             .then((res) => {
                 console.log(res)
                 navigate("/")
+                StudentLogout()
+                dispatch(studentUserResult([]))
+                dispatch(userLogin({isLoggedIn:""}))
             })
             .catch((err) => {
                 console.log(err)
