@@ -8,7 +8,7 @@ const initialState = {
     adminTeachApi: [],
     AdminStudentApi: [],
     teacherInfo: [],
-    isLoggedIn:false,
+    isLoggedIn: "",
     studentResult: [],
     adminStudent: [],
     adminTeachers: [],
