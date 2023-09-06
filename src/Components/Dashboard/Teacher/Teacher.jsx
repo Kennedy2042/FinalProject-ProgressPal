@@ -24,7 +24,7 @@ import Swal from 'sweetalert2'
 import { allStudentApi } from '../../../Redux/ProductState'
 import { loginUserData } from '../../../Redux/ProductState'
 import { BsFileSpreadsheet } from 'react-icons/bs'
-import Auth from '../../Authentication/Auth'
+// import Auth from '../../Authentication/Auth'
 import { userLogin } from '../../../Redux/ProductState'
 
 

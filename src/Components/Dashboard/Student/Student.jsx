@@ -16,7 +16,7 @@ import Result from '../Teacher/ReportCard/ReportCard'
 import Swal from 'sweetalert2'
 import StudentUser from './User/StudentUser'
 import { studentUserResult } from '../../../Redux/ProductState'
-import Auth from '../../Authentication/Auth'
+// import Auth from '../../Authentication/Auth'
 import { userLogin } from '../../../Redux/ProductState'
 
 

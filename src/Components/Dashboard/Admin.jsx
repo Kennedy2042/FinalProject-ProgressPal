@@ -17,9 +17,9 @@ import AdminUser from './AdminDashboard/User/AdminUser'
 import axios from 'axios'
 import Swal from 'sweetalert2'
 import { adminAllTeacherApi, adminSchoolStudents, adminSchoolTeachers, schoolUserData, teacherInformation } from '../../Redux/ProductState'
-import Login from '../Authentication/Login/Login'
+// import Login from '../Authentication/Login/Login'
 import { userLogin } from '../../Redux/ProductState'
-import Auth from "../Authentication/Auth"
+// import Auth from "../Authentication/Auth"
 
 
 
@@ -52,7 +52,6 @@ const Admin = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 AdminLogout()
-                navigate("/")
 
             }
         });
