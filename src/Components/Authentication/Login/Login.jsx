@@ -54,7 +54,8 @@ const Login = () => {
             .post(url, select === 'schoolAdmin' ? data : select === 'teacher' ? info : detail)
 
             .then((res) => {
-                dispatch(loginUserData(res))
+                navigate(`/Dashboard/${select}/${select}User/${res.data.data._id}`);
+
                 console.log(res)
                 setSuccessErrorMessage(res.data.message)
                 Swal.fire({
@@ -69,10 +70,10 @@ const Login = () => {
                 // }, 3000);
 
                 dispatch(userLogin(res.data.data.token))
+                dispatch(loginUserData(res))
 
                 setLoading(false)
                 console.log("Before navigate");
-                navigate(`/Dashboard/${select}/${select}User/${res.data.data._id}`);
                 console.log("After navigate");
             })
             .catch((err) => {
