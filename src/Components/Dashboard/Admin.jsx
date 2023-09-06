@@ -234,11 +234,11 @@ const Admin = () => {
                 </div>
                 <div className='AdminDashBoardRightBody'>
                     <Routes>
-                        <Route element={<Auth />} >
+                        {/* <Route element={<Auth />} > */}
                             <Route path='/schoolAdminUser/:id' element={<AdminUser />}/>
                             <Route path='/admin_teacher_dashboard' element={<AdminTeacherDashboard />}/>
                             <Route path='/admin_student_dashboard' element={<AdminStudentDashboard />}/>
-                        </Route>
+                        {/* </Route> */}
                     </Routes>
                     {/* <Routes>
                         {
