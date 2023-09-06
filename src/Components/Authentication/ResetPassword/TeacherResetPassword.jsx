@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux'
 import { BiSolidHide, BiSolidShow } from 'react-icons/bi'
 
 const TeacherResetPassword = () => {
-  const teacherId = useParams()
   const {token} = useParams()
   // const teacherProfileInfo = useSelector((state) => state.persisitedReducer.teacherInfo)
   console.log(teacherProfileInfo._id)
@@ -20,7 +19,7 @@ const TeacherResetPassword = () => {
     msg: "",
   });
 
-  const url = `https://progresspal-8rxj.onrender.com/progressPal/reset-password/${teacherId._id}/:token`
+  const url = `https://progresspal-8rxj.onrender.com/progressPal/reset-password/${token}`
 
   const data = {password, confirmPassword}
 

@@ -6,7 +6,6 @@ import { BiSolidHide, BiSolidShow } from 'react-icons/bi'
 
 const StudentResetPassword = () => {
   // const schoolUsers = useSelector(state => state.persisitedReducer.School)
-  const studentId = useParams()
   const {token} = useParams()
 
   const[password, setPassword] = useState("")
@@ -19,11 +18,11 @@ const StudentResetPassword = () => {
     msg: "",
   });
 
-  const StudentDetails = useSelector(
-    (state) => state.persisitedReducer.newStudentDetails
-  );
+  // const StudentDetails = useSelector(
+  //   (state) => state.persisitedReducer.newStudentDetails
+  // );
 
-  const url = `https://progresspal-8rxj.onrender.com/progressPal/reset-passwordStudent/${studentId._id}/:token`
+  const url = `https://progresspal-8rxj.onrender.com/progressPal/reset-passwordStudent/${token}`
 
   const data = {password, confirmPassword}
 
