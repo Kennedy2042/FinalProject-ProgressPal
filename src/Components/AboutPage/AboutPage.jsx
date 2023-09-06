@@ -10,7 +10,7 @@ const AboutPage = () => {
                 <div className="main">
                     <header className="aboutHead">
                         <h1>About Us</h1>
-                        {/* <p>ProgressPal Result Management</p> */}
+                        <p>ProgressPal Result Management is a platform which aims empower your school success for Time, Effort & Student Excellence!</p>
                     </header>
 
                     <section className="AboutVision">
