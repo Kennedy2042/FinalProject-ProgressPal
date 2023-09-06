@@ -3,10 +3,14 @@ import "./ResetPassword.css"
 import axios from 'axios'
 import { useSelector } from 'react-redux'
 import { BiSolidHide, BiSolidShow } from 'react-icons/bi'
+import { useNavigate } from 'react-router-dom'
+import { SpinnerCircular } from "spinners-react"
+
 
 const StudentResetPassword = () => {
   // const schoolUsers = useSelector(state => state.persisitedReducer.School)
   const {token} = useParams()
+  const nav = useNavigate()
 
   const[password, setPassword] = useState("")
   const[confirmPassword, setConfirmPassword] = useState("")
@@ -17,6 +21,8 @@ const StudentResetPassword = () => {
     value: "",
     msg: "",
   });
+    const [loading, setLoading] = useState(false)
+
 
   // const StudentDetails = useSelector(
   //   (state) => state.persisitedReducer.newStudentDetails
@@ -57,10 +63,15 @@ const StudentResetPassword = () => {
       });
     } else {
       setValidMessage("");
+      setLoading(true)
       axios.put(url, data)
-      .then(res => console.log(res))
+      .then((res) => {
+        console.log(res)
+        nav("/login")
+      })
       .catch((err) => {
         console.log(err)
+
       })
     }
 
@@ -112,7 +123,18 @@ const StudentResetPassword = () => {
               </div>
             </div>
             <div className='ResetPasswordButton'>
-              <button className='ResetPasswordButtonSend' onClick={ResetPassword}>Send</button>
+              <button className='ResetPasswordButtonSend' onClick={ResetPassword}>  {
+                                    loading ? (
+                                        <SpinnerCircular
+                                            size={35}
+                                            thickness={99}
+                                            speed={100}
+                                            color="rgba(18, 124, 221, 1)"
+                                        />
+                                    ) : (
+                                        "Send"
+                                    )
+                                }</button>
             </div>
           </div>
         </div>

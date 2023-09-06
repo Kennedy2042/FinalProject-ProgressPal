@@ -46,9 +46,9 @@ function App() {
             <Route path="/verified_success/:token" element={<Verification />} />
             <Route path="/Dashboard/schoolAdmin/*" element={<Admin />} />
             <Route path="/forget_password" element={<ForgetPassword />} />
-            <Route path="/school_reset_password/:id/:token" element={<ResetPassword />} />
-            <Route path="/teacher_reset_password/:id/:token" element={<TeacherResetPassword />} />
-            <Route path="/student_reset_password/:id/:token" element={<StudentResetPassword />} />
+            <Route path="/school_reset_password/:token" element={<ResetPassword />} />
+            <Route path="/teacher_reset_password/:token" element={<TeacherResetPassword />} />
+            <Route path="/student_reset_password/:token" element={<StudentResetPassword />} />
             <Route path="/teacher_signup/:token" element={<TeacherSignUp />} />
             <Route path="/teacher_login" element={<TeacherLogin />} />
             <Route path="/Dashboard/teacher/*" element={<Teacher />} />

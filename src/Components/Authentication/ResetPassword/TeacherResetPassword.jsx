@@ -3,6 +3,8 @@ import "./ResetPassword.css"
 import axios from 'axios'
 import { useSelector } from 'react-redux'
 import { BiSolidHide, BiSolidShow } from 'react-icons/bi'
+import { SpinnerCircular } from "spinners-react"
+
 
 const TeacherResetPassword = () => {
   const {token} = useParams()
@@ -55,8 +57,10 @@ const TeacherResetPassword = () => {
     } else {
       setValidMessage("");
       axios.put(url, data)
-      .then(res => console.log(res))
-      .catch((err) => {
+      .then((res) => {
+        console.log(res)
+        nav("/login")
+      })      .catch((err) => {
         console.log(err)
       })
     }
@@ -109,7 +113,17 @@ const TeacherResetPassword = () => {
               </div>
             </div>
             <div className='ResetPasswordButton'>
-              <button className='ResetPasswordButtonSend' onClick={ResetPassword}>Send</button>
+              <button className='ResetPasswordButtonSend' onClick={ResetPassword}>{loading ? (
+                                        <SpinnerCircular
+                                            size={35}
+                                            thickness={99}
+                                            speed={100}
+                                            color="rgba(18, 124, 221, 1)"
+                                        />
+                                    ) : (
+                                        "Send"
+                                    )
+                                }</button>
             </div>
           </div>
         </div>
