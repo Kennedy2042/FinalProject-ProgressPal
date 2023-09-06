@@ -16,7 +16,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import AdminUser from './AdminDashboard/User/AdminUser'
 import axios from 'axios'
 import Swal from 'sweetalert2'
-import { adminAllTeacherApi, adminSchoolStudents, adminSchoolTeachers, schoolUserData, teacherInformation } from '../../Redux/ProductState'
+import { adminAllStudentApi, adminAllTeacherApi, adminSchoolStudents, adminSchoolTeachers, schoolUserData, teacherInformation } from '../../Redux/ProductState'
 // import Login from '../Authentication/Login/Login'
 import { userLogin } from '../../Redux/ProductState'
 // import Auth from "../Authentication/Auth"
@@ -72,7 +72,9 @@ const Admin = () => {
                 dispatch(adminSchoolStudents([]))
                 dispatch(teacherInformation([]))
                 dispatch(userLogin({isLoggedIn:""}))
+                dispatch(adminAllStudentApi([]))
                 // console.log(res.data.data.isLogin, "res.data.data.isLogin")
+
             })
             .catch((err) => {
                 console.log(err)
