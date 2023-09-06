@@ -45,7 +45,7 @@ const Student = () => {
             if (result.isConfirmed) {
                 StudentLogout()
                 dispatch(studentUserResult([]))
-                dispatch(userLogin(""))
+                dispatch(userLogin({isLoggedIn:""}))
 
             }
         });

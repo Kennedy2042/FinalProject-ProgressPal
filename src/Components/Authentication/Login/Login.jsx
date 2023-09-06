@@ -15,8 +15,9 @@ import { userLogin } from '../../../Redux/ProductState'
 
 const Login = () => {
 
-    // const teacherData = useSelector(state => state.persisitedReducer.loginUser)
-    // console.log(teacherData)
+    const UserToken = useSelector(state => state.persisitedReducer.isLoggedIn)
+    console.log(UserToken)
+    
 
     const [schoolEmail, setSchoolEmail] = useState("")
     const [teacherEmail, setTeacherEmail] = useState("")
@@ -36,6 +37,8 @@ const Login = () => {
     const data = { schoolEmail, password }
     const info = { teacherEmail, password }
     const detail = { studentEmail, password }
+    const navigate = useNavigate()
+
 
 
 
@@ -69,7 +72,7 @@ const Login = () => {
                 // setInterval(() => {
                 // }, 3000);
 
-                dispatch(userLogin(res.data.data.token))
+                dispatch(userLogin({isLoggedIn:res.data.data.token}))
                 dispatch(loginUserData(res))
 
                 setLoading(false)
@@ -111,7 +114,6 @@ const Login = () => {
 
 
 
-    const navigate = useNavigate()
 
 
 

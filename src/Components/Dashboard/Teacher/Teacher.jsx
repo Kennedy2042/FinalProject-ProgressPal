@@ -57,7 +57,9 @@ const Teacher = () => {
                 dispatch(allStudentApi([]))
                 dispatch(loginUserData([]))
                 navigate("/")
-                dispatch(userLogin(""))
+                
+                dispatch(userLogin({isLoggedIn:""}))
+
 
 
                 return
