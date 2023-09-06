@@ -80,7 +80,7 @@ const Admin = () => {
                 console.log(err)
                 err?.message === "Network Error"
                     Swal.fire({
-                        title: "Login Failed",
+                        title: "Logout Failed",
                         text: err.message,
                         icon: "error",
                         confirmButtonText: "okay",

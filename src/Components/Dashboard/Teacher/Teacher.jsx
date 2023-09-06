@@ -55,12 +55,7 @@ const Teacher = () => {
             },
         }).then((result) => {
             if (result.isConfirmed) {
-                TeacherLogout()
-                dispatch(allStudentApi([]))
-                dispatch(loginUserData([]))
-                navigate("/")
-                
-                dispatch(userLogin({isLoggedIn:""}))
+               
 
 
 
@@ -79,6 +74,12 @@ const Teacher = () => {
         })
             .then((res) => {
                 console.log(res)
+                 TeacherLogout()
+                dispatch(allStudentApi([]))
+                dispatch(loginUserData([]))
+                navigate("/")
+                
+                dispatch(userLogin({isLoggedIn:""}))
 
             })
             .catch((err) => {
