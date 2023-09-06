@@ -24,6 +24,7 @@ import Swal from 'sweetalert2'
 import { allStudentApi } from '../../../Redux/ProductState'
 import { loginUserData } from '../../../Redux/ProductState'
 import { BsFileSpreadsheet } from 'react-icons/bs'
+import Auth from '../../Authentication/Auth'
 
 const Teacher = () => {
 
@@ -56,6 +57,8 @@ const Teacher = () => {
                 dispatch(allStudentApi([]))
                 dispatch(loginUserData([]))
                 navigate("/")
+                dispatch(userLogin(""))
+
 
                 return
             }
@@ -72,7 +75,7 @@ const Teacher = () => {
         })
             .then((res) => {
                 console.log(res)
-               
+
             })
             .catch((err) => {
                 console.log(err)
@@ -213,9 +216,11 @@ const Teacher = () => {
                 </div>
                 <div className='DashBoardRightBody'>
                     <Routes>
-                        <Route path='/teacherUser/:id' element={<TeacherUser />} />
-                        <Route path='/teacher_student_dashboard' element={<TeacherStudent />} />
-                        <Route path='/Teacher_resultSheet' element={<TeacherResult />} />
+                        <Route element={<Auth />} >
+                            <Route path='/teacherUser/:id' element={<TeacherUser />} />
+                            <Route path='/teacher_student_dashboard' element={<TeacherStudent />} />
+                            <Route path='/Teacher_resultSheet' element={<TeacherResult />} />
+                        </Route>
                     </Routes>
                 </div>
             </div>

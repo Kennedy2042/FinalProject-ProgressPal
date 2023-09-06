@@ -16,6 +16,7 @@ import Result from '../Teacher/ReportCard/ReportCard'
 import Swal from 'sweetalert2'
 import StudentUser from './User/StudentUser'
 import { studentUserResult } from '../../../Redux/ProductState'
+import Auth from '../../Authentication/Auth'
 
 
 const Student = () => {
@@ -44,6 +45,8 @@ const Student = () => {
             if (result.isConfirmed) {
                 StudentLogout()
                 dispatch(studentUserResult([]))
+                dispatch(userLogin(""))
+
             }
         });
     };
@@ -152,7 +155,7 @@ const Student = () => {
                                     <p className='AdminDashboardIconsImageName'>Dashboard</p>
                                 </div>
                             </div>
-                           
+
                             <div className="AdminDashboardIcons" onClick={showAlert}>
                                 <div className='AdminHomeIcon'>
                                     <BiLogOut size={30} className='AdminDashboardIconsImage' />
@@ -167,10 +170,9 @@ const Student = () => {
                 </div>
                 <div className='StudentDashBoardRightBody'>
                     <Routes>
-                        <Route path='/studentUser/:id' element={<StudentUser />} />
-                        {/* <Route path='/studentUser/:id' element={<Result />} /> */}
-                        {/* <Route path='/admin_teacher_dashboard' element={<AdminTeacherDashboard />} /> */}
-                        {/* <Route path='/teacher_student_dashboard' element={<AdminStudentDashboard />} /> */}
+                        <Route element={<Auth />} >
+                            <Route path='/studentUser/:id' element={<StudentUser />} />
+                        </Route>
                     </Routes>
                     {/* <Result /> */}
                 </div>

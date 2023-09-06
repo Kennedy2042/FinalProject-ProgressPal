@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import './StudentUser.css'
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import StudentUserProfile from './StudentProfile/StudentProfile';
 import Calendar from 'react-calendar';
 import { studentUserResult } from '../../../../Redux/ProductState';
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
 
 
 
@@ -39,6 +41,23 @@ const StudentUser = () => {
     }
     // console.log(studentResult)
 
+    const pdfRef = useRef(null)
+
+      const handleDownloadPDF = async () => {
+    const pdf = new jsPDF("portrait", "mm", "a4");
+    const pdfRefCurrent = pdfRef.current;
+
+    // Use html2canvas to capture the content
+    const canvas = await html2canvas(pdfRefCurrent);
+
+    // Add the captured content to the PDF
+    const imgData = canvas.toDataURL("image/png");
+    pdf.addImage(imgData, "PNG", 10, 10, 190, 277);
+
+    // Download the PDF
+    pdf.save("result.pdf");
+  }
+
 
     return (
         <>
@@ -60,9 +79,9 @@ const StudentUser = () => {
                     <Calendar onChange={handleDateChange} value={date} />
                 </div>
 
-                <div className="studentResultMainContainer">
+                <div className="studentResultMainContainer" ref={pdfRef}>
                     {
-                        studentResult.length === 0 ? <h2>There is no result for you right now</h2> : (
+                        studentResult.length === 0 ? <h2>There is no result for you at the moment</h2> : (
                             studentResult.map((studentResult) => (
                     <div className='studentResultmainbody'>
                         <div className='studentResultmainbodyheader'>
@@ -158,6 +177,7 @@ const StudentUser = () => {
 
                             </table>
                         </div>
+                        <button style={{cursor: "pointer", height: "5%", color: "white" ,border: "none", backgroundColor: "#127cdd", width: "100%"}} onClick={handleDownloadPDF}>Download</button>
                     </div>
                     ))
                         )

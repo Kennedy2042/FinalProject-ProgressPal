@@ -15,7 +15,7 @@ import { userLogin } from '../../../Redux/ProductState'
 
 const Login = () => {
 
-    const teacherData = useSelector(state => state.persisitedReducer.loginUser)
+    // const teacherData = useSelector(state => state.persisitedReducer.loginUser)
     // console.log(teacherData)
 
     const [schoolEmail, setSchoolEmail] = useState("")
@@ -54,9 +54,9 @@ const Login = () => {
             .post(url, select === 'schoolAdmin' ? data : select === 'teacher' ? info : detail)
 
             .then((res) => {
+                dispatch(loginUserData(res))
                 console.log(res)
                 setSuccessErrorMessage(res.data.message)
-                navigate(`/Dashboard/${select}/${select}User/${res.data.data._id}`)
                 Swal.fire({
                     title: "Logged In Successfully",
                     text: "Welcome back",
@@ -68,10 +68,12 @@ const Login = () => {
                 // setInterval(() => {
                 // }, 3000);
 
-                dispatch(loginUserData(res))
-                dispatch(userLogin(res.data.data.isLogin))
+                dispatch(userLogin(res.data.data.token))
 
                 setLoading(false)
+                console.log("Before navigate");
+                navigate(`/Dashboard/${select}/${select}User/${res.data.data._id}`);
+                console.log("After navigate");
             })
             .catch((err) => {
                 console.log(err)
@@ -109,6 +111,8 @@ const Login = () => {
 
 
     const navigate = useNavigate()
+
+
 
 
     return (

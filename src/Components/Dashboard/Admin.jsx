@@ -72,7 +72,7 @@ const Admin = () => {
                 dispatch(adminSchoolTeachers([]))
                 dispatch(adminSchoolStudents([]))
                 dispatch(teacherInformation([]))
-                dispatch(userLogin(false))
+                dispatch(userLogin(""))
                 // console.log(res.data.data.isLogin, "res.data.data.isLogin")
             })
             .catch((err) => {

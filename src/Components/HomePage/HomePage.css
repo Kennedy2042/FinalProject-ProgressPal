@@ -4,6 +4,15 @@
   box-sizing: border-box;
 }
 
+@keyframes moveRightToLeft {
+  0% {
+    transform: translateX(100%); /* Start from the right */
+  }
+  100% {
+    transform: translateX(-100%); /* Move to the left */
+  }
+}
+
 main {
   width: 100%;
   height: max-content;
@@ -84,6 +93,7 @@ h2 {
   /* background-color: white; */
   background-color: #e7f2fc;
   /* background-image: linear-gradient(#e7f2fc, white); */
+  animation: moveRightToLeft 8s linear infinite;
 }
 
 .PartnersContainerWrapper {
