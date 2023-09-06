@@ -58,7 +58,7 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-      
+
         <section className="BenefitsSection">
           <article className="BenefitsSectionWrapper">
             <div className="BenefitsBox">
@@ -95,9 +95,9 @@ const HomePage = () => {
           <div className="Circle1"></div>
           <div className="Circle2"></div>
         </section>
-<AboutPage/>
+        <AboutPage />
 
-          <section className="ServicesContainer">
+        <section className="ServicesContainer">
           <article className="ServicesContainerWrapper" id="Services">
             <div className="ServicesContainerText">Our Services</div>
             <div className="ServicesCardsHolder">
@@ -135,7 +135,7 @@ const HomePage = () => {
         </section>
         <About />
         {/* <Plans/> */}
-{/* <div className="AboutHolder">
+        {/* <div className="AboutHolder">
 <AboutPage/>
 
 </div> */}

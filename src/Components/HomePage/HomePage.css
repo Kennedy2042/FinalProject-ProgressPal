@@ -6,10 +6,13 @@
 
 @keyframes moveRightToLeft {
   0% {
-    transform: translateX(100%); /* Start from the right */
+    transform: translateX(100%);
+    /* Start from the right */
   }
+
   100% {
-    transform: translateX(-100%); /* Move to the left */
+    transform: translateX(-100%);
+    /* Move to the left */
   }
 }
 
@@ -336,7 +339,7 @@ h2 {
   left: 4.6%;
   top: 75.8%;
 } */
-.AboutHolder{
+.AboutHolder {
   width: 100%;
   height: max-content;
 }
@@ -430,7 +433,7 @@ h2 {
     background-color: #e7f2fc;
     /* background-image: linear-gradient(#e7f2fc, white); */
   }
-  
+
   .PartnersContainerWrapper {
     width: 91%;
     height: 100%;
@@ -439,14 +442,14 @@ h2 {
     /* background-color: red; */
     align-items: center;
   }
-  
+
   .PartnersImage {
     width: 23%;
     height: 100%;
     /* background-color: blue; */
     object-fit: cover;
   }
-  
+
   .PartnersImage img {
     width: 100%;
     height: 90%;
@@ -524,12 +527,12 @@ h2 {
     border-radius: 10px;
     object-fit: contain;
   }
-  
+
   .ServicesIconHolder img {
     width: 80%;
     height: 80%;
   }
-  
+
   .ServicesIconHolder2 {
     width: 25%;
     height: 25%;
@@ -540,12 +543,12 @@ h2 {
     border-radius: 10px;
     object-fit: contain;
   }
-  
+
   .ServicesIconHolder2 img {
     width: 80%;
     height: 80%;
   }
-  
+
   .ServicesIconHolder3 {
     width: 25%;
     height: 25%;
@@ -556,7 +559,7 @@ h2 {
     border-radius: 10px;
     object-fit: contain;
   }
-  
+
   .ServicesIconHolder3 img {
     width: 80%;
     height: 80%;
@@ -646,7 +649,7 @@ h2 {
     font-size: 11px;
     font-weight: 500;
     color: #127cdd;
-    
+
   }
 
   .BenefitsTextHead {
@@ -684,7 +687,7 @@ h2 {
     padding: 0%;
     box-sizing: border-box;
   }
-  
+
   main {
     width: 100%;
     height: max-content;
@@ -713,7 +716,7 @@ h2 {
     align-items: center;
     /* background-color: red; */
     margin-top: 40px;
-    
+
   }
 
   .HeroSectionText {
@@ -862,12 +865,12 @@ h2 {
     border-radius: 10px;
     object-fit: contain;
   }
-  
+
   .ServicesIconHolder img {
     width: 80%;
     height: 80%;
   }
-  
+
   .ServicesIconHolder2 {
     width: 25%;
     height: 25%;
@@ -878,12 +881,12 @@ h2 {
     border-radius: 10px;
     object-fit: contain;
   }
-  
+
   .ServicesIconHolder2 img {
     width: 80%;
     height: 80%;
   }
-  
+
   .ServicesIconHolder3 {
     width: 25%;
     height: 25%;
@@ -894,7 +897,7 @@ h2 {
     border-radius: 10px;
     object-fit: contain;
   }
-  
+
   .ServicesIconHolder3 img {
     width: 80%;
     height: 80%;
@@ -960,7 +963,7 @@ h2 {
     /* margin-left: 10px; */
     /* background-color: red; */
   }
-  
+
   .BenefitsText2 {
     width: 40%;
     height: 60%;
@@ -1010,5 +1013,3 @@ h2 {
     top: 83%;
   } */
 }
-
-
