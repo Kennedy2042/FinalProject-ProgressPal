@@ -17,6 +17,8 @@ import Swal from 'sweetalert2'
 import StudentUser from './User/StudentUser'
 import { studentUserResult } from '../../../Redux/ProductState'
 import Auth from '../../Authentication/Auth'
+import { userLogin } from '../../../Redux/ProductState'
+
 
 
 const Student = () => {
@@ -170,9 +172,9 @@ const Student = () => {
                 </div>
                 <div className='StudentDashBoardRightBody'>
                     <Routes>
-                        <Route element={<Auth />} >
+                        {/* <Route element={<Auth />} > */}
                             <Route path='/studentUser/:id' element={<StudentUser />} />
-                        </Route>
+                        {/* </Route> */}
                     </Routes>
                     {/* <Result /> */}
                 </div>

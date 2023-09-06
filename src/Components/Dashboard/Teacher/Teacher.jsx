@@ -25,6 +25,8 @@ import { allStudentApi } from '../../../Redux/ProductState'
 import { loginUserData } from '../../../Redux/ProductState'
 import { BsFileSpreadsheet } from 'react-icons/bs'
 import Auth from '../../Authentication/Auth'
+import { userLogin } from '../../../Redux/ProductState'
+
 
 const Teacher = () => {
 
@@ -218,11 +220,11 @@ const Teacher = () => {
                 </div>
                 <div className='DashBoardRightBody'>
                     <Routes>
-                        <Route element={<Auth />} >
+                        {/* <Route element={<Auth />} > */}
                             <Route path='/teacherUser/:id' element={<TeacherUser />} />
                             <Route path='/teacher_student_dashboard' element={<TeacherStudent />} />
                             <Route path='/Teacher_resultSheet' element={<TeacherResult />} />
-                        </Route>
+                        {/* </Route> */}
                     </Routes>
                 </div>
             </div>
