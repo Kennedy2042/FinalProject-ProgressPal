@@ -18,6 +18,7 @@ const StudentUser = () => {
     // const [studentResult, setStudentResult] = useState([])
     const [date, setDate] = useState(new Date());
     const dispatch = useDispatch()
+    const [isDownloading, setIsDownloading] = useState(false);
     const studentResult = useSelector(state => state.persisitedReducer.studentResult)
 
 
@@ -43,25 +44,41 @@ const StudentUser = () => {
 
     const pdfRef = useRef(null)
 
-      const handleDownloadPDF = async () => {
-    const pdf = new jsPDF("portrait", "mm", "a4");
-    const pdfRefCurrent = pdfRef.current;
+    const handleDownloadPDF = async () => {
+        setIsDownloading(true);
 
-    // Use html2canvas to capture the content
-    const canvas = await html2canvas(pdfRefCurrent, {
-        x: 0,
-        y: 0,
-        width: pdfRefCurrent.clientWidth,
-        height: pdfRefCurrent.clientHeight,
-      });
-      
-    // Add the captured content to the PDF
-    const imgData = canvas.toDataURL("image/png");
-    pdf.addImage(imgData, "PNG", 10, 10, 190, 277);
+        const pdf = new jsPDF("portrait", "mm", "a2");
+        const pdfRefCurrent = pdfRef.current;
 
-    // Download the PDF
-    pdf.save("result.pdf");
-  }
+        const logoImage = new Image();
+        logoImage.src = studentData.data.school.schoolLogo;
+        console.log(studentData.data.school.schoolLogo)
+
+        // Capture the content after the logo image has loaded
+        logoImage.onload = async () => {
+            const canvas = await html2canvas(pdfRefCurrent, {
+                x: 0,
+                y: 0,
+                width: pdfRefCurrent.clientWidth,
+                height: pdfRefCurrent.clientHeight,
+                scale: 2,
+            });
+
+            // Use html2canvas to capture the content
+
+            // Add the captured content to the PDF
+            const imgData = canvas.toDataURL("image/png");
+            pdf.addImage(imgData, "PNG", 10, 10, 190, 277);
+
+            // Download the PDF
+            pdf.save("result.pdf");
+
+            setTimeout(() => {
+                setIsDownloading(false); // Set to false when download completes
+            }, 3000); // Adjust the delay as needed
+        };
+    };
+
 
 
     return (
@@ -88,103 +105,120 @@ const StudentUser = () => {
                     {
                         studentResult.length === 0 ? <h2>There is no result for you at the moment</h2> : (
                             studentResult.map((studentResult) => (
-                    <div className='studentResultmainbody'>
-                        <div className='studentResultmainbodyheader'>
-                            <div className='studentResultmainbodyheaderlogodiv'>
-                                <div className='studentResultmainbodyheaderlogo'>
-                                    <img src={studentData.data.school.schoolLogo} alt="School Logo" />
-                                </div>
-                                <div className='studentResultMainbodyHeaderLogoDivSchoolName'>
-                                    <p>{studentData.data.school.schoolName}</p>
-                                    <p>{studentData.data.school.schoolAddress}</p>
-                                </div>
-                            </div>
-                            <div className='studentResultmainbodyheaderTerm'>
-                                <p>FIRST TERM 2022/2023 REPORT CARD</p>
-                            </div>
-                            <div className='studentResultmainbodyheaderStudentnamediv'>
-                                <div className='studentResultmainbodyheaderStudentname'>
-                                    <p className='studentstudentNameP'>{studentData.data.data.studentName}</p>
-                                    <p className='studentstudentNameP2'>{studentData.data.data.studentEmail}</p>
-                                </div>
+                                <div className='studentResultmainbody'>
+                                    <div className='studentResultmainbodyheader'>
+                                        <div className='studentResultmainbodyheaderlogodiv'>
+                                            <div className='studentResultmainbodyheaderlogo'>
+                                                <img src={studentData.data.school.schoolLogo} alt="School Logo" />
+                                            </div>
+                                            <div className='studentResultMainbodyHeaderLogoDivSchoolName'>
+                                                <p>{studentData.data.school.schoolName}</p>
+                                                <p>{studentData.data.school.schoolAddress}</p>
+                                            </div>
+                                        </div>
+                                        <div className='studentResultmainbodyheaderTerm'>
+                                            <p>FIRST TERM 2022/2023 REPORT CARD</p>
+                                        </div>
+                                        <div className='studentResultmainbodyheaderStudentnamediv'>
+                                            <div className='studentResultmainbodyheaderStudentname'>
+                                                <p className='studentstudentNameP'>{studentData.data.data.studentName}</p>
+                                                <p className='studentstudentNameP2'>{studentData.data.data.studentEmail}</p>
+                                            </div>
 
-                                <div className='studentResultmainbodyheaderStudentname2'>
-                                    <p className='studentstudentNameP'>{studentData.data.data.studentClass}</p>
+                                            <div className='studentResultmainbodyheaderStudentname2'>
+                                                <p className='studentstudentNameP'>{studentData.data.data.studentClass}</p>
+                                            </div>
+
+                                            <div></div>
+                                        </div>
+                                    </div>
+                                    <div className='studentResultTable'>
+                                        <table>
+                                            <tr>
+                                                <th>Subjects
+                                                    <tr className='studentTotalA'>
+                                                        <td>{studentResult.subName1}</td>
+                                                        <td>{studentResult.subName2}</td>
+                                                        <td>{studentResult.subName3}</td>
+                                                        <td>{studentResult.subName4}</td>
+                                                        <td>{studentResult.subName5}</td>
+                                                        <td>{studentResult.subName6}</td>
+                                                        <td>{studentResult.subName7}</td>
+                                                        <td>{studentResult.subName8}</td>
+                                                        <td>{studentResult.subName9}</td>
+                                                        <td>{studentResult.subName10}</td>
+                                                        <td>Result Total</td>
+                                                    </tr>
+                                                </th>
+                                                <th>Test Score
+                                                    <tr className='studentTotalB'>
+                                                        <td>{studentResult.subTest1}</td>
+                                                        <td>{studentResult.subTest2}</td>
+                                                        <td>{studentResult.subTest3}</td>
+                                                        <td>{studentResult.subTest4}</td>
+                                                        <td>{studentResult.subTest5}</td>
+                                                        <td>{studentResult.subTest6}</td>
+                                                        <td>{studentResult.subTest7}</td>
+                                                        <td>{studentResult.subTest8}</td>
+                                                        <td>{studentResult.subTest9}</td>
+                                                        <td>{studentResult.subTest10}</td>
+                                                        <td></td>
+                                                    </tr>
+                                                </th>
+                                                <th>Exam Score
+                                                    <tr className='studentTotalB'>
+                                                        <td>{studentResult.subExam1}</td>
+                                                        <td>{studentResult.subExam2}</td>
+                                                        <td>{studentResult.subExam3}</td>
+                                                        <td>{studentResult.subExam4}</td>
+                                                        <td>{studentResult.subExam5}</td>
+                                                        <td>{studentResult.subExam6}</td>
+                                                        <td>{studentResult.subExam7}</td>
+                                                        <td>{studentResult.subExam8}</td>
+                                                        <td>{studentResult.subExam9}</td>
+                                                        <td>{studentResult.subExam10}</td>
+                                                        <td></td>
+                                                    </tr>
+                                                </th>
+                                                <th>Total Score
+                                                    <tr className='studentTotalB'>
+                                                        <td>{studentResult.subTotal1}</td>
+                                                        <td>{studentResult.subTotal2}</td>
+                                                        <td>{studentResult.subTotal3}</td>
+                                                        <td>{studentResult.subTotal4}</td>
+                                                        <td>{studentResult.subTotal5}</td>
+                                                        <td>{studentResult.subTotal6}</td>
+                                                        <td>{studentResult.subTotal7}</td>
+                                                        <td>{studentResult.subTotal8}</td>
+                                                        <td>{studentResult.subTotal9}</td>
+                                                        <td>{studentResult.subTotal10}</td>
+                                                        <td>{studentResult.resultTotal}</td>
+                                                    </tr>
+                                                </th>
+                                            </tr>
+
+                                        </table>
+                                    </div>
+                                    {isDownloading ? (
+                                        null
+                                    ) : (
+                                        <button
+                                            style={{
+                                                cursor: "pointer",
+                                                height: "5%",
+                                                color: "white",
+                                                border: "none",
+                                                backgroundColor: "#127cdd",
+                                                width: "100%",
+                                            }}
+                                            onClick={handleDownloadPDF}
+                                        >
+                                            Download
+                                        </button>
+                                    )}
+
                                 </div>
-
-                                <div></div>
-                            </div>
-                        </div>
-                        <div className='studentResultTable'>
-                            <table>
-                                <tr>
-                                    <th>Subjects
-                                        <tr className='studentTotalA'>
-                                            <td>{studentResult.subName1}</td>
-                                            <td>{studentResult.subName2}</td>
-                                            <td>{studentResult.subName3}</td>
-                                            <td>{studentResult.subName4}</td>
-                                            <td>{studentResult.subName5}</td>
-                                            <td>{studentResult.subName6}</td>
-                                            <td>{studentResult.subName7}</td>
-                                            <td>{studentResult.subName8}</td>
-                                            <td>{studentResult.subName9}</td>
-                                            <td>{studentResult.subName10}</td>
-                                            <td>Result Total</td>
-                                        </tr>
-                                    </th>
-                                    <th>Test Score
-                                        <tr className='studentTotalB'>
-                                            <td>{studentResult.subTest1}</td>
-                                            <td>{studentResult.subTest2}</td>
-                                            <td>{studentResult.subTest3}</td>
-                                            <td>{studentResult.subTest4}</td>
-                                            <td>{studentResult.subTest5}</td>
-                                            <td>{studentResult.subTest6}</td>
-                                            <td>{studentResult.subTest7}</td>
-                                            <td>{studentResult.subTest8}</td>
-                                            <td>{studentResult.subTest9}</td>
-                                            <td>{studentResult.subTest10}</td>
-                                            <td></td>
-                                        </tr>
-                                    </th>
-                                    <th>Exam Score
-                                        <tr className='studentTotalB'>
-                                            <td>{studentResult.subExam1}</td>
-                                            <td>{studentResult.subExam2}</td>
-                                            <td>{studentResult.subExam3}</td>
-                                            <td>{studentResult.subExam4}</td>
-                                            <td>{studentResult.subExam5}</td>
-                                            <td>{studentResult.subExam6}</td>
-                                            <td>{studentResult.subExam7}</td>
-                                            <td>{studentResult.subExam8}</td>
-                                            <td>{studentResult.subExam9}</td>
-                                            <td>{studentResult.subExam10}</td>
-                                            <td></td>
-                                        </tr>
-                                    </th>
-                                    <th>Total Score
-                                        <tr className='studentTotalB'>
-                                            <td>{studentResult.subTotal1}</td>
-                                            <td>{studentResult.subTotal2}</td>
-                                            <td>{studentResult.subTotal3}</td>
-                                            <td>{studentResult.subTotal4}</td>
-                                            <td>{studentResult.subTotal5}</td>
-                                            <td>{studentResult.subTotal6}</td>
-                                            <td>{studentResult.subTotal7}</td>
-                                            <td>{studentResult.subTotal8}</td>
-                                            <td>{studentResult.subTotal9}</td>
-                                            <td>{studentResult.subTotal10}</td>
-                                            <td>{studentResult.resultTotal}</td>
-                                        </tr>
-                                    </th>
-                                </tr>
-
-                            </table>
-                        </div>
-                        <button style={{cursor: "pointer", height: "5%", color: "white" ,border: "none", backgroundColor: "#127cdd", width: "100%"}} onClick={handleDownloadPDF}>Download</button>
-                    </div>
-                    ))
+                            ))
                         )
                     }
                 </div>
